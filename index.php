@@ -30,7 +30,7 @@
                 </label>
             </div>
             <button class="btn btn-lg btn-primary btn-block" type="submit">Entrar</button>
-            <small><a href="php/inscrevase.php">Cadastre-se</a></small>
+            <small><a href="autenticacao/inscrevase.php">Cadastre-se</a></small>
             <p class="mt-5 mb-3 text-muted">&copy; SG2S 2018 | Faculdade JK</p>
         </form>
     </body>
