@@ -26,10 +26,11 @@
             <input type="password" id="inputPassword" class="form-control" placeholder="Password" required />
             <div class="checkbox mb-3">
                 <label>
-                    <input type="checkbox" value="remember-me" /> Lembrar-me
+                    <input type="checkbox" value="remember-me" />Lembrar-me
                 </label>
             </div>
             <button class="btn btn-lg btn-primary btn-block" type="submit">Entrar</button>
+            <small><a href="php/inscrevase.php">Cadastre-se</a></small>
             <p class="mt-5 mb-3 text-muted">&copy; SG2S 2018 | Faculdade JK</p>
         </form>
     </body>
