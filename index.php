@@ -1,3 +1,7 @@
+<?php
+    $erro = isset($_GET['erro']) ? $_GET['erro'] : 0;
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
@@ -17,18 +21,28 @@
     </head>
 
     <body class="text-center">
-        <form class="form-signin">
+        <form class="form-signin" method="post" action="autenticacao/validar_acesso.php" id="formLogin">
             <img src="img/sg2s.png" alt="">
             <h1 class="h3 mb-3" style="font-weight: 900">SG2S - Login</h1>
-            <label for="inputEmail" class="sr-only">Endereço de E-mail</label>
-            <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus />
+
+            <label for="inputEmail" class="sr-only">Usuário</label>
+            <input type="text" id="campo_usuario" name="usuario" class="form-control" placeholder="Usuário" required autofocus />
+
             <label for="inputPassword" class="sr-only">Senha</label>
-            <input type="password" id="inputPassword" class="form-control" placeholder="Password" required />
+            <input type="password" id="campo_senha" name="senha" class="form-control" placeholder="Senha" required />
+
             <div class="checkbox mb-3">
                 <label>
                     <input type="checkbox" value="remember-me" />Lembrar-me
                 </label>
+                <?php
+                    echo '<br/>';
+                    if($erro == 1) {
+                        echo '<font color="#FF0000"><strong>Usuário e/ou senha inválido(s)!<strong></font>';
+                    }
+                 ?>
             </div>
+
             <button class="btn btn-lg btn-primary btn-block" type="submit">Entrar</button>
             <small><a href="autenticacao/inscrevase.php">Cadastre-se</a></small>
             <p class="mt-5 mb-3 text-muted">&copy; SG2S 2018 | Faculdade JK</p>
