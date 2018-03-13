@@ -18,6 +18,11 @@
 
         <!-- Custom styles for this template -->
         <link href="css/signin.css" rel="stylesheet">
+
+        <!-- jquery - link cdn -->
+		<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+
+        <script src="js/index.js"></script>
     </head>
 
     <body class="text-center">
@@ -43,7 +48,7 @@
                  ?>
             </div>
 
-            <button class="btn btn-lg btn-primary btn-block" type="submit">Entrar</button>
+            <button class="btn btn-lg btn-primary btn-block" type="submit" id="btn_login">Entrar</button>
             <small><a href="autenticacao/inscrevase.php">Cadastre-se</a></small>
             <p class="mt-5 mb-3 text-muted">&copy; SG2S 2018 | Faculdade JK</p>
         </form>
