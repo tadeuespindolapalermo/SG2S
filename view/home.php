@@ -1,3 +1,11 @@
+<?php
+    session_start();
+
+    if (!isset($_SESSION['usuario'])) {
+        header('Location: ../index.php?erro=1');
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
@@ -23,7 +31,7 @@
             <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search" />
             <ul class="navbar-nav px-3">
                 <li class="nav-item text-nowrap">
-                    <a class="nav-link" href="#">Sair</a>
+                    <a class="nav-link" href="../autenticacao/sair.php">Sair</a>
                 </li>
             </ul>
         </nav>
