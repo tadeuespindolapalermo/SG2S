@@ -4,7 +4,7 @@
 
     $usuario = $_POST['usuario'];
     $email = $_POST['email'];
-    $senha = $_POST['senha'];
+    $senha = md5($_POST['senha']); // md5 - senha criptografada com hash de 32 caracteres
 
     $objConexao = new Conexao();
     $link = $objConexao->conectar();
