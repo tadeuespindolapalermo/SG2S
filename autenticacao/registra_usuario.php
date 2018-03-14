@@ -2,6 +2,8 @@
 
     require_once('../db/Conexao.class.php');
 
+    $nome = $_POST['nome'];
+    $sobrenome = $_POST['sobrenome'];
     $usuario = $_POST['usuario'];
     $email = $_POST['email'];
     $senha = md5($_POST['senha']); // md5 - senha criptografada com hash de 32 caracteres
@@ -53,7 +55,7 @@
     }
 
     // String SQL de inserção de usuário
-    $sql = "INSERT INTO usuarios(usuario, email, senha) VALUES ('$usuario', '$email', '$senha')";
+    $sql = "INSERT INTO usuarios(nome, sobrenome, usuario, email, senha) VALUES ('$nome', '$sobrenome', '$usuario', '$email', '$senha')";
 
     // Executa a query
     if (mysqli_query($link, $sql)) {

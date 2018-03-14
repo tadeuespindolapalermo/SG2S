@@ -56,12 +56,20 @@
 	    		<br />
 				<form method="post" action="registra_usuario.php" id="formCadastrarse">
 					<div class="form-group">
+						<div class="form-group">
+							<input type="text" class="form-control" id="nome" name="nome" placeholder="Nome" required="requiored">
+						</div>
+
+						<div class="form-group">
+							<input type="text" class="form-control" id="sobrenome" name="sobrenome" placeholder="Sobrenome" required="requiored">
+						</div>
+
 						<input type="text" class="form-control" id="usuario" name="usuario" placeholder="Usuário" required="requiored">
 						<?php
 							if($erro_usuario) {
 								echo '<font color="#FF0000">Usuário já existe!</font>';
 							}
-						 ?>
+						?>
 					</div>
 
 					<div class="form-group">
@@ -81,12 +89,7 @@
 				</form>
 			</div>
 
-			<div class="col-md-4"></div>
-			<div class="clearfix"></div>
-			<br />
-			<div class="col-md-4"></div>
-			<div class="col-md-4"></div>
-			<div class="col-md-4"></div>
+
 
 		</div>
 	    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>

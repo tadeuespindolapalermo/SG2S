@@ -7,7 +7,7 @@
     $usuario = $_POST['usuario'];
     $senha = md5($_POST['senha']);
 
-    $sql = "SELECT usuario, email FROM usuarios WHERE usuario = '$usuario' AND senha = '$senha'";
+    $sql = "SELECT nome, usuario, email FROM usuarios WHERE usuario = '$usuario' AND senha = '$senha'";
 
     $objConexao = new Conexao();
     $link = $objConexao->conectar();
@@ -20,6 +20,7 @@
 
             $_SESSION['usuario'] = $dados_usuario['usuario'];
             $_SESSION['email'] = $dados_usuario['email'];
+            $_SESSION['nome'] = $dados_usuario['nome'];
 
             header('Location: ../view/home.php');
         } else {
