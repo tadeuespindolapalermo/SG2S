@@ -59,7 +59,15 @@
 
     // Executa a query
     if (mysqli_query($link, $sql)) {
-        echo 'Usuário registrado com sucesso!';
+        echo "
+        <script type=\"text/javascript\">
+        alert(\"Usuário cadastrado com sucesso!!!\");
+        </script>";        
+        header('Location: ../index.php');
     } else {
-        echo 'Erro ao registrar o usuário!';
+        echo "
+        <script type=\"text/javascript\">
+        alert(\"Erro ao cadastrar usuário!!!\");
+        </script>";
+        header('Location: inscrevase.php');
     }
