@@ -37,6 +37,9 @@
             <input type="password" id="campo_senha" name="senha" class="form-control" placeholder="Senha" required />
 
             <div class="checkbox mb-3">
+                <label>
+                    <input type="checkbox" value="lembrar-me">Lembrar-me
+                </label>
                 <?php
                     echo '<br/>';
                     if($erro == 1) {
