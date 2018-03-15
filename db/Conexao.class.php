@@ -2,10 +2,10 @@
 
 class Conexao {
 
-    private $host = 'localhost';
-    private $usuario = 'root';
-    private $senha = 'mysql1985';
-    private $database = 'SG2S';
+    private $host = 'xmysql2.codigofonteonline.com.br';
+    private $usuario = 'codigofonteonli1';
+    private $senha = 'sg2s1985@';
+    private $database = 'codigofonteonline1';
 
     public function conectar() {
 
