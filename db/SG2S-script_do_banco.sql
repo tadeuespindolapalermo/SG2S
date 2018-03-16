@@ -1,12 +1,12 @@
-/* Criando o Banco de Dados */
+/* Criando o Banco de Dados com codificação de caracteres e collate UTF-8 */
 CREATE DATABASE SG2S
 DEFAULT CHARACTER SET utf8
 DEFAULT COLLATE utf8_general_ci;
 
 /* Ativando o uso do banco de dados criado */
-USE SG2S;
+/* USE SG2S; */
 
-/* Criando a tabela usuarios */
+/* Criando a tabela de usuarios */
 CREATE TABLE usuarios ( /* Comando de criação da tabela */
 	id INT PRIMARY KEY AUTO_INCREMENT NOT NULL, /* Chave primária, tipo inteiro, auto incremento e não aceita campos nulos */
     nome VARCHAR(50) CHARACTER SET utf8 NOT NULL , /* não aceita campos nulos, tipo texto */
@@ -16,6 +16,8 @@ CREATE TABLE usuarios ( /* Comando de criação da tabela */
     senha VARCHAR(32)/*32-md5*/ CHARACTER SET utf8 NOT NULL /* não aceita campos nulos, tipo texto */
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-TRUNCATE usuarios; /* deleta todos os registros da tabela */
+/* deleta todos os registros da tabela */
+/* TRUNCATE usuarios; */
 
-DROP TABLE usuarios; /* dropa ou excluir a tabela e todos os registros */
+/* dropa ou excluir a tabela e todos os registros */
+/* DROP TABLE usuarios; */
