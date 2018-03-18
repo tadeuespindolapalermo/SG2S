@@ -6,6 +6,7 @@
 
     $usuario = $_POST['usuario'];
     $senha = md5($_POST['senha']);
+    $senhaNormal = $_POST['senha'];
 
     $sql = "SELECT nome, usuario, email FROM usuarios WHERE usuario = '$usuario' AND senha = '$senha'";
 
@@ -18,11 +19,12 @@
         $dados_usuario = mysqli_fetch_array($resultado_id);
         if (isset($dados_usuario['usuario'])) {
 
+            $_SESSION['nome'] = $dados_usuario['nome'];
             $_SESSION['usuario'] = $dados_usuario['usuario'];
             $_SESSION['email'] = $dados_usuario['email'];
-            $_SESSION['nome'] = $dados_usuario['nome'];
+            $_SESSION['senha'] = $senhaNormal;
 
-            header('Location: ../view/home.php');
+            header('Location: ../view/home.php?pagina=template-model.html');
         } else {
             header('Location: ../index.php?erro=1');
         }

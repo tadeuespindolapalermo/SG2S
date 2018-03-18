@@ -21,4 +21,22 @@ class Conexao {
         }
         return $con;
     }
+
+    // Executa consultas no Banco de Dados
+    public function executarConsulta($link, $strSql) {
+        $rs = mysqli_query($link, $strSql);
+        return $rs;
+    }
+
+    // Atualização de Usuários
+    public function atualizarUsuario($link, $strSql) {
+        mysqli_query($link, $strSql);
+        $id = mysqli_insert_id($link);
+        return $id;
+    }
+
+    // Método para recuperar valor
+    public function getValor($valor) {
+        return $valor;
+    }
 }

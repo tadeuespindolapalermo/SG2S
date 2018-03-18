@@ -22,6 +22,9 @@
 
         <!-- Custom styles for this template -->
         <link href="../css/dashboard.css" rel="stylesheet" />
+
+        <!-- Estilos gerais -->
+        <link href="../css/estilo.css" rel="stylesheet" />
     </head>
 
     <body>
@@ -31,7 +34,7 @@
             <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search" />
             <ul class="navbar-nav px-3">
                 <li class="nav-item text-nowrap">
-                    <a class="nav-link" href="../autenticacao/sair.php">Sair</a>
+                    <a class="nav-link" href="../processamento/sair.php">Sair</a>
                 </li>
             </ul>
         </nav>
@@ -44,11 +47,11 @@
                             <li class="nav-item">
                                 <a class="nav-link active" href="home.php?pagina=template-model.html">
                                     <span data-feather="home"></span>
-                                    Home <span class="sr-only">(current)</span>
+                                    Início <span class="sr-only">(current)</span>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">
+                                <a class="nav-link" href="home.php?pagina=usuarios.php">
                                     <span data-feather="user"></span>
                                     Usuário
                                 </a>
@@ -117,7 +120,8 @@
 
                 <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
                     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
-                        <h1 class="h2">Home</h1>
+                        <h1 class="h2">Faculdade JK de Tecnologia</h1>
+                        <img class="logo-jk" src="../img/logo-jk.png" alt="Faculdade JK" />
                         <div class="btn-toolbar mb-2 mb-md-0">
                             <div class="btn-group mr-2">
                                 <button class="btn btn-sm btn-outline-secondary">Compartilhar</button>
@@ -131,7 +135,8 @@
                     </div>
 
                     <?php
-                        require_once('template-model.html');
+                        include_once('boas-vindas.php');
+                        require_once($_GET["pagina"]);
                      ?>
 
                 </main>

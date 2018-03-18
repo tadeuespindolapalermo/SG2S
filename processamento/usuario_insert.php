@@ -61,13 +61,13 @@
     if (mysqli_query($link, $sql)) {
         echo "
         <script type=\"text/javascript\">
-        alert(\"Usuário cadastrado com sucesso!!!\");
-        </script>";        
+            alert(\"Usuário cadastrado com sucesso!!!\");
+        </script>";
         header('Location: ../index.php');
     } else {
         echo "
         <script type=\"text/javascript\">
-        alert(\"Erro ao cadastrar usuário!!!\");
+            alert(\"Erro ao cadastrar usuário!!!\");
         </script>";
         header('Location: inscrevase.php');
     }

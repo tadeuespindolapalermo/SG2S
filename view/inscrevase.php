@@ -54,7 +54,7 @@
 	    	<div class="col-md-4">
 	    		<h3><strong>Novo Usuário</strong></h3>
 	    		<br />
-				<form method="post" action="registra_usuario.php" id="formCadastrarse">
+				<form method="post" action="../processamento/usuario_insert.php" id="formCadastrarse">
 					<div class="form-group">
 						<div class="form-group">
 							<input type="text" class="form-control" id="nome" name="nome" placeholder="Nome" required="required">

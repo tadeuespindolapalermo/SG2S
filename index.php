@@ -26,7 +26,7 @@
     </head>
 
     <body class="text-center" ng-controller="indexController">
-        <form name="loginForm" class="form-signin" method="post" action="autenticacao/validar_acesso.php" id="formLogin">
+        <form name="loginForm" class="form-signin" method="post" action="processamento/autenticacao_validar_acesso_login.php" id="formLogin">
             <img src="img/sg2s.png" alt="">
             <h1 ng-bind="titulo" class="h3 mb-3" style="font-weight: 900"></h1>
 
@@ -59,7 +59,7 @@
             </div>
 
             <button class="btn btn-lg btn-primary btn-block" type="submit" id="btn_login">Entrar</button>
-            <small><a href="autenticacao/inscrevase.php">Cadastre-se</a></small>
+            <small><a href="view/inscrevase.php">Cadastre-se</a></small>
             <p class="mt-5 mb-3 text-muted">&copy; SG2S 2018 | Faculdade JK</p>
         </form>
 
