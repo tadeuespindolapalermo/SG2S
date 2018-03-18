@@ -29,5 +29,5 @@
             header('Location: ../index.php?erro=1');
         }
     } else {
-        echo 'Erro na execução da consulta, favor em contato com o administrador!';
+        echo 'Erro na execução da consulta, favor entre em contato com o administrador!';
     }
