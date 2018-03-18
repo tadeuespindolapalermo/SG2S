@@ -11,6 +11,9 @@
     $objConexao = new Conexao();
     $link = $objConexao->conectar();
 
+    // PDO
+    $conn = $objConexao->getConnection();
+
     $usuario_existe = false;
     $email_existe = false;
 
@@ -50,15 +53,27 @@
             $retorno_get.= "erro_email=1&";
         }
 
-        header('Location: inscrevase.php?' . $retorno_get);
+        header('Location: ../view/inscrevase.php?' . $retorno_get);
         die();
     }
 
-    // String SQL de inserção de usuário
-    $sql = "INSERT INTO usuarios(nome, sobrenome, usuario, email, senha) VALUES ('$nome', '$sobrenome', '$usuario', '$email', '$senha')";
+    // INSERÇÃO COM PDO
+    $sql = "INSERT INTO usuarios(nome, sobrenome, usuario, email, senha) VALUES (:nome,:sobrenome,:usuario,:email,:senha)";
 
-    // Executa a query
-    if (mysqli_query($link, $sql)) {
+    $nomePDO = $nome;
+    $sobrenomePDO = $sobrenome;
+    $usuarioPDO = $usuario;
+    $emailPDO = $email;
+    $senhaPDO = $senha;
+
+    $stmt = $conn->prepare($sql);
+    $stmt->bindParam(':nome', $nomePDO);
+    $stmt->bindParam(':sobrenome', $sobrenomePDO);
+    $stmt->bindParam(':usuario', $usuarioPDO);
+    $stmt->bindParam(':email', $emailPDO);
+    $stmt->bindParam(':senha', $senhaPDO);
+
+    if($stmt->execute()) {
         echo "
         <script type=\"text/javascript\">
             alert(\"Usuário cadastrado com sucesso!!!\");
@@ -71,3 +86,22 @@
         </script>";
         header('Location: inscrevase.php');
     }
+
+    // INSERÇÃO SEM PDO
+    // String SQL de inserção de usuário
+    //$sql = "INSERT INTO usuarios(nome, sobrenome, usuario, email, senha) VALUES ('$nome', '$sobrenome', '$usuario', '$email', '$senha')";
+
+    // Executa a query
+    /*if (mysqli_query($link, $sql)) {
+        echo "
+        <script type=\"text/javascript\">
+            alert(\"Usuário cadastrado com sucesso!!!\");
+        </script>";
+        header('Location: ../index.php');
+    } else {
+        echo "
+        <script type=\"text/javascript\">
+            alert(\"Erro ao cadastrar usuário!!!\");
+        </script>";
+        header('Location: inscrevase.php');
+    }*/

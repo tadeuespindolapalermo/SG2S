@@ -7,6 +7,7 @@ class Conexao {
     private $senha = 'sg2s1985@';
     private $database = 'codigofonteonline1';
 
+    // Conexão sem PDO
     public function conectar() {
 
         // Cria a conexão
@@ -22,6 +23,20 @@ class Conexao {
         return $con;
     }
 
+    // Conexão com PDO
+    public function getConnection() {
+        $dsn = 'mysql:host='.$this->host.';dbname='.$this->database.';charset=utf8';
+        $user = $this->usuario;
+        $pass = $this->senha;
+
+        try {
+            $pdo = new PDO($dsn, $user, $pass);
+            return $pdo;
+        } catch (PDOException $ex) {
+            echo 'Erro ao tentar se conectar com o Banco de Dados: '.$ex->getMessage();
+        }
+    }
+
     // Executa consultas no Banco de Dados
     public function executarConsulta($link, $strSql) {
         $rs = mysqli_query($link, $strSql);
@@ -35,8 +50,4 @@ class Conexao {
         return $id;
     }
 
-    // Método para recuperar valor
-    public function getValor($valor) {
-        return $valor;
-    }
 }

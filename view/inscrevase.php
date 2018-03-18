@@ -57,7 +57,7 @@
 				<form method="post" action="../processamento/usuario_insert.php" id="formCadastrarse">
 					<div class="form-group">
 						<div class="form-group">
-							<input type="text" class="form-control" id="nome" name="nome" placeholder="Nome" required="required">
+							<input type="text" class="form-control" id="nome" name="nome" placeholder="Nome" required="required" autofocus >
 						</div>
 
 						<div class="form-group">
