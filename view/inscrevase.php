@@ -17,17 +17,26 @@
 
         <link rel="shortcut icon" type="image/x-icon" href="../img/favicon/favicon.ico" />
 
-		<!-- jquery - link cdn -->
+		<!-- jquery 2.2.4 sem cdn, fixo no código-->
+        <script src="lib/jquery/jquery-2_2_4.min.js"></script>
+		<!-- jquery 2.2.4 - link cdn -->
 		<!--<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>-->
 
-        <!-- jquery sem cdn, fixo no código-->
-        <script src="lib/jquery/jquery-2_2_4.min.js"></script>
-
-		<!-- bootstrap 3.3.6 - link com cdn -->
+		<!-- bootstrap 3.3.6 - link sem cdn, fixo no código -->
+		<link rel="stylesheet" href="../lib/bootstrap/css/bootstrap-3_3_6.min.css">
+		<!-- bootstrap 3.3.6 - link cdn -->
 		<!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">-->
 
-		<!-- bootstrap 3.3.6 - link sem cdn -->
-		<link rel="stylesheet" href="../lib/bootstrap/css/bootstrap-3_3_6.min.css">
+		<!-- jquery 1.3.2 sem cdn, fixo no código-->
+		<script src="../lib/jquery/jquery-1_3_2.min.js"></script>
+		<!-- jquery 1.3.2 - link cdn-->
+		<!--<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.3/jquery.min.js"></script>-->
+
+		<!-- Maskedinput do jQuery-->
+		<script src="../lib/jquery/maskedinput.js"></script>
+
+		<!-- Máscaras dos campos de formulários-->
+		<script src="../lib/jquery/masks.js"></script>
 	</head>
 
 	<body>
@@ -75,7 +84,7 @@
 						</div>
 
 						<div class="form-group">
-							<input type="number" class="form-control" id="telefone" name="telefone" placeholder="Telefone (xx)x xxxx-xxxx" required="required" autofocus>
+							<input type="text" class="form-control" id="telefone" name="telefone" placeholder="Telefone (xx) x xxxx-xxxx" required="required" autofocus>
 						</div>
 
 						<input type="text" class="form-control" id="usuario" name="usuario" placeholder="Usuário" required="required">
@@ -104,10 +113,9 @@
 			</div>
 
 		</div>
-		<!-- Bootstrap JS com cdn-->
-	    <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>-->
-
 		<!-- Bootstrap JS sem cdn-->
 	    <script src="../lib/bootstrap/js/bootstrap-3_3_6.min.js"></script>
+		<!-- Bootstrap JS com cdn-->
+	    <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>-->
 	</body>
 </html>

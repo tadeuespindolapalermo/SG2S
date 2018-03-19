@@ -25,6 +25,17 @@
 
         <!-- Estilos gerais -->
         <link href="../css/estilo.css" rel="stylesheet" />
+
+        <!-- jquery 1.3.2 sem cdn, fixo no código-->
+		<script src="../lib/jquery/jquery-1_3_2.min.js"></script>
+		<!-- jquery 1.3.2 - link cdn-->
+		<!--<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.3/jquery.min.js"></script>-->
+
+		<!-- Maskedinput do jQuery-->
+		<script src="../lib/jquery/maskedinput.js"></script>
+
+		<!-- Máscaras dos campos de formulários-->
+		<script src="../lib/jquery/masks.js"></script>
     </head>
 
     <body>
