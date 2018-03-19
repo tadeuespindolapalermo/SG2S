@@ -11,9 +11,10 @@
 
     $strSql= "
     SELECT
-        id,
+        matricula,
         nome,
         sobrenome,
+        telefone,
         usuario,
         email,
         senha
@@ -28,27 +29,30 @@
 
     echo '
     <div class="container">
-        <h3>Editar Usuário</h3><br />
+        <h4>Atualizar Dados Cadastrais</h4><br />
         <form action="../processamento/usuario_update.php" method="post">
             <div class="form-group ">
                 <div class="col-lg-13">
-                    <label class="col-lg-12 control-label label-usuario">Id</label>
-                    <input style="width: 55px; margin-bottom: -5px;" name="id" class="form-control" value="'.$linha['id'].'" disabled><br/>
+                    <label class="col-lg-12 control-label label-usuario">Matrícula</label>
+                    <input type="text" style="width: 105px; margin-bottom: -5px;" name="matricula" class="form-control" value="'.$linha['matricula'].'" disabled required><br/>
 
                     <label class="col-lg-12 control-label label-usuario">Nome</label>
-                    <input style="width: 300px; margin-bottom: -5px;" name="nome" class="form-control" value="'.$linha['nome'].'" required><br/>
+                    <input type="text" style="width: 300px; margin-bottom: -5px;" name="nome" class="form-control" value="'.$linha['nome'].'" required><br/>
 
                     <label class="col-lg-2 control-label label-usuario" >Sobrenome</label>
-                    <input style="width: 300px; margin-bottom: -5px;" name="sobrenome" class="form-control" value="'.$linha['sobrenome'].'" required><br/>
+                    <input type="text" style="width: 300px; margin-bottom: -5px;" name="sobrenome" class="form-control" value="'.$linha['sobrenome'].'" required><br/>
+
+                    <label class="col-lg-2 control-label label-usuario" >Telefone</label>
+                    <input type="number" style="width: 300px; margin-bottom: -5px;" name="telefone" class="form-control" value="'.$linha['telefone'].'" required><br/>
 
                     <label class="col-lg-2 control-label label-usuario">Usuário</label>
-                    <input style="width: 300px; margin-bottom: -5px;" name="usuario" class="form-control" value="'.$linha['usuario'].'" required disabled><br/>
+                    <input type="text" style="width: 300px; margin-bottom: -5px;" name="usuario" class="form-control" value="'.$linha['usuario'].'" required disabled><br/>
 
                     <label class="col-lg-2 control-label label-usuario">Email</label>
-                    <input style="width: 300px; margin-bottom: -5px;" name="email" class="form-control" value="'.$linha['email'].'" required><br/>
+                    <input type="email" style="width: 300px; margin-bottom: -5px;" name="email" class="form-control" value="'.$linha['email'].'" required><br/>
 
                     <label class="col-lg-2 control-label label-usuario">Senha</label>
-                    <input style="width: 300px; margin-bottom: -5px;" name="senha" class="form-control" value="'.$_SESSION['senha'].'"><br/>
+                    <input type="password" style="width: 300px; margin-bottom: -5px;" name="senha" class="form-control" value="'.$_SESSION['senha'].'" required><br/>
 
                     <button type="submit" class="btn btn-success">Atualizar</button><br/><br/>
                 </div>

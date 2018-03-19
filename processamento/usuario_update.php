@@ -10,6 +10,7 @@
 
         $strNome = $_POST['nome'];
         $strSobrenome = $_POST['sobrenome'];
+        $strTelefone = $_POST['telefone'];
         $strEmail = $_POST['email'];
         $strSenhaNormal = $_POST['senha'];
         $strSenha = md5($_POST['senha']);
@@ -18,9 +19,10 @@
         $link = $objConexao->conectar();
 
         $strSql = "
-        UPDATE usuarios set
+        UPDATE usuarios set            
             nome = '".$strNome."',
             sobrenome = '".$strSobrenome."',
+            telefone = '".$strTelefone."',
             email = '".$strEmail."',
             senha = '".$strSenha."'
         WHERE

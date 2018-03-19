@@ -10,8 +10,10 @@ DEFAULT COLLATE utf8_general_ci;
 CREATE TABLE usuarios ( /* Comando de criação da tabela */
 	id INT PRIMARY KEY AUTO_INCREMENT NOT NULL, /* Chave primária, tipo inteiro, auto incremento e não aceita campos nulos */
 	acesso VARCHAR(15) CHARACTER SET utf8 NOT NULL DEFAULT 'aluno', /* não aceita campos nulos, tipo texto, padrão assume o valor aluno */
+	matricula VARCHAR(10) CHARACTER SET utf8 NOT NULL, /* não aceita campos nulos, tipo texto */
     nome VARCHAR(50) CHARACTER SET utf8 NOT NULL , /* não aceita campos nulos, tipo texto */
     sobrenome VARCHAR(50) CHARACTER SET utf8 NOT NULL , /* não aceita campos nulos, tipo texto */
+	telefone VARCHAR(12) CHARACTER SET utf8 NOT NULL , /* não aceita campos nulos, tipo texto */
     usuario VARCHAR(50) CHARACTER SET utf8 NOT NULL , /* não aceita campos nulos, tipo texto */
     email VARCHAR(100) CHARACTER SET utf8 NOT NULL, /* não aceita campos nulos, tipo texto */
     senha VARCHAR(32)/*32-md5*/ CHARACTER SET utf8 NOT NULL /* não aceita campos nulos, tipo texto */

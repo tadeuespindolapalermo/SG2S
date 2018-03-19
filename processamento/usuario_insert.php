@@ -2,8 +2,11 @@
 
     require_once('../db/Conexao.class.php');
 
+    $acesso = 'Aluno';
+    $matricula = $_POST['matricula'];
     $nome = $_POST['nome'];
     $sobrenome = $_POST['sobrenome'];
+    $telefone = $_POST['telefone'];
     $usuario = $_POST['usuario'];
     $email = $_POST['email'];
     $senha = md5($_POST['senha']); // md5 - senha criptografada com hash de 32 caracteres
@@ -58,19 +61,23 @@
     }
 
     // INSERÇÃO COM PDO
-    $sql = "INSERT INTO usuarios(acesso, nome, sobrenome, usuario, email, senha) VALUES (:acesso,:nome,:sobrenome,:usuario,:email,:senha)";
+    $sql = "INSERT INTO usuarios(acesso, matricula, nome, sobrenome, telefone, usuario, email, senha) VALUES (:acesso,:matricula,:nome,:sobrenome,:telefone,:usuario,:email,:senha)";
 
+    $matriculaPDO = $matricula;
     $nomePDO = $nome;
-    $acessoPDO = 'Aluno';
+    $acessoPDO = $acesso;
     $sobrenomePDO = $sobrenome;
+    $telefonePDO = $telefone;
     $usuarioPDO = $usuario;
     $emailPDO = $email;
     $senhaPDO = $senha;
 
     $stmt = $conn->prepare($sql);
+    $stmt->bindParam(':matricula', $matriculaPDO);
     $stmt->bindParam(':nome', $nomePDO);
     $stmt->bindParam(':acesso', $acessoPDO);
     $stmt->bindParam(':sobrenome', $sobrenomePDO);
+    $stmt->bindParam(':telefone', $telefonePDO);
     $stmt->bindParam(':usuario', $usuarioPDO);
     $stmt->bindParam(':email', $emailPDO);
     $stmt->bindParam(':senha', $senhaPDO);
@@ -91,7 +98,7 @@
 
     // INSERÇÃO SEM PDO
     // String SQL de inserção de usuário
-    //$sql = "INSERT INTO usuarios(nome, sobrenome, usuario, email, senha) VALUES ('$nome', '$sobrenome', '$usuario', '$email', '$senha')";
+    //$sql = "INSERT INTO usuarios(acesso, matricula, nome, sobrenome, telefone, usuario, email, senha) VALUES ('$acesso', '$matricula', '$nome', '$sobrenome', '$telefone', '$usuario', '$email', '$senha')";
 
     // Executa a query
     /*if (mysqli_query($link, $sql)) {
