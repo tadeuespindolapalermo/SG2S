@@ -2,6 +2,7 @@
 
 	$erro_usuario = isset($_GET['erro_usuario']) ? $_GET['erro_usuario'] : 0;
 	$erro_email = isset($_GET['erro_email']) ? $_GET['erro_email'] : 0;
+	$erro_chave = isset($_GET['erro_chave']) ? $_GET['erro_chave'] : 0;
 
  ?>
 
@@ -67,27 +68,28 @@
 
 	    	<div class="col-md-4"></div>
 	    	<div class="col-md-4">
-	    		<h3><strong>Novo Aluno</strong></h3>
+	    		<h3><strong><div style="margin-top: -70px;">Novo Aluno</div></strong></h3>
 	    		<br />
 				<form method="post" action="../processamento/usuario_insert.php" id="formCadastrarse">
 					<div class="form-group">
+						<small><strong>*Campos Obrigatórios</strong></small>
 						<div class="form-group">
-							<input type="number" class="form-control" id="matricula" name="matricula" placeholder="Matrícula" required="required" autofocus>
+							<input type="number" class="form-control" id="matricula" name="matricula" placeholder="*Matrícula" required="required" autofocus>
 						</div>
 
 						<div class="form-group">
-							<input type="text" class="form-control" id="nome" name="nome" placeholder="Nome" required="required" autofocus>
+							<input type="text" class="form-control" id="nome" name="nome" placeholder="*Nome" required="required" autofocus>
 						</div>
 
 						<div class="form-group">
-							<input type="text" class="form-control" id="sobrenome" name="sobrenome" placeholder="Sobrenome" required="required">
+							<input type="text" class="form-control" id="sobrenome" name="sobrenome" placeholder="*Sobrenome" required="required">
 						</div>
 
 						<div class="form-group">
-							<input type="text" class="form-control" id="telefone" name="telefone" placeholder="Telefone (xx) x xxxx-xxxx" required="required" autofocus>
+							<input type="text" class="form-control" id="telefone" name="telefone" placeholder="*Telefone (xx) x xxxx-xxxx" required="required" autofocus>
 						</div>
 
-						<input type="text" class="form-control" id="usuario" name="usuario" placeholder="Usuário" required="required">
+						<input type="text" class="form-control" id="usuario" name="usuario" placeholder="*Usuário" required="required">
 						<?php
 							if($erro_usuario) {
 								echo '<font color="#FF0000">Usuário já existe!</font>';
@@ -96,7 +98,7 @@
 					</div>
 
 					<div class="form-group">
-						<input type="email" class="form-control" id="email" name="email" placeholder="Email" required="required">
+						<input type="email" class="form-control" id="email" name="email" placeholder="*Email" required="required">
 						<?php
 							if($erro_email) {
 								echo '<font color="#FF0000">E-mail já existe!</font>';
@@ -105,7 +107,17 @@
 					</div>
 
 					<div class="form-group">
-						<input type="password" class="form-control" id="senha" name="senha" placeholder="Senha" required="required">
+						<input type="password" class="form-control" id="senha" name="senha" placeholder="*Senha" required="required">
+					</div>
+
+					<div class="form-group">
+						<small><strong><font color="#FF0000">*Obtenha sua chave na secretaria ou com o Administrador.</font></strong></small>
+						<input type="text" class="form-control" id="chave" name="chave" placeholder="*Chave de acesso para cadastro" required="required">
+						<?php
+							if($erro_chave) {
+								echo '<font color="#FF0000">Chave inválida!</font>';
+							}
+						 ?>
 					</div>
 
 					<button type="submit" class="btn btn-primary form-control">Cadastrar-se</button>

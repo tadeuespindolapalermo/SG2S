@@ -23,3 +23,9 @@ usuario:  codigofonteonli1
 senha:    sg2s1985@
 database: codigofonteonline1
 ---------------------------------------------------
+
+----------------------------------------
+Chave de acesso para cadastro aluno:
+
+jk@1985-sg2s
+----------------------------------------

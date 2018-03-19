@@ -80,7 +80,7 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="#">
                                     <span data-feather="users"></span>
-                                    Alunos
+                                    Usuários
                                 </a>
                             </li>
                             <li class="nav-item">
