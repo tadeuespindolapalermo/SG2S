@@ -4,6 +4,10 @@
     if (!isset($_SESSION['usuario'])) {
         header('Location: ../index.php?erro=1');
     }
+
+    if($_SESSION['acesso'] === 'Aluno') {
+        header('Location: ../processamento/sair.php');
+    }
 ?>
 
 <!DOCTYPE html>
