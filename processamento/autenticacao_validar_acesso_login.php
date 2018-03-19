@@ -8,7 +8,7 @@
     $senha = md5($_POST['senha']);
     $senhaNormal = $_POST['senha'];
 
-    $sql = "SELECT nome, usuario, email, acesso FROM usuarios WHERE usuario = '$usuario' AND senha = '$senha'";
+    $sql = "SELECT nome, sobrenome, usuario, email, acesso FROM usuarios WHERE usuario = '$usuario' AND senha = '$senha'";
 
     $objConexao = new Conexao();
     $link = $objConexao->conectar();
@@ -24,13 +24,14 @@
             $_SESSION['email'] = $dados_usuario['email'];
             $_SESSION['senha'] = $senhaNormal;
             $_SESSION['acesso'] = $dados_usuario['acesso'];
+            $_SESSION['sobrenome'] = $dados_usuario['sobrenome'];
 
             if($_SESSION['acesso'] == 'Administrador') {
-                header('Location: ../view/admin.php?pagina=template-model.html');
+                header('Location: ../view/admin.php?pagina=home.php');
             } elseif ($_SESSION['acesso'] == 'Aluno') {
-                header('Location: ../view/aluno.php?pagina=template-model.html');
+                header('Location: ../view/aluno.php?pagina=home.php');
             }
-            
+
         } else {
             header('Location: ../index.php?erro=1');
         }
