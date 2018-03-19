@@ -58,9 +58,10 @@
     }
 
     // INSERÇÃO COM PDO
-    $sql = "INSERT INTO usuarios(nome, sobrenome, usuario, email, senha) VALUES (:nome,:sobrenome,:usuario,:email,:senha)";
+    $sql = "INSERT INTO usuarios(acesso, nome, sobrenome, usuario, email, senha) VALUES (:acesso,:nome,:sobrenome,:usuario,:email,:senha)";
 
     $nomePDO = $nome;
+    $acessoPDO = 'Aluno';
     $sobrenomePDO = $sobrenome;
     $usuarioPDO = $usuario;
     $emailPDO = $email;
@@ -68,6 +69,7 @@
 
     $stmt = $conn->prepare($sql);
     $stmt->bindParam(':nome', $nomePDO);
+    $stmt->bindParam(':acesso', $acessoPDO);
     $stmt->bindParam(':sobrenome', $sobrenomePDO);
     $stmt->bindParam(':usuario', $usuarioPDO);
     $stmt->bindParam(':email', $emailPDO);

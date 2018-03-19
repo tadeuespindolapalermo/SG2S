@@ -33,21 +33,41 @@
             $_SESSION['senha'] = $strSenhaNormal;
             $_SESSION['nome'] = $strNome;
 
-            echo "
-            <script type=\"text/javascript\">
-                alert(\"Usuário atualizado com sucesso!\");
-            </script>
-            <META HTTP-EQUIV=REFRESH CONTENT = '0;URL=
-            http://localhost/SG2S/index.php?usuarios.php'";
-            header('Location: ../view/home.php?pagina=usuarios.php');
+            if($_SESSION['acesso'] == 'Aluno') {
+                echo "
+                <script type=\"text/javascript\">
+                    alert(\"Usuário atualizado com sucesso!\");
+                </script>
+                <META HTTP-EQUIV=REFRESH CONTENT = '0;URL=
+                http://localhost/SG2S/view/aluno.php?pagina=usuarios.php'";
+                header('Location: ../view/aluno.php?pagina=usuarios.php');
+            } elseif($_SESSION['acesso'] == 'Administrador') {
+                echo "
+                <script type=\"text/javascript\">
+                    alert(\"Usuário atualizado com sucesso!\");
+                </script>
+                <META HTTP-EQUIV=REFRESH CONTENT = '0;URL=
+                http://localhost/SG2S/view/admin.php?pagina=usuarios.php'";
+                header('Location: ../view/admin.php?pagina=usuarios.php');
+            }
         } else {
-            echo "
-            <script type=\"text/javascript\">
-                alert(\"Erro ao atualizar o usuário!\");
-            </script>
-            <META HTTP-EQUIV=REFRESH CONTENT = '0;URL=
-            http://localhost/SG2S/index.php?usuarios.php'";
-            header('Location: ../view/home.php?pagina=usuarios.php');
+            if($_SESSION['acesso'] == 'Aluno') {
+                echo "
+                <script type=\"text/javascript\">
+                    alert(\"Erro ao atualizar o usuário!\");
+                </script>
+                <META HTTP-EQUIV=REFRESH CONTENT = '0;URL=
+                http://localhost/SG2S/view/aluno.php?pagina=usuarios.php'";
+                header('Location: ../view/aluno.php?pagina=usuarios.php');
+            } elseif($_SESSION['acesso'] == 'Administrador') {
+                echo "
+                <script type=\"text/javascript\">
+                    alert(\"Erro ao atualizar o usuário!\");
+                </script>
+                <META HTTP-EQUIV=REFRESH CONTENT = '0;URL=
+                http://localhost/SG2S/view/admin.php?pagina=usuarios.php'";
+                header('Location: ../view/admin.php?pagina=usuarios.php');
+            }
         }
     }
 ?>

@@ -58,7 +58,7 @@
 
 	    	<div class="col-md-4"></div>
 	    	<div class="col-md-4">
-	    		<h3><strong>Novo Usuário</strong></h3>
+	    		<h3><strong>Novo Aluno</strong></h3>
 	    		<br />
 				<form method="post" action="../processamento/usuario_insert.php" id="formCadastrarse">
 					<div class="form-group">

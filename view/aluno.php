@@ -30,7 +30,7 @@
     <body>
 
         <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
-            <span class="navbar-brand col-sm-3 col-md-2 mr-0">SG2S - <?= $_SESSION['nome'] ?></span>
+            <span class="navbar-brand col-sm-3 col-md-2 mr-0">SG2S - <?= $_SESSION['acesso'] ?></span>
             <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search" />
             <ul class="navbar-nav px-3">
                 <li class="nav-item text-nowrap">
@@ -45,15 +45,15 @@
                     <div class="sidebar-sticky">
                         <ul class="nav flex-column">
                             <li class="nav-item">
-                                <a class="nav-link active" href="home.php?pagina=template-model.html">
+                                <a class="nav-link active" href="aluno.php?pagina=template-model.html">
                                     <span data-feather="home"></span>
                                     Início <span class="sr-only">(current)</span>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="home.php?pagina=usuarios.php">
+                                <a class="nav-link" href="aluno.php?pagina=usuarios.php">
                                     <span data-feather="user"></span>
-                                    Usuário
+                                    <?= $_SESSION['nome'] ?>
                                 </a>
                             </li>
                             <li class="nav-item">
@@ -62,7 +62,7 @@
                                     Grade
                                 </a>
                             </li>
-                            <li class="nav-item">
+                            <!--<li class="nav-item">
                                 <a class="nav-link" href="#">
                                     <span data-feather="users"></span>
                                     Alunos
@@ -79,7 +79,7 @@
                                     <span data-feather="layers"></span>
                                     Integrações e Serviços
                                 </a>
-                            </li>
+                            </li>-->
                         </ul>
 
                         <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
