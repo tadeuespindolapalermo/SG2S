@@ -63,11 +63,11 @@
 				<form method="post" action="../processamento/usuario_insert.php" id="formCadastrarse">
 					<div class="form-group">
 						<div class="form-group">
-							<input type="number" class="form-control" id="matricula" name="matricula" placeholder="Matrícula" required="required" autofocus >
+							<input type="number" class="form-control" id="matricula" name="matricula" placeholder="Matrícula" required="required" autofocus>
 						</div>
 
 						<div class="form-group">
-							<input type="text" class="form-control" id="nome" name="nome" placeholder="Nome" required="required" autofocus >
+							<input type="text" class="form-control" id="nome" name="nome" placeholder="Nome" required="required" autofocus>
 						</div>
 
 						<div class="form-group">
@@ -75,7 +75,7 @@
 						</div>
 
 						<div class="form-group">
-							<input type="number" class="form-control" id="telefone" name="telefone" placeholder="Telefone (xx)x xxxx-xxxx" required="required" autofocus >
+							<input type="number" class="form-control" id="telefone" name="telefone" placeholder="Telefone (xx)x xxxx-xxxx" required="required" autofocus>
 						</div>
 
 						<input type="text" class="form-control" id="usuario" name="usuario" placeholder="Usuário" required="required">
