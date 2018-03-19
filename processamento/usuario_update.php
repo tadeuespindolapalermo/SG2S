@@ -31,6 +31,7 @@
         if (mysqli_affected_rows($link) > 0) {
 
             $_SESSION['senha'] = $strSenhaNormal;
+            $_SESSION['nome'] = $strNome;
 
             echo "
             <script type=\"text/javascript\">
