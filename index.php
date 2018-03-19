@@ -20,7 +20,10 @@
         <link href="css/signin.css" rel="stylesheet">
 
         <!-- jquery - link cdn -->
-		<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+		<!--<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>-->
+
+        <!-- jquery sem cdn, fixo no código-->
+        <script src="lib/jquery/jquery-2_2_4.min.js"></script>
 
         <script src="js/index.js"></script>
     </head>

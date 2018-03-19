@@ -153,19 +153,32 @@
         <!-- Bootstrap core JavaScript
         ================================================== -->
         <!-- Placed at the end of the document so the pages load faster -->
-        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-        <script>window.jQuery || document.write('<script src="../js/jquery-slim.min.js"><\/script>')</script>
+
+        <!-- jquery 3.2.1 com cdn -->
+        <!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>-->
+
+        <!-- jquery 3.2.1 sem cdn -->
+        <script src="../lib/jquery/jquery-3_2_1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script>window.jQuery || document.write('<script src="../lib/jquery/jquery-slim.min.js"><\/script>')</script>
         <script src="../js/popper.min.js"></script>
         <script src="../lib/bootstrap/js/bootstrap.min.js"></script>
 
-        <!-- Icons -->
-        <script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
+        <!-- Icons com cdn -->
+        <!--<script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>-->
+
+        <!-- Icons sem cdn -->
+        <script src="../lib/feather-icon/feather.min.js"></script>
+
         <script>
             feather.replace()
         </script>
 
-        <!-- Graphs -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
+        <!-- Graphs link cdn -->
+        <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>-->
+
+        <!-- Graphs link sem cdn-->
+        <script src="../lib/ajax/ajax-chart-2_7_1.min.js"></script>
+
         <script src="../js/dashboard.js"></script>
     </body>
 </html>

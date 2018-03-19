@@ -17,11 +17,17 @@
 
         <link rel="shortcut icon" type="image/x-icon" href="../img/favicon/favicon.ico" />
 
-        <!-- jquery - link cdn -->
-		<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+		<!-- jquery - link cdn -->
+		<!--<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>-->
 
-		<!-- bootstrap - link cdn -->
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+        <!-- jquery sem cdn, fixo no código-->
+        <script src="lib/jquery/jquery-2_2_4.min.js"></script>
+
+		<!-- bootstrap 3.3.6 - link com cdn -->
+		<!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">-->
+
+		<!-- bootstrap 3.3.6 - link sem cdn -->
+		<link rel="stylesheet" href="../lib/bootstrap/css/bootstrap-3_3_6.min.css">
 	</head>
 
 	<body>
@@ -90,6 +96,10 @@
 			</div>
 
 		</div>
-	    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+		<!-- Bootstrap JS com cdn-->
+	    <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>-->
+
+		<!-- Bootstrap JS sem cdn-->
+	    <script src="../lib/bootstrap/js/bootstrap-3_3_6.min.js"></script>
 	</body>
 </html>
