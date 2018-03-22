@@ -19,7 +19,7 @@
         $link = $objConexao->conectar();
 
         $strSql = "
-        UPDATE usuarios set            
+        UPDATE usuarios set
             nome = '".$strNome."',
             sobrenome = '".$strSobrenome."',
             telefone = '".$strTelefone."',
@@ -41,16 +41,16 @@
                     alert(\"Usuário atualizado com sucesso!\");
                 </script>
                 <META HTTP-EQUIV=REFRESH CONTENT = '0;URL=
-                http://localhost/SG2S/view/aluno.php?pagina=usuarios.php'";
-                header('Location: ../view/aluno.php?pagina=usuarios.php');
+                http://localhost/SG2S/view/aluno.php?pagina=view_usuario_logado_update.php'";
+                header('Location: ../view/aluno.php?pagina=view_usuario_logado_update.php');
             } elseif($_SESSION['acesso'] == 'Administrador') {
                 echo "
                 <script type=\"text/javascript\">
                     alert(\"Usuário atualizado com sucesso!\");
                 </script>
                 <META HTTP-EQUIV=REFRESH CONTENT = '0;URL=
-                http://localhost/SG2S/view/admin.php?pagina=usuarios.php'";
-                header('Location: ../view/admin.php?pagina=usuarios.php');
+                http://localhost/SG2S/view/admin.php?pagina=view_usuario_logado_update.php'";
+                header('Location: ../view/admin.php?pagina=view_usuario_logado_update.php');
             }
         } else {
             if($_SESSION['acesso'] == 'Aluno') {

@@ -29,8 +29,8 @@
 
     echo '
     <div class="container">
-        <h4>Atualizar Dados Cadastrais</h4><br />
-        <form action="../processamento/usuario_update.php" method="post">
+        <h3 class="text-muted">Atualizar Dados Cadastrais</h3>
+        <form action="../processamento/usuario_logado_update.php" method="post">
             <div class="form-group ">
                 <div class="col-lg-13">
                     <label class="col-lg-12 control-label label-usuario">Matrícula</label>

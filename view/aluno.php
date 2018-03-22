@@ -21,7 +21,7 @@
 
         <title>SG2S - Sistema de Geração da Grade Semestral</title>
 
-        <!-- Bootstrap core CSS -->
+        <!-- Bootstrap 4 core CSS -->
         <link href="../lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
 
         <!-- Custom styles for this template -->
@@ -66,7 +66,7 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="aluno.php?pagina=usuarios.php">
+                                <a class="nav-link" href="aluno.php?pagina=view_usuario_logado_update.php">
                                     <span data-feather="user"></span>
                                     <strong><?= $_SESSION['nome'] ?></strong>
                                 </a>
