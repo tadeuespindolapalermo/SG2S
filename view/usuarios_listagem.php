@@ -6,6 +6,10 @@
     <?php
         session_start();
 
+        if($_SESSION['acesso'] === 'Aluno') {
+            header('Location: ../processamento/sair.php');
+        }
+
         require_once('../db/Conexao.class.php');
 
         $usuarioSessao = $_SESSION['usuario'];
