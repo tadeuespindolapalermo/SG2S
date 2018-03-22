@@ -2,15 +2,14 @@
 
     require_once('../db/Conexao.class.php');
 
-    $acesso = 'Aluno';
     $matricula = $_POST['matricula'];
+    $acesso = $_POST['acesso'];
     $nome = $_POST['nome'];
     $sobrenome = $_POST['sobrenome'];
     $telefone = $_POST['telefone'];
     $usuario = $_POST['usuario'];
     $email = $_POST['email'];
     $senha = md5($_POST['senha']); // md5 - senha criptografada com hash de 32 caracteres
-    $chave = $_POST['chave'];
 
     $objConexao = new Conexao();
     $link = $objConexao->conectar();
@@ -20,7 +19,6 @@
 
     $usuario_existe = false;
     $email_existe = false;
-    $chave_correta = false;
 
     // Verifica se o usuário já existe na base de dados
     $sql = "SELECT * FROM usuarios WHERE usuario = '$usuario'";
@@ -46,12 +44,7 @@
         echo 'Erro ao tentar localizar o registro de e-mail!';
     }
 
-    // Verifica se a chave de cadastro de aluno é correta
-    if ($chave == 'jk@1985-sg2s') {
-        $chaveCorreta = true;
-    }
-
-    if ($usuario_existe || $email_existe || !$chaveCorreta) {
+    if ($usuario_existe || $email_existe) {
 
         $retorno_get = '';
 
@@ -62,17 +55,17 @@
         if ($email_existe) {
             $retorno_get.= "erro_email=1&";
         }
-
-        if (!$chaveCorreta) {
-            $retorno_get.= "erro_chave=1&";
-        }
-
-        header('Location: ../view/inscrevase.php?' . $retorno_get);
+        /*echo "
+        <script type=\"text/javascript\">
+            alert(\"Usuário já existe!\");
+        </script>";*/
+        header('Location: ../view/cadastros_usuarios_admin.php?' . $retorno_get);
+        //header('Location: ../view/admin.php?pagina=cadastros_usuarios_admin.php');
         die();
     }
 
     // INSERÇÃO COM PDO
-    $sql = "INSERT INTO usuarios(acesso, matricula, nome, sobrenome, telefone, usuario, email, senha, chave) VALUES (:acesso,:matricula,:nome,:sobrenome,:telefone,:usuario,:email,:senha,:chave)";
+    $sql = "INSERT INTO usuarios(acesso, matricula, nome, sobrenome, telefone, usuario, email, senha) VALUES (:acesso,:matricula,:nome,:sobrenome,:telefone,:usuario,:email,:senha)";
 
     $matriculaPDO = $matricula;
     $nomePDO = $nome;
@@ -82,7 +75,6 @@
     $usuarioPDO = $usuario;
     $emailPDO = $email;
     $senhaPDO = $senha;
-    $chavePDO = $chave;
 
     $stmt = $conn->prepare($sql);
     $stmt->bindParam(':matricula', $matriculaPDO);
@@ -93,33 +85,28 @@
     $stmt->bindParam(':usuario', $usuarioPDO);
     $stmt->bindParam(':email', $emailPDO);
     $stmt->bindParam(':senha', $senhaPDO);
-    $stmt->bindParam(':chave', $chavePDO);
 
-    if($chavePDO === 'jk@1985-sg2s') {
-        $cadastroEfetuado = $stmt->execute();
-    }
+    $cadastroEfetuado = $stmt->execute();
 
     if($cadastroEfetuado) {
         echo "
         <script type=\"text/javascript\">
             alert(\"Usuário cadastrado com sucesso!!!\");
         </script>";
-        header('Location: ../index.php');
+        header('Location: ../view/admin.php?pagina=usuarios_listagem.php');
     } else {
         echo "
         <script type=\"text/javascript\">
             alert(\"Erro ao cadastrar usuário!!!\");
         </script>";
-        header('Location: inscrevase.php');
+        header('Location: cadastros_usuarios_admin.php');
     }
 
     // INSERÇÃO SEM PDO
     // String SQL de inserção de usuário
-    //$sql = "INSERT INTO usuarios(acesso, matricula, nome, sobrenome, telefone, usuario, email, senha, chave) VALUES ('$acesso', '$matricula', '$nome', '$sobrenome', '$telefone', '$usuario', '$email', '$senha', '$chave')";
+    //$sql = "INSERT INTO usuarios(acesso, matricula, nome, sobrenome, telefone, usuario, email, senha) VALUES ('$acesso', '$matricula', '$nome', '$sobrenome', '$telefone', '$usuario', '$email', '$senha')";
 
-    /*if($chave === 'jk@1985-sg2s') {
-        $cadastroEfetuado = mysqli_query($link, $sql);
-    }*/
+    //$cadastroEfetuado = mysqli_query($link, $sql);
 
     // Executa a query
     /*if ($cadastroEfetuado) {
