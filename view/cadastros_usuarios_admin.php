@@ -80,7 +80,7 @@
 					<div class="form-group">
 						<small><strong>*Campos Obrigatórios</strong></small>
 						<div class="form-group">
-							<input type="number" class="form-control" id="matricula" name="matricula" placeholder="*Matrícula" required="required" autofocus>
+							<input type="text" class="form-control" id="matricula" name="matricula" placeholder="*Matrícula" required="required" autofocus>
 						</div>
 
 		                <div class="form-group">
