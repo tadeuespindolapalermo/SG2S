@@ -57,7 +57,7 @@
         <script type=\"text/javascript\">
             alert(\"Usuário já existe!\");
         </script>";*/
-        header('Location: ../view/cadastros_usuarios_admin.php?' . $retorno_get);
+        header('Location: ../view/admin.php?pagina=cadastros_usuarios_admin.php&' . $retorno_get);
         //header('Location: ../view/admin.php?pagina=cadastros_usuarios_admin.php');
         die();
     }

@@ -66,7 +66,7 @@
                                 }
                             ?>
                         </table>
-                        <a href=""><button type="button" class="btn btn-primary">Novo Cadastro</button></a>
+                        <a href="admin.php?pagina=cadastros_usuarios_admin.php"><button type="button" class="btn btn-primary">Novo Cadastro</button></a>
                     </div>
                 </div>
             </div>
