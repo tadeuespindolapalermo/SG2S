@@ -5,7 +5,7 @@
         header('Location: ../index.php?erro=1');
     }
 
-    if($_SESSION['acesso'] === 'Aluno') {
+    if($_SESSION['perfil_idperfil'] == 2) {
         header('Location: ../processamento/sair.php');
     }
 ?>
@@ -45,7 +45,7 @@
     <body>
 
         <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
-            <span class="navbar-brand col-sm-3 col-md-2 mr-0"><strong>SG2S - <?= $_SESSION['acesso'] ?></strong></span>
+            <span class="navbar-brand col-sm-3 col-md-2 mr-0"><strong>SG2S - <?= $_SESSION['nome'] ?></strong></span>
             <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search" />
             <ul class="navbar-nav px-3">
                 <li class="nav-item text-nowrap">

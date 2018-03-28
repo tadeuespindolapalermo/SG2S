@@ -9,7 +9,6 @@
         $usuarioSessao = $_SESSION['usuario'];
 
         $strNome = $_POST['nome'];
-        $strSobrenome = $_POST['sobrenome'];
         $strTelefone = $_POST['telefone'];
         $strEmail = $_POST['email'];
         $strSenhaNormal = $_POST['senha'];
@@ -21,8 +20,7 @@
         $strSql = "
         UPDATE usuarios set
             nome = '".$strNome."',
-            sobrenome = '".$strSobrenome."',
-            telefone = '".$strTelefone."',
+            fone = '".$strTelefone."',
             email = '".$strEmail."',
             senha = '".$strSenha."'
         WHERE
@@ -35,15 +33,15 @@
             $_SESSION['senha'] = $strSenhaNormal;
             $_SESSION['nome'] = $strNome;
 
-            if($_SESSION['acesso'] == 'Aluno') {
+            if($_SESSION['perfil_idperfil'] == 2) {
                 echo "
                 <script type=\"text/javascript\">
                     alert(\"Usuário atualizado com sucesso!\");
                 </script>
                 <META HTTP-EQUIV=REFRESH CONTENT = '0;URL=
-                http://localhost/SG2S/view/aluno.php?pagina=view_usuario_logado_update.php'";
-                header('Location: ../view/aluno.php?pagina=view_usuario_logado_update.php');
-            } elseif($_SESSION['acesso'] == 'Administrador') {
+                http://localhost/SG2S/view/coordenador.php?pagina=view_usuario_logado_update.php'";
+                header('Location: ../view/coordenador.php?pagina=view_usuario_logado_update.php');
+            } elseif($_SESSION['perfil_idperfil'] == 1) {
                 echo "
                 <script type=\"text/javascript\">
                     alert(\"Usuário atualizado com sucesso!\");
@@ -53,15 +51,15 @@
                 header('Location: ../view/admin.php?pagina=view_usuario_logado_update.php');
             }
         } else {
-            if($_SESSION['acesso'] == 'Aluno') {
+            if($_SESSION['perfil_idperfil'] == 1) {
                 echo "
                 <script type=\"text/javascript\">
                     alert(\"Erro ao atualizar o usuário!\");
                 </script>
                 <META HTTP-EQUIV=REFRESH CONTENT = '0;URL=
-                http://localhost/SG2S/view/aluno.php?pagina=usuarios.php'";
-                header('Location: ../view/aluno.php?pagina=usuarios.php');
-            } elseif($_SESSION['acesso'] == 'Administrador') {
+                http://localhost/SG2S/view/coordenador.php?pagina=usuarios.php'";
+                header('Location: ../view/coordenador.php?pagina=usuarios.php');
+            } elseif($_SESSION['perfil_idperfil'] == 1) {
                 echo "
                 <script type=\"text/javascript\">
                     alert(\"Erro ao atualizar o usuário!\");

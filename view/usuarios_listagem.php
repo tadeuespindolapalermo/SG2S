@@ -6,7 +6,7 @@
     <?php
         session_start();
 
-        if($_SESSION['acesso'] === 'Aluno') {
+        if($_SESSION['perfil_idperfil'] == 2) {
             header('Location: ../processamento/sair.php');
         }
 
@@ -19,13 +19,11 @@
 
         $strSql= "
         SELECT
-            id,
-            matricula,
-            acesso,
+            idusuarios,
             nome,
-            sobrenome,
-            telefone,
-            email
+            fone,
+            email,
+            usuario
         FROM
             usuarios";
 
@@ -42,12 +40,11 @@
                         <table class="table table-hover table-striped">
                             <thead>
                                 <tr>
-                                    <th>Matrícula</th>
-                                    <th>Acesso</th>
+                                    <th>Id</th>
                                     <th>Nome</th>
-                                    <th>Sobrenome</th>
                                     <th>Telefone</th>
                                     <th>E-mail</th>
+                                    <th>Usuário</th>
                                     <th>Excluir</th>
                                     <th>Editar</th>
                                 </tr>
@@ -57,20 +54,19 @@
                                     echo '
                                     <tbody>
                                         <tr>
-                                            <td>'.$linha['matricula'].'</td>
-                                            <td>'.$linha['acesso'].'</td>
+                                            <td>'.$linha['idusuarios'].'</td>
                                             <td>'.$linha['nome'].'</td>
-                                            <td>'.$linha['sobrenome'].'</td>
-                                            <td>'.$linha['telefone'].'</td>
+                                            <td>'.$linha['fone'].'</td>
                                             <td>'.$linha['email'].'</td>
-                                            <td><a style="margin-left: 20px;" href="admin.php?pagina=../processamento/usuario_remove.php&idUsuario='.$linha['id'].'"><img src="../lib/open-iconic/svg/trash.svg" alt="remover"></a></td>
-                                            <td><a style="margin-left: 10px;" href="admin.php?pagina=view_usuarios_update.php&idUsuario='.$linha['id'].'"><img src="../lib/open-iconic/svg/brush.svg" alt="editar"></a></td>
+                                            <td>'.$linha['usuario'].'</td>
+                                            <td><a style="margin-left: 20px;" href="admin.php?pagina=../processamento/usuario_remove.php&idUsuario='.$linha['idusuarios'].'"><img src="../lib/open-iconic/svg/trash.svg" alt="remover"></a></td>
+                                            <td><a style="margin-left: 10px;" href="admin.php?pagina=view_usuarios_update.php&idUsuario='.$linha['idusuarios'].'"><img src="../lib/open-iconic/svg/brush.svg" alt="editar"></a></td>
                                         </tr>
                                     </tbody>';
                                 }
                             ?>
                         </table>
-                        <a href="cadastros_usuarios_admin.php"><button type="button" class="btn btn-primary">Novo Cadastro</button></a>
+                        <a href=""><button type="button" class="btn btn-primary">Novo Cadastro</button></a>
                     </div>
                 </div>
             </div>

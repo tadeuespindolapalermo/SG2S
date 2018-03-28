@@ -6,9 +6,7 @@
 
         require_once('../db/Conexao.class.php');
 
-        $strMatricula = $_POST['matricula'];
         $strNome = $_POST['nome'];
-        $strSobrenome = $_POST['sobrenome'];
         $strTelefone = $_POST['telefone'];
         $strUsuario = $_POST['usuario'];
         $strEmail = $_POST['email'];
@@ -18,14 +16,12 @@
 
         $strSql = "
         UPDATE usuarios set
-            matricula = '".$strMatricula."',
             nome = '".$strNome."',
-            sobrenome = '".$strSobrenome."',
-            telefone = '".$strTelefone."',
+            fone = '".$strTelefone."',
             usuario = '".$strUsuario."',
             email = '".$strEmail."'
         WHERE
-            id = ".$_GET['idUsuario'];
+            idusuarios = ".$_GET['idUsuario'];
 
         $objConexao->atualizarUsuario($link, $strSql);
 

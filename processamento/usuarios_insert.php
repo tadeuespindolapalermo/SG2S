@@ -2,10 +2,8 @@
 
     require_once('../db/Conexao.class.php');
 
-    $matricula = $_POST['matricula'];
-    $acesso = $_POST['acesso'];
+    $perfil = $_POST['perfil'];
     $nome = $_POST['nome'];
-    $sobrenome = $_POST['sobrenome'];
     $telefone = $_POST['telefone'];
     $usuario = $_POST['usuario'];
     $email = $_POST['email'];
@@ -65,25 +63,20 @@
     }
 
     // INSERÇÃO COM PDO
-    $sql = "INSERT INTO usuarios(acesso, matricula, nome, sobrenome, telefone, usuario, email, senha) VALUES (:acesso,:matricula,:nome,:sobrenome,:telefone,:usuario,:email,:senha)";
+    $sqlUsuario = "INSERT INTO usuarios(nome, fone, email, usuario, senha) VALUES (:nome,:fone,:email,:usuario,:senha)";
 
-    $matriculaPDO = $matricula;
     $nomePDO = $nome;
-    $acessoPDO = $acesso;
-    $sobrenomePDO = $sobrenome;
     $telefonePDO = $telefone;
     $usuarioPDO = $usuario;
     $emailPDO = $email;
     $senhaPDO = $senha;
 
-    $stmt = $conn->prepare($sql);
-    $stmt->bindParam(':matricula', $matriculaPDO);
+    $stmt = $conn->prepare($sqlUsuario);
+
     $stmt->bindParam(':nome', $nomePDO);
-    $stmt->bindParam(':acesso', $acessoPDO);
-    $stmt->bindParam(':sobrenome', $sobrenomePDO);
-    $stmt->bindParam(':telefone', $telefonePDO);
-    $stmt->bindParam(':usuario', $usuarioPDO);
+    $stmt->bindParam(':fone', $telefonePDO);
     $stmt->bindParam(':email', $emailPDO);
+    $stmt->bindParam(':usuario', $usuarioPDO);
     $stmt->bindParam(':senha', $senhaPDO);
 
     $cadastroEfetuado = $stmt->execute();
@@ -99,26 +92,5 @@
         <script type=\"text/javascript\">
             alert(\"Erro ao cadastrar usuário!!!\");
         </script>";
-        header('Location: cadastros_usuarios_admin.php');
+        header('Location: ../view/cadastros_usuarios_admin.php');
     }
-
-    // INSERÇÃO SEM PDO
-    // String SQL de inserção de usuário
-    //$sql = "INSERT INTO usuarios(acesso, matricula, nome, sobrenome, telefone, usuario, email, senha) VALUES ('$acesso', '$matricula', '$nome', '$sobrenome', '$telefone', '$usuario', '$email', '$senha')";
-
-    //$cadastroEfetuado = mysqli_query($link, $sql);
-
-    // Executa a query
-    /*if ($cadastroEfetuado) {
-        echo "
-        <script type=\"text/javascript\">
-            alert(\"Usuário cadastrado com sucesso!!!\");
-        </script>";
-        header('Location: ../index.php');
-    } else {
-        echo "
-        <script type=\"text/javascript\">
-            alert(\"Erro ao cadastrar usuário!!!\");
-        </script>";
-        header('Location: inscrevase.php');
-    }*/

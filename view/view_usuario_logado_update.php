@@ -11,10 +11,8 @@
 
     $strSql= "
     SELECT
-        matricula,
         nome,
-        sobrenome,
-        telefone,
+        fone,
         usuario,
         email,
         senha
@@ -33,17 +31,12 @@
         <form action="../processamento/usuario_logado_update.php" method="post">
             <div class="form-group ">
                 <div class="col-lg-13">
-                    <label class="col-lg-12 control-label label-usuario">Matrícula</label>
-                    <input type="text" style="width: 105px; margin-bottom: -5px;" id="matricula" name="matricula" class="form-control" value="'.$linha['matricula'].'" disabled required><br/>
 
                     <label class="col-lg-12 control-label label-usuario">Nome</label>
                     <input type="text" style="width: 300px; margin-bottom: -5px;" id="nome" name="nome" class="form-control" value="'.$linha['nome'].'" required><br/>
 
-                    <label class="col-lg-2 control-label label-usuario" >Sobrenome</label>
-                    <input type="text" style="width: 300px; margin-bottom: -5px;" id="sobrenome" name="sobrenome" class="form-control" value="'.$linha['sobrenome'].'" required><br/>
-
                     <label class="col-lg-2 control-label label-usuario" >Telefone</label>
-                    <input type="text" style="width: 300px; margin-bottom: -5px;" id="telefone" name="telefone" class="form-control" value="'.$linha['telefone'].'" required><br/>
+                    <input type="text" style="width: 300px; margin-bottom: -5px;" id="telefone" name="telefone" class="form-control" value="'.$linha['fone'].'" required><br/>
 
                     <label class="col-lg-2 control-label label-usuario">Usuário</label>
                     <input type="text" style="width: 300px; margin-bottom: -5px;" id="usuario" name="usuario" class="form-control" value="'.$linha['usuario'].'" required disabled><br/>

@@ -1,6 +1,6 @@
 <?php
 
-    echo "<h6>Usuário logado:<br /><br /> {$_SESSION['nome']} {$_SESSION['sobrenome']}<strong> ({$_SESSION['acesso']})</strong><br /><strong><font color='#FF0000'>{$_SESSION['email']}</font></strong></h6>";
+    echo "<h6>Usuário logado:<br /><br /> {$_SESSION['nome']}<br /><strong><font color='#FF0000'>{$_SESSION['email']}</font></strong></h6>";
 
     echo '<hr><li>Links úteis:
     <ul><a href="http://189.36.3.130/jkfefatep/" target="_blank"><br />Área do Aluno - JK Santa Maria</a></ul>

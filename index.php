@@ -39,10 +39,7 @@
             <label for="inputPassword" class="sr-only">Senha</label>
             <input ng-model="senhalogin" type="password" ng-required="true" id="campo_senha" name="senha" class="form-control" placeholder="Senha" required />
 
-            <div class="checkbox mb-3">
-                <label>
-                    <input type="checkbox" value="lembrar-me">Lembrar-me
-                </label>
+            <div class="checkbox mb-3">                
                 <?php
                     echo '<br/>';
                     if($erro == 1) {
@@ -59,10 +56,8 @@
                         Preencha o campo Senha!
                     </div>
                 </div>
+                <button class="btn btn-lg btn-primary btn-block" type="submit" id="btn_login">Entrar</button>
             </div>
-
-            <button class="btn btn-lg btn-primary btn-block" type="submit" id="btn_login">Entrar</button>
-            <small><a href="view/inscrevase_aluno.php">É Aluno? Cadastre-se</a></small>
             <p class="mt-5 mb-3 text-muted">&copy; SG2S 2018 | Faculdade JK</p>
         </form>
 

@@ -2,7 +2,7 @@
 
 	session_start();
 
-	if($_SESSION['acesso'] === 'Aluno') {
+	if($_SESSION['perfil_idperfil'] == 2) {
         header('Location: ../processamento/sair.php');
     }
 
@@ -79,25 +79,18 @@
 				<form method="post" action="../processamento/usuarios_insert.php" id="formCadastrarse">
 					<div class="form-group">
 						<small><strong>*Campos Obrigatórios</strong></small>
-						<div class="form-group">
-							<input type="text" class="form-control" id="matricula" name="matricula" placeholder="*Matrícula" required="required" autofocus>
-						</div>
 
 		                <div class="form-group">
 							<!--<input type="text" class="form-control" id="acesso" name="acesso" placeholder="*Acesso" required="required" autofocus>-->
-		                    <select class="form-control" id="acesso" name="acesso" required="required">
-								<option value="">-Selecione-</option>
+		                    <select class="form-control" id="perfil" name="perfil" required="required">
+								<option value="">-Selecione o Perfil-</option>
 		                        <option value="Administrador">Administrador</option>
-		                        <option value="Aluno">Aluno</option>
+		                        <option value="Coordenador">Coordenador</option>
 		                    </select>
 						</div>
 
 						<div class="form-group">
 							<input type="text" class="form-control" id="nome" name="nome" placeholder="*Nome" required="required" autofocus>
-						</div>
-
-						<div class="form-group">
-							<input type="text" class="form-control" id="sobrenome" name="sobrenome" placeholder="*Sobrenome" required="required">
 						</div>
 
 						<div class="form-group">

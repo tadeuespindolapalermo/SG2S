@@ -9,7 +9,7 @@
     $objConexao = new Conexao();
     $link = $objConexao->conectar();
 
-    $strSql = "DELETE FROM usuarios WHERE id=".$_GET['idUsuario'];
+    $strSql = "DELETE FROM usuarios WHERE idusuarios=".$_GET['idUsuario'];
 
     $rs = $objConexao->executarConsulta($link, $strSql);
 

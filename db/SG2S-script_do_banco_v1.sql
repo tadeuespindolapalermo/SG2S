@@ -29,7 +29,7 @@ CREATE TABLE IF NOT EXISTS `codigofonteonline1`.`usuarios` (
   `fone` VARCHAR(16) CHARACTER SET 'utf8' COLLATE 'utf8_general_ci' NOT NULL COMMENT 'Haverá máscara jQuery no campo do formulário.\nFormato: (99) 9 9999-9999',
   `email` VARCHAR(60) CHARACTER SET 'utf8' COLLATE 'utf8_general_ci' NOT NULL COMMENT 'Será validado por atributo no campo do formulário.',
   `usuario` VARCHAR(40) CHARACTER SET 'utf8' COLLATE 'utf8_general_ci' NOT NULL,
-  `senha` VARCHAR(8) CHARACTER SET 'utf8' COLLATE 'utf8_general_ci' NOT NULL COMMENT 'Permitido no máximo até 8 caracteres.',
+  `senha` VARCHAR(32) CHARACTER SET 'utf8' COLLATE 'utf8_general_ci' NOT NULL COMMENT 'Permitido no máximo até 32 caracteres (md5).',
   PRIMARY KEY (`idusuarios`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8
@@ -99,13 +99,13 @@ CREATE TABLE IF NOT EXISTS `codigofonteonline1`.`usuario_perfil` (
   CONSTRAINT `fk_usuario_perfil_usuarios1`
     FOREIGN KEY (`usuarios_idusuarios`)
     REFERENCES `codigofonteonline1`.`usuarios` (`idusuarios`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
   CONSTRAINT `fk_usuario_perfil_perfil1`
     FOREIGN KEY (`perfil_idperfil`)
     REFERENCES `codigofonteonline1`.`perfil` (`idperfil`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8
 COMMENT = 'Associação entre as tabelas usuarios e perfil';
