@@ -1,6 +1,7 @@
 <?php
-
     session_start();
+
+    //require('../db/Config.inc.php'); // PDO
 
     require_once('../db/Conexao.class.php');
 
@@ -11,7 +12,9 @@
     $sqlUsuario = "SELECT idusuarios, nome, usuario, email FROM usuarios WHERE usuario = '$usuario' AND senha = '$senha'";
 
     $objConexao = new Conexao();
+    //$objConexao = new Conn(); // PDO
     $link = $objConexao->conectar();
+    //$link = $objConexao->Conectar(); // PDO
 
     $resultado_id = mysqli_query($link, $sqlUsuario);
 

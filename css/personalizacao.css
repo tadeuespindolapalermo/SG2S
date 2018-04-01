@@ -1,0 +1,10 @@
+/*MENSAGENS DO SISTEMA*/
+
+.trigger{padding: 15px 15px 15px 40px; background: #eee; font-size: 14px; margin-bottom: 15px;}
+.trigger a{font-weight: 600; font-size: 12px; text-transform: uppercase; padding: 5px 15px; background: #069; color: #fff;}
+.trigger a:hover{background: #09f; color: #fff;}
+
+.accept{background: #71ca73 url(../icons/accept.png) center left 10px no-repeat}
+.infor{background:  #c8dbfd url(../icons/infor.png) center left 10px no-repeat}
+.alert{background:  #faf7b7 url(../icons/alert.png) center left 10px no-repeat}
+.error{background:  #ffafaf url(../icons/error.png) center left 10px no-repeat}
