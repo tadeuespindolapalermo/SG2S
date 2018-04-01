@@ -1,6 +1,13 @@
 <?php
 
-    session_start();
+    session_start();    
+
+    if($_SESSION['perfil_idperfil'] == 2) {
+        unset($_SESSION['usuario']);
+        unset($_SESSION['email']);
+        session_destroy();
+        header('Location: ../processamento/sair.php');
+    }
 
     if($_SERVER["REQUEST_METHOD"] == "POST") {
 

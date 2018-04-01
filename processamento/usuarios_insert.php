@@ -1,4 +1,12 @@
 <?php
+    session_start();
+
+    if($_SESSION['perfil_idperfil'] == 2) {
+        unset($_SESSION['usuario']);
+        unset($_SESSION['email']);
+        session_destroy();
+        header('Location: ../processamento/sair.php');
+    }
 
     require_once('../db/Conexao.class.php');
 
@@ -111,7 +119,7 @@
     $stmt2->bindParam(':id', $id_usuario_inserido);
     $stmt2->bindParam(':perfil', $perfilPDO);
 
-    $cadastroPerfilUsuarioEfetuado = $stmt2->execute();    
+    $cadastroPerfilUsuarioEfetuado = $stmt2->execute();
     // -----------------------------------------
 
     if($cadastroUsuarioEfetuado && $cadastroPerfilUsuarioEfetuado) {
