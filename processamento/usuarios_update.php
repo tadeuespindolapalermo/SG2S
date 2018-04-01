@@ -6,26 +6,47 @@
 
         require_once('../db/Conexao.class.php');
 
+        $strPerfil = $_POST['perfil'];
+
+        if ($strPerfil == 'Administrador') {
+            $strPerfil = 1;
+        } elseif ($strPerfil == 'Coordenador') {
+            $strPerfil = 2;
+        }
+
         $strNome = $_POST['nome'];
         $strTelefone = $_POST['telefone'];
         $strUsuario = $_POST['usuario'];
         $strEmail = $_POST['email'];
+        $strSenhaNormal = $_POST['senha'];
+        $strSenha = md5($_POST['senha']);
 
         $objConexao = new Conexao();
-        $link = $objConexao->conectar();
+        $link1 = $objConexao->conectar();
+        $link2 = $objConexao->conectar();
 
-        $strSql = "
+        $strSqlUsuario = "
         UPDATE usuarios set
             nome = '".$strNome."',
             fone = '".$strTelefone."',
             usuario = '".$strUsuario."',
-            email = '".$strEmail."'
+            email = '".$strEmail."',
+            senha = '".$strSenha."'
         WHERE
             idusuarios = ".$_GET['idUsuario'];
 
-        $objConexao->atualizarUsuario($link, $strSql);
+        $strSqlPerfilUsuario = "
+        UPDATE usuario_perfil set
+            perfil_idperfil = '".$strPerfil."'
+        WHERE
+            usuarios_idusuarios = ".$_GET['idUsuario'];
 
-        if (mysqli_affected_rows($link) > 0) {
+        $objConexao->atualizarUsuario($link1, $strSqlPerfilUsuario);
+        $objConexao->atualizarUsuario($link2, $strSqlUsuario);
+
+        if ((mysqli_affected_rows($link1)) || (mysqli_affected_rows($link2)) > 0) {
+
+            $_SESSION['senha'] = $strSenhaNormal;
 
             echo "
             <script type=\"text/javascript\">

@@ -4,13 +4,15 @@
 
     require_once('../db/Conexao.class.php');
 
-    $usuarioSessao = $_SESSION['usuario'];
+    $idUsuarioSessao = $_SESSION['idusuarios'];
 
     $objConexao = new Conexao();
     $link = $objConexao->conectar();
 
+    $erro_update = isset($_GET['erro_update']) ? $_GET['erro_update'] : 0;
+
     $strSql= "
-    SELECT
+    SELECT        
         nome,
         fone,
         usuario,
@@ -19,12 +21,14 @@
     FROM
         usuarios
     WHERE
-        usuario='{$usuarioSessao}'";
+        idusuarios='{$idUsuarioSessao}'";
 
     $rs = $objConexao->executarConsulta($link, $strSql);
 
     $linha = mysqli_fetch_array($rs, MYSQLI_ASSOC);
-
+    if($erro_update) {
+        echo '<div style="margin-left: 18px;"><font color="#FF0000"><strong>Erro ao atualizar! Modifique algum dado no formulário!</strong></font></div>';
+    }
     echo '
     <div class="container">
         <h3 class="text-muted">Atualizar Dados Cadastrais</h3>
@@ -39,7 +43,7 @@
                     <input type="text" style="width: 300px; margin-bottom: -5px;" id="telefone" name="telefone" class="form-control" value="'.$linha['fone'].'" required><br/>
 
                     <label class="col-lg-2 control-label label-usuario">Usuário</label>
-                    <input type="text" style="width: 300px; margin-bottom: -5px;" id="usuario" name="usuario" class="form-control" value="'.$linha['usuario'].'" required disabled><br/>
+                    <input type="text" style="width: 300px; margin-bottom: -5px;" id="usuario" name="usuario" class="form-control" value="'.$linha['usuario'].'" required><br/>
 
                     <label class="col-lg-2 control-label label-usuario">Email</label>
                     <input type="email" style="width: 300px; margin-bottom: -5px;" id="email" name="email" class="form-control" value="'.$linha['email'].'" required><br/>

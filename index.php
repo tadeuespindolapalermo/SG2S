@@ -39,10 +39,10 @@
             <label for="inputPassword" class="sr-only">Senha</label>
             <input ng-model="senhalogin" type="password" ng-required="true" id="campo_senha" name="senha" class="form-control" placeholder="Senha" required />
 
-            <div class="checkbox mb-3">                
+            <div class="checkbox mb-3">
                 <?php
                     echo '<br/>';
-                    if($erro == 1) {
+                    if($erro == 1) {                        
                         echo '<font color="#FF0000"><strong>Usuário e/ou senha inválido(s)!<strong></font>';
                     }
                  ?>

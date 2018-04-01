@@ -5,7 +5,7 @@
         header('Location: ../index.php?erro=1');
     }
 
-    if($_SESSION['perfil_idperfil'] == 2) {
+    if($_SESSION['perfil_idperfil'] == 1) {
         header('Location: ../processamento/sair.php');
     }
 
@@ -66,13 +66,13 @@
                     <div class="sidebar-sticky">
                         <ul class="nav flex-column">
                             <li class="nav-item">
-                                <a class="nav-link active" href="admin.php?pagina=home.php">
+                                <a class="nav-link active" href="coordenador.php?pagina=home.php">
                                     <span data-feather="home"></span>
                                     Início <span class="sr-only">(current)</span>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="admin.php?pagina=view_usuario_logado_update.php">
+                                <a class="nav-link" href="coordenador.php?pagina=view_usuario_logado_update.php">
                                     <span data-feather="user"></span>
                                     <strong><?= $_SESSION['nome'] ?></strong>
                                 </a>
@@ -84,21 +84,9 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="admin.php?pagina=usuarios_listagem.php">
-                                    <span data-feather="users"></span>
-                                    Usuários
-                                </a>
-                            </li>
-                            <li class="nav-item">
                                 <a class="nav-link" href="#">
                                     <span data-feather="bar-chart-2"></span>
                                     Relatórios
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">
-                                    <span data-feather="layers"></span>
-                                    Integrações e Serviços
                                 </a>
                             </li>
                         </ul>

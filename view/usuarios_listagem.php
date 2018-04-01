@@ -17,7 +17,7 @@
         $objConexao = new Conexao();
         $link = $objConexao->conectar();
 
-        $strSql= "
+        $strSqlUsuario= "
         SELECT
             idusuarios,
             nome,
@@ -27,7 +27,14 @@
         FROM
             usuarios";
 
-        $rs = $objConexao->executarConsulta($link, $strSql);
+        $strSqlPerfilUsuario= "
+        SELECT
+            perfil_idperfil
+        FROM
+            usuario_perfil";
+
+        $rsUsuario = $objConexao->executarConsulta($link, $strSqlUsuario);
+        $rsPerfilUsuario = $objConexao->executarConsulta($link, $strSqlPerfilUsuario);
 
         //$linha = mysqli_fetch_array($rs, MYSQLI_ASSOC);
     ?>
@@ -42,25 +49,34 @@
                                 <tr>
                                     <th>Id</th>
                                     <th>Nome</th>
-                                    <th>Telefone</th>
-                                    <th>E-mail</th>
                                     <th>Usuário</th>
+                                    <th>Perfil</th>
+                                    <th>E-mail</th>
+                                    <th>Telefone</th>
                                     <th>Excluir</th>
                                     <th>Editar</th>
                                 </tr>
                             </thead>
                             <?php
-                                while ($linha = mysqli_fetch_array($rs, MYSQLI_ASSOC)) {
+                                while (($linhaPerfilUsuario = mysqli_fetch_array($rsPerfilUsuario, MYSQLI_ASSOC)) && ($linhaUsuario = mysqli_fetch_array($rsUsuario, MYSQLI_ASSOC))) {
+
+                                    if($linhaPerfilUsuario['perfil_idperfil'] == 1) {
+                                        $linhaPerfilUsuarioTable = 'Administrador';
+                                    } elseif ($linhaPerfilUsuario['perfil_idperfil'] == 2) {
+                                        $linhaPerfilUsuarioTable = 'Coordenador';
+                                    }
+
                                     echo '
                                     <tbody>
                                         <tr>
-                                            <td>'.$linha['idusuarios'].'</td>
-                                            <td>'.$linha['nome'].'</td>
-                                            <td>'.$linha['fone'].'</td>
-                                            <td>'.$linha['email'].'</td>
-                                            <td>'.$linha['usuario'].'</td>
-                                            <td><a style="margin-left: 20px;" href="admin.php?pagina=../processamento/usuario_remove.php&idUsuario='.$linha['idusuarios'].'"><img src="../lib/open-iconic/svg/trash.svg" alt="remover"></a></td>
-                                            <td><a style="margin-left: 10px;" href="admin.php?pagina=view_usuarios_update.php&idUsuario='.$linha['idusuarios'].'"><img src="../lib/open-iconic/svg/brush.svg" alt="editar"></a></td>
+                                            <td>'.$linhaUsuario['idusuarios'].'</td>
+                                            <td>'.$linhaUsuario['nome'].'</td>
+                                            <td>'.$linhaUsuario['usuario'].'</td>
+                                            <td>'.$linhaPerfilUsuarioTable.'</td>
+                                            <td>'.$linhaUsuario['email'].'</td>
+                                            <td>'.$linhaUsuario['fone'].'</td>
+                                            <td><a style="margin-left: 20px;" href="admin.php?pagina=../processamento/usuario_remove.php&idUsuario='.$linhaUsuario['idusuarios'].'"><img src="../lib/open-iconic/svg/trash.svg" alt="remover"></a></td>
+                                            <td><a style="margin-left: 10px;" href="admin.php?pagina=view_usuarios_update.php&idUsuario='.$linhaUsuario['idusuarios'].'"><img src="../lib/open-iconic/svg/brush.svg" alt="editar"></a></td>
                                         </tr>
                                     </tbody>';
                                 }

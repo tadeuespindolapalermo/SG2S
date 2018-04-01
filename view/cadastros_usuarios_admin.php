@@ -60,7 +60,7 @@
 			<div class="form-group">
 				<input type="password" class="form-control" id="senha" name="senha" placeholder="*Senha" required="required">
 			</div>
-			<button type="submit" class="btn btn-primary form-control">Cadastrar-se</button>
+			<button type="submit" class="btn btn-primary form-control">Cadastrar</button>
 		</form>
 	</div>
 </div>
