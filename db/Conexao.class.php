@@ -21,21 +21,7 @@ class Conexao {
             echo 'Erro ao tentar se conectar com o Banco de Dados: ' . mysqli_connect_error();
         }
         return $con;
-    }
-
-    // Conexão com PDO
-    public function getConnection() {
-        $dsn = 'mysql:host='.$this->host.';dbname='.$this->database.';charset=utf8';
-        $user = $this->usuario;
-        $pass = $this->senha;
-
-        try {
-            $pdo = new PDO($dsn, $user, $pass);
-            return $pdo;
-        } catch (PDOException $ex) {
-            echo 'Erro ao tentar se conectar com o Banco de Dados: '.$ex->getMessage();
-        }
-    }
+    }    
 
     // Executa consultas no Banco de Dados
     public function executarConsulta($link, $strSql) {
