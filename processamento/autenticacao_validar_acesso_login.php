@@ -1,46 +1,59 @@
 <?php
     session_start();
 
-    //require('../db/Config.inc.php'); // PDO
-
-    require_once('../db/Conexao.class.php');
+    require('../db/Config.inc.php');
 
     $usuario = $_POST['usuario'];
     $senha = md5($_POST['senha']);
     $senhaNormal = $_POST['senha'];
 
-    $sqlUsuario = "SELECT idusuarios, nome, usuario, email FROM usuarios WHERE usuario = '$usuario' AND senha = '$senha'";
+    // CONEXÃO COM PDO
+    $PDO = new Conn;
+    $conn = $PDO->Conectar();
 
-    $objConexao = new Conexao();
-    //$objConexao = new Conn(); // PDO
-    $link = $objConexao->conectar();
-    //$link = $objConexao->Conectar(); // PDO
+    // VERIFICA SE O USUÁRIO INFORMADO EXISTE NO SISTEMA
+    $sqlUsuario = "SELECT * FROM usuarios WHERE usuario = :usuario AND senha = :senha";
+    $selectUsuario = $conn->prepare($sqlUsuario);
+    $selectUsuario->bindValue(':usuario', $usuario);
+    $selectUsuario->bindValue(':senha', $senha);
+    $selectUsuario->execute();
 
-    $resultado_id = mysqli_query($link, $sqlUsuario);
+    if ($selectUsuario) {
 
-    if($resultado_id) {
+        $dados_usuario = $selectUsuario->fetchAll(PDO::FETCH_ASSOC);
+        foreach($dados_usuario as $dados) {
+            $idUsuario = $dados['idusuarios'];
+            $nomeUsuario = $dados['nome'];
+            $usuarioUsuario = $dados['usuario'];
+            $emailUsuario = $dados['email'];
+            $senhaUsuario = $dados['senha'];
+        }
 
-        $dados_usuario = mysqli_fetch_array($resultado_id);
-        $idUsuario = $dados_usuario['idusuarios'];
+        $sqlPerfilId = "SELECT perfil_idperfil FROM usuario_perfil WHERE usuarios_idusuarios = :idUsuario";
+        $selectPerfilId = $conn->prepare($sqlPerfilId);
+        $selectPerfilId->bindValue(':idUsuario', $idUsuario);
+        $selectPerfilId->execute();
 
-        $sqlPerfilId = "SELECT perfil_idperfil FROM usuario_perfil WHERE usuarios_idusuarios = '$idUsuario'";
-        $resultado_perfil_id = mysqli_query($link, $sqlPerfilId);
+        $dados_perfil = $selectPerfilId->fetchAll(PDO::FETCH_ASSOC);
+        foreach($dados_perfil as $dados) {
+            $idPerfil = $dados['perfil_idperfil'];
+        }
 
-        $dados_perfil = mysqli_fetch_array($resultado_perfil_id);
+        if (isset($usuarioUsuario) && isset($idPerfil)) {
 
-        if (isset($dados_usuario['usuario']) && isset($dados_perfil['perfil_idperfil'])) {
+            $_SESSION['perfil_idperfil'] = $idPerfil;
+            $_SESSION['nome'] = $nomeUsuario;
+            $_SESSION['idusuarios'] = $idUsuario;
+            $_SESSION['usuario'] = $usuarioUsuario;
+            $_SESSION['email'] = $emailUsuario;
+            $_SESSION['senha'] = $senhaUsuario;
 
-            $_SESSION['perfil_idperfil'] = $dados_perfil['perfil_idperfil'];
-            $_SESSION['nome'] = $dados_usuario['nome'];
-            $_SESSION['idusuarios'] = $dados_usuario['idusuarios'];
-            $_SESSION['usuario'] = $dados_usuario['usuario'];
-            $_SESSION['email'] = $dados_usuario['email'];
-            $_SESSION['senha'] = $senhaNormal;
-
-            if($_SESSION['perfil_idperfil'] == 1) {
+            if ($idPerfil == 1) {
                 header('Location: ../view/admin.php?pagina=home.php');
-            } elseif ($_SESSION['perfil_idperfil'] == 2) {
+                $_SESSION['senha'] = $senhaNormal;
+            } elseif ($idPerfil == 2) {
                 header('Location: ../view/coordenador.php?pagina=home.php');
+                $_SESSION['senha'] = $senhaNormal;
             }
         } else {
             header('Location: ../index.php?erro=1');
