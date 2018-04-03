@@ -88,19 +88,13 @@
     try {
         $sqlUsuario = "INSERT INTO usuarios(nome, fone, email, usuario, senha) VALUES (?, ?, ?, ?, ?)";
 
-        $nomePDO = $nome;
-        $fonePDO = $fone;
-        $usuarioPDO = $usuario;
-        $emailPDO = $email;
-        $senhaPDO = $senha;
-
         $stmtCreateUsuario = $conn->prepare($sqlUsuario);
 
-        $stmtCreateUsuario->bindParam(1, $nomePDO, PDO::PARAM_STR, 60);
-        $stmtCreateUsuario->bindParam(2, $fonePDO, PDO::PARAM_STR, 16);
-        $stmtCreateUsuario->bindParam(3, $emailPDO, PDO::PARAM_STR, 60);
-        $stmtCreateUsuario->bindParam(4, $usuarioPDO, PDO::PARAM_STR, 40);
-        $stmtCreateUsuario->bindParam(5, $senhaPDO, PDO::PARAM_STR, 32);
+        $stmtCreateUsuario->bindParam(1, $nome, PDO::PARAM_STR, 60);
+        $stmtCreateUsuario->bindParam(2, $fone, PDO::PARAM_STR, 16);
+        $stmtCreateUsuario->bindParam(3, $email, PDO::PARAM_STR, 60);
+        $stmtCreateUsuario->bindParam(4, $usuario, PDO::PARAM_STR, 40);
+        $stmtCreateUsuario->bindParam(5, $senha, PDO::PARAM_STR, 32);
 
         $cadastroUsuarioEfetuado = $stmtCreateUsuario->execute();
         // -----------------------------------------
@@ -109,7 +103,7 @@
         // BUSCAR ID DO USUÁRIO INSERIDO
         $sqlIdUsuario = "SELECT * FROM usuarios WHERE usuario = :usuario";
         $selectIdUsuario = $conn->prepare($sqlIdUsuario);
-        $selectIdUsuario->bindValue(':usuario', $usuarioPDO);
+        $selectIdUsuario->bindValue(':usuario', $usuario);
         $selectIdUsuario->execute();
 
         if ($selectIdUsuario->rowCount() >= 1) {
@@ -123,12 +117,10 @@
         // INSERÇÃO DE PERFIL DO USUÁRIO COM PDO
         $sqlPerfilUsuario = "INSERT INTO usuario_perfil(usuarios_idusuarios, perfil_idperfil) VALUES (?, ?)";
 
-        $perfilPDO = $perfil;
-
         $stmtCreatePerfil = $conn->prepare($sqlPerfilUsuario);
 
         $stmtCreatePerfil->bindParam(1, $id_usuario_inserido, PDO::PARAM_INT, 11);
-        $stmtCreatePerfil->bindParam(2, $perfilPDO, PDO::PARAM_INT, 11);
+        $stmtCreatePerfil->bindParam(2, $perfil, PDO::PARAM_INT, 11);
 
         $cadastroPerfilUsuarioEfetuado = $stmtCreatePerfil->execute();
         // -----------------------------------------
