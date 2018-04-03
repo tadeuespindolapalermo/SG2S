@@ -7,7 +7,7 @@
     $senha = md5($_POST['senha']);
     $senhaNormal = $_POST['senha'];
 
-    // CONEXÃO COM PDO
+    // CONEXÃO COM PDO PARA ACESSO A DADOS
     $PDO = new Conn;
     $conn = $PDO->Conectar();
 
