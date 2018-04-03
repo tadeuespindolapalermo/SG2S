@@ -4,12 +4,12 @@ angular.module("sg2s").controller("indexController", function ($scope) {
 
 })
 
-.controller("homeController", function ($scope) {
+.controller("adminController", function ($scope) {
 
 
 })
 
-.controller("inscricaoController", function ($scope) {
+.controller("coordenadorController", function ($scope) {
 
 
 })

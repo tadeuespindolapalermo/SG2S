@@ -8,7 +8,7 @@
     if($_SESSION['perfil_idperfil'] == 1) {
         unset($_SESSION['usuario']);
         unset($_SESSION['email']);
-        session_destroy();   
+        session_destroy();
         header('Location: ../processamento/sair.php');
     }
 
@@ -20,7 +20,7 @@
 ?>
 
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-br" ng-app="sg2s">
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -56,11 +56,11 @@
         <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
             <span class="navbar-brand col-sm-3 col-md-2 mr-0"><strong>SG2S - <?php echo $perfil; ?></strong></span>
             <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search" />
-            <ul class="navbar-nav px-3">
+            <!--<ul class="navbar-nav px-3">
                 <li class="nav-item text-nowrap">
                     <a class="nav-link" href="../processamento/sair.php">Sair</a>
                 </li>
-            </ul>
+            </ul>-->
         </nav>
 
         <div class="container-fluid">
@@ -137,13 +137,16 @@
                         <h1 class="h2">Sistema de Geração da Grade Semestral</h1>
                         <div class="btn-toolbar mb-2 mb-md-0">
                             <div class="btn-group mr-2">
-                                <button class="btn btn-sm btn-outline-secondary">Compartilhar</button>
-                                <button class="btn btn-sm btn-outline-secondary">Exportar</button>
+                                <!--<button class="btn btn-sm btn-outline-secondary"><i>Compartilhar</i></button>-->
+                                <a href="../processamento/sair.php"><button class="btn btn-sm btn-outline-secondary">
+                                    <i><img src="../lib/open-iconic/svg/power-standby.svg" alt="sair"></i>&nbsp;Sair
+                                </button></a>
+                                <!--<button class="btn btn-sm btn-outline-secondary">Exportar</button>-->
                             </div>
-                            <button class="btn btn-sm btn-outline-secondary dropdown-toggle">
+                            <!--<button class="btn btn-sm btn-outline-secondary dropdown-toggle">
                                 <span data-feather="activity"></span>
                                 Atividades
-                            </button>
+                            </button>-->
                         </div>
                     </div>
 
@@ -191,5 +194,9 @@
 
         <!-- Graphs link sem cdn-->
         <script src="../lib/ajax/ajax-chart-2_7_1.min.js"></script>
+        <script src="../lib/angularjs/angular.min.js"></script>
+        <script src="../lib/angularjs/angular-route.min.js"></script>
+        <script src="../js/app/app.js"></script>
+        <script src="../js/app/controllers.js"></script>
     </body>
 </html>

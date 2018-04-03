@@ -9,7 +9,7 @@
         if($_SESSION['perfil_idperfil'] == 2) {
             unset($_SESSION['usuario']);
             unset($_SESSION['email']);
-            session_destroy();   
+            session_destroy();
             header('Location: ../processamento/sair.php');
         }
 
@@ -47,7 +47,7 @@
             <div class="panel panel-default">
                 <div class="panel-body">
                     <div class="table-responsive">
-                        <table class="table table-hover table-striped">
+                        <table class="table table-hover table-striped" id="listaUsuarios">
                             <thead>
                                 <tr>
                                     <th>Id</th>
@@ -78,14 +78,17 @@
                                             <td>'.$linhaPerfilUsuarioTable.'</td>
                                             <td>'.$linhaUsuario['email'].'</td>
                                             <td>'.$linhaUsuario['fone'].'</td>
-                                            <td><a style="margin-left: 20px;" href="admin.php?pagina=../processamento/usuario_remove.php&idUsuario='.$linhaUsuario['idusuarios'].'"><img src="../lib/open-iconic/svg/trash.svg" alt="remover"></a></td>
+                                            <td><a style="margin-left: 20px;" href="admin.php?pagina=../processamento/usuario_remove.php&idUsuario='.$linhaUsuario['idusuarios'].'"><img src="../lib/open-iconic/svg/x.svg" alt="remover"></a></td>
                                             <td><a style="margin-left: 10px;" href="admin.php?pagina=view_usuarios_update.php&idUsuario='.$linhaUsuario['idusuarios'].'"><img src="../lib/open-iconic/svg/brush.svg" alt="editar"></a></td>
                                         </tr>
                                     </tbody>';
                                 }
                             ?>
                         </table>
-                        <a href="admin.php?pagina=cadastros_usuarios_admin.php"><button type="button" class="btn btn-primary">Novo Cadastro</button></a>
+                        <a href="admin.php?pagina=cadastros_usuarios_admin.php"><button type="button" class="btn btn-primary"><img src="../lib/open-iconic/svg/person.svg" alt="exportarExcel">&nbsp;Novo Usuário</button></a>
+                        <button export-to-excel="listaUsuarios" class="btn btn-success">
+                            <i><img src="../lib/open-iconic/svg/share-boxed.svg" alt="exportarExcel"></i>&nbsp;Exportar Excel
+                        </button>
                     </div>
                 </div>
             </div>
