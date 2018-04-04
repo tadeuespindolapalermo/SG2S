@@ -48,8 +48,8 @@
 		<script src="../lib/jquery/maskedinput.js"></script>
 
 		<!-- Máscaras dos campos de formulários-->
-		<script src="../lib/jquery/masks.js"></script>
-        <script src="../js/exportExcel.js"></script>
+		<script src="../lib/jquery/masks.js"></script>        
+        <script src="../js/dom.js"></script>
     </head>
 
     <body>

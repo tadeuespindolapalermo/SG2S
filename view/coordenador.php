@@ -49,6 +49,7 @@
 
 		<!-- Máscaras dos campos de formulários-->
 		<script src="../lib/jquery/masks.js"></script>
+        <script src="../js/dom.js"></script>
     </head>
 
     <body>
