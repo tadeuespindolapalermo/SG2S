@@ -1,6 +1,7 @@
 <div class="container listar">
     <div class="header clearfix">
         <h3 class="text-muted">Listagem de Usuários</h3>
+        <small>ATENÇÃO: <strong><?= $_SESSION['nome'] ?></strong>, altere seus dados cadastrais somente através da opção ao lado para que seus dados de sessão sejam atualizados!</small>
     </div>
 
     <?php

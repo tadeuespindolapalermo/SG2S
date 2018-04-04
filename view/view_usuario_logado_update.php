@@ -49,7 +49,7 @@
                     <label class="col-lg-2 control-label label-usuario">Senha</label>
                     <input type="password" style="width: 300px; margin-bottom: -5px;" id="senha" name="senha" class="form-control" value="'.$_SESSION['senha'].'" required disabled><br/>
 
-                    <button type="submit" class="btn btn-success">Salvar</button>
+                    <button id="btnSalvar" type="submit" class="btn btn-success" disabled>Salvar</button>
                     <button type="button" onclick="alterarDisabled()" class="btn btn-info">Editar</button><br/><br/>
                 </div>
             </div>

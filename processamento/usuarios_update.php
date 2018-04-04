@@ -51,7 +51,7 @@
             $stmtUpdateUsuario->bindParam(':usuario', $strUsuario);
             $stmtUpdateUsuario->bindParam(':senha', $strSenha);
             $stmtUpdateUsuario->bindParam(':idUsuario', $strIdUsuario);
-            $updadeUsuario = $stmtUpdateUsuario->execute();
+            $updateUsuario = $stmtUpdateUsuario->execute();
             // -----------------------------------------------------------
 
             // UPDATE DO PERFIL DO USUÁRIO
@@ -64,11 +64,11 @@
             $stmtUpdatePerfilUsuario = $conn->prepare($strSqlPerfilUsuario);
             $stmtUpdatePerfilUsuario->bindParam(':idPerfil', $strPerfil);
             $stmtUpdatePerfilUsuario->bindParam(':idUsuario', $strIdUsuario);
-            $updadePerfilUsuario = $stmtUpdatePerfilUsuario->execute();
+            $updatePerfilUsuario = $stmtUpdatePerfilUsuario->execute();
             // ------------------------------------------------------------
 
             // VALIDAÇÃO DO UPDATE
-            if ($updadeUsuario && $updadePerfilUsuario) {
+            if ($updateUsuario && $updatePerfilUsuario) {
 
                 $_SESSION['senha'] = $strSenhaNormal;
 

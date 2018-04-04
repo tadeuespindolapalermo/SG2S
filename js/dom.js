@@ -4,5 +4,6 @@ function alterarDisabled() {
     document.getElementById("usuario").disabled = false;
     document.getElementById("email").disabled = false;
     document.getElementById("senha").disabled = false;
+    document.getElementById("btnSalvar").disabled = false;
     document.getElementById("nome").focus();
 }
