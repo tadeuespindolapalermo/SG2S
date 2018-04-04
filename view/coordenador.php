@@ -1,6 +1,14 @@
 <?php
     session_start();
 
+    // TEMPO DE SESSÃO DO USUÁRIO (30 MINUTOS) INDEPENDENTE DE OCIOSIDADE - FORÇADA
+    //if (!isset($_SESSION['start_login'])) { // se não tiver pego tempo que logou
+        //$_SESSION['start_login'] = time(); //pega tempo que logou
+        // adiciona 30 minutos ao tempo e grava em outra variável de sessão
+        //$_SESSION['logout_time'] = $_SESSION['start_login'] + 30 * 60;
+    //}
+    // ---------------------------------------------------------
+
     if (!isset($_SESSION['usuario'])) {
         header('Location: ../index.php?erro=1');
     }
@@ -136,6 +144,21 @@
                 <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
                     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
                         <h1 class="h2">Sistema de Geração da Grade Semestral</h1>
+                        <?php
+                            echo "<div style='margin-left: 200px;'><span style='font-weight: 900; font-size: 18px;'>Data: " . date('d-m-Y') . "</span></div>";
+                            // CÓDIGO PARA UTILIZAÇÃO DE TEMPO DE SESSÃO FORÇADA
+                            // se o tempo atual for maior que o tempo de logout
+                            //if(time() >= $_SESSION['logout_time']) {
+                                //unset($_SESSION['usuario']);
+                                //unset($_SESSION['email']);
+                                //session_destroy();
+                                //header('Location: ../#!/index'); //vai para logout
+                            //} else {
+                                //$red = $_SESSION['logout_time'] - time(); // tempo que falta
+                                //echo "Início de sessão: ".$_SESSION['start_login']."<br>";
+                                //echo "Redirecionando em ".$red." segundos.<br>";
+                            //}
+                        ?>
                         <div class="btn-toolbar mb-2 mb-md-0">
                             <div class="btn-group mr-2">
                                 <!--<button class="btn btn-sm btn-outline-secondary"><i>Compartilhar</i></button>-->
