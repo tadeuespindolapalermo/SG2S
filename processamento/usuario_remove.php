@@ -1,5 +1,4 @@
 <?php
-
     session_start();
 
     if($_SESSION['perfil_idperfil'] == 2) {
@@ -9,18 +8,20 @@
         header('Location: ../processamento/sair.php');
     }
 
-    require_once('../db/Conexao.class.php');
+    require('../db/Config.inc.php');
 
-    $usuarioSessao = $_SESSION['usuario'];
+    $idUsuario = $_GET['idUsuario'];
 
-    $objConexao = new Conexao();
-    $link = $objConexao->conectar();
+    // CONEXÃO COM PDO
+    $PDO = new Conn;
+    $conn = $PDO->Conectar();
 
-    $strSql = "DELETE FROM usuarios WHERE idusuarios=".$_GET['idUsuario'];
+    $sqlIdUsuario = "DELETE FROM usuarios WHERE idusuarios = :idUsuario";
+    $selectIdUsuario = $conn->prepare($sqlIdUsuario);
+    $selectIdUsuario->bindValue(':idUsuario', $idUsuario);
+    $selectIdUsuario->execute();
 
-    $rs = $objConexao->executarConsulta($link, $strSql);
-
-    $linhas = mysqli_affected_rows($link);
+    $linhas = $selectIdUsuario->rowCount();
 
     if ($linhas != 0) {
         echo "
