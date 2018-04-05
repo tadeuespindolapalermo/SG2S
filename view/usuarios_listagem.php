@@ -14,12 +14,11 @@
             header('Location: ../processamento/sair.php');
         }
 
-        require_once('../db/Conexao.class.php');
+        require('../db/Config.inc.php');
 
-        $usuarioSessao = $_SESSION['usuario'];
-
-        $objConexao = new Conexao();
-        $link = $objConexao->conectar();
+        // CONEXÃO COM PDO
+        $PDO = new Conn;
+        $conn = $PDO->Conectar();
 
         $strSqlUsuario= "
         SELECT
@@ -37,10 +36,11 @@
         FROM
             usuario_perfil";
 
-        $rsUsuario = $objConexao->executarConsulta($link, $strSqlUsuario);
-        $rsPerfilUsuario = $objConexao->executarConsulta($link, $strSqlPerfilUsuario);
+        $selectUsuario = $conn->prepare($strSqlUsuario);
+        $selectUsuario->execute();
 
-        //$linha = mysqli_fetch_array($rs, MYSQLI_ASSOC);
+        $selectPerfilUsuario = $conn->prepare($strSqlPerfilUsuario);
+        $selectPerfilUsuario->execute();
     ?>
 
     <div class="row">
@@ -62,27 +62,39 @@
                                 </tr>
                             </thead>
                             <?php
-                                while (($linhaPerfilUsuario = mysqli_fetch_array($rsPerfilUsuario, MYSQLI_ASSOC)) && ($linhaUsuario = mysqli_fetch_array($rsUsuario, MYSQLI_ASSOC))) {
+                                while (($linhaUsuario = $selectUsuario->fetchAll(PDO::FETCH_ASSOC)) && ($linhaPerfilUsuario = $selectPerfilUsuario->fetchAll(PDO::FETCH_ASSOC))) {
 
-                                    if($linhaPerfilUsuario['perfil_idperfil'] == 1) {
+                                    foreach ($linhaPerfilUsuario as $dados) {
+                                        $perfil_idperfil = $dados['perfil_idperfil'];                                        
+                                    }
+
+                                    if ($perfil_idperfil == 1) {
                                         $linhaPerfilUsuarioTable = 'Administrador';
-                                    } elseif ($linhaPerfilUsuario['perfil_idperfil'] == 2) {
+                                    } elseif ($perfil_idperfil == 2) {
                                         $linhaPerfilUsuarioTable = 'Coordenador';
                                     }
 
-                                    echo '
-                                    <tbody>
-                                        <tr>
-                                            <td>'.$linhaUsuario['idusuarios'].'</td>
-                                            <td>'.$linhaUsuario['nome'].'</td>
-                                            <td>'.$linhaUsuario['usuario'].'</td>
-                                            <td>'.$linhaPerfilUsuarioTable.'</td>
-                                            <td>'.$linhaUsuario['email'].'</td>
-                                            <td>'.$linhaUsuario['fone'].'</td>
-                                            <td><a style="margin-left: 20px;" href="admin.php?pagina=../processamento/usuario_remove.php&idUsuario='.$linhaUsuario['idusuarios'].'"><img src="../lib/open-iconic/svg/x.svg" alt="remover"></a></td>
-                                            <td><a style="margin-left: 10px;" href="admin.php?pagina=view_usuarios_update.php&idUsuario='.$linhaUsuario['idusuarios'].'"><img src="../lib/open-iconic/svg/brush.svg" alt="editar"></a></td>
-                                        </tr>
-                                    </tbody>';
+                                    foreach ($linhaUsuario as $dados) {
+                                        $idusuarios = $dados['idusuarios'];
+                                        $nome = $dados['nome'];
+                                        $usuario = $dados['usuario'];
+                                        $email = $dados['email'];
+                                        $fone = $dados['fone'];
+
+                                        echo '
+                                        <tbody>
+                                            <tr>
+                                                <td>'.$idusuarios.'</td>
+                                                <td>'.$nome.'</td>
+                                                <td>'.$usuario.'</td>
+                                                <td>'.$linhaPerfilUsuarioTable.'</td>
+                                                <td>'.$email.'</td>
+                                                <td>'.$fone.'</td>
+                                                <td><a style="margin-left: 20px;" href="admin.php?pagina=../processamento/usuario_remove.php&idUsuario='.$idusuarios.'"><img src="../lib/open-iconic/svg/x.svg" alt="remover"></a></td>
+                                                <td><a style="margin-left: 10px;" href="admin.php?pagina=view_usuarios_update.php&idUsuario='.$idusuarios.'"><img src="../lib/open-iconic/svg/brush.svg" alt="editar"></a></td>
+                                            </tr>
+                                        </tbody>';
+                                    }
                                 }
                             ?>
                         </table>
