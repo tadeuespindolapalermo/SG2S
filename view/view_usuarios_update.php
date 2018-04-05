@@ -5,7 +5,7 @@
     if($_SESSION['perfil_idperfil'] == 2) {
         unset($_SESSION['usuario']);
         unset($_SESSION['email']);
-        session_destroy();   
+        session_destroy();
         header('Location: ../processamento/sair.php');
     }
 
@@ -62,7 +62,7 @@
 
                     <label class="col-lg-12 control-label label-usuario">Perfil</label>
                     <div class="form-group" style="width: 300px; margin-bottom: -5px;">
-                        <select class="form-control" id="perfil" name="perfil" required="required">
+                        <select class="form-control" id="perfil" name="perfil" required="required" autofocus>
                             <option value="'.$strLinhaPerfilUsuario.'">'.$strLinhaPerfilUsuario.'</option>
                             <option value="'.$strLinhaPerfilUsuarioOption.'">'.$strLinhaPerfilUsuarioOption.'</option>
                         </select>
