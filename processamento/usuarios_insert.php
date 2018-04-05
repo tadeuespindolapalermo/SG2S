@@ -41,7 +41,7 @@
         $dados_usuario = $selectUsuario->fetchAll(PDO::FETCH_ASSOC);
 
         foreach ($dados_usuario as $dados)
-            $usuario_existe = isset ($dados["usuario"]);
+            $usuario_existe = isset($dados["usuario"]);
 
     } else {
         echo 'Erro ao tentar localizar o registro de usuário!';
@@ -58,7 +58,7 @@
         $dados_usuario = $selectEmail->fetchAll(PDO::FETCH_ASSOC);
 
         foreach($dados_usuario as $dados)
-            $email_existe = isset ($dados["email"]);
+            $email_existe = isset($dados["email"]);
 
     } else {
         echo 'Erro ao tentar localizar o registro de usuário!';
@@ -106,7 +106,7 @@
 
         if ($selectIdUsuario->rowCount() >= 1) {
             $dados_id_usuario = $selectIdUsuario->fetchAll(PDO::FETCH_ASSOC);
-            
+
             foreach($dados_id_usuario as $dados_id)
                 $id_usuario_inserido = $dados_id['idusuarios'];
         }
