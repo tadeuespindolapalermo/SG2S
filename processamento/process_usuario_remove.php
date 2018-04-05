@@ -5,7 +5,7 @@
         unset($_SESSION['usuario']);
         unset($_SESSION['email']);
         session_destroy();
-        header('Location: ../processamento/sair.php');
+        header('Location: ../processamento/process_sair.php');
     }
 
     require('../db/Config.inc.php');
@@ -30,14 +30,14 @@
                 alert(\"Usuário excluído com sucesso!\");
             </script>
             <META HTTP-EQUIV=REFRESH CONTENT = '0;URL=
-            http://localhost/SG2S/view/admin.php?pagina=usuarios_listagem.php'";
+            http://localhost/SG2S/view/view_admin.php?pagina=view_usuarios_listagem.php'";
         } else {
             echo "
             <script type=\"text/javascript\">
                 alert(\"Erro ao excluir usuário!\");
             </script>
             <META HTTP-EQUIV=REFRESH CONTENT = '0;URL=
-            http://localhost/SG2S/view/admin.php?pagina=usuarios_listagem.php'";
+            http://localhost/SG2S/view/view_admin.php?pagina=view_usuarios_listagem.php'";
         }
     } catch (PDOException $e) {
         PHPErro($e->getCode(), $e->getMessage(), $e->getFile(), $e->getFile());

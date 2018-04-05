@@ -13,11 +13,11 @@
         header('Location: ../index.php?erro=1');
     }
 
-    if($_SESSION['perfil_idperfil'] == 2) {
+    if($_SESSION['perfil_idperfil'] == 1) {
         unset($_SESSION['usuario']);
         unset($_SESSION['email']);
         session_destroy();
-        header('Location: ../processamento/sair.php');
+        header('Location: ../processamento/process_sair.php');
     }
 
     if($_SESSION['perfil_idperfil'] == 1) {
@@ -67,7 +67,7 @@
             <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search" />
             <!--<ul class="navbar-nav px-3">
                 <li class="nav-item text-nowrap">
-                    <a class="nav-link" href="../processamento/sair.php">Sair</a>
+                    <a class="nav-link" href="../processamento/process_sair.php">Sair</a>
                 </li>
             </ul>-->
         </nav>
@@ -78,13 +78,13 @@
                     <div class="sidebar-sticky">
                         <ul class="nav flex-column">
                             <li class="nav-item">
-                                <a class="nav-link active" href="admin.php?pagina=home.php">
+                                <a class="nav-link active" href="view_coordenador.php?pagina=view_home.php">
                                     <span data-feather="home"></span>
                                     Início <span class="sr-only">(current)</span>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="admin.php?pagina=view_usuario_logado_update.php">
+                                <a class="nav-link" href="view_coordenador.php?pagina=view_form_usuario_logado_update.php">
                                     <span data-feather="user"></span>
                                     <strong><?= $_SESSION['nome'] ?></strong>
                                 </a>
@@ -96,21 +96,9 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="admin.php?pagina=usuarios_listagem.php">
-                                    <span data-feather="users"></span>
-                                    Usuários
-                                </a>
-                            </li>
-                            <li class="nav-item">
                                 <a class="nav-link" href="#">
                                     <span data-feather="bar-chart-2"></span>
                                     Relatórios
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">
-                                    <span data-feather="layers"></span>
-                                    Integrações e Serviços
                                 </a>
                             </li>
                         </ul>
@@ -174,7 +162,7 @@
                         <div class="btn-toolbar mb-2 mb-md-0">
                             <div class="btn-group mr-2">
                                 <!--<button class="btn btn-sm btn-outline-secondary"><i>Compartilhar</i></button>-->
-                                <a href="../processamento/sair.php"><button class="btn btn-sm btn-outline-secondary">
+                                <a href="../processamento/process_sair.php"><button class="btn btn-sm btn-outline-secondary">
                                     <i><img src="../lib/open-iconic/svg/power-standby.svg" alt="sair"></i>&nbsp;Sair
                                 </button></a>
                                 <!--<button class="btn btn-sm btn-outline-secondary">Exportar</button>-->

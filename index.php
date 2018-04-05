@@ -29,7 +29,7 @@
     </head>
 
     <body class="text-center" ng-controller="indexController">
-        <form name="loginForm" class="form-signin" method="post" action="processamento/autenticacao_validar_acesso_login.php" id="formLogin">
+        <form name="loginForm" class="form-signin" method="post" action="processamento/process_form_login.php" id="formLogin">
             <img src="img/sg2s.png" alt="">
             <h1 ng-bind="titulo" class="h3 mb-3" style="font-weight: 900"></h1>
 
@@ -42,7 +42,7 @@
             <div class="checkbox mb-3">
                 <?php
                     echo '<br/>';
-                    if($erro == 1) {                        
+                    if($erro == 1) {
                         echo '<font color="#FF0000"><strong>Usuário e/ou senha inválido(s)!<strong></font>';
                     }
                  ?>

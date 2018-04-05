@@ -43,7 +43,7 @@
     echo '
     <div class="container">
         <h3 class="text-muted">Atualizar Dados Cadastrais</h3>
-        <form action="../processamento/usuario_logado_update.php" method="post">
+        <form action="../processamento/process_form_usuario_logado_update.php" method="post">
             <div class="form-group">
                 <div class="col-lg-13">
                     <label class="col-lg-12 control-label label-usuario">Nome</label>

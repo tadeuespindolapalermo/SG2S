@@ -15,11 +15,11 @@ sg2s.config(function($routeProvider) {
 		controller: "indexController"
 	})
     .when("/admin",{
-		templateUrl:"view/admin.php?pagina=home.php",
+		templateUrl:"view/view_admin.php?pagina=view_home.php",
 		controller: "adminController"
 	})
 	.when("/coordenador",{
-		templateUrl:"view/coordenador.php?pagina=home.php",
+		templateUrl:"view/view_coordenador.php?pagina=view_home.php",
 		controller:"coordenadorController"
 	})
 	.otherwise({redirectTo:"/"});

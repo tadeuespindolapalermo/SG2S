@@ -49,10 +49,10 @@
             $_SESSION['senha'] = $senhaUsuario;
 
             if ($idPerfil == 1) {
-                header('Location: ../view/admin.php?pagina=home.php');
+                header('Location: ../view/view_admin.php?pagina=view_home.php');
                 $_SESSION['senha'] = $senhaNormal;
             } elseif ($idPerfil == 2) {
-                header('Location: ../view/coordenador.php?pagina=home.php');
+                header('Location: ../view/view_coordenador.php?pagina=view_home.php');
                 $_SESSION['senha'] = $senhaNormal;
             }
         } else {

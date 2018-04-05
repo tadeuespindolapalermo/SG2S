@@ -51,16 +51,16 @@
                         alert(\"Usuário atualizado com sucesso!\");
                     </script>
                     <META HTTP-EQUIV=REFRESH CONTENT = '0;URL=
-                    http://localhost/SG2S/view/coordenador.php?pagina=home.php'";
-                    header('Location: ../view/coordenador.php?pagina=home.php');
+                    http://localhost/SG2S/view/view_coordenador.php?pagina=view_home.php'";
+                    header('Location: ../view/view_coordenador.php?pagina=view_home.php');
                 } elseif($_SESSION['perfil_idperfil'] == 1) {
                     echo "
                     <script type=\"text/javascript\">
                         alert(\"Usuário atualizado com sucesso!\");
                     </script>
                     <META HTTP-EQUIV=REFRESH CONTENT = '0;URL=
-                    http://localhost/SG2S/view/admin.php?pagina=home.php'";
-                    header('Location: ../view/admin.php?pagina=home.php');
+                    http://localhost/SG2S/view/view_admin.php?pagina=view_home.php'";
+                    header('Location: ../view/view_admin.php?pagina=view_home.php');
                 }
             } else {
                 $retorno_get = '';
@@ -68,14 +68,14 @@
 
                     $retorno_get.= "erro_update=1&";
 
-                    header('Location: ../view/admin.php?pagina=view_usuario_logado_update.php&' . $retorno_get);
+                    header('Location: ../view/view_admin.php?pagina=view_form_usuario_logado_update.php&' . $retorno_get);
                     die();
 
                 } elseif ($_SESSION['perfil_idperfil'] == 2) {
 
                     $retorno_get.= "erro_update=1&";
 
-                    header('Location: ../view/coordenador.php?pagina=view_usuario_logado_update.php&' . $retorno_get);
+                    header('Location: ../view/view_coordenador.php?pagina=view_form_usuario_logado_update.php&' . $retorno_get);
                     die();
                 }
             }

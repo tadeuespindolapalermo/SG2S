@@ -5,7 +5,7 @@
         unset($_SESSION['usuario']);
         unset($_SESSION['email']);
         session_destroy();
-        header('Location: ../processamento/sair.php');
+        header('Location: ../processamento/process_sair.php');
     }
 
     require('../db/Config.inc.php');
@@ -69,7 +69,7 @@
     echo '
     <div class="container">
         <h4>Atualizar Dados Cadastrais</h4><br />
-        <form action="admin.php?pagina=../processamento/usuarios_update.php&idUsuario='.$idusuarios.'" method="post">
+        <form action="view_admin.php?pagina=../processamento/process_form_usuario_update.php&idUsuario='.$idusuarios.'" method="post">
             <div class="form-group ">
                 <div class="col-lg-12">
 

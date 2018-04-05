@@ -5,7 +5,7 @@
         unset($_SESSION['usuario']);
         unset($_SESSION['email']);
         session_destroy();
-        header('Location: ../processamento/sair.php');
+        header('Location: ../processamento/process_sair.php');
     }
 
     if($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -77,16 +77,16 @@
                     alert(\"Usuário atualizado com sucesso!\");
                 </script>
                 <META HTTP-EQUIV=REFRESH CONTENT = '0;URL=
-                http://localhost/SG2S/view/admin.php?pagina=usuarios_listagem.php'";
-                //header('Location: ../view/admin.php?pagina=usuarios_listagem.php');
+                http://localhost/SG2S/view/view_admin.php?pagina=view_usuarios_listagem.php'";
+                //header('Location: ../view/view_admin.php?pagina=view_usuarios_listagem.php');
             } else {
                 echo "
                 <script type=\"text/javascript\">
                     alert(\"Erro ao atualizar o usuário!\");
                 </script>
                 <META HTTP-EQUIV=REFRESH CONTENT = '0;URL=
-                http://localhost/SG2S/view/admin.php?pagina=usuarios_listagem.php'";
-                //header('Location: ../view/admin.php?pagina=usuarios_listagem.php');
+                http://localhost/SG2S/view/view_admin.php?pagina=view_usuarios_listagem.php'";
+                //header('Location: ../view/view_admin.php?pagina=view_usuarios_listagem.php');
             }
         } catch (PDOException $e) {
             PHPErro($e->getCode(), $e->getMessage(), $e->getFile(), $e->getFile());

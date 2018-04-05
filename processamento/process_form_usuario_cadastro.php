@@ -7,7 +7,7 @@
         unset($_SESSION['usuario']);
         unset($_SESSION['email']);
         session_destroy();
-        header('Location: ../processamento/sair.php');
+        header('Location: ../processamento/process_sair.php');
     }
 
     $perfil = $_POST['perfil'];
@@ -76,7 +76,7 @@
         if ($email_existe) {
             $retorno_get.= "erro_email=1&";
         }
-        header('Location: ../view/admin.php?pagina=cadastros_usuarios_admin.php&' . $retorno_get);
+        header('Location: ../view/view_admin.php?pagina=view_form_usuario_cadastro.php&' . $retorno_get);
         die();
     }
 
@@ -129,13 +129,13 @@
             <script type=\"text/javascript\">
                 alert(\"Usuário cadastrado com sucesso!!!\");
             </script>";
-            header('Location: ../view/admin.php?pagina=usuarios_listagem.php');
+            header('Location: ../view/view_admin.php?pagina=view_usuarios_listagem.php');
         } else {
             echo "
             <script type=\"text/javascript\">
                 alert(\"Erro ao cadastrar usuário!!!\");
             </script>";
-            header('Location: ../view/admin.php?pagina=cadastros_usuarios_admin.php');
+            header('Location: ../view/view_admin.php?pagina=view_form_usuario_cadastro.php');
         }
     } catch (PDOException $e) {
         PHPErro($e->getCode(), $e->getMessage(), $e->getFile(), $e->getFile());

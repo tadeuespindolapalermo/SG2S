@@ -11,7 +11,7 @@
             unset($_SESSION['usuario']);
             unset($_SESSION['email']);
             session_destroy();
-            header('Location: ../processamento/sair.php');
+            header('Location: ../processamento/process_sair.php');
         }
 
         require('../db/Config.inc.php');
@@ -65,7 +65,7 @@
                                 while (($linhaUsuario = $selectUsuario->fetchAll(PDO::FETCH_ASSOC)) && ($linhaPerfilUsuario = $selectPerfilUsuario->fetchAll(PDO::FETCH_ASSOC))) {
 
                                     foreach ($linhaPerfilUsuario as $dados) {
-                                        $perfil_idperfil = $dados['perfil_idperfil'];                                        
+                                        $perfil_idperfil = $dados['perfil_idperfil'];
                                     }
 
                                     if ($perfil_idperfil == 1) {
@@ -90,15 +90,15 @@
                                                 <td>'.$linhaPerfilUsuarioTable.'</td>
                                                 <td>'.$email.'</td>
                                                 <td>'.$fone.'</td>
-                                                <td><a style="margin-left: 20px;" href="admin.php?pagina=../processamento/usuario_remove.php&idUsuario='.$idusuarios.'"><img src="../lib/open-iconic/svg/x.svg" alt="remover"></a></td>
-                                                <td><a style="margin-left: 10px;" href="admin.php?pagina=view_usuarios_update.php&idUsuario='.$idusuarios.'"><img src="../lib/open-iconic/svg/brush.svg" alt="editar"></a></td>
+                                                <td><a style="margin-left: 20px;" href="view_admin.php?pagina=../processamento/process_usuario_remove.php&idUsuario='.$idusuarios.'"><img src="../lib/open-iconic/svg/x.svg" alt="remover"></a></td>
+                                                <td><a style="margin-left: 10px;" href="view_admin.php?pagina=view_form_usuario_update.php&idUsuario='.$idusuarios.'"><img src="../lib/open-iconic/svg/brush.svg" alt="editar"></a></td>
                                             </tr>
                                         </tbody>';
                                     }
                                 }
                             ?>
                         </table>
-                        <a href="admin.php?pagina=cadastros_usuarios_admin.php"><button type="button" class="btn btn-primary"><img src="../lib/open-iconic/svg/person.svg" alt="exportarExcel">&nbsp;Novo Usuário</button></a>
+                        <a href="view_admin.php?pagina=view_form_usuario_cadastro.php"><button type="button" class="btn btn-primary"><img src="../lib/open-iconic/svg/person.svg" alt="exportarExcel">&nbsp;Novo Usuário</button></a>
                         <button export-to-excel="listaUsuarios" class="btn btn-success">
                             <i><img src="../lib/open-iconic/svg/share-boxed.svg" alt="exportarExcel"></i>&nbsp;Exportar Excel
                         </button>
