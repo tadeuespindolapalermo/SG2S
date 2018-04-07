@@ -16,21 +16,24 @@
         $PDO = new Conn;
         $conn = $PDO->Conectar();
 
-        $strPerfil = $_POST['perfil'];
-        if ($strPerfil == 'Administrador') {
-            $strPerfil = 1;
-        } elseif ($strPerfil == 'Coordenador') {
-            $strPerfil = 2;
+        $usuarios = new Usuarios();
+        $perfil = new Perfil();
+
+        $perfil->setDescricao($_POST['perfil']);
+        if ($perfil->getDescricao() == 'Administrador') {
+            $perfil->setIdPerfil(1);
+        } elseif ($perfil->getDescricao('Coordenador')) {
+            $perfil->setIdPerfil(2);
         }
 
         // Dados recebidos do formulário via POST
-        $strNome = $_POST['nome'];
-        $strTelefone = $_POST['telefone'];
-        $strUsuario = $_POST['usuario'];
-        $strEmail = $_POST['email'];
-        $strSenhaNormal = $_POST['senha'];
-        $strSenha = md5($_POST['senha']);
-        $strIdUsuario = $_GET['idUsuario'];
+        $usuarios->setNome($_POST['nome']);
+        $usuarios->setFone($_POST['telefone']);
+        $usuarios->setUsuario($_POST['usuario']);
+        $usuarios->setEmail($_POST['email']);
+        $senhaNormal = $_POST['senha'];
+        $usuarios->setSenha(md5($_POST['senha']));
+        $usuarios->setIdUsuarios($_GET['idUsuario']);
 
         try {
             // UPDATE DO USUÁRIO
@@ -45,12 +48,12 @@
                 idusuarios = :idUsuario";
 
             $stmtUpdateUsuario = $conn->prepare($strSqlUsuario);
-            $stmtUpdateUsuario->bindParam(':nome', $strNome);
-            $stmtUpdateUsuario->bindParam(':telefone', $strTelefone);
-            $stmtUpdateUsuario->bindParam(':email', $strEmail);
-            $stmtUpdateUsuario->bindParam(':usuario', $strUsuario);
-            $stmtUpdateUsuario->bindParam(':senha', $strSenha);
-            $stmtUpdateUsuario->bindParam(':idUsuario', $strIdUsuario);
+            $stmtUpdateUsuario->bindValue(':nome', $usuarios->getNome());
+            $stmtUpdateUsuario->bindValue(':telefone', $usuarios->getFone());
+            $stmtUpdateUsuario->bindValue(':email', $usuarios->getEmail());
+            $stmtUpdateUsuario->bindValue(':usuario', $usuarios->getUsuario());
+            $stmtUpdateUsuario->bindValue(':senha', $usuarios->getSenha());
+            $stmtUpdateUsuario->bindValue(':idUsuario', $usuarios->getIdUsuarios());
             $updateUsuario = $stmtUpdateUsuario->execute();
             // -----------------------------------------------------------
 
@@ -62,15 +65,15 @@
                 usuarios_idusuarios = :idUsuario";
 
             $stmtUpdatePerfilUsuario = $conn->prepare($strSqlPerfilUsuario);
-            $stmtUpdatePerfilUsuario->bindParam(':idPerfil', $strPerfil);
-            $stmtUpdatePerfilUsuario->bindParam(':idUsuario', $strIdUsuario);
+            $stmtUpdatePerfilUsuario->bindValue(':idPerfil', $perfil->getIdPerfil());
+            $stmtUpdatePerfilUsuario->bindValue(':idUsuario', $usuarios->getIdUsuarios());
             $updatePerfilUsuario = $stmtUpdatePerfilUsuario->execute();
             // ------------------------------------------------------------
 
             // VALIDAÇÃO DO UPDATE
             if ($updateUsuario && $updatePerfilUsuario) {
 
-                $_SESSION['senha'] = $strSenhaNormal;
+                //$_SESSION['senha'] = $senhaNormal;
 
                 echo "
                 <script type=\"text/javascript\">

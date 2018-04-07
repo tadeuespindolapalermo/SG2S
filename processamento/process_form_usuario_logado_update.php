@@ -9,15 +9,18 @@
         $PDO = new Conn;
         $conn = $PDO->Conectar();
 
+        $usuarios = new Usuarios();
+        $perfil = new Perfil();
+
         $idUsuarioSessao = $_SESSION['idusuarios'];
 
         // Dados recebidos do formulário via POST
-        $strNome = $_POST['nome'];
-        $strTelefone = $_POST['telefone'];
-        $strEmail = $_POST['email'];
-        $strUsuario = $_POST['usuario'];
-        $strSenhaNormal = $_POST['senha'];
-        $strSenha = md5($_POST['senha']);
+        $usuarios->setNome($_POST['nome']);
+        $usuarios->setFone($_POST['telefone']);
+        $usuarios->setEmail($_POST['email']);
+        $usuarios->setUsuario($_POST['usuario']);
+        $senhaNormal = $_POST['senha'];
+        $usuarios->setSenha(md5($_POST['senha']));
 
         try {
             $strSqlUsuarioLogado = "
@@ -31,19 +34,19 @@
                 idusuarios= :idUsuarioSessao";
 
             $stmtUpdateUsuarioLogado = $conn->prepare($strSqlUsuarioLogado);
-            $stmtUpdateUsuarioLogado->bindParam(':nome', $strNome);
-            $stmtUpdateUsuarioLogado->bindParam(':telefone', $strTelefone);
-            $stmtUpdateUsuarioLogado->bindParam(':email', $strEmail);
-            $stmtUpdateUsuarioLogado->bindParam(':usuario', $strUsuario);
-            $stmtUpdateUsuarioLogado->bindParam(':senha', $strSenha);
-            $stmtUpdateUsuarioLogado->bindParam(':idUsuarioSessao', $idUsuarioSessao);
+            $stmtUpdateUsuarioLogado->bindValue(':nome', $usuarios->getNome());
+            $stmtUpdateUsuarioLogado->bindValue(':telefone', $usuarios->getFone());
+            $stmtUpdateUsuarioLogado->bindValue(':email', $usuarios->getEmail());
+            $stmtUpdateUsuarioLogado->bindValue(':usuario', $usuarios->getUsuario());
+            $stmtUpdateUsuarioLogado->bindValue(':senha', $usuarios->getSenha());
+            $stmtUpdateUsuarioLogado->bindValue(':idUsuarioSessao', $idUsuarioSessao);
             $updateUsuarioLogado = $stmtUpdateUsuarioLogado->execute();
 
             if ($updateUsuarioLogado) {
 
-                $_SESSION['senha'] = $strSenhaNormal;
-                $_SESSION['nome'] = $strNome;
-                $_SESSION['email'] = $strEmail;
+                $_SESSION['senha'] = $senhaNormal;
+                $_SESSION['nome'] = $usuarios->getNome();
+                $_SESSION['email'] = $usuarios->getEmail();
 
                 if($_SESSION['perfil_idperfil'] == 2) {
                     echo "

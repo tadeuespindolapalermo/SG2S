@@ -1,5 +1,4 @@
 <?php
-
 	session_start();
 
 	if($_SESSION['perfil_idperfil'] == 2) {

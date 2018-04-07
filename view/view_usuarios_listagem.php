@@ -16,31 +16,21 @@
 
         require('../db/Config.inc.php');
 
+        $usuarios = new Usuarios();
+        $perfil = new Perfil();
+
         // CONEXÃO COM PDO
         $PDO = new Conn;
         $conn = $PDO->Conectar();
 
-        $strSqlUsuario= "
+        $strSqlJoin= "
         SELECT
-            idusuarios,
-            nome,
-            fone,
-            email,
-            usuario
+            *
         FROM
-            usuarios";
+            usuarios INNER JOIN usuario_perfil ON usuarios.idusuarios = usuario_perfil.idusuario_perfil";
 
-        $strSqlPerfilUsuario= "
-        SELECT
-            perfil_idperfil
-        FROM
-            usuario_perfil";
-
-        $selectUsuario = $conn->prepare($strSqlUsuario);
-        $selectUsuario->execute();
-
-        $selectPerfilUsuario = $conn->prepare($strSqlPerfilUsuario);
-        $selectPerfilUsuario->execute();
+        $selectUsuarioJoin = $conn->prepare($strSqlJoin);
+        $selectUsuarioJoin->execute();
     ?>
 
     <div class="row">
@@ -62,36 +52,34 @@
                                 </tr>
                             </thead>
                             <?php
-                                while (($linhaUsuario = $selectUsuario->fetchAll(PDO::FETCH_ASSOC)) && ($linhaPerfilUsuario = $selectPerfilUsuario->fetchAll(PDO::FETCH_ASSOC))) {
+                                while ($linhaUsuarioJoin = $selectUsuarioJoin->fetchAll(PDO::FETCH_ASSOC)) {
 
-                                    foreach ($linhaPerfilUsuario as $dados) {
-                                        $perfil_idperfil = $dados['perfil_idperfil'];
-                                    }
+                                    foreach ($linhaUsuarioJoin as $dados) {
 
-                                    if ($perfil_idperfil == 1) {
-                                        $linhaPerfilUsuarioTable = 'Administrador';
-                                    } elseif ($perfil_idperfil == 2) {
-                                        $linhaPerfilUsuarioTable = 'Coordenador';
-                                    }
+                                        $perfil->setIdPerfil($dados['perfil_idperfil']);
 
-                                    foreach ($linhaUsuario as $dados) {
-                                        $idusuarios = $dados['idusuarios'];
-                                        $nome = $dados['nome'];
-                                        $usuario = $dados['usuario'];
-                                        $email = $dados['email'];
-                                        $fone = $dados['fone'];
+                                        if ($perfil->getIdPerfil() == 1) {
+                                            $perfil->setDescricao('Administrador');
+                                        } elseif ($perfil->getIdPerfil() == 2) {
+                                            $perfil->setDescricao('Coordenador');
+                                        }
 
+                                        $usuarios->setIdUsuarios($dados['idusuarios']);
+                                        $usuarios->setNome($dados['nome']);
+                                        $usuarios->setUsuario($dados['usuario']);
+                                        $usuarios->setEmail($dados['email']);
+                                        $usuarios->setFone($dados['fone']);
                                         echo '
                                         <tbody>
                                             <tr>
-                                                <td>'.$idusuarios.'</td>
-                                                <td>'.$nome.'</td>
-                                                <td>'.$usuario.'</td>
-                                                <td>'.$linhaPerfilUsuarioTable.'</td>
-                                                <td>'.$email.'</td>
-                                                <td>'.$fone.'</td>
-                                                <td><a style="margin-left: 20px;" href="view_admin.php?pagina=../processamento/process_usuario_remove.php&idUsuario='.$idusuarios.'"><img src="../lib/open-iconic/svg/x.svg" alt="remover"></a></td>
-                                                <td><a style="margin-left: 10px;" href="view_admin.php?pagina=view_form_usuario_update.php&idUsuario='.$idusuarios.'"><img src="../lib/open-iconic/svg/brush.svg" alt="editar"></a></td>
+                                                <td>'.$usuarios->getIdUsuarios().'</td>
+                                                <td>'.$usuarios->getNome().'</td>
+                                                <td>'.$usuarios->getUsuario().'</td>
+                                                <td>'.$perfil->getDescricao().'</td>
+                                                <td>'.$usuarios->getEmail().'</td>
+                                                <td>'.$usuarios->getFone().'</td>
+                                                <td><a style="margin-left: 20px;" href="view_admin.php?pagina=../processamento/process_usuario_remove.php&idUsuario='.$usuarios->getIdUsuarios().'"><img src="../lib/open-iconic/svg/x.svg" alt="remover"></a></td>
+                                                <td><a style="margin-left: 10px;" href="view_admin.php?pagina=view_form_usuario_update.php&idUsuario='.$usuarios->getIdUsuarios().'"><img src="../lib/open-iconic/svg/brush.svg" alt="editar"></a></td>
                                             </tr>
                                         </tbody>';
                                     }

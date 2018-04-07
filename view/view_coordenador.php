@@ -18,13 +18,9 @@
         unset($_SESSION['email']);
         session_destroy();
         header('Location: ../processamento/process_sair.php');
-    }
-
-    if($_SESSION['perfil_idperfil'] == 1) {
-        $perfil = 'Administrador';
-    } elseif ($_SESSION['perfil_idperfil'] == 2) {
+    } else {
         $perfil = 'Coordenador';
-    }
+    }    
 ?>
 
 <!DOCTYPE html>

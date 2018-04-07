@@ -11,6 +11,9 @@
     $PDO = new Conn;
     $conn = $PDO->Conectar();
 
+    $usuarios = new Usuarios();
+    $perfil = new Perfil();
+
     $strSqlUsuario= "
     SELECT
         nome,
@@ -29,11 +32,11 @@
 
     $linhaUsuario = $selectUsuario->fetchAll(PDO::FETCH_ASSOC);
 
-    foreach ($linhaUsuario as $dados) {
-        $nome = $dados['nome'];
-        $usuario = $dados['usuario'];
-        $email = $dados['email'];
-        $fone = $dados['fone'];
+    foreach ($linhaUsuario as $dados) {        
+        $usuarios->setNome($dados['nome']);
+        $usuarios->setUsuario($dados['usuario']);
+        $usuarios->setEmail($dados['email']);
+        $usuarios->setFone($dados['fone']);
     }
 
     if($erro_update) {
@@ -47,16 +50,16 @@
             <div class="form-group">
                 <div class="col-lg-13">
                     <label class="col-lg-12 control-label label-usuario">Nome</label>
-                    <input type="text" style="width: 300px; margin-bottom: -5px;" id="nome" name="nome" class="form-control" value="'.$nome.'" required disabled><br/>
+                    <input type="text" style="width: 300px; margin-bottom: -5px;" id="nome" name="nome" class="form-control" value="'.$usuarios->getNome().'" required disabled><br/>
 
                     <label class="col-lg-2 control-label label-usuario" >Telefone</label>
-                    <input type="text" style="width: 300px; margin-bottom: -5px;" id="telefone" name="telefone" class="form-control" value="'.$fone.'" required disabled><br/>
+                    <input type="text" style="width: 300px; margin-bottom: -5px;" id="telefone" name="telefone" class="form-control" value="'.$usuarios->getFone().'" required disabled><br/>
 
                     <label class="col-lg-2 control-label label-usuario">Usuário</label>
-                    <input type="text" style="width: 300px; margin-bottom: -5px;" id="usuario" name="usuario" class="form-control" value="'.$usuario.'" required disabled><br/>
+                    <input type="text" style="width: 300px; margin-bottom: -5px;" id="usuario" name="usuario" class="form-control" value="'.$usuarios->getUsuario().'" required disabled><br/>
 
                     <label class="col-lg-2 control-label label-usuario">Email</label>
-                    <input type="email" style="width: 300px; margin-bottom: -5px;" id="email" name="email" class="form-control" value="'.$email.'" required disabled><br/>
+                    <input type="email" style="width: 300px; margin-bottom: -5px;" id="email" name="email" class="form-control" value="'.$usuarios->getEmail().'" required disabled><br/>
 
                     <label class="col-lg-2 control-label label-usuario">Senha</label>
                     <input type="password" style="width: 300px; margin-bottom: -5px;" id="senha" name="senha" class="form-control" value="'.$_SESSION['senha'].'" required disabled><br/>

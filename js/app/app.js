@@ -51,7 +51,7 @@ sg2s.directive('exportToExcel', function() {
                 var a = $('<a/>', {
                     style:'display:none',
                     href:'data:application/octet-stream; base64,' + btoa(excelString),
-                    download:date.getTime() + '.xlsx'
+                    download:'downloadUsuários' + '.xlsx'
                 }).appendTo('body')
                 a[0].click()
                 a.remove();
