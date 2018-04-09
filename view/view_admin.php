@@ -20,7 +20,7 @@
         header('Location: ../processamento/process_sair.php');
     } else {
         $perfil = 'Administrador';
-    }   
+    }
 ?>
 
 <!DOCTYPE html>
@@ -89,6 +89,24 @@
                                 <a class="nav-link" href="#">
                                     <span data-feather="grid"></span>
                                     Grade
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">
+                                    <span data-feather="layers"></span>
+                                    Cursos
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">
+                                    <span data-feather="edit-2"></span>
+                                    Matriz
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">
+                                    <span data-feather="award"></span>
+                                    Professor
                                 </a>
                             </li>
                             <li class="nav-item">
@@ -171,7 +189,7 @@
                             <div class="btn-group mr-2">
                                 <!--<button class="btn btn-sm btn-outline-secondary"><i>Compartilhar</i></button>-->
                                 <a href="../processamento/process_sair.php"><button class="btn btn-sm btn-outline-secondary">
-                                    <i><img src="../lib/open-iconic/svg/power-standby.svg" alt="sair"></i>&nbsp;Sair
+                                    <i><span data-feather="power"></span></i>&nbsp;Sair
                                 </button></a>
                                 <!--<button class="btn btn-sm btn-outline-secondary">Exportar</button>-->
                             </div>

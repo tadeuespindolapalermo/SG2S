@@ -86,9 +86,9 @@
                                 }
                             ?>
                         </table>
-                        <a href="view_admin.php?pagina=view_form_usuario_cadastro.php"><button type="button" class="btn btn-primary"><img src="../lib/open-iconic/svg/person.svg" alt="exportarExcel">&nbsp;Novo Usuário</button></a>
+                        <a href="view_admin.php?pagina=view_form_usuario_cadastro.php"><button type="button" class="btn btn-primary"><span data-feather="user"></span>&nbsp;Novo</button></a>
                         <button export-to-excel="listaUsuarios" class="btn btn-success">
-                            <i><img src="../lib/open-iconic/svg/share-boxed.svg" alt="exportarExcel"></i>&nbsp;Exportar Excel
+                            <span data-feather="download"></span>&nbsp;Excel
                         </button>
                     </div>
                 </div>
