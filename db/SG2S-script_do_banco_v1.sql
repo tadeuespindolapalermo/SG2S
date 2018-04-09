@@ -24,7 +24,7 @@ USE `codigofonteonline1` ;
 -- Table `codigofonteonline1`.`usuarios`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `codigofonteonline1`.`usuarios` (
-  `idusuarios` INT NOT NULL,
+  `idusuarios` AUTO_INCREMENT INT NOT NULL,
   `nome` VARCHAR(60) CHARACTER SET 'utf8' COLLATE 'utf8_general_ci' NOT NULL,
   `fone` VARCHAR(16) CHARACTER SET 'utf8' COLLATE 'utf8_general_ci' NOT NULL COMMENT 'Haverá máscara jQuery no campo do formulário.\nFormato: (99) 9 9999-9999',
   `email` VARCHAR(60) CHARACTER SET 'utf8' COLLATE 'utf8_general_ci' NOT NULL COMMENT 'Será validado por atributo no campo do formulário.',
@@ -53,7 +53,7 @@ COMMENT = 'Tabela para cadastro de perfil de usuário.';
 -- Table `codigofonteonline1`.`curso`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `codigofonteonline1`.`curso` (
-  `idcurso` INT NOT NULL,
+  `idcurso` AUTO_INCREMENT INT NOT NULL,
   `nome` VARCHAR(60) CHARACTER SET 'utf8' COLLATE 'utf8_general_ci' NOT NULL,
   `portaria` VARCHAR(30) CHARACTER SET 'utf8' COLLATE 'utf8_general_ci' NOT NULL,
   `duracao` DECIMAL(2,1) NOT NULL COMMENT 'Formato: 2.0, 2.5...\n2.0: dois anos\n2.5: dois anos e meio',
@@ -90,7 +90,7 @@ COMMENT = 'Tabela para cadastro de matriz curricular (disciplinas).';
 -- Table `codigofonteonline1`.`usuario_perfil`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `codigofonteonline1`.`usuario_perfil` (
-  `idusuario_perfil` INT NOT NULL,
+  `idusuario_perfil` AUTO_INCREMENT INT NOT NULL,
   `usuarios_idusuarios` INT NOT NULL,
   `perfil_idperfil` INT NOT NULL,
   PRIMARY KEY (`idusuario_perfil`, `usuarios_idusuarios`, `perfil_idperfil`),

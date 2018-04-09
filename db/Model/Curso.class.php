@@ -1,16 +1,16 @@
 <?php
 
 class Curso {
-    
-    private $idcurso;
+
+    private $idCurso;
     private $nome;
     private $portaria;
     private $duracao;
     private $grau;
     private $dataPortaria;
-    
-    public function getIdcurso() {
-        return $this->idcurso;
+
+    public function getIdCurso() {
+        return $this->idCurso;
     }
 
     public function getNome() {
@@ -33,8 +33,8 @@ class Curso {
         return $this->dataPortaria;
     }
 
-    public function setIdcurso($idcurso) {
-        $this->idcurso = $idcurso;
+    public function setIdCurso($idCurso) {
+        $this->idCurso = $idCurso;
     }
 
     public function setNome($nome) {
@@ -55,6 +55,6 @@ class Curso {
 
     public function setDataPortaria($dataPortaria) {
         $this->dataPortaria = $dataPortaria;
-    }   
-    
+    }
+
 }
