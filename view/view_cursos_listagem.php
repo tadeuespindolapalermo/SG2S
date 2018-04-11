@@ -19,7 +19,7 @@
             unset($_SESSION['usuario']);
             unset($_SESSION['email']);
             session_destroy();
-            header('Location: ../processamento/process_sair.php');
+            header('Location: ../controller/controller_sair.php');
         }
 
         $selectCurso = $cursoDao->listar($conn);
@@ -61,7 +61,7 @@
                                                 <td>'.$curso->getDuracao().'</td>
                                                 <td>'.$curso->getGrau().'</td>
                                                 <td>'.$curso->getDataPortaria().'</td>
-                                                <td><a style="margin-left: 20px;" href="view_admin.php?pagina=../processamento/process_curso_remove.php&idCurso='.$curso->getIdCurso().'"><img src="../lib/open-iconic/svg/x.svg" alt="remover"></a></td>
+                                                <td><a style="margin-left: 20px;" href="view_admin.php?pagina=../controller/controller_curso_remove.php&idCurso='.$curso->getIdCurso().'"><img src="../lib/open-iconic/svg/x.svg" alt="remover"></a></td>
                                                 <td><a style="margin-left: 10px;" href="view_admin.php?pagina=view_form_curso_update.php&idCurso='.$curso->getIdCurso().'"><img src="../lib/open-iconic/svg/brush.svg" alt="editar"></a></td>
                                             </tr>
                                         </tbody>';

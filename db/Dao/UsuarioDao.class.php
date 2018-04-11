@@ -3,7 +3,7 @@
 class UsuarioDao implements Dao {
 
     /*
-     * Método para inserir um novo usuário no sistema (processamento)
+     * Método para inserir um novo usuário no sistema (controller)
      **/
     public function inserir($conn, $usuario) {
 
@@ -82,7 +82,7 @@ class UsuarioDao implements Dao {
     }
 
     /*
-     * Método para inserir o perfil do novo usuário no sistema (chave estrangeira) (processamento)
+     * Método para inserir o perfil do novo usuário no sistema (chave estrangeira) (controller)
      **/
     public function inserirPerfil($conn, $usuario, $perfil) {
         try {
@@ -118,7 +118,7 @@ class UsuarioDao implements Dao {
     }
 
     /*
-     * Método para remover um usuário no sistema (processamento)
+     * Método para remover um usuário no sistema (controller)
      **/
     public function remover($conn, $idUsuario) {
         try {
@@ -137,7 +137,7 @@ class UsuarioDao implements Dao {
     }
 
     /*
-     * Método para atualizar um usuário no sistema (processamento)
+     * Método para atualizar um usuário no sistema (controller)
      **/
     public function atualizar($conn, $usuario) {
 
@@ -170,7 +170,7 @@ class UsuarioDao implements Dao {
     }
 
     /*
-     * Método para atualizar o perfil do usuário atualizado (processamento)
+     * Método para atualizar o perfil do usuário atualizado (controller)
      **/
     public function atualizarPerfil($conn, $usuario, $perfil) {
 
@@ -195,7 +195,7 @@ class UsuarioDao implements Dao {
     }
 
     /*
-     * Método para atualizar um usuário logado no sistema (processamento)
+     * Método para atualizar um usuário logado no sistema (controller)
      **/
     public function atualizarUsuarioLogado($conn, $usuario, $idUsuarioSessao) {
         try {
@@ -270,7 +270,7 @@ class UsuarioDao implements Dao {
 
     /*
      * VERIFICA SE O USUÁRIO INFORMADO EXISTE NO SISTEMA
-     * Método utilizado no Login (processamento)
+     * Método utilizado no Login (controller)
      **/
     public function buscarUsuarioLogin($conn, $usuario) {
         $sqlUsuario = "SELECT * FROM usuarios WHERE usuario = :usuario AND senha = :senha";
@@ -283,7 +283,7 @@ class UsuarioDao implements Dao {
 
     /*
      * VERIFICA SE O USUÁRIO INFORMADO EXISTE NO SISTEMA
-     * Método utilizado no Login (processamento)
+     * Método utilizado no Login (controller)
      **/
     public function buscarPerfilUsuarioLogin($conn, $usuario) {
         $sqlPerfilId = "SELECT perfil_idperfil FROM usuario_perfil WHERE usuarios_idusuarios = :idUsuario";

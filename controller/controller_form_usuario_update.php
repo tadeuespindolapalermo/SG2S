@@ -11,7 +11,7 @@
         unset($_SESSION['usuario']);
         unset($_SESSION['email']);
         session_destroy();
-        header('Location: ../processamento/process_sair.php');
+        header('Location: ../controller/controller_sair.php');
     }
 
     if($_SERVER["REQUEST_METHOD"] == "POST") {

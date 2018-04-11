@@ -16,7 +16,7 @@
         unset($_SESSION['usuario']);
         unset($_SESSION['email']);
         session_destroy();
-        header('Location: ../processamento/process_sair.php');
+        header('Location: ../controller/controller_sair.php');
     }
 
     $selectCurso = $cursoDao->buscarPorId($conn, $idCurso);
@@ -34,7 +34,7 @@
     echo '
     <div class="container">
         <h4>Atualizar Curso</h4><br />
-        <form action="view_admin.php?pagina=../processamento/process_form_curso_update.php&idCurso='.$curso->getIdCurso().'" method="post">
+        <form action="view_admin.php?pagina=../controller/controller_form_curso_update.php&idCurso='.$curso->getIdCurso().'" method="post">
             <div class="form-group ">
                 <div class="col-lg-12">
 

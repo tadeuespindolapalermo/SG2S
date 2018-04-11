@@ -7,32 +7,32 @@
     $PDO = new Conn;
     $conn = $PDO->Conectar();
 
-    $cursoDao = new CursoDao();
+    $usuarioDao = new UsuarioDao();
 
-    $idCurso = $_GET['idCurso'];
+    $idUsuario = $_GET['idUsuario'];
 
     if($_SESSION['perfil_idperfil'] == 2) {
         unset($_SESSION['usuario']);
         unset($_SESSION['email']);
         session_destroy();
-        header('Location: ../processamento/process_sair.php');
+        header('Location: ../controller/controller_sair.php');
     }
 
-    // Removendo curso do banco
-    $linhas = $cursoDao->remover($conn, $idCurso);
+    // Removendo usuário do banco
+    $linhas = $usuarioDao->remover($conn, $idUsuario);
 
     if ($linhas != 0) {
         echo "
         <script type=\"text/javascript\">
-            alert(\"Curso excluído com sucesso!\");
+            alert(\"Usuário excluído com sucesso!\");
         </script>
         <META HTTP-EQUIV=REFRESH CONTENT = '0;URL=
-        http://localhost/SG2S/view/view_admin.php?pagina=view_cursos_listagem.php'";
+        http://localhost/SG2S/view/view_admin.php?pagina=view_usuarios_listagem.php'";
     } else {
         echo "
         <script type=\"text/javascript\">
-            alert(\"Erro ao excluir curso!\");
+            alert(\"Erro ao excluir usuário!\");
         </script>
         <META HTTP-EQUIV=REFRESH CONTENT = '0;URL=
-        http://localhost/SG2S/view/view_admin.php?pagina=view_cursos_listagem.php'";
+        http://localhost/SG2S/view/view_admin.php?pagina=view_usuarios_listagem.php'";
     }

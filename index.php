@@ -29,7 +29,7 @@
     </head>
 
     <body class="text-center" ng-controller="indexController">
-        <form name="loginForm" class="form-signin" method="post" action="processamento/process_form_login.php" id="formLogin">
+        <form name="loginForm" class="form-signin" method="post" action="controller/controller_form_login.php" id="formLogin">
             <img src="img/sg2s.png" alt="">
             <h1 ng-bind="titulo" class="h3 mb-3" style="font-weight: 900"></h1>
 

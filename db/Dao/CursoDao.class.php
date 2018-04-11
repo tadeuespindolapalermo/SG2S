@@ -3,7 +3,7 @@
 class CursoDao implements Dao {
 
     /*
-     * Método para inserir um novo curso no sistema (processamento)
+     * Método para inserir um novo curso no sistema (controller)
      **/
     public function inserir($conn, $curso) {
 
@@ -62,7 +62,7 @@ class CursoDao implements Dao {
     }
 
     /*
-     * Método para remover um curso do sistema (processamento)
+     * Método para remover um curso do sistema (controller)
      **/
     public function remover($conn, $idCurso) {
         // REMOÇÃO DO CURSO COM PDO
@@ -82,7 +82,7 @@ class CursoDao implements Dao {
     }
 
     /*
-     * Método para atualizar um curso do sistema (processamento)
+     * Método para atualizar um curso do sistema (controller
      **/
     public function atualizar($conn, $curso) {
         try {

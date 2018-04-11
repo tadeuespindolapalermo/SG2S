@@ -17,7 +17,7 @@
         unset($_SESSION['usuario']);
         unset($_SESSION['email']);
         session_destroy();
-        header('Location: ../processamento/process_sair.php');
+        header('Location: ../controller/controller_sair.php');
     } else {
         $perfil = 'Administrador';
     }
@@ -63,7 +63,7 @@
             <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search" />
             <!--<ul class="navbar-nav px-3">
                 <li class="nav-item text-nowrap">
-                    <a class="nav-link" href="../processamento/process_sair.php">Sair</a>
+                    <a class="nav-link" href="../controller/controller_sair.php">Sair</a>
                 </li>
             </ul>-->
         </nav>
@@ -188,7 +188,7 @@
                         <div class="btn-toolbar mb-2 mb-md-0">
                             <div class="btn-group mr-2">
                                 <!--<button class="btn btn-sm btn-outline-secondary"><i>Compartilhar</i></button>-->
-                                <a href="../processamento/process_sair.php"><button class="btn btn-sm btn-outline-secondary">
+                                <a href="../controller/controller_sair.php"><button class="btn btn-sm btn-outline-secondary">
                                     <i><span data-feather="power"></span></i>&nbsp;Sair
                                 </button></a>
                                 <!--<button class="btn btn-sm btn-outline-secondary">Exportar</button>-->

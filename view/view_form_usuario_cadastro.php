@@ -5,7 +5,7 @@
 		unset($_SESSION['usuario']);
 	    unset($_SESSION['email']);
 	    session_destroy();
-        header('Location: ../processamento/process_sair.php');
+        header('Location: ../controller/controller_sair.php');
     }
 
 	$erro_usuario = isset($_GET['erro_usuario']) ? $_GET['erro_usuario'] : 0;
@@ -22,7 +22,7 @@
 		<br />
 		<h3><strong><div style="margin-top: -50px;">Novo Usuário</div></strong></h3>
 		<br />
-		<form method="post" action="../processamento/process_form_usuario_cadastro.php" id="formCadastrarse">
+		<form method="post" action="../controller/controller_form_usuario_cadastro.php" id="formCadastrarse">
 			<div class="form-group">
 				<small><strong>*Campos Obrigatórios</strong></small>
 
