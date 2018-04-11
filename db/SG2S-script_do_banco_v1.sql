@@ -159,13 +159,13 @@ COMMENT = 'Tabela para cadastro das informações presentes na grade semestral.'
 -- Table `codigofonteonline1`.`professor`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `codigofonteonline1`.`professor` (
-  `idprofessor` INT NOT NULL,
+  `idprofessor` AUTO_INCREMENT INT NOT NULL,
   `nome` VARCHAR(60) CHARACTER SET 'utf8' COLLATE 'utf8_general_ci' NOT NULL,
   `CPF` VARCHAR(14) CHARACTER SET 'utf8' COLLATE 'utf8_general_ci' NOT NULL COMMENT 'Haverá máscara jQuery no campo do formulário.\nFormato: 999.999.999-99',
   `RG` VARCHAR(20) CHARACTER SET 'utf8' COLLATE 'utf8_general_ci' NOT NULL COMMENT 'Formato livre.',
   `email` VARCHAR(60) CHARACTER SET 'utf8' COLLATE 'utf8_general_ci' NOT NULL COMMENT 'Será validado por atributo no campo do formulário.',
   `fone` VARCHAR(16) CHARACTER SET 'utf8' COLLATE 'utf8_general_ci' NOT NULL COMMENT 'Haverá máscara jQuery no campo do formulário.\nFormato: (99) 9 9999-9999',
-  `exclusao` TINYINT(1) NULL DEFAULT NULL,
+  `exclusao` TINYINT(1) NOT NULL,
   PRIMARY KEY (`idprofessor`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8

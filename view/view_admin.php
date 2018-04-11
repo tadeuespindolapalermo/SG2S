@@ -104,7 +104,7 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">
+                                <a class="nav-link" href="view_admin.php?pagina=view_professores_listagem.php">
                                     <span data-feather="award"></span>
                                     Professor
                                 </a>

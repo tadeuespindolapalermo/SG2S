@@ -82,7 +82,7 @@ class CursoDao implements Dao {
     }
 
     /*
-     * Método para atualizar um curso do sistema (controller
+     * Método para atualizar um curso do sistema (controller)
      **/
     public function atualizar($conn, $curso) {
         try {

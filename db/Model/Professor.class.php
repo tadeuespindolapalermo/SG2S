@@ -2,16 +2,16 @@
 
 class Professor {
 
-    private $idprofessor;
+    private $idProfessor;
     private $nome;
     private $CPF;
     private $RG;
     private $email;
     private $fone;
-    //private $exclusao;
+    private $exclusao; // pode ser NULL
 
-    public function getIdprofessor() {
-        return $this->idprofessor;
+    public function getIdProfessor() {
+        return $this->idProfessor;
     }
 
     public function getNome() {
@@ -34,8 +34,12 @@ class Professor {
         return $this->fone;
     }
 
-    public function setIdprofessor($idprofessor) {
-        $this->idprofessor = $idprofessor;
+    public function getExclusao() {
+        return $this->exclusao;
+    }
+
+    public function setIdProfessor($idProfessor) {
+        $this->idProfessor = $idProfessor;
     }
 
     public function setNome($nome) {
@@ -56,6 +60,10 @@ class Professor {
 
     public function setFone($fone) {
         $this->fone = $fone;
-    }   
-    
+    }
+
+    public function setExclusao($exclusao) {
+        $this->exclusao = $exclusao;
+    }
+
 }
