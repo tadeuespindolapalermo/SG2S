@@ -6,6 +6,15 @@
     <?php
         session_start();
 
+        require('../db/Config.inc.php');
+
+        // CONEXÃO COM PDO
+        $PDO = new Conn;
+        $conn = $PDO->Conectar();
+
+        $curso = new Curso();
+        $cursoDao = new CursoDao();
+
         if($_SESSION['perfil_idperfil'] == 2) {
             unset($_SESSION['usuario']);
             unset($_SESSION['email']);
@@ -13,18 +22,7 @@
             header('Location: ../processamento/process_sair.php');
         }
 
-        require('../db/Config.inc.php');
-
-        $curso = new Curso();
-
-        // CONEXÃO COM PDO
-        $PDO = new Conn;
-        $conn = $PDO->Conectar();
-
-        $strSqlCurso = "SELECT * FROM curso";
-
-        $selectCurso = $conn->prepare($strSqlCurso);
-        $selectCurso->execute();
+        $selectCurso = $cursoDao->listar($conn);
     ?>
 
     <div class="row">
@@ -47,7 +45,6 @@
                             </thead>
                             <?php
                                 while ($linhaCurso = $selectCurso->fetchAll(PDO::FETCH_ASSOC)) {
-
                                     foreach ($linhaCurso as $dados) {
                                         $curso->setIdCurso($dados['idcurso']);
                                         $curso->setNome($dados['nome']);

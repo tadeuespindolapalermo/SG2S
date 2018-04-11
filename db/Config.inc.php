@@ -12,7 +12,7 @@ define('DBSA', 'codigofonteonline1');
 // AUTO LOAD DE CLASSES ####################
 function __autoload($Class) {
 
-    $cDir = ['Conn','Model'];
+    $cDir = ['Conn','Model', 'Dao'];
     $iDir = null;
 
     foreach ($cDir as $dirName):

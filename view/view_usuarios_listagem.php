@@ -7,6 +7,16 @@
     <?php
         session_start();
 
+        require('../db/Config.inc.php');
+
+        // CONEXÃO COM PDO
+        $PDO = new Conn;
+        $conn = $PDO->Conectar();
+
+        $usuarios = new Usuarios();
+        $perfil = new Perfil();
+        $usuarioDao = new UsuarioDao();
+
         if($_SESSION['perfil_idperfil'] == 2) {
             unset($_SESSION['usuario']);
             unset($_SESSION['email']);
@@ -14,23 +24,7 @@
             header('Location: ../processamento/process_sair.php');
         }
 
-        require('../db/Config.inc.php');
-
-        $usuarios = new Usuarios();
-        $perfil = new Perfil();
-
-        // CONEXÃO COM PDO
-        $PDO = new Conn;
-        $conn = $PDO->Conectar();
-
-        $strSqlJoin= "
-        SELECT
-            *
-        FROM
-            usuarios INNER JOIN usuario_perfil ON usuarios.idusuarios = usuario_perfil.idusuario_perfil";
-
-        $selectUsuarioJoin = $conn->prepare($strSqlJoin);
-        $selectUsuarioJoin->execute();
+        $selectUsuarioJoin = $usuarioDao->listar($conn);
     ?>
 
     <div class="row">

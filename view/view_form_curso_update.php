@@ -1,6 +1,17 @@
 <?php
     session_start();
 
+    require('../db/Config.inc.php');
+
+    // CONEXÃO COM PDO
+    $PDO = new Conn;
+    $conn = $PDO->Conectar();
+
+    $cursoDao = new CursoDao();
+    $curso = new Curso();
+
+    $idCurso = $_GET['idCurso'];
+
     if($_SESSION['perfil_idperfil'] == 2) {
         unset($_SESSION['usuario']);
         unset($_SESSION['email']);
@@ -8,21 +19,7 @@
         header('Location: ../processamento/process_sair.php');
     }
 
-    require('../db/Config.inc.php');
-
-    $idCurso = $_GET['idCurso'];
-
-    // CONEXÃO COM PDO
-    $PDO = new Conn;
-    $conn = $PDO->Conectar();
-
-    $curso = new Curso();
-
-    $strSqlCurso = "SELECT * FROM curso WHERE idcurso = :idCurso";
-
-    $selectCurso = $conn->prepare($strSqlCurso);
-    $selectCurso->bindValue(':idCurso', $idCurso);
-    $selectCurso->execute();
+    $selectCurso = $cursoDao->buscarPorId($conn, $idCurso);
     $linhaCurso = $selectCurso->fetchAll(PDO::FETCH_ASSOC);
 
     foreach ($linhaCurso as $dados) {
