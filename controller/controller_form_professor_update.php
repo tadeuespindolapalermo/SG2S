@@ -27,7 +27,7 @@
         $professor->setFone($_POST['telefone']);
         $professor->setIdProfessor($_GET['idProfessor']);
 
-        // Update do Curso no Banco
+        // Update do Professor no Banco
         $updateProfessor = $professorDao->atualizar($conn, $professor);
 
         // VALIDAÇÃO DO UPDATE

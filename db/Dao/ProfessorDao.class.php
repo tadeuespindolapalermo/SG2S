@@ -146,6 +146,28 @@ class ProfessorDao implements Dao {
     }
 
     /*
+     * Método para remover definitivo um professor do sistema (controller)
+     **/
+    public function removerDefinitivo($conn, $idProfessor) {
+       // REMOÇÃO DO PROFESSOR COM PDO
+       try {
+           // --------------------------------------------------------------------
+           // EXCLUSÃO LEGÍTIMA
+           $sqlIdProfessor = "DELETE FROM professor WHERE idprofessor = :idProfessor";
+           $selectIdProfessor = $conn->prepare($sqlIdProfessor);
+           $selectIdProfessor->bindValue(':idProfessor', $idProfessor);
+           $selectIdProfessor->execute();
+
+           $linhas = $selectIdProfessor->rowCount();
+
+           return $linhas;
+           // --------------------------------------------------------------------
+       } catch (PDOException $e) {
+           PHPErro($e->getCode(), $e->getMessage(), $e->getFile(), $e->getFile());
+       }
+   }
+
+    /*
      * Método para atualizar um professor do sistema (controller)
      **/
     public function atualizar($conn, $professor) {
@@ -178,10 +200,44 @@ class ProfessorDao implements Dao {
     }
 
     /*
+     * Método para atualizar a coluna exclusao de um professor do sistema (controller) RECUPERAR PROFESSOR
+     **/
+    public function atualizarExclusao($conn, $professor) {
+        try {
+            // UPDATE DO CURSO
+            $strSqlProfessor = "
+            UPDATE professor set
+                exclusao = :exclusao
+            WHERE
+                idprofessor = :idProfessor";
+
+            $stmtUpdateProfessor = $conn->prepare($strSqlProfessor);
+            $stmtUpdateProfessor->bindValue(':exclusao', $professor->getExclusao());
+            $stmtUpdateProfessor->bindValue(':idProfessor', $professor->getIdProfessor());
+            $updateProfessor = $stmtUpdateProfessor->execute();
+
+            return $updateProfessor;
+            // -----------------------------------------------------------
+        } catch (PDOException $e) {
+            PHPErro($e->getCode(), $e->getMessage(), $e->getFile(), $e->getFile());
+        }
+    }
+
+    /*
      * Método para listar todos os professores do sistema (view)
      **/
     public function listar($conn) {
         $strSqlProfessor = "SELECT * FROM professor WHERE exclusao != 0";
+        $selectProfessor = $conn->prepare($strSqlProfessor);
+        $selectProfessor->execute();
+        return $selectProfessor;
+    }
+
+    /*
+     * Método para listar todos os professores excluídos do sistema (view)
+     **/
+    public function listarExcluidos($conn) {
+        $strSqlProfessor = "SELECT * FROM professor WHERE exclusao != 1";
         $selectProfessor = $conn->prepare($strSqlProfessor);
         $selectProfessor->execute();
         return $selectProfessor;

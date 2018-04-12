@@ -1,6 +1,6 @@
 <div class="container listar">
     <div class="header clearfix">
-        <h3 class="text-muted">Listagem de Professores</h3>
+        <h3 class="text-muted">Listagem de Professores Excluídos</h3>
     </div>
 
     <?php
@@ -22,7 +22,7 @@
             header('Location: ../controller/controller_sair.php');
         }
 
-        $selectProfessor = $professorDao->listar($conn);
+        $selectProfessor = $professorDao->listarExcluidos($conn);
     ?>
 
     <div class="row">
@@ -30,7 +30,7 @@
             <div class="panel panel-default">
                 <div class="panel-body">
                     <div class="table-responsive">
-                        <table class="table table-hover table-striped" id="listaProfessores">
+                        <table class="table table-hover table-striped" id="listaProfessoresExcluidos">
                             <thead>
                                 <tr>
                                     <th>Id</th>
@@ -39,8 +39,8 @@
                                     <th>RG</th>
                                     <th>E-mail</th>
                                     <th>Fone</th>
-                                    <th>Excluir</th>
-                                    <th>Editar</th>
+                                    <th>Eliminar</th>
+                                    <th>Recuperar</th>
                                 </tr>
                             </thead>
                             <?php
@@ -61,19 +61,18 @@
                                                 <td>'.$professor->getRG().'</td>
                                                 <td>'.$professor->getEmail().'</td>
                                                 <td>'.$professor->getFone().'</td>
-                                                <td><a style="margin-left: 20px;" href="view_admin.php?pagina=../controller/controller_professor_remove.php&idProfessor='.$professor->getIdProfessor().'"><img src="../lib/open-iconic/svg/x.svg" alt="remover"></a></td>
-                                                <td><a style="margin-left: 10px;" href="view_admin.php?pagina=view_form_professor_update.php&idProfessor='.$professor->getIdProfessor().'"><img src="../lib/open-iconic/svg/brush.svg" alt="editar"></a></td>
+                                                <td><a style="margin-left: 26px;" href="view_admin.php?pagina=../controller/controller_professor_remove_definitivo.php&idProfessor='.$professor->getIdProfessor().'"><img src="../lib/open-iconic/svg/trash.svg" alt="remover"></a></td>
+                                                <td><a style="margin-left: 28px;" href="view_admin.php?pagina=../controller/controller_professor_recuperar.php&idProfessor='.$professor->getIdProfessor().'"><img src="../lib/open-iconic/svg/action-undo.svg" alt="editar"></a></td>
                                             </tr>
                                         </tbody>';
                                     }
                                 }
                             ?>
                         </table>
-                        <a href="view_admin.php?pagina=view_form_professor_cadastro.php"><button type="button" class="btn btn-primary"><span data-feather="user"></span>&nbsp;Novo</button></a>
-                        <button export-to-excel="listaProfessores" class="btn btn-success">
+                        <button export-to-excel="listaProfessoresExcluidos" class="btn btn-success">
                             <span data-feather="download"></span>&nbsp;Excel
                         </button>
-                        <a href="view_admin.php?pagina=view_professores_excluidos_listagem.php"><button type="button" class="btn btn-danger"><span data-feather="user-x"></span>&nbsp;Lixeira</button></a>
+                        <a href="view_admin.php?pagina=view_professores_listagem.php"><button type="button" class="btn btn-info"><span data-feather="arrow-left"></span>&nbsp;Voltar</button></a>
                     </div>
                 </div>
             </div>
