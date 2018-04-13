@@ -69,9 +69,9 @@ COMMENT = 'Tabela para cadastro de cursos.';
 -- Table `codigofonteonline1`.`matriz_curricular`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `codigofonteonline1`.`matriz_curricular` (
-  `idmatriz_curricular` INT NOT NULL,
+  `idmatriz_curricular` AUTO_INCREMENT INT NOT NULL,
   `curso_idcurso` INT NOT NULL,
-  `nome` VARCHAR(60) CHARACTER SET 'utf8' COLLATE 'utf8_general_ci' NOT NULL,
+  `nome_matriz` VARCHAR(60) CHARACTER SET 'utf8' COLLATE 'utf8_general_ci' NOT NULL,
   `carga_horaria` DECIMAL(5,2) NOT NULL COMMENT 'Formato: 999.99\nEx.:\n100.00 - 100 horas\n105.30 - 105 horas e 30 minutos',
   `credito` INT(1) NOT NULL COMMENT 'Peso da disciplina',
   PRIMARY KEY (`idmatriz_curricular`, `curso_idcurso`),

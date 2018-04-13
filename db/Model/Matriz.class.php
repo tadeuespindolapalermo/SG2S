@@ -1,23 +1,28 @@
 <?php
 
 class Matriz {
-    
-    private $idmatrizCurricular;
-    private $cursoIdcurso;
-    private $nome;
+
+    private $idMatrizCurricular;
+    private $cursoIdCurso;
+    private $cursoNome;
+    private $nomeMatriz;
     private $cargaHoraria;
     private $credito;
-    
-    public function getIdmatrizCurricular() {
-        return $this->idmatrizCurricular;
+
+    public function getIdMatrizCurricular() {
+        return $this->idMatrizCurricular;
     }
 
-    public function getCursoIdcurso() {
-        return $this->cursoIdcurso;
+    public function getCursoIdCurso() {
+        return $this->cursoIdCurso;
     }
 
-    public function getNome() {
-        return $this->nome;
+    public function getCursoNome() {
+        return $this->cursoNome;
+    }
+
+    public function getNomeMatriz() {
+        return $this->nomeMatriz;
     }
 
     public function getCargaHoraria() {
@@ -28,16 +33,20 @@ class Matriz {
         return $this->credito;
     }
 
-    public function setIdmatrizCurricular($idmatrizCurricular) {
-        $this->idmatrizCurricular = $idmatrizCurricular;
+    public function setIdMatrizCurricular($idMatrizCurricular) {
+        $this->idMatrizCurricular = $idMatrizCurricular;
     }
 
-    public function setCursoIdcurso($cursoIdcurso) {
-        $this->cursoIdcurso = $cursoIdcurso;
+    public function setCursoIdCurso($cursoIdCurso) {
+        $this->cursoIdCurso = $cursoIdCurso;
     }
 
-    public function setNome($nome) {
-        $this->nome = $nome;
+    public function setCursoNome($cursoNome) {
+        $this->cursoNome = $cursoNome;
+    }
+
+    public function setNomeMatriz($nomeMatriz) {
+        $this->nomeMatriz = $nomeMatriz;
     }
 
     public function setCargaHoraria($cargaHoraria) {
@@ -46,6 +55,6 @@ class Matriz {
 
     public function setCredito($credito) {
         $this->credito = $credito;
-    }   
-    
+    }
+
 }

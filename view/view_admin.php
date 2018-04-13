@@ -98,7 +98,7 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">
+                                <a class="nav-link" href="view_admin.php?pagina=view_matrizes_listagem.php">
                                     <span data-feather="edit-2"></span>
                                     Matriz
                                 </a>

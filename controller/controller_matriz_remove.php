@@ -7,9 +7,9 @@
     $PDO = new Conn;
     $conn = $PDO->Conectar();
 
-    $cursoDao = new CursoDao();
+    $matrizDao = new MatrizDao();
 
-    $idCurso = $_GET['idCurso'];
+    $idMatrizCurricular = $_GET['idMatriz'];
 
     if($_SESSION['perfil_idperfil'] == 2) {
         unset($_SESSION['usuario']);
@@ -19,20 +19,20 @@
     }
 
     // Removendo curso do banco
-    $linhas = $cursoDao->remover($conn, $idCurso);
+    $linhas = $matrizDao->remover($conn, $idMatrizCurricular);
 
     if ($linhas != 0) {
         echo "
         <script type=\"text/javascript\">
-            alert(\"Curso excluído com sucesso!\");
+            alert(\"Matriz excluído com sucesso!\");
         </script>
         <META HTTP-EQUIV=REFRESH CONTENT = '0;URL=
-        http://localhost/SG2S/view/view_admin.php?pagina=view_cursos_listagem.php'";
+        http://localhost/SG2S/view/view_admin.php?pagina=view_matrizes_listagem.php'";
     } else {
         echo "
         <script type=\"text/javascript\">
-            alert(\"Erro ao excluir curso! Este curso está vinculado a uma ou mais matriz!\");
+            alert(\"Erro ao excluir matriz!\");
         </script>
         <META HTTP-EQUIV=REFRESH CONTENT = '0;URL=
-        http://localhost/SG2S/view/view_admin.php?pagina=view_cursos_listagem.php'";
+        http://localhost/SG2S/view/view_admin.php?pagina=view_matrizes_listagem.php'";
     }

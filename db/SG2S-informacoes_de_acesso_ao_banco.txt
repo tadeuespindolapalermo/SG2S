@@ -23,3 +23,6 @@ usuario:  codigofonteonli1
 senha:    sg2s1985@
 database: codigofonteonline1
 ---------------------------------------------------
+
+Reiniciar o id
+ALTER TABLE tabela AUTO_INCREMENT = 1;
