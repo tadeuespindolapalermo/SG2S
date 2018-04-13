@@ -38,13 +38,12 @@
                 <div class="form-group">
                     <select class="form-control" id="curso_idcurso" name="curso_idcurso" required="required" autofocus>
 						<option value="">-Selecione o Curso-</option>
-                        <?php                            
+                        <?php
 							while ($linhaMatriz = $selectMatriz->fetchAll(PDO::FETCH_ASSOC)) {
 								foreach ($linhaMatriz as $dados) {
 									$matriz->setCursoIdCurso($dados['idcurso']);
-									$matriz->setCursoNome($dados['nome']);
-									echo '<option style="font-weight: 900">'.$matriz->getCursoIdCurso().'</option>';
-									echo '<option disabled>'.$matriz->getCursoNome().' ('.$matriz->getCursoIdCurso().')'.'</option>';
+									$matriz->setCursoNome($dados['nome']);									
+									echo '<option value="'.$matriz->getCursoIdCurso().'">'.$matriz->getCursoNome().'</option>';
 								}
 							}
                         ?>

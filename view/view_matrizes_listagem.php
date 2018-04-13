@@ -34,8 +34,8 @@
                             <thead>
                                 <tr>
                                     <th>Id</th>
+                                    <th>Nome Matriz</th>
                                     <th>Curso</th>
-                                    <th>Nome</th>
                                     <th>Carga Horária</th>
                                     <th>Crédito</th>
                                     <th>Excluir</th>
@@ -55,8 +55,8 @@
                                         <tbody>
                                             <tr>
                                                 <td>'.$matriz->getIdMatrizCurricular().'</td>
-                                                <td>'.$matriz->getCursoNome().'</td>
                                                 <td>'.$matriz->getNomeMatriz().'</td>
+                                                <td>'.$matriz->getCursoNome().'</td>
                                                 <td>'.$matriz->getCargaHoraria().'</td>
                                                 <td>'.$matriz->getCredito().'</td>
                                                 <td><a style="margin-left: 20px;" href="view_admin.php?pagina=../controller/controller_matriz_remove.php&idMatriz='.$matriz->getIdMatrizCurricular().'"><img src="../lib/open-iconic/svg/x.svg" alt="remover"></a></td>

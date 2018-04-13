@@ -19,17 +19,16 @@
         header('Location: ../controller/controller_sair.php');
     }
 
+    $selectMatrizCombo = $matrizDao->listarCombo($conn);
+
     $selectMatriz = $matrizDao->buscarPorId($conn, $idMatriz);
     $linhaMatriz = $selectMatriz->fetchAll(PDO::FETCH_ASSOC);
-
     foreach ($linhaMatriz as $dados) {
         $matriz->setCursoIdCurso($dados['curso_idcurso']);
         $matriz->setNomeMatriz($dados['nome_matriz']);
         $matriz->setCargaHoraria($dados['carga_horaria']);
         $matriz->setCredito($dados['credito']);
     }
-
-    $selectMatrizCombo = $matrizDao->listarCombo($conn);
 
     echo '
     <div class="container">
@@ -41,14 +40,12 @@
                     <label class="col-lg-12 control-label label-usuario">Curso</label>
                     <div class="form-group" style="width: 300px; margin-bottom: -5px;">
                         <select class="form-control" id="curso_idcurso" name="curso_idcurso" required="required" autofocus>
-                            <option style="font-weight: 900" value="'.$matriz->getCursoIdCurso().'">'.$matriz->getCursoIdCurso().'</option>
-                            <option></option>';
-                            while ($linhaMatriz = $selectMatrizCombo->fetchAll(PDO::FETCH_ASSOC)) {
-                                foreach ($linhaMatriz as $dados) {
+                            <option value="'.$matriz->getCursoIdCurso().'">('.$matriz->getCursoIdCurso().')</option>';
+                            while ($linhaMatrizCombo = $selectMatrizCombo->fetchAll(PDO::FETCH_ASSOC)) {
+                                foreach ($linhaMatrizCombo as $dados) {
                                     $matriz->setCursoIdCurso($dados['idcurso']);
                                     $matriz->setCursoNome($dados['nome']);
-                                    echo '<option style="font-weight: 900">'.$matriz->getCursoIdCurso().'</option>';
-                                    echo '<option disabled>'.$matriz->getCursoNome().' ('.$matriz->getCursoIdCurso().')'.'</option>';
+                                    echo '<option value="'.$matriz->getCursoIdCurso().'">'.$matriz->getCursoNome().' ('.$matriz->getCursoIdCurso().')'.'</option>';
                                 }
                             }
                             echo '
