@@ -26,7 +26,7 @@
     // Inserção do Curso no Banco
     $cadastroCursoEfetuado = $cursoDao->inserir($conn, $curso);
 
-    // VALIDAÇÃO DA INSERÇÃO DO USUÁRIO E DO PERFIL
+    // VALIDAÇÃO DA INSERÇÃO DO CURSO
     if($cadastroCursoEfetuado) {
         echo "
         <script type=\"text/javascript\">

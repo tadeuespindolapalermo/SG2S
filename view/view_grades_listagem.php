@@ -58,6 +58,7 @@
                                         $grade->setQuantidadeAlunos($dados['quantidade_alunos']);
                                         $grade->setTurmas($dados['turmas']);
                                         $grade->setCursoIdCurso($dados['curso_idcurso']);
+                                        $grade->setCursoNome($dados['nome']);
                                         echo '
                                         <tbody>
                                             <tr>
@@ -69,7 +70,7 @@
                                                 <td>'.$grade->getSala().'</td>
                                                 <td>'.$grade->getQuantidadeAlunos().'</td>
                                                 <td>'.$grade->getTurmas().'</td>
-                                                <td>'.$grade->getCursoIdCurso().'</td>
+                                                <td>'.$grade->getCursoNome().'</td>
                                                 <td><a style="margin-left: 20px;" href="view_admin.php?pagina=../controller/controller_grade_remove.php&idGrade='.$grade->getIdGradeSemestral().'"><img src="../lib/open-iconic/svg/x.svg" alt="remover"></a></td>
                                                 <td><a style="margin-left: 10px;" href="view_admin.php?pagina=view_form_grade_update.php&idGrade='.$grade->getIdGradeSemestral().'"><img src="../lib/open-iconic/svg/brush.svg" alt="editar"></a></td>
                                             </tr>

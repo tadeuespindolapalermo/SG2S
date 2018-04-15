@@ -113,7 +113,7 @@ class MatrizDao implements Dao {
     }
 
     /*
-     * Método para listar todos os cursos do sistema (view)
+     * Método para listar todos as matrizes do sistema (view)
      **/
     public function listar($conn) {
         $strSqlMatrizJoinCurso = "SELECT * FROM matriz_curricular INNER JOIN curso ON matriz_curricular.curso_idcurso = curso.idcurso ORDER BY idmatriz_curricular";

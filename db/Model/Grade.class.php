@@ -11,6 +11,7 @@ class Grade {
     private $quantidadeAlunos;
     private $turmas;
     private $cursoIdCurso;
+    private $cursoNome;
 
     public function getIdGradeSemestral() {
         return $this->idGradeSemestral;
@@ -48,6 +49,10 @@ class Grade {
         return $this->cursoIdCurso;
     }
 
+    public function getCursoNome() {
+        return $this->cursoNome;
+    }
+
     public function setIdGradeSemestral($idGradeSemestral) {
         $this->idGradeSemestral = $idGradeSemestral;
     }
@@ -82,6 +87,10 @@ class Grade {
 
     public function setCursoIdCurso($cursoIdCurso) {
         $this->cursoIdCurso = $cursoIdCurso;
+    }
+
+    public function setCursoNome($cursoNome) {
+        $this->cursoNome = $cursoNome;
     }
 
 }
