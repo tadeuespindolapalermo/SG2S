@@ -1,8 +1,8 @@
 <?php
 
 class Grade {
-    
-    private $idgradeSemestral;
+
+    private $idGradeSemestral;
     private $anoLetivo;
     private $semestre;
     private $periodo;
@@ -10,10 +10,10 @@ class Grade {
     private $sala;
     private $quantidadeAlunos;
     private $turmas;
-    private $cursoIdcurso;
-    
-    public function getIdgradeSemestral() {
-        return $this->idgradeSemestral;
+    private $cursoIdCurso;
+
+    public function getIdGradeSemestral() {
+        return $this->idGradeSemestral;
     }
 
     public function getAnoLetivo() {
@@ -44,12 +44,12 @@ class Grade {
         return $this->turmas;
     }
 
-    public function getCursoIdcurso() {
-        return $this->cursoIdcurso;
+    public function getCursoIdCurso() {
+        return $this->cursoIdCurso;
     }
 
-    public function setIdgradeSemestral($idgradeSemestral) {
-        $this->idgradeSemestral = $idgradeSemestral;
+    public function setIdGradeSemestral($idGradeSemestral) {
+        $this->idGradeSemestral = $idGradeSemestral;
     }
 
     public function setAnoLetivo($anoLetivo) {
@@ -80,8 +80,8 @@ class Grade {
         $this->turmas = $turmas;
     }
 
-    public function setCursoIdcurso($cursoIdcurso) {
-        $this->cursoIdcurso = $cursoIdcurso;
-    }   
+    public function setCursoIdCurso($cursoIdCurso) {
+        $this->cursoIdCurso = $cursoIdCurso;
+    }
 
 }
