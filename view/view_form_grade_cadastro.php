@@ -34,7 +34,7 @@
 				<small><strong>*Campos Obrigatórios</strong></small>
 
 				<div class="form-group">
-					<input type="number" min="2000" max="9999"class="form-control" id="anoLetivo" name="anoLetivo"
+					<input type="number" min="2000" max="9999" class="form-control" id="anoLetivo" name="anoLetivo"
                     placeholder="*Ano Letivo (9999)" required="required" autofocus
                     onKeyDown="if(this.value.length==4 && event.keyCode!=8) return false;">
 				</div>

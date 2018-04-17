@@ -83,7 +83,8 @@
                         <button export-to-excel="listaGrades" class="btn btn-success">
                             <span data-feather="download"></span>&nbsp;Excel
                         </button>
-                    </div>
+                    </div><br />
+                    OBS: atualização de grade (editar) está com erro! Update não está persistindo os novos dados informados e mesmo assim retorna mensagem de sucesso!.
                 </div>
             </div>
         </div>

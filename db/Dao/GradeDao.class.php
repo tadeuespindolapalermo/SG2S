@@ -50,14 +50,49 @@ class GradeDao implements Dao {
         }
     }
 
+    /*
+     * Método para atualizar uma grade do sistema (controller)
+     **/
     public function atualizar($conn, $grade) {
+        try {
+            // UPDATE DA GRADE
+            $strSqlGrade = "
+            UPDATE grade_semestral set
+                ano_letivo = :anoLetivo,
+                semestre = :semestre,
+                periodo = :periodo,
+                horario = :horario,
+                sala = :sala,
+                quantidade_alunos = :quantidadeAlunos,
+                turmas = :turmas,
+                curso_idcurso = :cursoIdCurso
+            WHERE
+                idgrade_semestral = :idGradeSemestral";
+
+            $stmtUpdateGrade = $conn->prepare($strSqlGrade);
+            $stmtUpdateGrade->bindValue(':anoLetivo', $grade->getAnoLetivo());
+            $stmtUpdateGrade->bindValue(':semestre', $grade->getSemestre());
+            $stmtUpdateGrade->bindValue(':periodo', $grade->getPeriodo());
+            $stmtUpdateGrade->bindValue(':horario', $grade->getHorario());
+            $stmtUpdateGrade->bindValue(':sala', $grade->getSala());
+            $stmtUpdateGrade->bindValue(':quantidadeAlunos', $grade->getQuantidadeAlunos());
+            $stmtUpdateGrade->bindValue(':turmas', $grade->getTurmas());
+            $stmtUpdateGrade->bindValue(':cursoIdCurso', $grade->getCursoIdCurso());
+            $stmtUpdateGrade->bindValue(':idGradeSemestral', $grade->getIdGradeSemestral());
+            $updateGrade = $stmtUpdateGrade->execute();
+
+            return $updateGrade;
+            // -----------------------------------------------------------
+        } catch (PDOException $e) {
+            PHPErro($e->getCode(), $e->getMessage(), $e->getFile(), $e->getFile());
+        }
 
     }
 
     /*
      * Método para listar todos as grades do sistema (view)
      **/
-    public function listar($conn) {        
+    public function listar($conn) {
         $strSqlGradeJoinCurso = "SELECT * FROM grade_semestral INNER JOIN curso ON grade_semestral.curso_idcurso = curso.idcurso ORDER BY idgrade_semestral";
         $selectGradeJoinCurso = $conn->prepare($strSqlGradeJoinCurso);
         $selectGradeJoinCurso->execute();
@@ -70,6 +105,17 @@ class GradeDao implements Dao {
     public function listarCombo($conn) {
         $strSqlGrade = "SELECT * FROM curso";
         $selectGrade = $conn->prepare($strSqlGrade);
+        $selectGrade->execute();
+        return $selectGrade;
+    }
+
+    /*
+     * Método para popular a view de update da grade (view)
+     **/
+    public function buscarPorId($conn, $idGrade) {
+        $strSqlGrade = "SELECT * FROM grade_semestral WHERE idgrade_semestral = :idGradeSemestral";
+        $selectGrade = $conn->prepare($strSqlGrade);
+        $selectGrade->bindValue(':idGradeSemestral', $idGrade);
         $selectGrade->execute();
         return $selectGrade;
     }
