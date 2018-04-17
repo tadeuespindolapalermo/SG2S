@@ -39,7 +39,7 @@
 
                     <label class="col-lg-12 control-label label-usuario">Curso</label>
                     <div class="form-group" style="width: 300px; margin-bottom: -5px;">
-                        <select class="form-control" id="curso_idcurso" name="curso_idcurso" required="required" autofocus>
+                        <select class="form-control" id="curso" name="curso" required="required" autofocus>
                             <option value="'.$matriz->getCursoIdCurso().'">('.$matriz->getCursoIdCurso().')</option>';
                             while ($linhaMatrizCombo = $selectMatrizCombo->fetchAll(PDO::FETCH_ASSOC)) {
                                 foreach ($linhaMatrizCombo as $dados) {

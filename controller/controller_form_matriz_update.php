@@ -19,8 +19,8 @@
         $matrizDao = new MatrizDao();
         $matriz = new Matriz();
 
-        // Dados recebidos do formulário via POST        
-        $matriz->setCursoIdCurso($_POST['curso_idcurso']);
+        // Dados recebidos do formulário via POST
+        $matriz->setCursoIdCurso($_POST['curso']);
         $matriz->setNomeMatriz($_POST['nomeMatriz']);
         $matriz->setCargaHoraria($_POST['cargaHoraria']);
         $matriz->setCredito($_POST['credito']);
