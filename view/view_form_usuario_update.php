@@ -29,7 +29,6 @@
         $usuario->setUsuario($dados['usuario']);
         $usuario->setEmail($dados['email']);
         $usuario->setFone($dados['fone']);
-        $usuario->setSenha($dados['senha']);
     }
 
     $selectPerfilUsuario = $usuarioDao->buscarPerfilId($conn, $idUsuario);
@@ -73,8 +72,9 @@
                     <label class="col-lg-2 control-label label-usuario">Email</label>
                     <input type="email" style="width: 300px; margin-bottom: -5px;" id="email" name="email" class="form-control" value="'.$usuario->getEmail().'" required><br/>
 
-                    <label class="col-lg-2 control-label label-usuario">Senha</label>
-                    <input type="password" style="width: 300px; margin-bottom: -5px;" id="senha" name="senha" class="form-control" value="'.$usuario->getSenha().'" required><br/>
+                    <label class="col-lg-2 control-label label-usuario">Senha</label><br />
+                    <small>Somente '.$usuario->getNome().' pode alterar a senha!</small>
+                    <input type="password" style="width: 300px; margin-bottom: -5px;" id="senha" name="senha" class="form-control" value="******" required disabled><br/>
 
                     <button type="submit" class="btn btn-success">Atualizar</button><br/><br/>
                 </div>

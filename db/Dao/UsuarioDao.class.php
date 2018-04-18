@@ -148,8 +148,7 @@ class UsuarioDao implements Dao {
                 nome = :nome,
                 fone = :telefone,
                 usuario = :usuario,
-                email = :email,
-                senha = :senha
+                email = :email
             WHERE
                 idusuarios = :idUsuario";
 
@@ -157,8 +156,7 @@ class UsuarioDao implements Dao {
             $stmtUpdateUsuario->bindValue(':nome', $usuario->getNome());
             $stmtUpdateUsuario->bindValue(':telefone', $usuario->getFone());
             $stmtUpdateUsuario->bindValue(':email', $usuario->getEmail());
-            $stmtUpdateUsuario->bindValue(':usuario', $usuario->getUsuario());
-            $stmtUpdateUsuario->bindValue(':senha', $usuario->getSenha());
+            $stmtUpdateUsuario->bindValue(':usuario', $usuario->getUsuario());            
             $stmtUpdateUsuario->bindValue(':idUsuario', $usuario->getIdUsuarios());
             $updateUsuario = $stmtUpdateUsuario->execute();
 

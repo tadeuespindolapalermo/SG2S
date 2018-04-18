@@ -39,8 +39,8 @@
 
     if($cadastroUsuarioEfetuado && $cadastroPerfilUsuarioEfetuado) {
         echo "
-        <script type=\"text/javascript\">
-            alert(\"Usuário cadastrado com sucesso!!!\");
+        <script>
+            alert(Usuário cadastrado com sucesso!!!);
         </script>";
         header('Location: ../view/view_admin.php?pagina=view_usuarios_listagem.php');
     } else {
