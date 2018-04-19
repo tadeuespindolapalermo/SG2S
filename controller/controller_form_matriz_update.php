@@ -27,10 +27,10 @@
         $matriz->setIdMatrizCurricular($_GET['idMatriz']);
 
         // Update do Curso no Banco
-        $updateMatriz = $matrizDao->atualizar($conn, $matriz);
-
+      //  $updateMatriz = $matrizDao->atualizar($conn, $matriz);
+        $matriz = $matrizDao->atualizar($conn, $matriz);
         // VALIDAÇÃO DO UPDATE
-        if ($updateMatriz) {
+        if ($matriz) {
             echo "
             <script type=\"text/javascript\">
                 alert(\"Matriz atualizada com sucesso!\");
