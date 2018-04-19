@@ -1,7 +1,7 @@
 <div class="container listar">
     <div class="header clearfix">
         <h3 class="text-muted">Listagem de Usuários</h3>
-        <small>ATENÇÃO: <strong><?= $_SESSION['nome'] ?></strong>, altere seus dados cadastrais somente através da opção ao lado para que seus dados de sessão sejam atualizados!</small>
+        <small>ATENÇÃO: <strong><?= $_SESSION['nome'] ?></strong>, altere seus dados cadastrais somente através da opção do Dashboard para que seus dados de sessão sejam atualizados!</small>
     </div>
 
     <?php
@@ -63,6 +63,13 @@
                                         $usuarios->setUsuario($dados['usuario']);
                                         $usuarios->setEmail($dados['email']);
                                         $usuarios->setFone($dados['fone']);
+
+                                        if ($_SESSION['nome'] != $usuarios->getNome()) {
+                                            $stringImg = '<td><a style="margin-left: 10px;" href="view_admin.php?pagina=view_form_usuario_update.php&idUsuario='.$usuarios->getIdUsuarios().'"><img src="../lib/open-iconic/svg/brush.svg" alt="editar"></a></td>';
+                                        } else {
+                                            $stringImg = '<td><a style="margin-left: 10px;" onclick="msgUpdateUsuarios()"><img src="../lib/open-iconic/svg/brush.svg" alt="editar"></a></td>';
+                                        }
+                                        
                                         echo '
                                         <tbody>
                                             <tr>
@@ -73,7 +80,7 @@
                                                 <td>'.$usuarios->getEmail().'</td>
                                                 <td>'.$usuarios->getFone().'</td>
                                                 <td><a style="margin-left: 20px;" href="view_admin.php?pagina=../controller/controller_usuario_remove.php&idUsuario='.$usuarios->getIdUsuarios().'"><img src="../lib/open-iconic/svg/x.svg" alt="remover"></a></td>
-                                                <td><a style="margin-left: 10px;" href="view_admin.php?pagina=view_form_usuario_update.php&idUsuario='.$usuarios->getIdUsuarios().'"><img src="../lib/open-iconic/svg/brush.svg" alt="editar"></a></td>
+                                                '.$stringImg.'
                                             </tr>
                                         </tbody>';
                                     }

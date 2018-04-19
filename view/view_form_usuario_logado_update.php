@@ -51,7 +51,8 @@
                     <input type="password" style="width: 300px; margin-bottom: -5px;" id="senha" name="senha" class="form-control" value="'.$_SESSION['senha'].'" required disabled><br/>
 
                     <button id="btnSalvar" type="submit" class="btn btn-success" disabled>Salvar</button>
-                    <button type="button" onclick="alterarDisabled()" class="btn btn-info">Editar</button><br/><br/>
+                    <button id="btnEditar" type="button" onclick="alterarDisabledEditar()" class="btn btn-info">Editar</button>
+                    <button id="btnProteger" type="button" onclick="alterarDisabledProteger()" class="btn btn-secondary" disabled>Proteger</button><br/><br/>
                 </div>
             </div>
         </form>

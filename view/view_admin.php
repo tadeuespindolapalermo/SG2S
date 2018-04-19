@@ -54,6 +54,7 @@
 		<!-- Máscaras dos campos de formulários-->
 		<script src="../lib/jquery/masks.js"></script>
         <script src="../js/dom.js"></script>
+        <script src="../js/alerts.js"></script>
     </head>
 
     <body>
@@ -82,9 +83,24 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="view_admin.php?pagina=view_form_usuario_logado_update.php">
                                     <span data-feather="user"></span>
-                                    <strong><?= $_SESSION['nome'] ?></strong>
+                                    <strong>
+                                        <?php
+                                            $nome = $_SESSION['nome'];
+                                            $nome = explode(" ", $nome);
+                                            echo "$nome[0]";
+                                        ?>
+                                    </strong>
+                                </a>
+                            </li>                        
+                            <li class="nav-item">
+                                <a class="nav-link" href="view_admin.php?pagina=view_form_grade_gerar.php">
+                                    <span data-feather="edit"></span>
+                                    Gerar Nova Grade
                                 </a>
                             </li>
+                            <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+                                <span>CADASTROS</span>
+                            </h6>
                             <li class="nav-item">
                                 <a class="nav-link" href="view_admin.php?pagina=view_grades_listagem.php">
                                     <span data-feather="grid"></span>
@@ -115,6 +131,9 @@
                                     Usuários
                                 </a>
                             </li>
+                            <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+                                <span>UTILITÁRIOS</span>
+                            </h6>
                             <li class="nav-item">
                                 <a class="nav-link" href="#">
                                     <span data-feather="bar-chart-2"></span>
@@ -124,7 +143,7 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="#">
                                     <span data-feather="layers"></span>
-                                    Integrações e Serviços
+                                    Integração e Serviços
                                 </a>
                             </li>
                         </ul>
