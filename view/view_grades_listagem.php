@@ -71,7 +71,7 @@
                                                 <td>'.$grade->getQuantidadeAlunos().'</td>
                                                 <td>'.$grade->getTurmas().'</td>
                                                 <td>'.$grade->getCursoNome().'</td>
-                                                <td><a style="margin-left: 20px;" href="view_admin.php?pagina=../controller/controller_grade_remove.php&idGrade='.$grade->getIdGradeSemestral().'"><img src="../lib/open-iconic/svg/x.svg" alt="remover"></a></td>
+                                                <td><a href="javascript:void(null);" onclick="msgConfirmaDeleteGrade('.$grade->getIdGradeSemestral().')" style="margin-left: 20px;"><img src="../lib/open-iconic/svg/x.svg" alt="remover"></a></td>                                                
                                                 <td><a style="margin-left: 10px;" href="view_admin.php?pagina=view_form_grade_update.php&idGrade='.$grade->getIdGradeSemestral().'"><img src="../lib/open-iconic/svg/brush.svg" alt="editar"></a></td>
                                             </tr>
                                         </tbody>';

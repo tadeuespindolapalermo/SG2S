@@ -60,8 +60,8 @@
                                                 <td>'.$curso->getPortaria().'</td>
                                                 <td>'.$curso->getDuracao().'</td>
                                                 <td>'.$curso->getGrau().'</td>
-                                                <td>'.$curso->getDataPortaria().'</td>
-                                                <td><a style="margin-left: 20px;" href="view_admin.php?pagina=../controller/controller_curso_remove.php&idCurso='.$curso->getIdCurso().'"><img src="../lib/open-iconic/svg/x.svg" alt="remover"></a></td>
+                                                <td>'.$curso->getDataPortaria().'</td>                                                
+                                                <td><a href="javascript:void(null);" onclick="msgConfirmaDeleteCurso('.$curso->getIdCurso().')" style="margin-left: 20px;"><img src="../lib/open-iconic/svg/x.svg" alt="remover"></a></td>
                                                 <td><a style="margin-left: 10px;" href="view_admin.php?pagina=view_form_curso_update.php&idCurso='.$curso->getIdCurso().'"><img src="../lib/open-iconic/svg/brush.svg" alt="editar"></a></td>
                                             </tr>
                                         </tbody>';

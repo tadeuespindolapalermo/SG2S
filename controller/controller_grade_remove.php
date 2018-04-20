@@ -24,14 +24,14 @@
     if ($linhas != 0) {
         echo "
         <script type=\"text/javascript\">
-            alert(\"Grade excluída com sucesso!\");
+            alert(\"Grade excluída com sucesso! Atualizando listagem...\");
         </script>
         <META HTTP-EQUIV=REFRESH CONTENT = '0;URL=
         http://localhost/SG2S/view/view_admin.php?pagina=view_grades_listagem.php'";
     } else {
         echo "
         <script type=\"text/javascript\">
-            alert(\"Erro ao excluir grade!\");
+            alert(\"Erro ao excluir grade! Entre em contato com o Administrador!\");
         </script>
         <META HTTP-EQUIV=REFRESH CONTENT = '0;URL=
         http://localhost/SG2S/view/view_admin.php?pagina=view_grades_listagem.php'";

@@ -67,9 +67,9 @@
                                         if ($_SESSION['nome'] != $usuarios->getNome()) {
                                             $stringImg = '<td><a style="margin-left: 10px;" href="view_admin.php?pagina=view_form_usuario_update.php&idUsuario='.$usuarios->getIdUsuarios().'"><img src="../lib/open-iconic/svg/brush.svg" alt="editar"></a></td>';
                                         } else {
-                                            $stringImg = '<td><a style="margin-left: 10px;" onclick="msgUpdateUsuarios()"><img src="../lib/open-iconic/svg/brush.svg" alt="editar"></a></td>';
+                                            $stringImg = '<td><a style="margin-left: 10px;" href="javascript:void(null);" onclick="msgUpdateUsuarios()"><img src="../lib/open-iconic/svg/brush.svg" alt="editar"></a></td>';
                                         }
-                                        
+
                                         echo '
                                         <tbody>
                                             <tr>
@@ -79,7 +79,7 @@
                                                 <td>'.$perfil->getDescricao().'</td>
                                                 <td>'.$usuarios->getEmail().'</td>
                                                 <td>'.$usuarios->getFone().'</td>
-                                                <td><a style="margin-left: 20px;" href="view_admin.php?pagina=../controller/controller_usuario_remove.php&idUsuario='.$usuarios->getIdUsuarios().'"><img src="../lib/open-iconic/svg/x.svg" alt="remover"></a></td>
+                                                <td><a style="margin-left: 20px;" href="javascript:void(null);" onclick="msgConfirmaDeleteUsuario('.$usuarios->getIdUsuarios().')"><img src="../lib/open-iconic/svg/x.svg" alt="remover"></a></td>
                                                 '.$stringImg.'
                                             </tr>
                                         </tbody>';

@@ -61,7 +61,7 @@
                                                 <td>'.$professor->getRG().'</td>
                                                 <td>'.$professor->getEmail().'</td>
                                                 <td>'.$professor->getFone().'</td>
-                                                <td><a style="margin-left: 20px;" href="view_admin.php?pagina=../controller/controller_professor_remove.php&idProfessor='.$professor->getIdProfessor().'"><img src="../lib/open-iconic/svg/x.svg" alt="remover"></a></td>
+                                                <td><a href="javascript:void(null);" onclick="msgConfirmaDeleteProfessorProvisorioLixeira('.$professor->getIdProfessor().')" style="margin-left: 20px;"><img src="../lib/open-iconic/svg/x.svg" alt="remover"></a></td>                                                
                                                 <td><a style="margin-left: 10px;" href="view_admin.php?pagina=view_form_professor_update.php&idProfessor='.$professor->getIdProfessor().'"><img src="../lib/open-iconic/svg/brush.svg" alt="editar"></a></td>
                                             </tr>
                                         </tbody>';

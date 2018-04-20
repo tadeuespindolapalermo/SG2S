@@ -61,7 +61,7 @@
                                                 <td>'.$professor->getRG().'</td>
                                                 <td>'.$professor->getEmail().'</td>
                                                 <td>'.$professor->getFone().'</td>
-                                                <td><a style="margin-left: 26px;" href="view_admin.php?pagina=../controller/controller_professor_remove_definitivo.php&idProfessor='.$professor->getIdProfessor().'"><img src="../lib/open-iconic/svg/trash.svg" alt="remover"></a></td>
+                                                <td><a href="javascript:void(null);" onclick="msgConfirmaDeleteProfessorDefinitivoBancoDados('.$professor->getIdProfessor().')" style="margin-left: 20px;"><img src="../lib/open-iconic/svg/x.svg" alt="remover"></a></td>                                                
                                                 <td><a style="margin-left: 28px;" href="view_admin.php?pagina=../controller/controller_professor_recuperar.php&idProfessor='.$professor->getIdProfessor().'"><img src="../lib/open-iconic/svg/action-undo.svg" alt="editar"></a></td>
                                             </tr>
                                         </tbody>';

@@ -59,7 +59,7 @@
                                                 <td>'.$matriz->getCursoNome().'</td>
                                                 <td>'.$matriz->getCargaHoraria().'</td>
                                                 <td>'.$matriz->getCredito().'</td>
-                                                <td><a style="margin-left: 20px;" href="view_admin.php?pagina=../controller/controller_matriz_remove.php&idMatriz='.$matriz->getIdMatrizCurricular().'"><img src="../lib/open-iconic/svg/x.svg" alt="remover"></a></td>
+                                                <td><a href="javascript:void(null);" onclick="msgConfirmaDeleteMatriz('.$matriz->getIdMatrizCurricular().')" style="margin-left: 20px;"><img src="../lib/open-iconic/svg/x.svg" alt="remover"></a></td>                                                
                                                 <td><a style="margin-left: 10px;" href="view_admin.php?pagina=view_form_matriz_update.php&idMatriz='.$matriz->getIdMatrizCurricular().'"><img src="../lib/open-iconic/svg/brush.svg" alt="editar"></a></td>
                                             </tr>
                                         </tbody>';

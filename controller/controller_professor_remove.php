@@ -24,14 +24,14 @@
     if ($linhas != 0) {
         echo "
         <script type=\"text/javascript\">
-            alert(\"Professor excluído com sucesso!\");
+            alert(\"Professor enviado para a lixeira com sucesso!\");
         </script>
         <META HTTP-EQUIV=REFRESH CONTENT = '0;URL=
         http://localhost/SG2S/view/view_admin.php?pagina=view_professores_listagem.php'";
     } else {
         echo "
         <script type=\"text/javascript\">
-            alert(\"Erro ao excluir professor!\");
+            alert(\"Erro ao enviar o professor para a lixeira!\");
         </script>
         <META HTTP-EQUIV=REFRESH CONTENT = '0;URL=
         http://localhost/SG2S/view/view_admin.php?pagina=view_professores_listagem.php'";
