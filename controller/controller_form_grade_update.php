@@ -25,9 +25,9 @@
         $grade->setPeriodo($_POST['periodo']);
         $grade->setHorario($_POST['horario']);
         $grade->setSala($_POST['sala']);
-        $grade->setQuantidadeAlunos($_POST['quantidadeAlunos']);
+        $grade->setQuantidadeAlunos($_POST['alunosqnt']);
         $grade->setTurmas($_POST['turmas']);
-        $grade->setCursoIdCurso($_POST['curso']);
+      //  $grade->setCursoIdCurso($_POST['curso']);
         $grade->setIdGradeSemestral($_GET['idGrade']);
 
         // Update da Grade no Banco
