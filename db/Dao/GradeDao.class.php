@@ -24,10 +24,6 @@ class GradeDao implements Dao {
             $cadastroGradeEfetuado = $stmtCreateGrade->execute();
 
             return $cadastroGradeEfetuado;
-            echo "
-            <script type=\"text/javascript\">
-                alert(\"Curso cadastrado com sucesso!!!\");
-            </script>";
             // -----------------------------------------
         } catch (PDOException $e) {
             PHPErro($e->getCode(), $e->getMessage(), $e->getFile(), $e->getFile());
@@ -49,7 +45,6 @@ class GradeDao implements Dao {
 
             return $linhas;
 
-
         } catch (PDOException $e) {
             PHPErro($e->getCode(), $e->getMessage(), $e->getFile(), $e->getFile());
         }
@@ -57,7 +52,6 @@ class GradeDao implements Dao {
 
     /*
      * Método para atualizar uma grade do sistema (controller)
-     curso_idcurso = :cursoIdCurso
      **/
     public function atualizar($conn, $grade) {
         try {
@@ -70,8 +64,8 @@ class GradeDao implements Dao {
                 horario = :horario,
                 sala = :sala,
                 quantidade_alunos = :quantidadeAlunos,
-                turmas = :turmas
-
+                turmas = :turmas,
+                curso_idcurso = :cursoIdCurso
             WHERE
                 idgrade_semestral = :idGradeSemestral";
 
@@ -83,7 +77,7 @@ class GradeDao implements Dao {
             $stmtUpdateGrade->bindValue(':sala', $grade->getSala());
             $stmtUpdateGrade->bindValue(':quantidadeAlunos', $grade->getQuantidadeAlunos());
             $stmtUpdateGrade->bindValue(':turmas', $grade->getTurmas());
-        //  $stmtUpdateGrade->bindValue(':cursoIdCurso', $grade->getCursoIdCurso());
+            $stmtUpdateGrade->bindValue(':cursoIdCurso', $grade->getCursoIdCurso());
             $stmtUpdateGrade->bindValue(':idGradeSemestral', $grade->getIdGradeSemestral());
             $updateGrade = $stmtUpdateGrade->execute();
 
@@ -124,7 +118,6 @@ class GradeDao implements Dao {
         $selectGrade->bindValue(':idGradeSemestral', $idGrade);
         $selectGrade->execute();
         return $selectGrade;
-
     }
 
 }

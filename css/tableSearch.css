@@ -1,0 +1,43 @@
+body{ font-family:"Trebuchet MS", Arial, Helvetica, sans-serif }
+
+/* > Para o input */
+.input-search {
+    /*border:1px solid #CCC;*/
+    /*padding:5px 14px;*/
+    /*font-size:12px;*/
+    /*margin:10px 0;*/
+    /*float:right;*/
+
+    -webkit-border-radius:15px;
+       -moz-border-radius:15px;
+        -ms-border-radius:15px;
+         -o-border-radius:15px;
+            border-radius:15px;
+}
+
+.input-search::-webkit-input-placeholder{ font-style:italic }
+.input-search:-moz-placeholder			{ font-style:italic }
+.input-search:-ms-input-placeholder		{ font-style:italic }
+
+table.listaSearch {
+    border-collapse:collapse;
+    font-size:16px;
+    font-family:Tahoma, Geneva, sans-serif;
+}
+
+table.listaSearch th {
+    padding:5px;
+    background:#EEE;
+    border:1px solid #CCC;
+}
+
+table.listaSearch td {
+    padding:3px;
+    border:1px solid #CCC;
+}
+
+.cont {
+    width:300px;
+    margin:30px;
+    overflow:hidden;
+}

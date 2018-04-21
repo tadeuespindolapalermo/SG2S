@@ -1,6 +1,8 @@
 <div class="container listar">
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script src="../lib/jquery/buscaDinamica.js"></script>
     <div class="header clearfix">
-        <h3 class="text-muted">Listagem de Grades</h3>
+        <h3 class="text-muted">Listagem de Grades</h3><hr />
     </div>
 
     <?php
@@ -30,7 +32,7 @@
             <div class="panel panel-default">
                 <div class="panel-body">
                     <div class="table-responsive">
-                        <table class="table table-hover table-striped" id="listaGrades" style="text-align: center;">
+                        <table class="table table-hover table-striped listaSearch" id="listaGrades" style="text-align: center;">
                             <thead>
                                 <tr>
                                     <th>Id</th>
