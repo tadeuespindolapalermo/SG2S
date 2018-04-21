@@ -43,6 +43,9 @@
         <!-- Estilos gerais -->
         <link href="../css/estilo.css" rel="stylesheet" />
 
+        <!-- Tabela Personalizada para SEARCH -->
+        <link href="../css/tableSearch.css" rel="stylesheet" />
+
         <!-- jquery 1.3.2 sem cdn, fixo no código-->
 		<script src="../lib/jquery/jquery-1_3_2.min.js"></script>
 		<!-- jquery 1.3.2 - link cdn-->
@@ -61,7 +64,8 @@
 
         <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
             <span class="navbar-brand col-sm-3 col-md-2 mr-0"><strong>SG2S - <?php echo $perfil; ?></strong></span>
-            <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search" />
+            <!--<input type="text" class="input-search" alt="listaSearch" placeholder="Pesquisa rápida..." />-->
+            <input style="border: 1px solid grey; border-radius: 4px;" class="form-control form-control-dark w-100 input-search" alt="listaSearch" type="text" placeholder="Pesquisa rápida..." aria-label="Pesquisa rápida..." />
             <!--<ul class="navbar-nav px-3">
                 <li class="nav-item text-nowrap">
                     <a class="nav-link" href="../controller/controller_sair.php">Sair</a>
@@ -91,7 +95,7 @@
                                         ?>
                                     </strong>
                                 </a>
-                            </li>                        
+                            </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="view_admin.php?pagina=view_form_grade_gerar.php">
                                     <span data-feather="edit"></span>
@@ -243,7 +247,7 @@
         <!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>-->
 
         <!-- jquery 3.2.1 sem cdn -->
-        <script src="../lib/jquery/jquery-3_2_1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <!--<script src="../lib/jquery/jquery-3_2_1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>-->
         <script>window.jQuery || document.write('<script src="../lib/jquery/jquery-slim.min.js"><\/script>')</script>
         <script src="../js/popper.min.js"></script>
         <script src="../lib/bootstrap/js/bootstrap.min.js"></script>

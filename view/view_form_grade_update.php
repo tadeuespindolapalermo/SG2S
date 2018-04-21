@@ -115,15 +115,15 @@
 
                     <label class="col-lg-2 control-label label-usuario">Quantidade_Alunos</label>
                     <input type="number" min="1" max="999" style="width: 300px; margin-bottom: -5px;"
-                    id="alunosqnt" name="qAlunos" class="form-control" value="'.$grade->getQuantidadeAlunos().'"
+                    id="quantidadeAlunos" name="quantidadeAlunos" class="form-control" value="'.$grade->getQuantidadeAlunos().'"
                     onKeyDown="if(this.value.length==3 && event.keyCode!=8) return false;" required><br/>
 
                     <label class="col-lg-2 control-label label-usuario">Turmas</label>
                     <input type="text" maxlength="2" style="width: 300px; margin-bottom: -5px; text-transform:uppercase;"
                     id="turmas" name="turmas" class="form-control" value="'.$grade->getTurmas().'"
                     inputonchange="this.value = this.value.toUpperCase()" required><br/>
-                    ';
-                    /*<label class="col-lg-12 control-label label-usuario">Curso</label>
+
+                    <label class="col-lg-12 control-label label-usuario">Curso</label>
                     <div class="form-group" style="width: 300px; margin-bottom: -5px;">
                         <select class="form-control" id="curso" name="curso" required="required">
                             <option value="'.$grade->getCursoIdCurso().'">('.$grade->getCursoIdCurso().')</option>';
@@ -136,7 +136,7 @@
                             }
                             echo '
                         </select>
-                    </div><br/>*/echo'
+                    </div><br/>
 
                     <button type="submit" class="btn btn-success">Atualizar</button><br/><br/>
                 </div>
