@@ -32,14 +32,14 @@
             <div class="panel panel-default">
                 <div class="panel-body">
                     <div class="table-responsive">
-                        <table class="table table-hover table-striped" id="listaUsuarios">
+                        <table class="table table-hover table-striped" style="text-align: center;" id="listaUsuarios">
                             <thead>
                                 <tr>
                                     <th>Id</th>
-                                    <th>Nome</th>
-                                    <th>Usuário</th>
+                                    <th style="text-align: left;">Nome</th>
+                                    <th style="text-align: left;">Usuário</th>
                                     <th>Perfil</th>
-                                    <th>E-mail</th>
+                                    <th style="text-align: left;">E-mail</th>
                                     <th>Telefone</th>
                                     <th>Excluir</th>
                                     <th>Editar</th>
@@ -65,21 +65,21 @@
                                         $usuarios->setFone($dados['fone']);
 
                                         if ($_SESSION['nome'] != $usuarios->getNome()) {
-                                            $stringImg = '<td><a style="margin-left: 10px;" href="view_admin.php?pagina=view_form_usuario_update.php&idUsuario='.$usuarios->getIdUsuarios().'"><img src="../lib/open-iconic/svg/brush.svg" alt="editar"></a></td>';
+                                            $stringImg = '<td><a href="view_admin.php?pagina=view_form_usuario_update.php&idUsuario='.$usuarios->getIdUsuarios().'"><img src="../lib/open-iconic/svg/brush.svg" alt="editar"></a></td>';
                                         } else {
-                                            $stringImg = '<td><a style="margin-left: 10px;" href="javascript:void(null);" onclick="msgUpdateUsuarios()"><img src="../lib/open-iconic/svg/brush.svg" alt="editar"></a></td>';
+                                            $stringImg = '<td><a href="javascript:void(null);" onclick="msgUpdateUsuarios()"><img src="../lib/open-iconic/svg/brush.svg" alt="editar"></a></td>';
                                         }
 
                                         echo '
                                         <tbody>
                                             <tr>
                                                 <td>'.$usuarios->getIdUsuarios().'</td>
-                                                <td>'.$usuarios->getNome().'</td>
-                                                <td>'.$usuarios->getUsuario().'</td>
+                                                <td style="text-align: left;">'.$usuarios->getNome().'</td>
+                                                <td style="text-align: left;">'.$usuarios->getUsuario().'</td>
                                                 <td>'.$perfil->getDescricao().'</td>
-                                                <td>'.$usuarios->getEmail().'</td>
+                                                <td style="text-align: left;">'.$usuarios->getEmail().'</td>
                                                 <td>'.$usuarios->getFone().'</td>
-                                                <td><a style="margin-left: 20px;" href="javascript:void(null);" onclick="msgConfirmaDeleteUsuario('.$usuarios->getIdUsuarios().')"><img src="../lib/open-iconic/svg/x.svg" alt="remover"></a></td>
+                                                <td><a href="javascript:void(null);" onclick="msgConfirmaDeleteUsuario('.$usuarios->getIdUsuarios().')"><img src="../lib/open-iconic/svg/x.svg" alt="remover"></a></td>
                                                 '.$stringImg.'
                                             </tr>
                                         </tbody>';

@@ -30,14 +30,14 @@
             <div class="panel panel-default">
                 <div class="panel-body">
                     <div class="table-responsive">
-                        <table class="table table-hover table-striped" id="listaProfessores">
+                        <table class="table table-hover table-striped" style="text-align: center;" id="listaProfessores">
                             <thead>
                                 <tr>
                                     <th>Id</th>
-                                    <th>Nome</th>
+                                    <th style="text-align: left;">Nome</th>
                                     <th>CPF</th>
                                     <th>RG</th>
-                                    <th>E-mail</th>
+                                    <th style="text-align: left;">E-mail</th>
                                     <th>Fone</th>
                                     <th>Excluir</th>
                                     <th>Editar</th>
@@ -56,13 +56,13 @@
                                         <tbody>
                                             <tr>
                                                 <td>'.$professor->getIdProfessor().'</td>
-                                                <td>'.$professor->getNome().'</td>
+                                                <td style="text-align: left;">'.$professor->getNome().'</td>
                                                 <td>'.$professor->getCPF().'</td>
                                                 <td>'.$professor->getRG().'</td>
-                                                <td>'.$professor->getEmail().'</td>
+                                                <td style="text-align: left;">'.$professor->getEmail().'</td>
                                                 <td>'.$professor->getFone().'</td>
-                                                <td><a href="javascript:void(null);" onclick="msgConfirmaDeleteProfessorProvisorioLixeira('.$professor->getIdProfessor().')" style="margin-left: 20px;"><img src="../lib/open-iconic/svg/x.svg" alt="remover"></a></td>                                                
-                                                <td><a style="margin-left: 10px;" href="view_admin.php?pagina=view_form_professor_update.php&idProfessor='.$professor->getIdProfessor().'"><img src="../lib/open-iconic/svg/brush.svg" alt="editar"></a></td>
+                                                <td><a href="javascript:void(null);" onclick="msgConfirmaDeleteProfessorProvisorioLixeira('.$professor->getIdProfessor().')"><img src="../lib/open-iconic/svg/x.svg" alt="remover"></a></td>
+                                                <td><a href="view_admin.php?pagina=view_form_professor_update.php&idProfessor='.$professor->getIdProfessor().'"><img src="../lib/open-iconic/svg/brush.svg" alt="editar"></a></td>
                                             </tr>
                                         </tbody>';
                                     }

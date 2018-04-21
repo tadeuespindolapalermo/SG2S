@@ -30,7 +30,7 @@
             <div class="panel panel-default">
                 <div class="panel-body">
                     <div class="table-responsive">
-                        <table class="table table-hover table-striped" id="listaGrades">
+                        <table class="table table-hover table-striped" id="listaGrades" style="text-align: center;">
                             <thead>
                                 <tr>
                                     <th>Id</th>
@@ -71,8 +71,8 @@
                                                 <td>'.$grade->getQuantidadeAlunos().'</td>
                                                 <td>'.$grade->getTurmas().'</td>
                                                 <td>'.$grade->getCursoNome().'</td>
-                                                <td><a href="javascript:void(null);" onclick="msgConfirmaDeleteGrade('.$grade->getIdGradeSemestral().')" style="margin-left: 20px;"><img src="../lib/open-iconic/svg/x.svg" alt="remover"></a></td>                                                
-                                                <td><a style="margin-left: 10px;" href="view_admin.php?pagina=view_form_grade_update.php&idGrade='.$grade->getIdGradeSemestral().'"><img src="../lib/open-iconic/svg/brush.svg" alt="editar"></a></td>
+                                                <td><a href="javascript:void(null);" onclick="msgConfirmaDeleteGrade('.$grade->getIdGradeSemestral().')"><img src="../lib/open-iconic/svg/x.svg" alt="remover"></a></td>
+                                                <td><a href="view_admin.php?pagina=view_form_grade_update.php&idGrade='.$grade->getIdGradeSemestral().'"><img src="../lib/open-iconic/svg/brush.svg" alt="editar"></a></td>
                                             </tr>
                                         </tbody>';
                                     }

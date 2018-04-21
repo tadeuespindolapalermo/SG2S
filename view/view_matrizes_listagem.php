@@ -30,12 +30,12 @@
             <div class="panel panel-default">
                 <div class="panel-body">
                     <div class="table-responsive">
-                        <table class="table table-hover table-striped" id="listaMatrizes">
+                        <table class="table table-hover table-striped" style="text-align: center;" id="listaMatrizes">
                             <thead>
                                 <tr>
                                     <th>Id</th>
-                                    <th>Nome Matriz</th>
-                                    <th>Curso</th>
+                                    <th style="text-align: left;">Nome Matriz</th>
+                                    <th style="text-align: left;">Curso</th>
                                     <th>Carga Horária</th>
                                     <th>Crédito</th>
                                     <th>Excluir</th>
@@ -55,12 +55,12 @@
                                         <tbody>
                                             <tr>
                                                 <td>'.$matriz->getIdMatrizCurricular().'</td>
-                                                <td>'.$matriz->getNomeMatriz().'</td>
-                                                <td>'.$matriz->getCursoNome().'</td>
+                                                <td style="text-align: left;">'.$matriz->getNomeMatriz().'</td>
+                                                <td style="text-align: left;">'.$matriz->getCursoNome().'</td>
                                                 <td>'.$matriz->getCargaHoraria().'</td>
                                                 <td>'.$matriz->getCredito().'</td>
-                                                <td><a href="javascript:void(null);" onclick="msgConfirmaDeleteMatriz('.$matriz->getIdMatrizCurricular().')" style="margin-left: 20px;"><img src="../lib/open-iconic/svg/x.svg" alt="remover"></a></td>                                                
-                                                <td><a style="margin-left: 10px;" href="view_admin.php?pagina=view_form_matriz_update.php&idMatriz='.$matriz->getIdMatrizCurricular().'"><img src="../lib/open-iconic/svg/brush.svg" alt="editar"></a></td>
+                                                <td><a href="javascript:void(null);" onclick="msgConfirmaDeleteMatriz('.$matriz->getIdMatrizCurricular().')"><img src="../lib/open-iconic/svg/x.svg" alt="remover"></a></td>
+                                                <td><a href="view_admin.php?pagina=view_form_matriz_update.php&idMatriz='.$matriz->getIdMatrizCurricular().'"><img src="../lib/open-iconic/svg/brush.svg" alt="editar"></a></td>
                                             </tr>
                                         </tbody>';
                                     }

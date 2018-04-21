@@ -30,11 +30,11 @@
             <div class="panel panel-default">
                 <div class="panel-body">
                     <div class="table-responsive">
-                        <table class="table table-hover table-striped" id="listaCursos">
+                        <table class="table table-hover table-striped" style="text-align: center;" id="listaCursos">
                             <thead>
                                 <tr>
                                     <th>Id</th>
-                                    <th>Nome</th>
+                                    <th style="text-align: left;">Nome</th>
                                     <th>Portaria</th>
                                     <th>Duração</th>
                                     <th>Grau</th>
@@ -56,13 +56,13 @@
                                         <tbody>
                                             <tr>
                                                 <td>'.$curso->getIdCurso().'</td>
-                                                <td>'.$curso->getNome().'</td>
+                                                <td style="text-align: left;">'.$curso->getNome().'</td>
                                                 <td>'.$curso->getPortaria().'</td>
                                                 <td>'.$curso->getDuracao().'</td>
                                                 <td>'.$curso->getGrau().'</td>
-                                                <td>'.$curso->getDataPortaria().'</td>                                                
-                                                <td><a href="javascript:void(null);" onclick="msgConfirmaDeleteCurso('.$curso->getIdCurso().')" style="margin-left: 20px;"><img src="../lib/open-iconic/svg/x.svg" alt="remover"></a></td>
-                                                <td><a style="margin-left: 10px;" href="view_admin.php?pagina=view_form_curso_update.php&idCurso='.$curso->getIdCurso().'"><img src="../lib/open-iconic/svg/brush.svg" alt="editar"></a></td>
+                                                <td>'.$curso->getDataPortaria().'</td>
+                                                <td><a href="javascript:void(null);" onclick="msgConfirmaDeleteCurso('.$curso->getIdCurso().')"><img src="../lib/open-iconic/svg/x.svg" alt="remover"></a></td>
+                                                <td><a href="view_admin.php?pagina=view_form_curso_update.php&idCurso='.$curso->getIdCurso().'"><img src="../lib/open-iconic/svg/brush.svg" alt="editar"></a></td>
                                             </tr>
                                         </tbody>';
                                     }
