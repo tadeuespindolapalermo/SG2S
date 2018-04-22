@@ -38,7 +38,7 @@
                     placeholder="*Ano Letivo (9999)" required="required" autofocus
                     onKeyDown="if(this.value.length==4 && event.keyCode!=8) return false;">
 				</div>
-									//opções de semestres das grades
+
                 <div class="form-group">
                     <select class="form-control" id="semestre" name="semestre" required="required">
 						<option value="">-Selecione o Semestre-</option>
@@ -46,7 +46,7 @@
                         <option value="2">2º Semestre</option>
                     </select>
 				</div>
-									//opções de periodo das grade
+
                 <div class="form-group">
                     <select class="form-control" id="periodo" name="periodo" required="required">
 						<option value="">-Selecione o Período-</option>
@@ -55,7 +55,7 @@
                         <option value="Noturno">Noturno</option>
                     </select>
 				</div>
-									//opções de horarios das grades
+
                 <div class="form-group">
                     <select class="form-control" id="horario" name="horario" required="required">
 						<option value="">-Selecione o Horário-</option>
@@ -64,18 +64,18 @@
                         <option value="19:15 às 22:00">19:15 às 22:00</option>
                     </select>
 				</div>
-				//numero da sala
+
 				<div class="form-group">
 					<input type="number" min="1" max="99" class="form-control" id="sala" name="sala" placeholder="*Sala"
                     required="required" onKeyDown="if(this.value.length==2 && event.keyCode!=8) return false;">
 				</div>
-				//quantidade de alunos
+
 				<input type="number" min="1" max="999" class="form-control" id="quantidadeAlunos"
                 name="quantidadeAlunos" placeholder="*Quantidade de Alunos" required="required"
                 onKeyDown="if(this.value.length==3 && event.keyCode!=8) return false;">
 
 			</div>
-			//nome da turma
+
 			<div class="form-group">
 				<input type="text" maxlength="2" class="form-control" id="turmas" name="turmas" placeholder="*Turmas. Ex.: 4A, 5B"
                 style="text-transform:uppercase" inputonchange="this.value = this.value.toUpperCase()" required="required">

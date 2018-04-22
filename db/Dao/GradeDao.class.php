@@ -70,15 +70,15 @@ class GradeDao implements Dao {
                 idgrade_semestral = :idGradeSemestral";
 
             $stmtUpdateGrade = $conn->prepare($strSqlGrade);
-            $stmtUpdateGrade->bindValue(':anoLetivo',$grade->getAnoLetivo());
-            $stmtUpdateGrade->bindValue(':semestre',$grade->getSemestre());
-            $stmtUpdateGrade->bindValue(':periodo',$grade->getPeriodo());
-            $stmtUpdateGrade->bindValue(':horario',$grade->getHorario());
-            $stmtUpdateGrade->bindValue(':sala',$grade->getSala());
-            $stmtUpdateGrade->bindValue(':quantidadeAlunos',$grade->getQuantidadeAlunos());
-            $stmtUpdateGrade->bindValue(':turmas',$grade->getTurmas());
-            $stmtUpdateGrade->bindValue(':cursoIdCurso',$grade->getCursoIdCurso());
-            $stmtUpdateGrade->bindValue(':idGradeSemestral',$grade->getIdGradeSemestral());
+            $stmtUpdateGrade->bindValue(':anoLetivo', $grade->getAnoLetivo());
+            $stmtUpdateGrade->bindValue(':semestre', $grade->getSemestre());
+            $stmtUpdateGrade->bindValue(':periodo', $grade->getPeriodo());
+            $stmtUpdateGrade->bindValue(':horario', $grade->getHorario());
+            $stmtUpdateGrade->bindValue(':sala', $grade->getSala());
+            $stmtUpdateGrade->bindValue(':quantidadeAlunos', $grade->getQuantidadeAlunos());
+            $stmtUpdateGrade->bindValue(':turmas', $grade->getTurmas());
+            $stmtUpdateGrade->bindValue(':cursoIdCurso', $grade->getCursoIdCurso());
+            $stmtUpdateGrade->bindValue(':idGradeSemestral', $grade->getIdGradeSemestral());
             $updateGrade = $stmtUpdateGrade->execute();
 
             return $updateGrade;
