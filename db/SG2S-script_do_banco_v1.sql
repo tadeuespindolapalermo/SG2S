@@ -134,7 +134,7 @@ COMMENT = 'Tabela que representa disciplinas que são pré requisitos para outra
 -- Table `codigofonteonline1`.`grade_semestral`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `codigofonteonline1`.`grade_semestral` (
-  `idgrade_semestral` INT NOT NULL,
+  `idgrade_semestral` INT NOT NULL AUTO_INCREMENT,
   `ano_letivo` INT(4) NOT NULL,
   `semestre` INT(1) NOT NULL COMMENT '1 - (1º semestre)\n2 - (2º semestre)',
   `periodo` VARCHAR(12) CHARACTER SET 'utf8' COLLATE 'utf8_general_ci' NOT NULL COMMENT 'Matutino\nVespertino\nNoturno',

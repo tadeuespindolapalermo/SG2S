@@ -1,6 +1,4 @@
-<div class="container listar">
-    <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
-    <script src="../lib/jquery/buscaDinamica.js"></script>
+<div class="container listar">    
     <div class="header clearfix">
         <h3 class="text-muted">Listagem de Usuários</h3><hr/>
         <small>ATENÇÃO: <strong><?= $_SESSION['nome'] ?></strong>, altere seus dados cadastrais somente através da opção do Dashboard para que seus dados de sessão sejam atualizados!</small>

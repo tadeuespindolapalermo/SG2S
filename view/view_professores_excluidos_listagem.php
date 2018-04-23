@@ -1,6 +1,4 @@
-<div class="container listar">
-    <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
-    <script src="../lib/jquery/buscaDinamica.js"></script>
+<div class="container listar">    
     <div class="header clearfix">
         <h3 class="text-muted">Listagem de Professores Excluídos</h3><hr />
     </div>
