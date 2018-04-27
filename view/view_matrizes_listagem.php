@@ -34,8 +34,8 @@
                             <thead>
                                 <tr>
                                     <th>Id</th>
-                                    <th style="text-align: left;">Nome Matriz</th>
-                                    <th style="text-align: left;">Curso</th>
+                                    <th>Nome Matriz</th>
+                                    <th>Curso</th>
                                     <th>Carga Horária</th>
                                     <th>Crédito</th>
                                     <th>Excluir</th>

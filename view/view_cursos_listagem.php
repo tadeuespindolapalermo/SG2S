@@ -1,4 +1,4 @@
-<div class="container listar">        
+<div class="container listar">
     <div class="header clearfix">
         <h3 class="text-muted">Listagem de Cursos</h3><hr />
     </div>
@@ -35,7 +35,7 @@
                             <thead>
                                 <tr>
                                     <th>Id</th>
-                                    <th style="text-align: left;">Nome</th>
+                                    <th>Nome</th>
                                     <th>Portaria</th>
                                     <th>Duração</th>
                                     <th>Grau</th>

@@ -1,4 +1,4 @@
-<div class="container listar">    
+<div class="container listar">
     <div class="header clearfix">
         <h3 class="text-muted">Listagem de Usuários</h3><hr/>
         <small>ATENÇÃO: <strong><?= $_SESSION['nome'] ?></strong>, altere seus dados cadastrais somente através da opção do Dashboard para que seus dados de sessão sejam atualizados!</small>
@@ -36,15 +36,15 @@
                             <thead>
                                 <tr>
                                     <th>Id</th>
-                                    <th style="text-align: left;">Nome</th>
-                                    <th style="text-align: left;">Usuário</th>
+                                    <th>Nome</th>
+                                    <th>Usuário</th>
                                     <th>Perfil</th>
-                                    <th style="text-align: left;">E-mail</th>
+                                    <th>E-mail</th>
                                     <th>Telefone</th>
                                     <th>Excluir</th>
                                     <th>Editar</th>
                                 </tr>
-                            </thead>
+                            </thead>                        
                             <?php
                                 while ($linhaUsuarioJoin = $selectUsuarioJoin->fetchAll(PDO::FETCH_ASSOC)) {
 
