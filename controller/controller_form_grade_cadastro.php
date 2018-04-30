@@ -34,7 +34,7 @@
         echo "
         <script type=\"text/javascript\">
             alert(\"Grade cadastrada com sucesso!!!\");
-        </script>";
+        </script>"
        header('Location: ../view/view_admin.php?pagina=view_grades_listagem.php');
 
     } else {
