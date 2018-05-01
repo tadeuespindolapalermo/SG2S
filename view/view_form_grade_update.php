@@ -25,6 +25,7 @@
     $linhaGrade = $selectGrade->fetchAll(PDO::FETCH_ASSOC);
 
     foreach ($linhaGrade as $dados) {
+        $grade->setIdGradeSemestral($dados['idgrade_semestral']);
         $grade->setAnoLetivo($dados['ano_letivo']);
         $grade->setSemestre($dados['semestre']);
         $grade->setPeriodo($dados['periodo']);

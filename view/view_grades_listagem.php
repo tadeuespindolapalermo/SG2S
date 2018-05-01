@@ -1,4 +1,4 @@
-<div class="container listar">    
+<div class="container listar">
     <div class="header clearfix">
         <h3 class="text-muted">Listagem de Grades</h3><hr />
     </div>
@@ -83,8 +83,7 @@
                         <button export-to-excel="listaGrades" class="btn btn-success">
                             <span data-feather="download"></span>&nbsp;Excel
                         </button>
-                    </div><br />
-                    OBS: atualização de grade (editar) está com erro! Update não está persistindo os novos dados informados e mesmo assim retorna mensagem de sucesso!.
+                    </div><br />                    
                 </div>
             </div>
         </div>

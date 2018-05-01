@@ -71,8 +71,7 @@
                         <button export-to-excel="listaMatrizes" class="btn btn-success">
                             <span data-feather="download"></span>&nbsp;Excel
                         </button>
-                    </div><br />
-                    OBS: atualização de matriz (editar) está com erro! Update não está persistindo os novos dados informados e mesmo assim retorna mensagem de sucesso!.
+                    </div><br />                    
                 </div>
             </div>
         </div>

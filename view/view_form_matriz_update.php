@@ -24,6 +24,7 @@
     $selectMatriz = $matrizDao->buscarPorId($conn, $idMatriz);
     $linhaMatriz = $selectMatriz->fetchAll(PDO::FETCH_ASSOC);
     foreach ($linhaMatriz as $dados) {
+        $matriz->setIdMatrizCurricular($dados['idmatriz_curricular']);
         $matriz->setCursoIdCurso($dados['curso_idcurso']);
         $matriz->setNomeMatriz($dados['nome_matriz']);
         $matriz->setCargaHoraria($dados['carga_horaria']);

@@ -79,6 +79,32 @@ class GradeDao implements Dao {
             $stmtUpdateGrade->bindValue(':turmas', $grade->getTurmas());
             $stmtUpdateGrade->bindValue(':cursoIdCurso', $grade->getCursoIdCurso());
             $stmtUpdateGrade->bindValue(':idGradeSemestral', $grade->getIdGradeSemestral());
+
+            /**
+              * CÓDIGO DE DEBUG DO PROBLEMA DO UPDATE QUE FOI RESOLVIDO
+              */
+            /*echo '<pre>';
+            echo 'Ano Letivo: ';
+            print_r($grade->getAnoLetivo() . '<br>');
+            echo 'Semestre: ';
+            print_r($grade->getSemestre() . '<br>');
+            echo 'Período: ';
+            print_r($grade->getPeriodo() . '<br>');
+            echo 'Horário: ';
+            print_r($grade->getHorario() . '<br>');
+            echo 'Sala: ';
+            print_r($grade->getSala() . '<br>');
+            echo 'Quantidade Alunos: ';
+            print_r($grade->getQuantidadeAlunos() . '<br>');
+            echo 'Turmas: ';
+            print_r($grade->getTurmas() . '<br>');
+            echo 'Curso Id Curso: ';
+            print_r($grade->getCursoIdCurso() . '<br>');
+            echo 'Id Grade Semestral: ';
+            print_r($grade->getIdGradeSemestral() . '<br>');
+            echo '</pre>';
+
+            exit();*/
             $updateGrade = $stmtUpdateGrade->execute();
 
             return $updateGrade;
