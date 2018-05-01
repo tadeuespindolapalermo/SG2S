@@ -35,10 +35,15 @@
                                 echo '<option value="'.$grade->getIdGradeSemestral().'">'.$grade->getIdGradeSemestral().'</option>';
                             }
                         }
-                        echo '
+                    echo '
                     </select>
-                </div><br/>
-                    <button type="submit" class="btn btn-secondary">Enviar</button><br/><br/>
+                </div><br/>';
+                ?>
+
+                <button type="submit" class="btn btn-success">Enviar</button>
+                <button type="button" onclick="javascript:iniciaRequisitaAjax('GET','view_blank.html','true');" class="btn btn-secondary">Voltar</button>
+                <?php
+                echo '
                 </div>
             </div>
         </form>
