@@ -83,7 +83,9 @@
                         <button export-to-excel="listaGrades" class="btn btn-success">
                             <span data-feather="download"></span>&nbsp;Excel
                         </button>
-                    </div><br />                    
+                        <button type="button" onclick="javascript:iniciaRequisitaAjax('GET','view_form_grade_gerar.php','true');" class="btn btn-dark"><span data-feather="layers"></span>&nbsp;Gerar</button>
+                    </div><br /><hr>
+                    <div id="conteudo"></div>
                 </div>
             </div>
         </div>

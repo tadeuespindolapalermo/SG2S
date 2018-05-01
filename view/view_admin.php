@@ -96,12 +96,12 @@
                                     </strong>
                                 </a>
                             </li>
-                            <li class="nav-item">
+                            <!--<li class="nav-item">
                                 <a class="nav-link" href="view_admin.php?pagina=view_form_grade_gerar.php">
                                     <span data-feather="edit"></span>
                                     Gerar Nova Grade
                                 </a>
-                            </li>
+                            </li>-->
                             <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
                                 <span>CADASTROS</span>
                             </h6>
@@ -279,5 +279,6 @@
         <script src="../js/app/app.js"></script>
         <script src="../js/app/controllers.js"></script>
         <script src="../lib/jquery/buscaDinamica.js"></script>
+        <script src="../lib/ajax/requisicoesAjax.js"></script>
     </body>
 </html>
