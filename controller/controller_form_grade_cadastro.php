@@ -20,11 +20,19 @@
     $grade->setAnoLetivo($_POST['anoLetivo']);
     $grade->setSemestre($_POST['semestre']);
     $grade->setPeriodo($_POST['periodo']);
-    $grade->setHorario($_POST['horario']);
     $grade->setSala($_POST['sala']);
     $grade->setQuantidadeAlunos($_POST['quantidadeAlunos']);
     $grade->setTurmas($_POST['turmas']);
     $grade->setCursoIdCurso($_POST['curso_idcurso']);
+
+    // Verificação do Horário
+    if($grade->getPeriodo() === 'Matutino') {
+        $grade->setHorario('08:00 às 12:00');
+    } elseif ($grade->getPeriodo() === 'Vespertino') {
+        $grade->setHorario('13:00 às 18:00');
+    } elseif ($grade->getPeriodo() === 'Noturno') {
+        $grade->setHorario('19:15 às 22:00');
+    }    
 
     // Inserção da Grade no Banco
     $cadastroGradeEfetuado = $gradeDao->inserir($conn, $grade);

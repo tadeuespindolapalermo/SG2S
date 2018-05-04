@@ -27,7 +27,7 @@
     <div class="col-md-4"></div>
 	<div class="col-md-4">
 		<br />
-		<h3><strong><div style="margin-top: -50px;">Nova Grade</div></strong></h3>
+		<h3><strong><div style="margin-top: -50px;">Cadastrar Grade</div></strong></h3>
 		<br />
 		<form method="post" action="../controller/controller_form_grade_cadastro.php" id="formGrade">
 			<div class="form-group">
@@ -35,13 +35,12 @@
 
 				<div class="form-group">
 					<input type="number" min="2000" max="9999" class="form-control" id="anoLetivo" name="anoLetivo"
-                    placeholder="*Ano Letivo (9999)" required="required" autofocus
-                    onKeyDown="if(this.value.length==4 && event.keyCode!=8) return false;">
+                    placeholder="*Ano Letivo - Até 4 números" required="required" autofocus>
 				</div>
 
                 <div class="form-group">
                     <select class="form-control" id="semestre" name="semestre" required="required">
-						<option value="">-Selecione o Semestre-</option>
+						<option value="">-Selecione o Semestre do Ano Letivo-</option>
                         <option value="1">1º Semestre</option>
                         <option value="2">2º Semestre</option>
                     </select>
@@ -50,34 +49,24 @@
                 <div class="form-group">
                     <select class="form-control" id="periodo" name="periodo" required="required">
 						<option value="">-Selecione o Período-</option>
-                        <option value="Matutino">Matutino</option>
-                        <option value="Vespertino">Vespertino</option>
-                        <option value="Noturno">Noturno</option>
-                    </select>
-				</div>
-
-                <div class="form-group">
-                    <select class="form-control" id="horario" name="horario" required="required">
-						<option value="">-Selecione o Horário-</option>
-                        <option value="08:00 às 12:00">08:00 às 12:00</option>
-                        <option value="13:00 às 18:00">13:00 às 18:00</option>
-                        <option value="19:15 às 22:00">19:15 às 22:00</option>
+                        <option value="Matutino">Matutino - 08:00 às 12:00</option>
+                        <option value="Vespertino">Vespertino - 13:00 às 18:00</option>
+                        <option value="Noturno">Noturno - 19:15 às 22:00</option>
                     </select>
 				</div>
 
 				<div class="form-group">
-					<input type="number" min="1" max="99" class="form-control" id="sala" name="sala" placeholder="*Sala"
-                    required="required" onKeyDown="if(this.value.length==2 && event.keyCode!=8) return false;">
+					<input type="number" min="1" max="99" class="form-control" id="sala" name="sala" placeholder="*Sala - Entre 1 a 99"
+                    required="required">
 				</div>
 
 				<input type="number" min="1" max="999" class="form-control" id="quantidadeAlunos"
-                name="quantidadeAlunos" placeholder="*Quantidade de Alunos" required="required"
-                onKeyDown="if(this.value.length==3 && event.keyCode!=8) return false;">
+                name="quantidadeAlunos" placeholder="*Quantidade de Alunos - Entre 1 a 999" required="required">
 
 			</div>
 
 			<div class="form-group">
-				<input type="text" maxlength="2" class="form-control" id="turmas" name="turmas" placeholder="*Turmas. Ex.: 4A, 5B"
+				<input type="text" maxlength="50" class="form-control" id="turmas" name="turmas" placeholder="*SIST5A"
                 style="text-transform:uppercase" inputonchange="this.value = this.value.toUpperCase()" required="required">
 			</div>
 
@@ -96,7 +85,7 @@
                 </select>
             </div>
 
-			<button type="submit" class="btn btn-primary form-control">Cadastrar</button>
+			<button type="submit" class="btn btn-outline-success form-control">Cadastrar</button>
 		</form>
 	</div>
 </div>
