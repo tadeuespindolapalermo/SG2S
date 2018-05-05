@@ -6,6 +6,7 @@ function alterarDisabledEditar() {
     document.getElementById("senha").disabled = false;
     document.getElementById("btnSalvar").disabled = false;
     document.getElementById("btnProteger").disabled = false;
+    document.getElementById("btnVoltarInicio").disabled = true;
     document.getElementById("btnEditar").disabled = true;
     document.getElementById("nome").focus();
 }
@@ -19,10 +20,15 @@ function alterarDisabledProteger() {
     document.getElementById("btnSalvar").disabled = true;
     document.getElementById("btnProteger").disabled = true;
     document.getElementById("btnEditar").disabled = false;
+    document.getElementById("btnVoltarInicio").disabled = false;
     document.getElementById("nome").focus();
 }
 
 function alterarDisabledSearch() {
     document.getElementById("searchListagens").disabled = false;
     document.getElementById("btnSearch").disabled = true;
+}
+
+function voltarInicio() {
+    location.href = 'view_admin.php?pagina=view_home.php';
 }
