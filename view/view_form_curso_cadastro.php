@@ -43,7 +43,7 @@
 
 			<div class="form-group">
 				<select class="form-control" id="grau" name="grau" required="required">
-					<option value="">-Selecione o Grau-</option>
+					<option value="">-*Selecione o Grau-</option>
 					<option value="Tecnólogo">Tecnólogo</option>
 					<option value="Licenciatura">Licenciatura</option>
 					<option value="Bacharelado">Bacharelado</option>
@@ -53,8 +53,8 @@
 			<div class="form-group">
 				<input type="date" class="form-control" id="dataPortaria" name="dataPortaria" placeholder="*Data Portaria: dd/mm/YYYY" required="required">
 			</div>
-			<button type="submit" style="margin-bottom: 5px;" class="btn btn-outline-success form-control">Cadastrar</button>
-			<button id="btnVoltarInicio" type="button" onclick="voltarInicio()" class="btn btn-outline-secondary form-control">Voltar Início</button>
+			<button type="submit" style="margin-bottom: 5px;" class="btn btn-outline-success form-control"><span data-feather="database"></span>&nbsp;Cadastrar</button>
+			<a href="view_admin.php?pagina=view_cursos_listagem.php"><button type="button" class="btn btn-outline-secondary form-control"><span data-feather="arrow-left"></span>&nbsp;Voltar</button></a>
 		</form>
 	</div>
 </div>

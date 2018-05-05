@@ -35,7 +35,7 @@
 
 				<div class="form-group">
 	                <select class="form-control" id="curso_idcurso" name="curso_idcurso" required autofocus>
-	                    <option value="">-Selecione o Curso-</option>
+	                    <option value="">-*Selecione o Curso-</option>
 	                    <?php
 	                        while ($linhaGrade = $selectGrade->fetchAll(PDO::FETCH_ASSOC)) {
 	                            foreach ($linhaGrade as $dados) {
@@ -50,7 +50,7 @@
 
                 <div class="form-group">
                     <select class="form-control" id="semestre" name="semestre" required>
-						<option value="">-Selecione o Semestre do Ano Letivo-</option>
+						<option value="">-*Selecione o Semestre do Ano Letivo-</option>
                         <option value="1">1º Semestre</option>
                         <option value="2">2º Semestre</option>
                     </select>
@@ -58,7 +58,7 @@
 
                 <div class="form-group">
                     <select class="form-control" id="periodo" name="periodo" required>
-						<option value="">-Selecione o Período-</option>
+						<option value="">-*Selecione o Período-</option>
                         <option value="Matutino">Matutino - 08:00 às 12:00</option>
                         <option value="Vespertino">Vespertino - 13:00 às 18:00</option>
                         <option value="Noturno">Noturno - 19:15 às 22:00</option>
@@ -85,8 +85,8 @@
                 style="text-transform:uppercase" inputonchange="this.value = this.value.toUpperCase()" required>
 			</div>
 
-			<button type="submit" style="margin-bottom: 5px;" class="btn btn-outline-success form-control">Cadastrar</button>
-			<button id="btnVoltarInicio" type="button" onclick="voltarInicio()" class="btn btn-outline-secondary form-control">Voltar Início</button>
+			<button type="submit" style="margin-bottom: 5px;" class="btn btn-outline-success form-control"><span data-feather="database"></span>&nbsp;Cadastrar</button>
+			<a href="view_admin.php?pagina=view_grades_listagem.php"><button type="button" class="btn btn-outline-secondary form-control"><span data-feather="arrow-left"></span>&nbsp;Voltar</button></a>
 		</form>
 	</div>
 </div>

@@ -37,7 +37,7 @@
 
                 <div class="form-group">
                     <select class="form-control" id="curso_idcurso" name="curso_idcurso" required="required" autofocus>
-						<option value="">-Selecione o Curso-</option>
+						<option value="">-*Selecione o Curso-</option>
                         <?php
 							while ($linhaMatriz = $selectMatriz->fetchAll(PDO::FETCH_ASSOC)) {
 								foreach ($linhaMatriz as $dados) {
@@ -67,8 +67,8 @@
 
 			</div>
 
-			<button type="submit" style="margin-bottom: 5px;" class="btn btn-outline-success form-control">Cadastrar</button>
-			<button id="btnVoltarInicio" type="button" onclick="voltarInicio()" class="btn btn-outline-secondary form-control">Voltar Início</button>
+			<button type="submit" style="margin-bottom: 5px;" class="btn btn-outline-success form-control"><span data-feather="database"></span>&nbsp;Cadastrar</button>
+			<a href="view_admin.php?pagina=view_matrizes_listagem.php"><button type="button" class="btn btn-outline-secondary form-control"><span data-feather="arrow-left"></span>&nbsp;Voltar</button></a>
 		</form>
 	</div>
 </div>

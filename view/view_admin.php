@@ -86,7 +86,7 @@
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="view_admin.php?pagina=view_form_usuario_logado_update.php">
-                                    <span data-feather="user"></span>
+                                    <span data-feather="settings"></span>
                                     <strong>
                                         <?php
                                             $nome = $_SESSION['nome'];
@@ -125,7 +125,7 @@
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="view_admin.php?pagina=view_professores_listagem.php">
-                                    <span data-feather="award"></span>
+                                    <span data-feather="user"></span>
                                     Professor
                                 </a>
                             </li>

@@ -67,11 +67,11 @@
                                 }
                             ?>
                         </table>
-                        <a href="view_admin.php?pagina=view_form_professor_cadastro.php"><button type="button" class="btn btn-primary"><span data-feather="user"></span>&nbsp;Novo</button></a>
+                        <a href="view_admin.php?pagina=view_form_professor_cadastro.php"><button type="button" class="btn btn-primary"><span data-feather="plus-circle"></span>&nbsp;Novo</button></a>
                         <button export-to-excel="listaProfessores" class="btn btn-success">
                             <span data-feather="download"></span>&nbsp;Excel
                         </button>
-                        <a href="view_admin.php?pagina=view_professores_excluidos_listagem.php"><button type="button" class="btn btn-danger"><span data-feather="user-x"></span>&nbsp;Lixeira</button></a>
+                        <a href="view_admin.php?pagina=view_professores_lixeira_listagem.php"><button type="button" class="btn btn-danger"><span data-feather="user-x"></span>&nbsp;Lixeira</button></a>
                         <button id="btnSearch" onclick="alterarDisabledSearch()" class="btn btn-outline-dark"><span data-feather="search"></span>&nbsp;Busca</button>
                     </div>
                 </div>

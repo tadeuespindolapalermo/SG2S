@@ -28,7 +28,7 @@
 
                 <div class="form-group">
                     <select class="form-control" id="perfil" name="perfil" required="required" autofocus>
-						<option value="">-Selecione o Perfil-</option>
+						<option value="">-*Selecione o Perfil-</option>
                         <option value="Administrador">Administrador</option>
                         <option value="Coordenador">Coordenador</option>
                     </select>
@@ -62,10 +62,10 @@
 			<div class="form-group">
 				<small>ATENÇÃO: Senha apenas com 8 caracteres.</small><br/>
 				<small>MÍNIMO: 1 número, 1 letra maiúscula e 1 letra minúscula.</small>
-				<input type="password" pattern="^(?=.*[a-zç])(?=.*[A-ZÇ])(?=.*\d)[\S\s]{8,}$" placeholder="Somente 8 caracteres" maxlength="8" class="form-control" id="senha" name="senha" required>
+				<input type="password" pattern="^(?=.*[a-zç])(?=.*[A-ZÇ])(?=.*\d)[\S\s]{8,}$" placeholder="*Somente 8 caracteres" maxlength="8" class="form-control" id="senha" name="senha" required>
 			</div>
-			<button type="submit" style="margin-bottom: 5px;" class="btn btn-outline-success form-control">Cadastrar</button>
-			<button id="btnVoltarInicio" type="button" onclick="voltarInicio()" class="btn btn-outline-secondary form-control">Voltar Início</button>
+			<button type="submit" style="margin-bottom: 5px;" class="btn btn-outline-success form-control"><span data-feather="database"></span>&nbsp;Cadastrar</button>
+			<a href="view_admin.php?pagina=view_usuarios_listagem.php"><button type="button" class="btn btn-outline-secondary form-control"><span data-feather="arrow-left"></span>&nbsp;Voltar</button></a>
 		</form>
 	</div>
 </div>

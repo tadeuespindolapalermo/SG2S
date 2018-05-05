@@ -53,7 +53,9 @@
             <form action="view_admin.php?pagina=../controller/controller_form_usuario_update.php&idUsuario='.$usuario->getIdUsuarios().'" method="post">
                 <div class="form-group ">
 
-                    <label class="col-lg-12 control-label label-usuario">Perfil</label>
+                    <small><strong>*Campos Obrigatórios</strong></small><br/><br/>
+
+                    <label class="col-lg-12 control-label label-usuario">*Perfil</label>
                     <div class="form-group" style="width: 320px; margin-bottom: -5px;">
                         <select class="form-control" id="perfil" name="perfil" required="required" autofocus>
                             <option value="'.$perfil->getDescricao().'">'.$perfil->getDescricao().'</option>
@@ -61,24 +63,24 @@
                         </select>
                     </div><br />
 
-                    <label class="col-lg-12 control-label label-usuario">Nome</label>
+                    <label class="col-lg-12 control-label label-usuario">*Nome</label>
                     <input type="text" maxlength="60" style="width: 320px; margin-bottom: -5px;" id="nome" name="nome" class="form-control" placeholder="*Nome - Máximo 60 caracteres." value="'.$usuario->getNome().'" required><br/>
 
-                    <label class="col-lg-2 control-label label-usuario" >Telefone</label>
+                    <label class="col-lg-2 control-label label-usuario" >*Telefone</label>
                     <input type="text" style="width: 320px; margin-bottom: -5px;" id="telefone" name="telefone" class="form-control" placeholder="*Telefone (xx) x xxxx-xxxx" value="'.$usuario->getFone().'" required><br/>
 
-                    <label class="col-lg-2 control-label label-usuario">Usuário</label>
+                    <label class="col-lg-2 control-label label-usuario">*Usuário</label>
                     <input type="text" maxlength="40" style="width: 320px; margin-bottom: -5px;" id="usuario" name="usuario" class="form-control" placeholder="*Usuário - Máximo 40 caracteres." value="'.$usuario->getUsuario().'" required><br/>
 
-                    <label class="col-lg-2 control-label label-usuario">Email</label>
+                    <label class="col-lg-2 control-label label-usuario">*Email</label>
                     <input type="email" maxlength="60" style="width: 320px; margin-bottom: -5px;" id="email" name="email" class="form-control" placeholder="*E-mail: nome@provedor.com - máx 60" value="'.$usuario->getEmail().'" required><br/>
 
-                    <label class="col-lg-2 control-label label-usuario">Senha</label><br />
+                    <label class="col-lg-2 control-label label-usuario">*Senha</label><br />
                     <small>Somente <strong><font color="#FF0000">'.$usuario->getNome().'</font></strong> pode alterar a senha!</small>
                     <input type="password" maxlength="8" style="width: 320px; margin-bottom: -5px;" id="senha" name="senha" class="form-control" value="********" required disabled><br/>
 
-                    <button type="submit" style="margin-bottom: 5px;" class="btn btn-outline-primary form-control">Atualizar</button><br/>
-                    <button id="btnVoltarInicio" type="button" onclick="voltarInicio()" class="btn btn-outline-secondary form-control">Voltar Início</button>
+                    <button type="submit" style="margin-bottom: 5px;" class="btn btn-outline-primary form-control"><span data-feather="save"></span>&nbsp;Atualizar</button>
+                    <a href="view_admin.php?pagina=view_usuarios_listagem.php"><button type="button" class="btn btn-outline-secondary form-control"><span data-feather="arrow-left"></span>&nbsp;Voltar</button></a>
                 </div>
             </form>
         </div>

@@ -76,7 +76,9 @@
             <form action="view_admin.php?pagina=../controller/controller_form_grade_update.php&idGrade='.$grade->getIdGradeSemestral().'" method="post">
                 <div class="form-group ">
 
-                    <label class="col-lg-12 control-label label-usuario">Curso</label>
+                    <small><strong>*Campos Obrigatórios</strong></small><br/><br/>
+
+                    <label class="col-lg-12 control-label label-usuario">*Curso</label>
                     <div class="form-group" style="width: 320px; margin-bottom: -5px;">
                         <select class="form-control" id="curso" name="curso" required autofocus>
                             <option value="">-Selecione o Curso-</option>';
@@ -91,7 +93,7 @@
                         </select>
                     </div><br/>
 
-                    <label class="col-lg-12 control-label label-usuario">Semestre</label>
+                    <label class="col-lg-12 control-label label-usuario">*Semestre</label>
                     <div class="form-group" style="width: 320px; margin-bottom: -5px;">
                         <select class="form-control" id="semestre" name="semestre" required>
                             <option value="'.$grade->getSemestre().'">'.$semestre.'</option>
@@ -99,7 +101,7 @@
                         </select>
                     </div><br/>
 
-                    <label class="col-lg-12 control-label label-usuario">Período</label>
+                    <label class="col-lg-12 control-label label-usuario">*Período</label>
                     <div class="form-group" style="width: 320px; margin-bottom: -5px;">
                         <select class="form-control" id="periodo" name="periodo" required>
                             <option value="'.$grade->getPeriodo().'">'.$grade->getPeriodo().' - '.$periodo.'</option>
@@ -108,28 +110,28 @@
                         </select>
                     </div><br/>
 
-                    <label class="col-lg-12 control-label label-usuario">Ano_Letivo</label>
+                    <label class="col-lg-12 control-label label-usuario">*Ano_Letivo</label>
                     <input type="number" min="2000" max="9999" style="width: 320px; margin-bottom: -5px;" required
                     id="anoLetivo" name="anoLetivo" class="form-control" value="'.$grade->getAnoLetivo().'"
                     placeholder="*Ano Letivo - Até 4 números"><br/>
 
-                    <label class="col-lg-2 control-label label-usuario" >Sala</label>
+                    <label class="col-lg-2 control-label label-usuario" >*Sala</label>
                     <input type="number" min="1" max="99" style="width: 320px; margin-bottom: -5px;" id="sala"
                     name="sala" class="form-control" value="'.$grade->getSala().'"
                     placeholder="*Sala - Entre 1 a 99" required><br/>
 
-                    <label class="col-lg-2 control-label label-usuario">Quantidade_Alunos</label>
+                    <label class="col-lg-2 control-label label-usuario">*Quantidade_Alunos</label>
                     <input type="number" min="1" max="999" style="width: 320px; margin-bottom: -5px;"
                     id="quantidadeAlunos" name="quantidadeAlunos" class="form-control" value="'.$grade->getQuantidadeAlunos().'"
                     placeholder="*Quantidade de Alunos - Entre 1 a 999" required><br/>
 
-                    <label class="col-lg-2 control-label label-usuario">Turmas</label>
+                    <label class="col-lg-2 control-label label-usuario">*Turmas</label>
                     <input type="text" maxlength="50" style="width: 320px; margin-bottom: -5px; text-transform:uppercase;"
                     id="turmas" name="turmas" class="form-control" value="'.$grade->getTurmas().'"
                     inputonchange="this.value = this.value.toUpperCase()" required placeholder="*SIST5A"><br/>
 
-                    <button type="submit" style="margin-bottom: 5px;" class="btn btn-outline-primary form-control">Atualizar</button><br/>
-                    <button id="btnVoltarInicio" type="button" onclick="voltarInicio()" class="btn btn-outline-secondary form-control">Voltar Início</button>
+                    <button type="submit" style="margin-bottom: 5px;" class="btn btn-outline-primary form-control"><span data-feather="save"></span>&nbsp;Atualizar</button>
+                    <a href="view_admin.php?pagina=view_grades_listagem.php"><button type="button" class="btn btn-outline-secondary form-control"><span data-feather="arrow-left"></span>&nbsp;Voltar</button></a>
                 </div>
             </form>
         </div>

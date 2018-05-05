@@ -40,7 +40,9 @@
             <form action="view_admin.php?pagina=../controller/controller_form_matriz_update.php&idMatriz='.$matriz->getIdMatrizCurricular().'" method="post">
                 <div class="form-group ">
 
-                    <label class="col-lg-12 control-label label-usuario">Curso</label>
+                    <small><strong>*Campos Obrigatórios</strong></small><br/><br/>
+
+                    <label class="col-lg-12 control-label label-usuario">*Curso</label>
                     <div class="form-group" style="width: 320px; margin-bottom: -5px;">
                         <select class="form-control" id="curso" name="curso" required="required" autofocus>
                             <option value="">-Selecione o Curso-</option>';
@@ -54,17 +56,17 @@
                         </select>
                     </div><br/>
 
-                    <label class="col-lg-12 control-label label-usuario">Nome</label>
+                    <label class="col-lg-12 control-label label-usuario">*Nome</label>
                     <input type="text" maxlength="100" style="width: 320px; margin-bottom: -5px;" id="nomeMatriz" name="nomeMatriz" class="form-control" placeholder="*Nome - Até 100 caracteres." value="'.$matriz->getNomeMatriz().'" required><br/>
 
-                    <label class="col-lg-2 control-label label-usuario" >Carga_Horária</label>
+                    <label class="col-lg-2 control-label label-usuario" >*Carga_Horária</label>
                     <input type="number" min="1.00" max="999.99" style="width: 320px; margin-bottom: -5px;" id="cargaHoraria" name="cargaHoraria" class="form-control" placeholder="*Carga Horária - Entre 1.00 à 999.99" value="'.$matriz->getCargaHoraria().'" required><br/>
 
-                    <label class="col-lg-2 control-label label-usuario">Crédito</label>
+                    <label class="col-lg-2 control-label label-usuario">*Crédito</label>
                     <input type="number" min="0" max="9" style="width: 320px; margin-bottom: -5px;" id="credito" name="credito" class="form-control" placeholder="*Crédito - Entre 0 à 9" value="'.$matriz->getCredito().'" required><br/>
 
-                    <button type="submit" style="margin-bottom: 5px;" class="bbtn btn-outline-primary form-control">Atualizar</button>
-                    <button id="btnVoltarInicio" type="button" onclick="voltarInicio()" class="btn btn-outline-secondary form-control">Voltar Início</button>
+                    <button type="submit" style="margin-bottom: 5px;" class="bbtn btn-outline-primary form-control"><span data-feather="save"></span>&nbsp;Atualizar</button>
+                    <a href="view_admin.php?pagina=view_matrizes_listagem.php"><button type="button" class="btn btn-outline-secondary form-control"><span data-feather="arrow-left"></span>&nbsp;Voltar</button></a>
                 </div>
             </form>
         </div>

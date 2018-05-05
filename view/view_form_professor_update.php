@@ -39,23 +39,25 @@
             <form action="view_admin.php?pagina=../controller/controller_form_professor_update.php&idProfessor='.$professor->getIdProfessor().'" method="post">
                 <div class="form-group ">
 
-                    <label class="col-lg-12 control-label label-usuario">Nome</label>
+                    <small><strong>*Campos Obrigatórios</strong></small><br/><br/>
+
+                    <label class="col-lg-12 control-label label-usuario">*Nome</label>
                     <input type="text" maxlength="60" style="width: 320px; margin-bottom: -5px;" id="nome" name="nome" placeholder="*Nome - Até 60 caracteres." class="form-control" value="'.$professor->getNome().'" autofocus required><br/>
 
-                    <label class="col-lg-2 control-label label-usuario" >CPF</label>
+                    <label class="col-lg-2 control-label label-usuario" >*CPF</label>
                     <input type="text" style="width: 320px; margin-bottom: -5px;" id="cpf" name="cpf" class="form-control" placeholder="*CPF: 999.999.999-99" value="'.$professor->getCPF().'" required><br/>
 
-                    <label class="col-lg-2 control-label label-usuario">RG</label>
+                    <label class="col-lg-2 control-label label-usuario">*RG</label>
                     <input type="text" min="0" max="10" style="width: 320px; margin-bottom: -5px;" id="rg" name="rg" class="form-control" placeholder="*RG - Apenas números, máximo 10" value="'.$professor->getRG().'" required><br/>
 
-                    <label class="col-lg-2 control-label label-usuario">Email</label>
+                    <label class="col-lg-2 control-label label-usuario">*Email</label>
                     <input type="email" maxlength="60" style="width: 320px; margin-bottom: -5px;" id="email" name="email" class="form-control" placeholder="*E-mail: nome@provedor.com - máx 60" value="'.$professor->getEmail().'" required><br/>
 
-                    <label class="col-lg-2 control-label label-usuario">Telefone</label>
+                    <label class="col-lg-2 control-label label-usuario">*Telefone</label>
                     <input type="text" style="width: 320px; margin-bottom: -5px;" id="telefone" name="telefone" class="form-control" placeholder="*Telefone (xx) x xxxx-xxxx" value="'.$professor->getFone().'" required><br/>
 
-                    <button type="submit" style="margin-bottom: 5px;" class="btn btn-outline-primary form-control">Atualizar</button><br/>
-                    <button id="btnVoltarInicio" type="button" onclick="voltarInicio()" class="btn btn-outline-secondary form-control">Voltar Início</button>
+                    <button type="submit" style="margin-bottom: 5px;" class="btn btn-outline-primary form-control"><span data-feather="save"></span>&nbsp;Atualizar</button>
+                    <a href="view_admin.php?pagina=view_professores_listagem.php"><button type="button" class="btn btn-outline-secondary form-control"><span data-feather="arrow-left"></span>&nbsp;Voltar</button></a>
                 </div>
             </form>
         </div>
