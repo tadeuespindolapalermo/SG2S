@@ -60,7 +60,9 @@
 			</div>
 
 			<div class="form-group">
-				<input type="password" maxlength="8" class="form-control" id="senha" name="senha" placeholder="*Senha - Máximo 8 dígitos." required="required">
+				<small>ATENÇÃO: Senha apenas com 8 caracteres.</small><br/>
+				<small>MÍNIMO: 1 número, 1 letra maiúscula e 1 letra minúscula.</small>
+				<input type="password" pattern="^(?=.*[a-zç])(?=.*[A-ZÇ])(?=.*\d)[\S\s]{8,}$" placeholder="Somente 8 caracteres" maxlength="8" class="form-control" id="senha" name="senha" required="required">
 			</div>
 			<button type="submit" class="btn btn-outline-success form-control">Cadastrar</button>
 		</form>
