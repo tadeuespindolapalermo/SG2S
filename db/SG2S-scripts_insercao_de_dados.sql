@@ -95,6 +95,7 @@ VALUES (1, 'Atividades Complementares I', 72.00, 4);
 
 INSERT INTO matriz_curricular (curso_idcurso, nome_matriz, carga_horaria, credito)
 VALUES (1, 'Atividades Complementares II', 72.00, 4);
+/* ----------------------------------------------------------------------------- */
 
 /* TABELA professor - Professores da JK*/
 
@@ -154,3 +155,65 @@ VALUES ('João Fernando', '257.639.529-98', '1974256', 'joaofernando@espiritoliv
 
 INSERT INTO professor (nome, CPF, RG, email, fone, exclusao)
 VALUES ('Carlos Fernandez', '028.985.147-94', '2974582', 'kaufernandez@gmail.com', '(61) 9 8465-6598', 1);
+
+/* ------------------------------------------------------------------------------------------------------- */
+
+/* TABELA usuarios - Usuários do SG2S*/
+
+/* ADMINISTRADOR */
+INSERT INTO usuarios (nome, fone, email, usuario, senha)
+VALUES ('Tadeu Espíndola Palermo', '(61) 9 8647-3913', 'tadeupalermoti@gmail.com', 'tadeuespindolapalermo', md5('Tadeu198'));
+INSERT INTO usuario_perfil (usuarios_idusuarios, perfil_idperfil)
+VALUES (1, 1);
+
+/* ADMINISTRADOR */
+INSERT INTO usuarios (nome, fone, email, usuario, senha)
+VALUES ('George Mendonça', '(61) 9 9287-0130', 'george.mendonca@jk.edu.br', 'georgemendonca', md5('George45'));
+INSERT INTO usuario_perfil (usuarios_idusuarios, perfil_idperfil)
+VALUES (2, 1);
+
+/* COORDENADOR */
+INSERT INTO usuarios (nome, fone, email, usuario, senha)
+VALUES ('Joelinda Silva', '(61) 9 9282-8855', 'joelinda@jk.edu.br', 'joelinda', md5('Joe19851'));
+INSERT INTO usuario_perfil (usuarios_idusuarios, perfil_idperfil)
+VALUES (3, 2);
+
+/* ADMINISTRADOR */
+INSERT INTO usuarios (nome, fone, email, usuario, senha)
+VALUES ('Marcos Alexandre da S. Lima', '(61) 9 9848-6698', '01marcosalexandre@gmail.com', 'marcos', md5('Marcos23'));
+INSERT INTO usuario_perfil (usuarios_idusuarios, perfil_idperfil)
+VALUES (4, 1);
+
+/* ADMINISTRADOR */
+INSERT INTO usuarios (nome, fone, email, usuario, senha)
+VALUES ('Eduardo Borges', '(61) 9 9347-2947', 'eduardo.borges@inbd.com.br', 'ecesarmiranda', md5('Eduardo9'));
+INSERT INTO usuario_perfil (usuarios_idusuarios, perfil_idperfil)
+VALUES (5, 1);
+
+/* --------------------------------------------------------------------------------------------------------- */
+
+/* TABELA curso - Cursos da Faculdade JK*/
+
+INSERT INTO curso (nome, portaria, duracao, grau, data_portaria)
+VALUES ('Análise e Desenvolvimento de Sistemas', '2554-6', 2.5, 'Tecnólogo', '1992-03-24');
+
+INSERT INTO curso (nome, portaria, duracao, grau, data_portaria)
+VALUES ('Tecnologia em Redes de Computadores', '7715-6', 2.5, 'Tecnólogo', '1998-05-14');
+
+INSERT INTO curso (nome, portaria, duracao, grau, data_portaria)
+VALUES ('Sistemas de Informação', '5597-8	', 4.0, 'Bacharelado', '1998-07-18');
+
+/* --------------------------------------------------------------------------------------------------------- */
+
+/* TABELA grade_semestral - Grades cadastradas pelo Coordenador*/
+
+INSERT INTO grade_semestral (ano_letivo, semestre, periodo, horario, sala, quantidade_alunos, turmas, curso_idcurso)
+VALUES (2018, 1, 'Noturno', '19:15 às 22:00', 15, 40, 'SIST5A', 1);
+
+INSERT INTO grade_semestral (ano_letivo, semestre, periodo, horario, sala, quantidade_alunos, turmas, curso_idcurso)
+VALUES (2018, 2, 'Matutino', '08:00 às 12:00', 20, 60, 'SIST4B', 2);
+
+INSERT INTO grade_semestral (ano_letivo, semestre, periodo, horario, sala, quantidade_alunos, turmas, curso_idcurso)
+VALUES (2019, 1, 'Vespertino', '13:00 às 18:00', 12, 35, 'SIST3A', 3);
+
+/* --------------------------------------------------------------------------------------------------------- */
