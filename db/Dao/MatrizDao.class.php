@@ -136,7 +136,7 @@ class MatrizDao implements Dao {
      * Método para popular a view de update de matriz (view)
      **/
     public function buscarPorId($conn, $idMatrizCurricular) {
-        $strSqlMatriz = "SELECT * FROM matriz_curricular WHERE idmatriz_curricular = :idMatrizCurricular";
+        $strSqlMatriz = "SELECT * FROM matriz_curricular INNER JOIN curso WHERE idmatriz_curricular = :idMatrizCurricular";
         $selectMatriz = $conn->prepare($strSqlMatriz);
         $selectMatriz->bindValue(':idMatrizCurricular', $idMatrizCurricular);
         $selectMatriz->execute();
