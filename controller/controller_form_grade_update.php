@@ -23,12 +23,20 @@
         $grade->setAnoLetivo($_POST['anoLetivo']);
         $grade->setSemestre($_POST['semestre']);
         $grade->setPeriodo($_POST['periodo']);
-        $grade->setHorario($_POST['horario']);
         $grade->setSala($_POST['sala']);
         $grade->setQuantidadeAlunos($_POST['quantidadeAlunos']);
         $grade->setTurmas($_POST['turmas']);
         $grade->setCursoIdCurso($_POST['curso']);
         $grade->setIdGradeSemestral($_GET['idGrade']);
+
+        // Verificação do Horário
+        if($grade->getPeriodo() === 'Matutino') {
+            $grade->setHorario('08:00 às 12:00');
+        } elseif ($grade->getPeriodo() === 'Vespertino') {
+            $grade->setHorario('13:00 às 18:00');
+        } elseif ($grade->getPeriodo() === 'Noturno') {
+            $grade->setHorario('19:15 às 22:00');
+        }    
 
         // Update da Grade no Banco
         $updateGrade = $gradeDao->atualizar($conn, $grade);
