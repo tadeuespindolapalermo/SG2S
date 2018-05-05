@@ -30,16 +30,15 @@
             <div class="panel panel-default">
                 <div class="panel-body">
                     <div class="table-responsive">
-                        <table class="table table-hover table-striped listaSearch" style="text-align: center;" id="listaProfessores">                            
+                        <table class="table table-hover table-striped listaSearch" style="text-align: center;" id="listaProfessores">
                             <thead>
                                 <tr>
-                                    <th>Id</th>
                                     <th>Nome</th>
                                     <th>CPF</th>
                                     <th>RG</th>
                                     <th>E-mail</th>
                                     <th>Fone</th>
-                                    <th>Excluir</th>
+                                    <th>Lixeira</th>
                                     <th>Editar</th>
                                 </tr>
                             </thead>
@@ -55,7 +54,6 @@
                                         echo '
                                         <tbody>
                                             <tr>
-                                                <td>'.$professor->getIdProfessor().'</td>
                                                 <td style="text-align: left;">'.$professor->getNome().'</td>
                                                 <td>'.$professor->getCPF().'</td>
                                                 <td>'.$professor->getRG().'</td>

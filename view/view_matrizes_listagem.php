@@ -1,6 +1,6 @@
 <div class="container listar">
     <div class="header clearfix">
-        <h3 class="text-muted">Listagem de Matriz (Disciplinas)</h3><hr />
+        <h3 class="text-muted">Listagem de Matriz</h3><hr />
     </div>
 
     <?php
@@ -33,8 +33,7 @@
                         <table class="table table-hover table-striped listaSearch" style="text-align: center;" id="listaMatrizes">
                             <thead>
                                 <tr>
-                                    <th>Id</th>
-                                    <th>Nome Matriz</th>
+                                    <th>Disciplina</th>
                                     <th>Curso</th>
                                     <th>Carga Horária</th>
                                     <th>Crédito</th>
@@ -54,7 +53,6 @@
                                         echo '
                                         <tbody>
                                             <tr>
-                                                <td>'.$matriz->getIdMatrizCurricular().'</td>
                                                 <td style="text-align: left;">'.$matriz->getNomeMatriz().'</td>
                                                 <td style="text-align: left;">'.$matriz->getCursoNome().'</td>
                                                 <td>'.$matriz->getCargaHoraria().'</td>
@@ -71,7 +69,7 @@
                         <button export-to-excel="listaMatrizes" class="btn btn-success">
                             <span data-feather="download"></span>&nbsp;Excel
                         </button>
-                    </div><br />                    
+                    </div><br />
                 </div>
             </div>
         </div>

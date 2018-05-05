@@ -1,6 +1,6 @@
 <div class="container listar">
     <div class="header clearfix">
-        <h3 class="text-muted">Listagem de Professores Excluídos</h3><hr />
+        <h3 class="text-muted">Listagem de Professores na Lixeira</h3><hr />
     </div>
 
     <?php
@@ -30,16 +30,15 @@
             <div class="panel panel-default">
                 <div class="panel-body">
                     <div class="table-responsive">
-                        <table class="table table-hover table-striped listaSearch" style="text-align: center;" id="listaProfessoresExcluidos">                            
+                        <table class="table table-hover table-striped listaSearch" style="text-align: center;" id="listaProfessoresExcluidos">
                             <thead>
                                 <tr>
-                                    <th>Id</th>
                                     <th>Nome</th>
                                     <th>CPF</th>
                                     <th>RG</th>
                                     <th>E-mail</th>
                                     <th>Fone</th>
-                                    <th>Eliminar</th>
+                                    <th>Excluir</th>
                                     <th>Recuperar</th>
                                 </tr>
                             </thead>
@@ -55,7 +54,6 @@
                                         echo '
                                         <tbody>
                                             <tr>
-                                                <td>'.$professor->getIdProfessor().'</td>
                                                 <td style="text-align: left;">'.$professor->getNome().'</td>
                                                 <td>'.$professor->getCPF().'</td>
                                                 <td>'.$professor->getRG().'</td>

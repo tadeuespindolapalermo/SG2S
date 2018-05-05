@@ -33,7 +33,6 @@
                         <table class="table table-hover table-striped listaSearch" id="listaGrades" style="text-align: center;">
                             <thead>
                                 <tr>
-                                    <th>Id</th>
                                     <th>Ano Letivo</th>
                                     <th>Semestre</th>
                                     <th>Período</th>
@@ -61,8 +60,7 @@
                                         $grade->setCursoNome($dados['nome']);
                                         echo '
                                         <tbody>
-                                            <tr>
-                                                <td>'.$grade->getIdGradeSemestral().'</td>
+                                            <tr>                                            
                                                 <td>'.$grade->getAnoLetivo().'</td>
                                                 <td>'.$grade->getSemestre().'</td>
                                                 <td>'.$grade->getPeriodo().'</td>
