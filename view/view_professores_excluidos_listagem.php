@@ -71,6 +71,7 @@
                             <span data-feather="download"></span>&nbsp;Excel
                         </button>
                         <a href="view_admin.php?pagina=view_professores_listagem.php"><button type="button" class="btn btn-info"><span data-feather="arrow-left"></span>&nbsp;Voltar</button></a>
+                        <button id="btnSearch" onclick="alterarDisabledSearch()" class="btn btn-outline-dark"><span data-feather="search"></span>&nbsp;Busca</button>
                     </div>
                 </div>
             </div>

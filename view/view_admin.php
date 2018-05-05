@@ -65,7 +65,7 @@
         <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
             <span class="navbar-brand col-sm-3 col-md-2 mr-0"><strong>SG2S - <?php echo $perfil; ?></strong></span>
             <!--<input type="text" class="input-search" alt="listaSearch" placeholder="Pesquisa rápida..." />-->
-            <input style="border: 1px solid grey; border-radius: 4px;" class="form-control form-control-dark w-100 input-search" alt="listaSearch" type="text" placeholder="Pesquisa rápida..." aria-label="Pesquisa rápida..." />
+            <input id="searchListagens" style="border: 1px solid grey; border-radius: 4px;" class="form-control form-control-dark w-100 input-search" alt="listaSearch" type="text" placeholder="Pesquisa rápida..." disabled aria-label="Pesquisa rápida..." />
             <!--<ul class="navbar-nav px-3">
                 <li class="nav-item text-nowrap">
                     <a class="nav-link" href="../controller/controller_sair.php">Sair</a>

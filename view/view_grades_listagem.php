@@ -84,6 +84,7 @@
                             <span data-feather="download"></span>&nbsp;Excel
                         </button>
                         <button type="button" onclick="javascript:iniciaRequisitaAjax('GET','view_form_grade_gerar.php','true');" class="btn btn-dark"><span data-feather="layers"></span>&nbsp;Gerar</button>
+                        <button id="btnSearch" onclick="alterarDisabledSearch()" class="btn btn-outline-dark"><span data-feather="search"></span>&nbsp;Busca</button>
                     </div><br /><hr>
                     <div id="conteudo"></div>
                 </div>

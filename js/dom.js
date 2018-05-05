@@ -21,3 +21,8 @@ function alterarDisabledProteger() {
     document.getElementById("btnEditar").disabled = false;
     document.getElementById("nome").focus();
 }
+
+function alterarDisabledSearch() {
+    document.getElementById("searchListagens").disabled = false;
+    document.getElementById("btnSearch").disabled = true;
+}

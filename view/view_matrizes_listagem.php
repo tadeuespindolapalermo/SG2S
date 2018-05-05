@@ -69,6 +69,7 @@
                         <button export-to-excel="listaMatrizes" class="btn btn-success">
                             <span data-feather="download"></span>&nbsp;Excel
                         </button>
+                        <button id="btnSearch" onclick="alterarDisabledSearch()" class="btn btn-outline-dark"><span data-feather="search"></span>&nbsp;Busca</button>
                     </div><br />
                 </div>
             </div>

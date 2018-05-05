@@ -71,7 +71,7 @@
 
                                         echo '
                                         <tbody>
-                                            <tr>                                                
+                                            <tr>
                                                 <td style="text-align: left;">'.$usuarios->getNome().'</td>
                                                 <td style="text-align: left;">'.$usuarios->getUsuario().'</td>
                                                 <td>'.$perfil->getDescricao().'</td>
@@ -89,6 +89,7 @@
                         <button export-to-excel="listaUsuarios" class="btn btn-success">
                             <span data-feather="download"></span>&nbsp;Excel
                         </button>
+                        <button id="btnSearch" onclick="alterarDisabledSearch()" class="btn btn-outline-dark"><span data-feather="search"></span>&nbsp;Busca</button>
                     </div>
                 </div>
             </div>

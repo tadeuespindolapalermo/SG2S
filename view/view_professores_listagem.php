@@ -72,6 +72,7 @@
                             <span data-feather="download"></span>&nbsp;Excel
                         </button>
                         <a href="view_admin.php?pagina=view_professores_excluidos_listagem.php"><button type="button" class="btn btn-danger"><span data-feather="user-x"></span>&nbsp;Lixeira</button></a>
+                        <button id="btnSearch" onclick="alterarDisabledSearch()" class="btn btn-outline-dark"><span data-feather="search"></span>&nbsp;Busca</button>
                     </div>
                 </div>
             </div>

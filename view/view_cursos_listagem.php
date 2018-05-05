@@ -54,7 +54,7 @@
                                         $curso->setDataPortaria($dados['data_portaria']);
                                         echo '
                                         <tbody>
-                                            <tr>                                                
+                                            <tr>
                                                 <td style="text-align: left;">'.$curso->getNome().'</td>
                                                 <td>'.$curso->getPortaria().'</td>
                                                 <td>'.$curso->getDuracao().'</td>
@@ -72,6 +72,7 @@
                         <button export-to-excel="listaCursos" class="btn btn-success">
                             <span data-feather="download"></span>&nbsp;Excel
                         </button>
+                        <button id="btnSearch" onclick="alterarDisabledSearch()" class="btn btn-outline-dark"><span data-feather="search"></span>&nbsp;Busca</button>
                     </div>
                 </div>
             </div>
