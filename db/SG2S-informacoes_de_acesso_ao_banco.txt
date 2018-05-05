@@ -26,3 +26,6 @@ database: codigofonteonline1
 
 Reiniciar o id
 ALTER TABLE tabela AUTO_INCREMENT = 1;
+
+Adicionar campo único
+ALTER TABLE tabela ADD UNIQUE (campo);

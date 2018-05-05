@@ -24,11 +24,11 @@ USE `codigofonteonline1` ;
 -- Table `codigofonteonline1`.`usuarios`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `codigofonteonline1`.`usuarios` (
-  `idusuarios` AUTO_INCREMENT INT NOT NULL,
+  `idusuarios` INT NOT NULL AUTO_INCREMENT,
   `nome` VARCHAR(60) CHARACTER SET 'utf8' COLLATE 'utf8_general_ci' NOT NULL,
   `fone` VARCHAR(16) CHARACTER SET 'utf8' COLLATE 'utf8_general_ci' NOT NULL COMMENT 'Haverá máscara jQuery no campo do formulário.\nFormato: (99) 9 9999-9999',
-  `email` VARCHAR(60) CHARACTER SET 'utf8' COLLATE 'utf8_general_ci' NOT NULL COMMENT 'Será validado por atributo no campo do formulário.',
-  `usuario` VARCHAR(40) CHARACTER SET 'utf8' COLLATE 'utf8_general_ci' NOT NULL,
+  `email` VARCHAR(60) CHARACTER SET 'utf8' COLLATE 'utf8_general_ci' NOT NULL UNIQUE COMMENT 'Será validado por atributo no campo do formulário.',
+  `usuario` VARCHAR(40) CHARACTER SET 'utf8' COLLATE 'utf8_general_ci' NOT NULL UNIQUE,
   `senha` VARCHAR(32) CHARACTER SET 'utf8' COLLATE 'utf8_general_ci' NOT NULL COMMENT 'Permitido no máximo até 32 caracteres (md5).',
   PRIMARY KEY (`idusuarios`))
 ENGINE = InnoDB
@@ -53,8 +53,8 @@ COMMENT = 'Tabela para cadastro de perfil de usuário.';
 -- Table `codigofonteonline1`.`curso`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `codigofonteonline1`.`curso` (
-  `idcurso` AUTO_INCREMENT INT NOT NULL,
-  `nome` VARCHAR(60) CHARACTER SET 'utf8' COLLATE 'utf8_general_ci' NOT NULL,
+  `idcurso` INT NOT NULL AUTO_INCREMENT,
+  `nome` VARCHAR(60) CHARACTER SET 'utf8' COLLATE 'utf8_general_ci' NOT NULL UNIQUE,
   `portaria` VARCHAR(30) CHARACTER SET 'utf8' COLLATE 'utf8_general_ci' NOT NULL,
   `duracao` DECIMAL(2,1) NOT NULL COMMENT 'Formato: 2.0, 2.5...\n2.0: dois anos\n2.5: dois anos e meio',
   `grau` VARCHAR(30) CHARACTER SET 'utf8' COLLATE 'utf8_general_ci' NOT NULL COMMENT 'Tecnólogo\nBacharelado\nLicenciatura\n',
@@ -69,9 +69,9 @@ COMMENT = 'Tabela para cadastro de cursos.';
 -- Table `codigofonteonline1`.`matriz_curricular`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `codigofonteonline1`.`matriz_curricular` (
-  `idmatriz_curricular` AUTO_INCREMENT INT NOT NULL,
+  `idmatriz_curricular` INT NOT NULL AUTO_INCREMENT,
   `curso_idcurso` INT NOT NULL,
-  `nome_matriz` VARCHAR(60) CHARACTER SET 'utf8' COLLATE 'utf8_general_ci' NOT NULL,
+  `nome_matriz` VARCHAR(60) CHARACTER SET 'utf8' COLLATE 'utf8_general_ci' NOT NULL UNIQUE,
   `carga_horaria` DECIMAL(5,2) NOT NULL COMMENT 'Formato: 999.99\nEx.:\n100.00 - 100 horas\n105.30 - 105 horas e 30 minutos',
   `credito` INT(1) NOT NULL COMMENT 'Peso da disciplina',
   PRIMARY KEY (`idmatriz_curricular`, `curso_idcurso`),
@@ -159,11 +159,11 @@ COMMENT = 'Tabela para cadastro das informações presentes na grade semestral.'
 -- Table `codigofonteonline1`.`professor`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `codigofonteonline1`.`professor` (
-  `idprofessor` AUTO_INCREMENT INT NOT NULL,
+  `idprofessor` INT NOT NULL AUTO_INCREMENT,
   `nome` VARCHAR(60) CHARACTER SET 'utf8' COLLATE 'utf8_general_ci' NOT NULL,
-  `CPF` VARCHAR(14) CHARACTER SET 'utf8' COLLATE 'utf8_general_ci' NOT NULL COMMENT 'Haverá máscara jQuery no campo do formulário.\nFormato: 999.999.999-99',
-  `RG` VARCHAR(20) CHARACTER SET 'utf8' COLLATE 'utf8_general_ci' NOT NULL COMMENT 'Formato livre.',
-  `email` VARCHAR(60) CHARACTER SET 'utf8' COLLATE 'utf8_general_ci' NOT NULL COMMENT 'Será validado por atributo no campo do formulário.',
+  `CPF` VARCHAR(14) CHARACTER SET 'utf8' COLLATE 'utf8_general_ci' NOT NULL UNIQUE COMMENT 'Haverá máscara jQuery no campo do formulário.\nFormato: 999.999.999-99',
+  `RG` VARCHAR(20) CHARACTER SET 'utf8' COLLATE 'utf8_general_ci' NOT NULL UNIQUE COMMENT 'Formato livre.',
+  `email` VARCHAR(60) CHARACTER SET 'utf8' COLLATE 'utf8_general_ci' NOT NULL UNIQUE COMMENT 'Será validado por atributo no campo do formulário.',
   `fone` VARCHAR(16) CHARACTER SET 'utf8' COLLATE 'utf8_general_ci' NOT NULL COMMENT 'Haverá máscara jQuery no campo do formulário.\nFormato: (99) 9 9999-9999',
   `exclusao` TINYINT(1) NOT NULL,
   PRIMARY KEY (`idprofessor`))
