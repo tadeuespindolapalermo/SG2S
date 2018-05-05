@@ -72,7 +72,8 @@
                     <label class="col-lg-2 control-label label-usuario">Data_Portaria</label>
                     <input type="date" style="width: 320px; margin-bottom: -5px;" id="dataPortaria" name="dataPortaria" class="form-control" placeholder="*Data Portaria: dd/mm/YYYY" value="'.$curso->getDataPortaria().'" required><br/>
 
-                    <button type="submit" class="btn btn-outline-primary form-control">Atualizar</button><br/><br/>
+                    <button type="submit" style="margin-bottom: 5px;" class="btn btn-outline-primary form-control">Atualizar</button><br/>
+                    <button id="btnVoltarInicio" type="button" onclick="voltarInicio()" class="btn btn-outline-secondary form-control">Voltar Início</button>
                 </div>
             </form>
         </div>

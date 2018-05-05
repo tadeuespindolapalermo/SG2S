@@ -64,7 +64,8 @@
 				<small>MÍNIMO: 1 número, 1 letra maiúscula e 1 letra minúscula.</small>
 				<input type="password" pattern="^(?=.*[a-zç])(?=.*[A-ZÇ])(?=.*\d)[\S\s]{8,}$" placeholder="Somente 8 caracteres" maxlength="8" class="form-control" id="senha" name="senha" required>
 			</div>
-			<button type="submit" class="btn btn-outline-success form-control">Cadastrar</button>
+			<button type="submit" style="margin-bottom: 5px;" class="btn btn-outline-success form-control">Cadastrar</button>
+			<button id="btnVoltarInicio" type="button" onclick="voltarInicio()" class="btn btn-outline-secondary form-control">Voltar Início</button>
 		</form>
 	</div>
 </div>

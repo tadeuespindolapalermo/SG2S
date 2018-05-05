@@ -77,7 +77,8 @@
                     <small>Somente <strong><font color="#FF0000">'.$usuario->getNome().'</font></strong> pode alterar a senha!</small>
                     <input type="password" maxlength="8" style="width: 320px; margin-bottom: -5px;" id="senha" name="senha" class="form-control" value="********" required disabled><br/>
 
-                    <button type="submit" class="btn btn-outline-primary form-control">Atualizar</button><br/><br/>
+                    <button type="submit" style="margin-bottom: 5px;" class="btn btn-outline-primary form-control">Atualizar</button><br/>
+                    <button id="btnVoltarInicio" type="button" onclick="voltarInicio()" class="btn btn-outline-secondary form-control">Voltar Início</button>
                 </div>
             </form>
         </div>

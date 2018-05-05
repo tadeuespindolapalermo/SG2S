@@ -63,7 +63,8 @@
                     <label class="col-lg-2 control-label label-usuario">Crédito</label>
                     <input type="number" min="0" max="9" style="width: 320px; margin-bottom: -5px;" id="credito" name="credito" class="form-control" placeholder="*Crédito - Entre 0 à 9" value="'.$matriz->getCredito().'" required><br/>
 
-                    <button type="submit" class="bbtn btn-outline-primary form-control">Atualizar</button><br/><br/>
+                    <button type="submit" style="margin-bottom: 5px;" class="bbtn btn-outline-primary form-control">Atualizar</button>
+                    <button id="btnVoltarInicio" type="button" onclick="voltarInicio()" class="btn btn-outline-secondary form-control">Voltar Início</button>
                 </div>
             </form>
         </div>

@@ -128,7 +128,8 @@
                     id="turmas" name="turmas" class="form-control" value="'.$grade->getTurmas().'"
                     inputonchange="this.value = this.value.toUpperCase()" required placeholder="*SIST5A"><br/>
 
-                    <button type="submit" class="btn btn-outline-primary form-control">Atualizar</button><br/><br/>
+                    <button type="submit" style="margin-bottom: 5px;" class="btn btn-outline-primary form-control">Atualizar</button><br/>
+                    <button id="btnVoltarInicio" type="button" onclick="voltarInicio()" class="btn btn-outline-secondary form-control">Voltar Início</button>
                 </div>
             </form>
         </div>

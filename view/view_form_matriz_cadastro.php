@@ -67,7 +67,8 @@
 
 			</div>
 
-			<button type="submit" class="btn btn-outline-success form-control">Cadastrar</button>
+			<button type="submit" style="margin-bottom: 5px;" class="btn btn-outline-success form-control">Cadastrar</button>
+			<button id="btnVoltarInicio" type="button" onclick="voltarInicio()" class="btn btn-outline-secondary form-control">Voltar Início</button>
 		</form>
 	</div>
 </div>

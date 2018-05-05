@@ -54,7 +54,8 @@
                     <label class="col-lg-2 control-label label-usuario">Telefone</label>
                     <input type="text" style="width: 320px; margin-bottom: -5px;" id="telefone" name="telefone" class="form-control" placeholder="*Telefone (xx) x xxxx-xxxx" value="'.$professor->getFone().'" required><br/>
 
-                    <button type="submit" class="btn btn-outline-primary form-control">Atualizar</button><br/><br/>
+                    <button type="submit" style="margin-bottom: 5px;" class="btn btn-outline-primary form-control">Atualizar</button><br/>
+                    <button id="btnVoltarInicio" type="button" onclick="voltarInicio()" class="btn btn-outline-secondary form-control">Voltar Início</button>
                 </div>
             </form>
         </div>
