@@ -34,6 +34,7 @@
                         <table class="table table-hover table-striped listaSearch" style="text-align: center;" id="listaCursos">
                             <thead>
                                 <tr>
+                                    <th>Id</th>
                                     <th>Nome</th>
                                     <th>Portaria</th>
                                     <th>Duração</th>
@@ -55,6 +56,7 @@
                                         echo '
                                         <tbody>
                                             <tr>
+                                                <td>'.$curso->getIdCurso().'</td>
                                                 <td style="text-align: left;">'.$curso->getNome().'</td>
                                                 <td>'.$curso->getPortaria().'</td>
                                                 <td>'.$curso->getDuracao().'</td>

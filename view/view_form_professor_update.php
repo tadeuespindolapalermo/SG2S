@@ -48,7 +48,7 @@
                     <input type="text" style="width: 320px; margin-bottom: -5px;" id="cpf" name="cpf" class="form-control" placeholder="*CPF: 999.999.999-99" value="'.$professor->getCPF().'" required><br/>
 
                     <label class="col-lg-2 control-label label-usuario">*RG</label>
-                    <input type="text" min="0" max="10" style="width: 320px; margin-bottom: -5px;" id="rg" name="rg" class="form-control" placeholder="*RG - Apenas números, máximo 10" value="'.$professor->getRG().'" required><br/>
+                    <input type="text" min="0" style="width: 320px; margin-bottom: -5px;" id="rg" name="rg" class="form-control" placeholder="*RG - Apenas números." value="'.$professor->getRG().'" required><br/>
 
                     <label class="col-lg-2 control-label label-usuario">*Email</label>
                     <input type="email" maxlength="60" style="width: 320px; margin-bottom: -5px;" id="email" name="email" class="form-control" placeholder="*E-mail: nome@provedor.com - máx 60" value="'.$professor->getEmail().'" required><br/>

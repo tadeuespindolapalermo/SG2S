@@ -24,15 +24,15 @@
     if ($linhas != 0) {
         echo "
         <script type=\"text/javascript\">
-            alert(\"Professor eliminado com sucesso!\");
+            alert(\"Professor excluído com sucesso!\");
         </script>
         <META HTTP-EQUIV=REFRESH CONTENT = '0;URL=
-        http://localhost/SG2S/view/view_admin.php?pagina=view_professores_excluidos_listagem.php'";
+        http://localhost/SG2S/view/view_admin.php?pagina=view_professores_lixeira_listagem.php'";
     } else {
         echo "
         <script type=\"text/javascript\">
-            alert(\"Erro ao eliminar professor!\");
+            alert(\"Erro ao excluir professor!\");
         </script>
         <META HTTP-EQUIV=REFRESH CONTENT = '0;URL=
-        http://localhost/SG2S/view/view_admin.php?pagina=view_professores_excluidos_listagem.php'";
+        http://localhost/SG2S/view/view_admin.php?pagina=view_professores_lixeira_listagem.php'";
     }

@@ -33,6 +33,7 @@
                         <table class="table table-hover table-striped listaSearch" style="text-align: center;" id="listaMatrizes">
                             <thead>
                                 <tr>
+                                    <th>Id</th>
                                     <th>Disciplina</th>
                                     <th>Curso</th>
                                     <th>Carga Horária</th>
@@ -53,6 +54,7 @@
                                         echo '
                                         <tbody>
                                             <tr>
+                                                <td>'.$matriz->getIdMatrizCurricular().'</td>
                                                 <td style="text-align: left;">'.$matriz->getNomeMatriz().'</td>
                                                 <td style="text-align: left;">'.$matriz->getCursoNome().'</td>
                                                 <td>'.$matriz->getCargaHoraria().'</td>

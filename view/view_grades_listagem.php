@@ -33,7 +33,7 @@
                         <table class="table table-hover table-striped listaSearch" id="listaGrades" style="text-align: center;">
                             <thead>
                                 <tr>
-                                    <th>ID</th>
+                                    <th>Id</th>
                                     <th>Ano Letivo</th>
                                     <th>Semestre</th>
                                     <th>Período</th>

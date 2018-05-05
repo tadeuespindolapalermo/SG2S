@@ -32,16 +32,16 @@
             alert(\"Professor recuperado com sucesso!\");
         </script>
         <META HTTP-EQUIV=REFRESH CONTENT = '0;URL=
-        http://localhost/SG2S/view/view_admin.php?pagina=view_professores_excluidos_listagem.php'";
-        //header('Location: ../view/view_admin.php?pagina=view_professores_excluidos_listagem.php');
+        http://localhost/SG2S/view/view_admin.php?pagina=view_professores_lixeira_listagem.php'";
+        //header('Location: ../view/view_admin.php?pagina=view_professores_lixeira_listagem.php');
     } else {
         echo "
         <script type=\"text/javascript\">
             alert(\"Erro ao recuperar o professor!\");
         </script>
         <META HTTP-EQUIV=REFRESH CONTENT = '0;URL=
-        http://localhost/SG2S/view/view_admin.php?pagina=view_professores_excluidos_listagem.php'";
-        //header('Location: ../view/view_admin.php?pagina=view_professores_excluidos_listagem.php');
+        http://localhost/SG2S/view/view_admin.php?pagina=view_professores_lixeira_listagem.php'";
+        //header('Location: ../view/view_admin.php?pagina=view_professores_listagem.php');
     }
 
 

@@ -40,7 +40,7 @@
 				</div>
 
                 <div class="form-group">
-    				<input type="number" min="0" max="10" class="form-control" id="rg" name="rg" placeholder="*RG - Apenas números, máximo 10" required="required">
+    				<input type="number" min="0" class="form-control" id="rg" name="rg" placeholder="*RG - Apenas números." required="required">
                     <?php
                         if($erro_rg) {
                             echo '<font color="#FF0000">Professor com o RG informado já existe ou foi enviado para a lixeira!</font>';
