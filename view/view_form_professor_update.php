@@ -33,28 +33,29 @@
 
     echo '
     <div class="container">
-        <h4>Atualizar Professor</h4><br />
-        <form action="view_admin.php?pagina=../controller/controller_form_professor_update.php&idProfessor='.$professor->getIdProfessor().'" method="post">
-            <div class="form-group ">
-                <div class="col-lg-12">
+            <div class="col-md-4">
+            <h4><strong>Atualização Cadastral</strong></h4>
+            <div style="margin-left: px;"><h5><strong><font color="#FF0000">'.strtoupper($professor->getNome()).'.</font><strong></h5></div><br />
+            <form action="view_admin.php?pagina=../controller/controller_form_professor_update.php&idProfessor='.$professor->getIdProfessor().'" method="post">
+                <div class="form-group ">
 
                     <label class="col-lg-12 control-label label-usuario">Nome</label>
-                    <input type="text" style="width: 300px; margin-bottom: -5px;" id="nome" name="nome" class="form-control" value="'.$professor->getNome().'" autofocus required><br/>
+                    <input type="text" maxlength="60" style="width: 320px; margin-bottom: -5px;" id="nome" name="nome" placeholder="*Nome - Até 60 caracteres." class="form-control" value="'.$professor->getNome().'" autofocus required><br/>
 
                     <label class="col-lg-2 control-label label-usuario" >CPF</label>
-                    <input type="text" style="width: 300px; margin-bottom: -5px;" id="cpf" name="cpf" class="form-control" value="'.$professor->getCPF().'" required><br/>
+                    <input type="text" style="width: 320px; margin-bottom: -5px;" id="cpf" name="cpf" class="form-control" placeholder="*CPF: 999.999.999-99" value="'.$professor->getCPF().'" required><br/>
 
                     <label class="col-lg-2 control-label label-usuario">RG</label>
-                    <input type="text" style="width: 300px; margin-bottom: -5px;" id="rg" name="rg" class="form-control" value="'.$professor->getRG().'" required><br/>
+                    <input type="text" min="0" max="10" style="width: 320px; margin-bottom: -5px;" id="rg" name="rg" class="form-control" placeholder="*RG - Apenas números, máximo 10" value="'.$professor->getRG().'" required><br/>
 
                     <label class="col-lg-2 control-label label-usuario">Email</label>
-                    <input type="email" style="width: 300px; margin-bottom: -5px;" id="email" name="email" class="form-control" value="'.$professor->getEmail().'" required><br/>
+                    <input type="email" maxlength="60" style="width: 320px; margin-bottom: -5px;" id="email" name="email" class="form-control" placeholder="*E-mail: nome@provedor.com - máx 60" value="'.$professor->getEmail().'" required><br/>
 
                     <label class="col-lg-2 control-label label-usuario">Telefone</label>
-                    <input type="text" style="width: 300px; margin-bottom: -5px;" id="telefone" name="telefone" class="form-control" value="'.$professor->getFone().'" required><br/>
+                    <input type="text" style="width: 320px; margin-bottom: -5px;" id="telefone" name="telefone" class="form-control" placeholder="*Telefone (xx) x xxxx-xxxx" value="'.$professor->getFone().'" required><br/>
 
-                    <button type="submit" class="btn btn-success">Atualizar</button><br/><br/>
+                    <button type="submit" class="btn btn-outline-primary form-control">Atualizar</button><br/><br/>
                 </div>
-            </div>
-        </form>
+            </form>
+        </div>
     </div>';
