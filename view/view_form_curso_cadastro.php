@@ -34,7 +34,7 @@
 				</div>
 
 				<div class="form-group">
-					<input type="text" maxlength="30" class="form-control" id="portaria" name="portaria" placeholder="*Portaria - Até 30 caracteres." required="required" autofocus>
+					<input type="text" maxlength="30" class="form-control" id="portaria" name="portaria" placeholder="*Portaria - Até 30 caracteres." required="required">
 				</div>
 
 				<input type="number" min="0.5" max="8.0" step="0.5" class="form-control" id="duracao" name="duracao" placeholder="*Duração (Anos) - Entre 0.5 à 8.0" required="required">
