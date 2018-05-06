@@ -32,13 +32,14 @@
             $_SESSION['email'] = $usuario->getEmail();
 
             if($_SESSION['perfil_idperfil'] == 2) {
+
                 echo "
                 <script type=\"text/javascript\">
                     alert(\"Usuário atualizado com sucesso!\");
                 </script>
                 <META HTTP-EQUIV=REFRESH CONTENT = '0;URL=
                 http://localhost/SG2S/view/view_coordenador.php?pagina=view_home.php'";
-                header('Location: ../view/view_coordenador.php?pagina=view_home.php');
+
             } elseif($_SESSION['perfil_idperfil'] == 1) {
                 echo "
                 <script type=\"text/javascript\">
@@ -46,23 +47,22 @@
                 </script>
                 <META HTTP-EQUIV=REFRESH CONTENT = '0;URL=
                 http://localhost/SG2S/view/view_admin.php?pagina=view_home.php'";
-                header('Location: ../view/view_admin.php?pagina=view_home.php');
             }
-        } else {
-            $retorno_get = '';
-            if($_SESSION['perfil_idperfil'] == 1) {
 
-                $retorno_get.= "erro_update=1&";
+        } elseif ($_SESSION['perfil_idperfil'] == 2) {
+            echo "
+            <script type=\"text/javascript\">
+                alert(\"Erro ao atualizar usuário!\");
+            </script>
+            <META HTTP-EQUIV=REFRESH CONTENT = '0;URL=
+            http://localhost/SG2S/view/view_coordenador.php?pagina=view_form_usuario_logado_update.php'";
 
-                header('Location: ../view/view_admin.php?pagina=view_form_usuario_logado_update.php&' . $retorno_get);
-                die();
-
-            } elseif ($_SESSION['perfil_idperfil'] == 2) {
-
-                $retorno_get.= "erro_update=1&";
-
-                header('Location: ../view/view_coordenador.php?pagina=view_form_usuario_logado_update.php&' . $retorno_get);
-                die();
-            }
+        } elseif($_SESSION['perfil_idperfil'] == 1) {
+            echo "
+            <script type=\"text/javascript\">
+                alert(\"Erro ao atualizar usuário!\");
+            </script>
+            <META HTTP-EQUIV=REFRESH CONTENT = '0;URL=
+            http://localhost/SG2S/view/view_admin.php?pagina=view_form_usuario_logado_update.php'";
         }
     }

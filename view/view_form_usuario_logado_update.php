@@ -28,7 +28,7 @@
         <div class="col-md-4">
             <h4><strong>Atualização Cadastral</strong></h4>
             <div style="margin-left: px;"><h5><strong><font color="#FF0000">'.strtoupper($usuario->getNome()).'.</font><strong></h5></div><br />
-            <form action="../controller/controller_form_usuario_logado_update.php" method="post">
+            <form action="view_admin.php?pagina=../controller/controller_form_usuario_logado_update.php" method="post">
                 <div class="form-group">
 
                     <small><strong>*Campos Obrigatórios</strong></small><br/><br/>
