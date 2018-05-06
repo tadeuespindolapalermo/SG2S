@@ -19,6 +19,7 @@
 	<div class="col-md-4">
 		<br />
 		<h3><strong><div style="margin-top: -50px;">Cadastrar Curso</div></strong></h3>
+		<small>AVISO: 'Nome' deve ser ÚNICO!</small><br/>
 		<br />
 		<form method="post" action="../controller/controller_form_curso_cadastro.php" id="formCurso">
 			<div class="form-group">

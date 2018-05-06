@@ -21,6 +21,7 @@
 	<div class="col-md-4">
 		<br />
 		<h3><strong><div style="margin-top: -50px;">Cadastrar Usuário</div></strong></h3>
+		<small>AVISO: 'Usuário' e 'E-mail' devem ser ÚNICOS!</small><br/>
 		<br />
 		<form method="post" action="../controller/controller_form_usuario_cadastro.php" id="formCadastrarse">
 			<div class="form-group">

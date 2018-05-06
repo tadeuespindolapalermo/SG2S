@@ -30,6 +30,7 @@
 	<div class="col-md-4">
 		<br />
 		<h3><strong><div style="margin-top: -50px;">Cadastrar Matriz (Disciplina)</div></strong></h3>
+		<small>AVISO: 'Nome' deve ser ÚNICO!</small><br/>
 		<br />
 		<form method="post" action="../controller/controller_form_matriz_cadastro.php" id="formMatriz">
 			<div class="form-group">
