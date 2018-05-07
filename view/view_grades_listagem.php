@@ -42,6 +42,7 @@
                                     <th>Qtd. Alunos</th>
                                     <th>Turmas</th>
                                     <th>Curso</th>
+                                    <th>Gerar</th>
                                     <th>Excluir</th>
                                     <th>Editar</th>
                                 </tr>
@@ -50,6 +51,7 @@
                                 while ($linhaGrade = $selectGrade->fetchAll(PDO::FETCH_ASSOC)) {
                                     foreach ($linhaGrade as $dados) {
                                         $grade->setIdGradeSemestral($dados['idgrade_semestral']);
+                                        $GLOBALS['idGrade'] = $grade->getIdGradeSemestral();
                                         $grade->setAnoLetivo($dados['ano_letivo']);
                                         $grade->setSemestre($dados['semestre']);
                                         $grade->setPeriodo($dados['periodo']);
@@ -71,6 +73,7 @@
                                                 <td>'.$grade->getQuantidadeAlunos().'</td>
                                                 <td>'.$grade->getTurmas().'</td>
                                                 <td>'.$grade->getCursoNome().'</td>
+                                                <td><a href="view_admin.php?pagina=view_form_grade_gerar.php&idGrade='.$grade->getIdGradeSemestral().'"><img src="../lib/open-iconic/svg/brush.svg" alt="gerar"></a></td>
                                                 <td><a href="javascript:void(null);" onclick="msgConfirmaDeleteGrade('.$grade->getIdGradeSemestral().')"><img src="../lib/open-iconic/svg/x.svg" alt="remover"></a></td>
                                                 <td><a href="view_admin.php?pagina=view_form_grade_update.php&idGrade='.$grade->getIdGradeSemestral().'"><img src="../lib/open-iconic/svg/brush.svg" alt="editar"></a></td>
                                             </tr>
@@ -83,7 +86,7 @@
                         <button export-to-excel="listaGrades" class="btn btn-success">
                             <span data-feather="download"></span>&nbsp;Excel
                         </button>
-                        <button type="button" onclick="javascript:iniciaRequisitaAjax('GET','view_form_grade_gerar.php','true');" class="btn btn-dark"><span data-feather="layers"></span>&nbsp;Gerar</button>
+                        <!--<button type="button" onclick="javascript:iniciaRequisitaAjax('GET','view_form_grade_gerar.php','true');" class="btn btn-dark"><span data-feather="layers"></span>&nbsp;Gerar</button>-->
                         <button id="btnSearch" onclick="alterarDisabledSearch()" class="btn btn-outline-dark"><span data-feather="search"></span>&nbsp;Busca</button>
                     </div><br /><hr>
                     <div id="conteudo"></div>

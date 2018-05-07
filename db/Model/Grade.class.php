@@ -13,6 +13,15 @@ class Grade {
     private $cursoIdCurso;
     private $cursoNome;
 
+    // Atributos auxiliares provisórios
+    private $segunda;
+    private $terca;
+    private $quarta;
+    private $quinta;
+    private $sexta;
+    private $sabado;
+    private $ead;
+
     public function getIdGradeSemestral() {
         return $this->idGradeSemestral;
     }
@@ -52,6 +61,67 @@ class Grade {
     public function getCursoNome() {
         return $this->cursoNome;
     }
+
+    // auxiliares GET
+    public function getSegunda() {
+        return $this->segunda;
+    }
+
+    public function getTerca() {
+        return $this->terca;
+    }
+
+    public function getQuarta() {
+        return $this->quarta;
+    }
+
+    public function getQuinta() {
+        return $this->quinta;
+    }
+
+    public function getSexta() {
+        return $this->sexta;
+    }
+
+    public function getSabado() {
+        return $this->sabado;
+    }
+
+    public function getEad() {
+        return $this->ead;
+    }
+    // ------------------------
+
+    // auxiliares SET
+    public function setSegunda($segunda) {
+        $this->segunda = $segunda;
+    }
+
+    public function setTerca($terca) {
+        $this->terca = $terca;
+    }
+
+    public function setQuarta($quarta) {
+        $this->quarta = $quarta;
+    }
+
+    public function setQuinta($quinta) {
+        $this->quinta = $quinta;
+    }
+
+    public function setSexta($sexta) {
+        $this->sexta = $sexta;
+    }
+
+    public function setSabado($sabado) {
+        $this->sabado = $sabado;
+    }
+
+    public function setEad($ead) {
+        $this->ead = $ead;
+    }
+
+    // -------------------
 
     public function setIdGradeSemestral($idGradeSemestral) {
         $this->idGradeSemestral = $idGradeSemestral;

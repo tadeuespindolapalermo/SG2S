@@ -146,14 +146,4 @@ class GradeDao implements Dao {
         return $selectGrade;
     }
 
-    /*
-     * Método para listar os id's dos registros de grades
-     **/
-    public function listarIdGrade($conn) {
-        $strSqlGrade = "SELECT idgrade_semestral FROM grade_semestral";
-        $selectGrade = $conn->prepare($strSqlGrade);
-        $selectGrade->execute();
-        return $selectGrade;
-    }
-
 }
