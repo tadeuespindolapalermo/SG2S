@@ -15,6 +15,9 @@
         $grade = new Grade();
         $gradeDao = new GradeDao();
 
+        $gradeGerada = new GradeGerada();
+        $gradeGeradaDao = new GradeGeradaDao();
+
         if($_SESSION['perfil_idperfil'] == 2) {
             unset($_SESSION['usuario']);
             unset($_SESSION['email']);
@@ -46,13 +49,38 @@
                                 </tr>
                             </thead>
                             <?php
-                                $grade->setSegunda($_POST['disciplinaSegunda']);
-                                $grade->setTerca($_POST['disciplinaTerca']);
-                                $grade->setQuarta($_POST['disciplinaQuarta']);
-                                $grade->setQuinta($_POST['disciplinaQuinta']);
-                                $grade->setSexta($_POST['disciplinaSexta']);
-                                $grade->setSabado($_POST['disciplinaSabado']);
-                                $grade->setEad($_POST['disciplinaEad']);
+                                $gradeGerada->setDisciplinaSegunda($_POST['disciplinaSegunda']);
+                                $gradeGerada->setDisciplinaTerca($_POST['disciplinaTerca']);
+                                $gradeGerada->setDisciplinaQuarta($_POST['disciplinaQuarta']);
+                                $gradeGerada->setDisciplinaQuinta($_POST['disciplinaQuinta']);
+                                $gradeGerada->setDisciplinaSexta($_POST['disciplinaSexta']);
+                                $gradeGerada->setDisciplinaSabado($_POST['disciplinaSabado']);
+                                $gradeGerada->setDisciplinaEad($_POST['disciplinaEad']);
+                                $gradeGerada->setSalaSegunda($_POST['salaSegunda']);
+                                $gradeGerada->setSalaTerca($_POST['salaTerca']);
+                                $gradeGerada->setSalaQuarta($_POST['salaQuarta']);
+                                $gradeGerada->setSalaQuinta($_POST['salaQuinta']);
+                                $gradeGerada->setSalaSexta($_POST['salaSexta']);
+                                $gradeGerada->setSalaSabado($_POST['salaSabado']);
+                                $gradeGerada->setSalaEad($_POST['salaEad']);
+
+                                // Inserção da Grade Gerada no Banco
+                                $cadastroGradeGeradaEfetuado = $gradeGeradaDao->inserir($conn, $gradeGerada);
+
+                                // VALIDAÇÃO DA INSERÇÃO DA GRADE GERADA
+                                if($cadastroGradeGeradaEfetuado) {
+                                    echo "
+                                    <script type=\"text/javascript\">
+                                        alert(\"Grade gerada com sucesso!!!\");
+                                    </script>";
+                                    //header('Location: view_admin.php?pagina=view_grade_gerada.php');
+                                } else {
+                                    echo "
+                                    <script type=\"text/javascript\">
+                                        alert(\"Erro ao gerar grade!!!\");
+                                    </script>";
+                                    header('Location: view_admin.php?pagina=view_form_grade_gerar.php');
+                                }
 
                                 while ($linhaGrade = $selectGrade->fetchAll(PDO::FETCH_ASSOC)) {
                                     foreach ($linhaGrade as $dados) {
@@ -75,21 +103,23 @@
                                                 <td>'.$grade->getSemestre().'</td>
                                                 <td>'.$grade->getTurmas().'</td>
                                                 <td>'.$grade->getQuantidadeAlunos().'</td>
-                                                <td>'.$grade->getSegunda().'</td>
-                                                <td>'.$grade->getTerca().'</td>
-                                                <td>'.$grade->getQuarta().'</td>
-                                                <td>'.$grade->getQuinta().'</td>
-                                                <td>'.$grade->getSexta().'</td>
-                                                <td>'.$grade->getSabado().'</td>
-                                                <td>'.$grade->getEad().'</td>';
+                                                <td>'.$gradeGerada->getDisciplinaSegunda().'</td>
+                                                <td>'.$gradeGerada->getDisciplinaTerca().'</td>
+                                                <td>'.$gradeGerada->getDisciplinaQuarta().'</td>
+                                                <td>'.$gradeGerada->getDisciplinaQuinta().'</td>
+                                                <td>'.$gradeGerada->getDisciplinaSexta().'</td>
+                                                <td>'.$gradeGerada->getDisciplinaSabado().'</td>
+                                                <td>'.$gradeGerada->getDisciplinaEad().'</td>';
                                                 /*<td><a href="javascript:void(null);" onclick="msgConfirmaDeleteCurso('.$curso->getIdCurso().')"><img src="../lib/open-iconic/svg/x.svg" alt="remover"></a></td>
                                                 <td><a href="view_admin.php?pagina=view_form_curso_update.php&idCurso='.$curso->getIdCurso().'"><img src="../lib/open-iconic/svg/brush.svg" alt="editar"></a></td>*/
+
                                                 echo '
                                             </tr>
                                         </tbody>';
                                     }
                                 }
                             ?>
+
                         </table>
                         <!--<a href="view_admin.php?pagina=view_form_curso_cadastro.php"><button type="button" class="btn btn-primary"><span data-feather="plus-circle"></span>&nbsp;Novo</button></a>
                         <button export-to-excel="listaCursos" class="btn btn-success">

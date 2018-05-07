@@ -90,7 +90,7 @@ COMMENT = 'Tabela para cadastro de matriz curricular (disciplinas).';
 -- Table `codigofonteonline1`.`usuario_perfil`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `codigofonteonline1`.`usuario_perfil` (
-  `idusuario_perfil` AUTO_INCREMENT INT NOT NULL,
+  `idusuario_perfil` INT NOT NULL AUTO_INCREMENT,
   `usuarios_idusuarios` INT NOT NULL,
   `perfil_idperfil` INT NOT NULL,
   PRIMARY KEY (`idusuario_perfil`, `usuarios_idusuarios`, `perfil_idperfil`),
@@ -197,6 +197,29 @@ ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8
 COMMENT = 'Tabela associativa entre as tabelas disciplina (matriz curricular) e professor.';
 
+-- -----------------------------------------------------
+-- Table `codigofonteonline1`.`grade_gerada`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `codigofonteonline1`.`grade_gerada` (
+  `idgrade_gerada` INT NOT NULL AUTO_INCREMENT,
+  `disciplinaSEG` VARCHAR(100) NULL,
+  `disciplinaTER` VARCHAR(100) NULL,
+  `disciplinaQUA` VARCHAR(100) NULL,
+  `disciplinaQUI` VARCHAR(100) NULL,
+  `disciplinaSEX` VARCHAR(100) NULL,
+  `disciplinaSAB` VARCHAR(100) NULL,
+  `disciplinaEAD` VARCHAR(100) NULL,
+  `salaSEG` INT(2) NULL,
+  `salaTER` INT(2) NULL,
+  `salaQUA` INT(2) NULL,
+  `salaQUI` INT(2) NULL,
+  `salaSEX` INT(2) NULL,
+  `salaSAB` INT(2) NULL,
+  `salaEAD` INT(2) NULL,
+  PRIMARY KEY (`idgrade_gerada`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8
+COMMENT = 'Tabela que contém as grades geradas';
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;

@@ -52,6 +52,12 @@
                     </select>
                 </div><br/>
 
+                <label class="col-lg-12 control-label label-usuario">Sala_SEG</label>
+                <div class="form-group" style="width: 100px; margin-bottom: -5px;">
+					<input type="number" min="1" max="99" class="form-control" id="salaSegunda" name="salaSegunda" placeholder="*1 a 99"
+                    required>
+				</div><br/>
+
                 <label class="col-lg-12 control-label label-usuario">Terça</label>
                 <div class="form-group" style="width: 397px; margin-bottom: -5px;">
                     <select class="form-control" id="disciplinaTerca" name="disciplinaTerca" required>';
@@ -66,6 +72,12 @@
                     echo '
                     </select>
                 </div><br/>
+
+                <label class="col-lg-12 control-label label-usuario">Sala_TER</label>
+                <div class="form-group" style="width: 100px; margin-bottom: -5px;">
+					<input type="number" min="1" max="99" class="form-control" id="salaTerca" name="salaTerca" placeholder="*1 a 99"
+                    required>
+				</div><br/>
 
                 <label class="col-lg-12 control-label label-usuario">Quarta</label>
                 <div class="form-group" style="width: 397px; margin-bottom: -5px;">
@@ -82,6 +94,12 @@
                     </select>
                 </div><br/>
 
+                <label class="col-lg-12 control-label label-usuario">Sala_QUA</label>
+                <div class="form-group" style="width: 100px; margin-bottom: -5px;">
+					<input type="number" min="1" max="99" class="form-control" id="salaQuarta" name="salaQuarta" placeholder="*1 a 99"
+                    required>
+				</div><br/>
+
                 <label class="col-lg-12 control-label label-usuario">Quinta</label>
                 <div class="form-group" style="width: 397px; margin-bottom: -5px;">
                     <select class="form-control" id="disciplinaQuinta" name="disciplinaQuinta" required>';
@@ -96,6 +114,12 @@
                     echo '
                     </select>
                 </div><br/>
+
+                <label class="col-lg-12 control-label label-usuario">Sala_QUI</label>
+                <div class="form-group" style="width: 100px; margin-bottom: -5px;">
+					<input type="number" min="1" max="99" class="form-control" id="salaQuinta" name="salaQuinta" placeholder="*1 a 99"
+                    required>
+				</div><br/>
 
                 <label class="col-lg-12 control-label label-usuario">Sexta</label>
                 <div class="form-group" style="width: 397px; margin-bottom: -5px;">
@@ -112,6 +136,12 @@
                     </select>
                 </div><br/>
 
+                <label class="col-lg-12 control-label label-usuario">Sala_SEX</label>
+                <div class="form-group" style="width: 100px; margin-bottom: -5px;">
+					<input type="number" min="1" max="99" class="form-control" id="salaSexta" name="salaSexta" placeholder="*1 a 99"
+                    required>
+				</div><br/>
+
                 <label class="col-lg-12 control-label label-usuario">Sábado</label>
                 <div class="form-group" style="width: 397px; margin-bottom: -5px;">
                     <select class="form-control" id="disciplinaSabado" name="disciplinaSabado" required>';
@@ -127,6 +157,12 @@
                     </select>
                 </div><br/>
 
+                <label class="col-lg-12 control-label label-usuario">Sala_SAB</label>
+                <div class="form-group" style="width: 100px; margin-bottom: -5px;">
+					<input type="number" min="1" max="99" class="form-control" id="salaSabado" name="salaSabado" placeholder="*1 a 99"
+                    required>
+				</div><br/>
+
                 <label class="col-lg-12 control-label label-usuario">EAD</label>
                 <div class="form-group" style="width: 397px; margin-bottom: -5px;">
                     <select class="form-control" id="disciplinaEad" name="disciplinaEad" required>';
@@ -140,7 +176,13 @@
                         }
                     echo '
                     </select>
-                </div><br/>';
+                </div><br/>
+
+                <label class="col-lg-12 control-label label-usuario">Sala_EAD</label>
+                <div class="form-group" style="width: 100px; margin-bottom: -5px;">
+					<input type="number" min="1" max="99" class="form-control" id="salaEad" name="salaEad" placeholder="*1 a 99"
+                    required>
+				</div><br/>';
                 ?>
 
                 <button type="submit" class="btn btn-success">Enviar</button>
