@@ -1,6 +1,7 @@
 <div class="container listar">
     <div class="header clearfix">
         <h3 class="text-muted">Listagem de Grades</h3><hr />
+        <h6><strong>Clique no ID da grade para gerá-la!</strong></h6>
     </div>
 
     <?php
@@ -33,7 +34,7 @@
                         <table class="table table-hover table-striped listaSearch" id="listaGrades" style="text-align: center;">
                             <thead>
                                 <tr>
-                                    <th>Id</th>
+                                    <th>ID</th>
                                     <th>Ano Letivo</th>
                                     <th>Semestre</th>
                                     <th>Período</th>
@@ -42,7 +43,6 @@
                                     <th>Qtd. Alunos</th>
                                     <th>Turmas</th>
                                     <th>Curso</th>
-                                    <th>Gerar</th>
                                     <th>Excluir</th>
                                     <th>Editar</th>
                                 </tr>
@@ -64,7 +64,7 @@
                                         echo '
                                         <tbody>
                                             <tr>
-                                                <td>'.$grade->getIdGradeSemestral().'</td>
+                                                <td><a href="view_admin.php?pagina=view_form_grade_gerar.php&idGrade='.$grade->getIdGradeSemestral().'">'.$grade->getIdGradeSemestral().'</a></td>
                                                 <td>'.$grade->getAnoLetivo().'</td>
                                                 <td>'.$grade->getSemestre().'</td>
                                                 <td>'.$grade->getPeriodo().'</td>
@@ -73,7 +73,6 @@
                                                 <td>'.$grade->getQuantidadeAlunos().'</td>
                                                 <td>'.$grade->getTurmas().'</td>
                                                 <td>'.$grade->getCursoNome().'</td>
-                                                <td><a href="view_admin.php?pagina=view_form_grade_gerar.php&idGrade='.$grade->getIdGradeSemestral().'"><img src="../lib/open-iconic/svg/brush.svg" alt="gerar"></a></td>
                                                 <td><a href="javascript:void(null);" onclick="msgConfirmaDeleteGrade('.$grade->getIdGradeSemestral().')"><img src="../lib/open-iconic/svg/x.svg" alt="remover"></a></td>
                                                 <td><a href="view_admin.php?pagina=view_form_grade_update.php&idGrade='.$grade->getIdGradeSemestral().'"><img src="../lib/open-iconic/svg/brush.svg" alt="editar"></a></td>
                                             </tr>
@@ -82,11 +81,11 @@
                                 }
                             ?>
                         </table>
-                        <a href="view_admin.php?pagina=view_form_grade_cadastro.php"><button type="button" class="btn btn-primary"><span data-feather="plus-circle"></span>&nbsp;Novo</button></a>
+                        <a href="view_admin.php?pagina=view_form_grade_cadastro.php"><button type="button" class="btn btn-info"><span data-feather="plus-circle"></span>&nbsp;Novo</button></a>
                         <button export-to-excel="listaGrades" class="btn btn-success">
                             <span data-feather="download"></span>&nbsp;Excel
                         </button>
-                        <!--<button type="button" onclick="javascript:iniciaRequisitaAjax('GET','view_form_grade_gerar.php','true');" class="btn btn-dark"><span data-feather="layers"></span>&nbsp;Gerar</button>-->
+                        <button type="button" onclick="javascript:iniciaRequisitaAjax('GET','view_grades_geradas.php','true');" class="btn btn-dark"><span data-feather="layers"></span>&nbsp;Geradas</button>
                         <button id="btnSearch" onclick="alterarDisabledSearch()" class="btn btn-outline-dark"><span data-feather="search"></span>&nbsp;Busca</button>
                     </div><br /><hr>
                     <div id="conteudo"></div>

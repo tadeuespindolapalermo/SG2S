@@ -1,7 +1,5 @@
 <div class="container listar">
-    <div class="header clearfix">
-        <h3 class="text-muted">Grade ID</h3><hr />
-    </div>
+
 
     <?php
         session_start();
@@ -25,7 +23,22 @@
             header('Location: ../controller/controller_sair.php');
         }
 
-        $selectGrade = $gradeDao->buscarPorId($conn, 2);
+        $selectGradeGerada = $gradeGeradaDao->listar($conn);
+
+        $selectGrade = $gradeDao->listar($conn);
+        $linhaGrade = $selectGrade->fetchAll(PDO::FETCH_ASSOC);
+        foreach ($linhaGrade as $dados) {
+            $grade->setIdGradeSemestral($dados['idgrade_semestral']);
+            $grade->setAnoLetivo($dados['ano_letivo']);
+            $grade->setSemestre($dados['semestre']);
+            $grade->setPeriodo($dados['periodo']);
+            $grade->setHorario($dados['horario']);
+            $grade->setSala($dados['sala']);
+            $grade->setQuantidadeAlunos($dados['quantidade_alunos']);
+            $grade->setTurmas($dados['turmas']);
+            $grade->setCursoIdCurso($dados['curso_idcurso']);
+            //$grade->setCursoNome($dados['nome']);
+        }
     ?>
 
     <div class="row">
@@ -49,42 +62,15 @@
                                 </tr>
                             </thead>
                             <?php
-                                $gradeGerada->setDisciplinaSegunda($_POST['disciplinaSegunda']);
-                                $gradeGerada->setDisciplinaTerca($_POST['disciplinaTerca']);
-                                $gradeGerada->setDisciplinaQuarta($_POST['disciplinaQuarta']);
-                                $gradeGerada->setDisciplinaQuinta($_POST['disciplinaQuinta']);
-                                $gradeGerada->setDisciplinaSexta($_POST['disciplinaSexta']);
-                                $gradeGerada->setDisciplinaSabado($_POST['disciplinaSabado']);
-                                $gradeGerada->setDisciplinaEad($_POST['disciplinaEad']);
-                                $gradeGerada->setSalaSegunda($_POST['salaSegunda']);
-                                $gradeGerada->setSalaTerca($_POST['salaTerca']);
-                                $gradeGerada->setSalaQuarta($_POST['salaQuarta']);
-                                $gradeGerada->setSalaQuinta($_POST['salaQuinta']);
-                                $gradeGerada->setSalaSexta($_POST['salaSexta']);
-                                $gradeGerada->setSalaSabado($_POST['salaSabado']);
-                                $gradeGerada->setSalaEad($_POST['salaEad']);
-
-                                // Inserção da Grade Gerada no Banco
-                                $cadastroGradeGeradaEfetuado = $gradeGeradaDao->inserir($conn, $gradeGerada);
-
-                                // VALIDAÇÃO DA INSERÇÃO DA GRADE GERADA
-                                if($cadastroGradeGeradaEfetuado) {
-                                    echo "
-                                    <script type=\"text/javascript\">
-                                        alert(\"Grade gerada com sucesso!!!\");
-                                    </script>";
-                                    //header('Location: view_admin.php?pagina=view_grade_gerada.php');
-                                } else {
-                                    echo "
-                                    <script type=\"text/javascript\">
-                                        alert(\"Erro ao gerar grade!!!\");
-                                    </script>";
-                                    header('Location: view_admin.php?pagina=view_form_grade_gerar.php');
-                                }
-
-                                while ($linhaGrade = $selectGrade->fetchAll(PDO::FETCH_ASSOC)) {
-                                    foreach ($linhaGrade as $dados) {
-                                        $grade->setIdGradeSemestral($dados['idgrade_semestral']);
+                                echo '<br/>
+                                <div style="text-align: center;"><h6><strong>FACULDADE JK - SANTA MARIA</strong></h6></div>
+                                <div style="text-align: center;"><h6><strong>GRADE HORÁRIA: TECNÓLOGO EM '.$grade->getCursoNome().' - '.$grade->getSemestre().'º SEMESTRE DE '.$grade->getAnoLetivo().'</strong></h6></div>
+                                <div style="text-align: center;"><h6><strong>Período: '.$grade->getPeriodo().' - '.$grade->getHorario().'</strong></h6></div><br/>';
+                            ?>
+                            <?php
+                                while ($linhaGradeGerada = $selectGradeGerada->fetchAll(PDO::FETCH_ASSOC)) {
+                                    foreach ($linhaGradeGerada as $dados) {
+                                        /*$grade->setIdGradeSemestral($dados['idgrade_semestral']);
                                         $grade->setAnoLetivo($dados['ano_letivo']);
                                         $grade->setSemestre($dados['semestre']);
                                         $grade->setPeriodo($dados['periodo']);
@@ -92,15 +78,20 @@
                                         $grade->setSala($dados['sala']);
                                         $grade->setQuantidadeAlunos($dados['quantidade_alunos']);
                                         $grade->setTurmas($dados['turmas']);
-                                        $grade->setCursoIdCurso($dados['curso_idcurso']);
+                                        $grade->setCursoIdCurso($dados['curso_idcurso']);*/
                                         //$grade->setCursoNome($dados['nome']);
+
+                                        $gradeGerada->setDisciplinaSegunda($dados['disciplinaSEG']);
+                                        $gradeGerada->setDisciplinaTerca($dados['disciplinaTER']);
+                                        $gradeGerada->setDisciplinaQuarta($dados['disciplinaQUA']);
+                                        $gradeGerada->setDisciplinaQuinta($dados['disciplinaQUI']);
+                                        $gradeGerada->setDisciplinaSexta($dados['disciplinaSEX']);
+                                        $gradeGerada->setDisciplinaSabado($dados['disciplinaSAB']);
+                                        $gradeGerada->setDisciplinaEad($dados['disciplinaEAD']);
+
                                         echo '
                                         <tbody>
                                             <tr>
-                                                <br/>
-                                                <div style="text-align: center;"><h6><strong>FACULDADE JK - SANTA MARIA</strong></h6></div>
-                                                <div style="text-align: center;"><h6><strong>GRADE HORÁRIA: TECNÓLOGO EM '.$grade->getCursoNome().' - '.$grade->getSemestre().'º SEMESTRE DE '.$grade->getAnoLetivo().'</strong></h6></div>
-                                                <div style="text-align: center;"><h6><strong>Período: '.$grade->getPeriodo().' - '.$grade->getHorario().'</strong></h6></div><br/>
                                                 <td>'.$grade->getSemestre().'</td>
                                                 <td>'.$grade->getTurmas().'</td>
                                                 <td>'.$grade->getQuantidadeAlunos().'</td>
@@ -122,8 +113,7 @@
                             ?>
 
                         </table>
-                        <a href="view_admin.php?pagina=view_grades_geradas.php"><button class="btn btn-secondary"><span data-feather="list"></span>&nbsp;Listar Todas</button></a>
-                        <a href="view_admin.php?pagina=view_grades_listagem.php"><button type="button" class="btn btn-dark">Voltar</button></a>
+                        <a href="view_admin.php?pagina=view_grades_listagem.php"><button onclick="javascript:iniciaRequisitaAjax('GET','view_blank.html','true');" type="button" class="btn btn-secondary">Voltar</button></a>
                         <!--<a href="view_admin.php?pagina=view_form_curso_cadastro.php"><button type="button" class="btn btn-primary"><span data-feather="plus-circle"></span>&nbsp;Novo</button></a>
                         <button export-to-excel="listaCursos" class="btn btn-success">
                             <span data-feather="download"></span>&nbsp;Excel
