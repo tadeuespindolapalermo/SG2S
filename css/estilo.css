@@ -12,3 +12,7 @@
 .label-especial {
     margin-left: -15px;
 }
+
+.totalContent:hover {
+background:#ffEE00;
+}
