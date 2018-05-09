@@ -3,6 +3,7 @@
 class Grade {
 
     private $idGradeSemestral;
+    private $idGlobals;
     private $anoLetivo;
     private $semestre;
     private $periodo;
@@ -12,9 +13,14 @@ class Grade {
     private $turmas;
     private $cursoIdCurso;
     private $cursoNome;
+    private $cursoGrau;
 
     public function getIdGradeSemestral() {
         return $this->idGradeSemestral;
+    }
+
+    public function getIdGlobals() {
+        return $this->idGlobals;
     }
 
     public function getAnoLetivo() {
@@ -53,8 +59,16 @@ class Grade {
         return $this->cursoNome;
     }
 
+    public function getCursoGrau() {
+        return $this->cursoGrau;
+    }
+
     public function setIdGradeSemestral($idGradeSemestral) {
         $this->idGradeSemestral = $idGradeSemestral;
+    }
+
+    public function setIdGlobals($idGlobals) {
+        $this->idGlobals = $idGlobals;
     }
 
     public function setAnoLetivo($anoLetivo) {
@@ -92,5 +106,10 @@ class Grade {
     public function setCursoNome($cursoNome) {
         $this->cursoNome = $cursoNome;
     }
+
+    public function setCursoGrau($cursoGrau) {
+        $this->cursoGrau = $cursoGrau;
+    }
+
 
 }

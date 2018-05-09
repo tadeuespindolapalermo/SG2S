@@ -15,6 +15,8 @@
 
     $idGrade = $_GET['idGrade'];
 
+    $grade->setIdGlobals($GLOBALS['idGrade']);
+
     if($_SESSION['perfil_idperfil'] == 2) {
         unset($_SESSION['usuario']);
         unset($_SESSION['email']);
@@ -33,7 +35,7 @@
     echo '
     <div class="container" style="margin-left: -25px;">
         <h6 style="margin-left: 12px; font-weight: 900">Disciplinas da Semana:</h6><br />
-        <form action="view_admin.php?pagina=view_grade_gerada.php&idGrade='.$GLOBALS['idGrade'].'" method="post">
+        <form action="view_admin.php?pagina=view_grade_gerada.php&idGrade='.$grade->getIdGlobals().'" method="post">
             <div class="form-group">
                 <div class="col-lg-12">
 

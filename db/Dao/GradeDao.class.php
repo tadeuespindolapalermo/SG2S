@@ -139,7 +139,7 @@ class GradeDao implements Dao {
      * Método para popular a view de update da grade (view)
      **/
     public function buscarPorId($conn, $idGrade) {
-        $strSqlGrade = "SELECT * FROM grade_semestral WHERE idgrade_semestral = :idGradeSemestral";
+        $strSqlGrade = "SELECT * FROM grade_semestral, curso WHERE grade_semestral.idgrade_semestral = curso.idcurso AND idgrade_semestral = :idGradeSemestral";
         $selectGrade = $conn->prepare($strSqlGrade);
         $selectGrade->bindValue(':idGradeSemestral', $idGrade);
         $selectGrade->execute();

@@ -81,7 +81,7 @@
 			</div>
 
 			<div class="form-group">
-				<input type="text" maxlength="50" class="form-control" id="turmas" name="turmas" placeholder="*SIST5A"
+				<input type="text" maxlength="50" class="form-control" id="turmas" name="turmas" placeholder="*SIST 5A"
                 style="text-transform:uppercase" inputonchange="this.value = this.value.toUpperCase()" required>
 			</div>
 
