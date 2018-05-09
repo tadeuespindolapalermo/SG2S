@@ -24,8 +24,9 @@
             session_destroy();
             header('Location: ../controller/controller_sair.php');
         }
-
-        $selectGrade = $gradeDao->buscarPorId($conn, 2);
+        $grade->setIdGlobals($_GET['idGrade']);
+        $id = $grade->getIdGlobals();
+        $selectGrade = $gradeDao->buscarPorId($conn, $id);
     ?>
 
     <div class="row">
@@ -36,8 +37,7 @@
                         <table class="table table-hover table-striped listaSearch" style="text-align: center;" id="listaGradeGerada">
                             <thead>
                                 <tr>
-                                    <th>SEMESTRE</th>
-                                    <th>TURMA</th>
+                                    <th>SEMESTRE / TURMA</th>
                                     <th>Nª DE ALUNOS</th>
                                     <th>SEGUNDA</th>
                                     <th>TERÇA</th>
@@ -93,24 +93,24 @@
                                         $grade->setQuantidadeAlunos($dados['quantidade_alunos']);
                                         $grade->setTurmas($dados['turmas']);
                                         $grade->setCursoIdCurso($dados['curso_idcurso']);
-                                        //$grade->setCursoNome($dados['nome']);
+                                        $grade->setCursoNome($dados['nome']);
+                                        $grade->setCursoGrau($dados['grau']);
                                         echo '
                                         <tbody>
                                             <tr>
                                                 <br/>
                                                 <div style="text-align: center;"><h6><strong>FACULDADE JK - SANTA MARIA</strong></h6></div>
-                                                <div style="text-align: center;"><h6><strong>GRADE HORÁRIA: TECNÓLOGO EM '.$grade->getCursoNome().' - '.$grade->getSemestre().'º SEMESTRE DE '.$grade->getAnoLetivo().'</strong></h6></div>
+                                                <div style="text-align: center;"><h6><strong>GRADE HORÁRIA: '.$grade->getCursoGrau().' em '.$grade->getCursoNome().' - '.$grade->getSemestre().'º SEMESTRE DE '.$grade->getAnoLetivo().'</strong></h6></div>
                                                 <div style="text-align: center;"><h6><strong>Período: '.$grade->getPeriodo().' - '.$grade->getHorario().'</strong></h6></div><br/>
-                                                <td>'.$grade->getSemestre().'</td>
                                                 <td>'.$grade->getTurmas().'</td>
                                                 <td>'.$grade->getQuantidadeAlunos().'</td>
-                                                <td>'.$gradeGerada->getDisciplinaSegunda().'</td>
-                                                <td>'.$gradeGerada->getDisciplinaTerca().'</td>
-                                                <td>'.$gradeGerada->getDisciplinaQuarta().'</td>
-                                                <td>'.$gradeGerada->getDisciplinaQuinta().'</td>
-                                                <td>'.$gradeGerada->getDisciplinaSexta().'</td>
-                                                <td>'.$gradeGerada->getDisciplinaSabado().'</td>
-                                                <td>'.$gradeGerada->getDisciplinaEad().'</td>';
+                                                <td>'.$gradeGerada->getDisciplinaSegunda().'<hr>Sala: '.$gradeGerada->getSalaSegunda().'<hr>Professor</td>
+                                                <td>'.$gradeGerada->getDisciplinaTerca().'<hr>Sala: '.$gradeGerada->getSalaTerca().'<hr>Professor</td>
+                                                <td>'.$gradeGerada->getDisciplinaQuarta().'<hr>Sala: '.$gradeGerada->getSalaQuarta().'<hr>Professor</td>
+                                                <td>'.$gradeGerada->getDisciplinaQuinta().'<hr>Sala: '.$gradeGerada->getSalaQuinta().'<hr>Professor</td>
+                                                <td>'.$gradeGerada->getDisciplinaSexta().'<hr>Sala: '.$gradeGerada->getSalaSexta().'<hr>Professor</td>
+                                                <td>'.$gradeGerada->getDisciplinaSabado().'<hr>Sala: '.$gradeGerada->getSalaSabado().'<hr>Professor</td>
+                                                <td>'.$gradeGerada->getDisciplinaEad().'<hr>Sala: '.$gradeGerada->getSalaEad().'<hr>Professor</td>';
                                                 /*<td><a href="javascript:void(null);" onclick="msgConfirmaDeleteCurso('.$curso->getIdCurso().')"><img src="../lib/open-iconic/svg/x.svg" alt="remover"></a></td>
                                                 <td><a href="view_admin.php?pagina=view_form_curso_update.php&idCurso='.$curso->getIdCurso().'"><img src="../lib/open-iconic/svg/brush.svg" alt="editar"></a></td>*/
 

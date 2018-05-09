@@ -49,8 +49,7 @@
                         <table class="table table-hover table-striped listaSearch" style="text-align: center;" id="listaGradeGerada">
                             <thead>
                                 <tr>
-                                    <th>SEMESTRE</th>
-                                    <th>TURMA</th>
+                                    <th>SEMESTRE / TURMA</th>
                                     <th>Nª DE ALUNOS</th>
                                     <th>SEGUNDA</th>
                                     <th>TERÇA</th>
@@ -91,8 +90,7 @@
 
                                         echo '
                                         <tbody>
-                                            <tr>
-                                                <td>'.$grade->getSemestre().'</td>
+                                            <tr>                                                
                                                 <td>'.$grade->getTurmas().'</td>
                                                 <td>'.$grade->getQuantidadeAlunos().'</td>
                                                 <td>'.$gradeGerada->getDisciplinaSegunda().'</td>
