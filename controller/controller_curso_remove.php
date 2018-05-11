@@ -27,12 +27,14 @@
           Curso removido com sucesso!
       </div>
   </center>';
-        /*echo "
-        <script type=\"text/javascript\">
-            alert(\"Curso excluído com sucesso!\");
-        </script>*/
+  //<script type=\"text/javascript\">
+      //alert(\"Curso excluído com sucesso!\");
+  //</script>
+        echo "
         <META HTTP-EQUIV=REFRESH CONTENT = '0;URL=
-        http://localhost/SG2S/view/view_admin.php?pagina=view_cursos_listagem.php'";
+        http://localhost/SG2S/view/view_admin.php?pagina=view_cursos_listagem.php'
+
+        ";
 
     } else {
         echo "
