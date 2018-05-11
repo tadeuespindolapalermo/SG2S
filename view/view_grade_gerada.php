@@ -5,7 +5,7 @@
 
     <?php
         session_start();
-
+        ob_start();
         require('../db/Config.inc.php');
 
         // CONEXÃO COM PDO
@@ -71,15 +71,19 @@
                                 if($cadastroGradeGeradaEfetuado) {
                                     echo "
                                     <script type=\"text/javascript\">
-                                        alert(\"Grade gerada com sucesso!!!\");
-                                    </script>";
-                                    //header('Location: view_admin.php?pagina=view_grade_gerada.php');
+                                        alert(\"Grade gerada com sucesso!\");
+                                    </script>"; /*echo "
+                                    <META HTTP-EQUIV=REFRESH CONTENT = '0;URL=
+                                    http://localhost/SG2S/view/view_admin.php?pagina=view_grade_gerada.php'";*/
+                                    //header('Location: ../view/view_admin.php?pagina=view_grade_gerada.php');
                                 } else {
                                     echo "
                                     <script type=\"text/javascript\">
-                                        alert(\"Erro ao gerar grade!!!\");
-                                    </script>";
-                                    header('Location: view_admin.php?pagina=view_form_grade_gerar.php');
+                                        alert(\"Erro ao gerar a grade!!!\");
+                                    </script>
+                                    <META HTTP-EQUIV=REFRESH CONTENT = '0;URL=
+                                    http://localhost/SG2S/view/view_admin.php?pagina=view_form_grade_gerar.php'";
+                                    //header('Location: ../view/view_admin.php?pagina=view_form_grade_gerar.php');
                                 }
 
                                 while ($linhaGrade = $selectGrade->fetchAll(PDO::FETCH_ASSOC)) {

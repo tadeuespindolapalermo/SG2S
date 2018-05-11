@@ -1,6 +1,6 @@
 <?php
     session_start();
-
+    ob_start();
     require('../db/Config.inc.php');
 
     // CONEXÃO COM PDO
@@ -36,7 +36,7 @@
             $grade->setHorario('13:00 às 18:00');
         } elseif ($grade->getPeriodo() === 'Noturno') {
             $grade->setHorario('19:15 às 22:00');
-        }    
+        }
 
         // Update da Grade no Banco
         $updateGrade = $gradeDao->atualizar($conn, $grade);

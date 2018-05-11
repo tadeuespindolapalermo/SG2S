@@ -1,6 +1,6 @@
 <?php
 	session_start();
-
+	ob_start();
 	if($_SESSION['perfil_idperfil'] == 2) {
 		unset($_SESSION['usuario']);
 	    unset($_SESSION['email']);
@@ -23,7 +23,7 @@
 		<h3><strong><div style="margin-top: -50px;">Cadastrar Usuário</div></strong></h3>
 		<small>AVISO: 'Usuário' e 'E-mail' devem ser ÚNICOS!</small><br/>
 		<br />
-		<form method="post" action="../controller/controller_form_usuario_cadastro.php" id="formCadastrarse">
+		<form method="post" action="view_admin.php?pagina=../controller/controller_form_usuario_cadastro.php" id="formCadastrarse">
 			<div class="form-group">
 				<small><strong>*Campos Obrigatórios</strong></small>
 

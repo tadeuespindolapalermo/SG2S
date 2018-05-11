@@ -1,6 +1,6 @@
 <?php
 	session_start();
-
+	ob_start();
 	if($_SESSION['perfil_idperfil'] == 2) {
 		unset($_SESSION['usuario']);
 	    unset($_SESSION['email']);

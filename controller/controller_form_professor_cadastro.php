@@ -1,6 +1,6 @@
 <?php
     session_start();
-
+    ob_start();
     require('../db/Config.inc.php');
 
     // CONEXÃO COM PDO
@@ -31,13 +31,17 @@
     if($cadastroProfessorEfetuado) {
         echo "
         <script type=\"text/javascript\">
-            alert(\"Professor cadastrado com sucesso!!!\");
-        </script>";
-        header('Location: ../view/view_admin.php?pagina=view_professores_listagem.php');
-    } else {
+            alert(\"Professor(a) cadastrado(a) com sucesso!\");
+        </script>
+        <META HTTP-EQUIV=REFRESH CONTENT = '0;URL=
+        http://localhost/SG2S/view/view_admin.php?pagina=view_professores_listagem.php'";
+        //header('Location: ../view/view_admin.php?pagina=view_professores_listagem.php');
+    } else {        
         echo "
         <script type=\"text/javascript\">
-            alert(\"Erro ao cadastrar professor!!!\");
-        </script>";
-        header('Location: ../view/view_admin.php?pagina=view_form_professor_cadastro.php');
+            alert(\"Erro ao cadastrar Professor(a)!!!\");
+        </script>
+        <META HTTP-EQUIV=REFRESH CONTENT = '0;URL=
+        http://localhost/SG2S/view/view_admin.php?pagina=view_form_professor_cadastro.php'";
+        //header('Location: ../view/view_admin.php?pagina=view_form_professor_cadastro.php');
     }
