@@ -38,7 +38,7 @@
         <script type=\"text/javascript\">
             alert(\"Curso cadastrado com sucesso!!!\");
         </script>";*/
-        //header('Location: ../view/view_admin.php?pagina=view_cursos_listagem.php');
+        header('Location: ../view/view_admin.php?pagina=view_cursos_listagem.php');
     } else {
         echo "
         <script type=\"text/javascript\">
@@ -50,4 +50,3 @@
     <div class="container col-md-4 form-group">
         <a href="view_admin.php?pagina=view_cursos_listagem.php"><button type="button" class="btn btn-outline-secondary form-control"><span data-feather="arrow-left"></span>&nbsp;Voltar</button></a>
     </div>';
-    

@@ -22,12 +22,18 @@
     $linhas = $cursoDao->remover($conn, $idCurso);
 
     if ($linhas != 0) {
-        echo "
+      echo '<center>
+      <div class="alert alert-success" style="width: 455px;">
+          Curso removido com sucesso!
+      </div>
+  </center>';
+        /*echo "
         <script type=\"text/javascript\">
             alert(\"Curso excluído com sucesso!\");
-        </script>
+        </script>*/
         <META HTTP-EQUIV=REFRESH CONTENT = '0;URL=
         http://localhost/SG2S/view/view_admin.php?pagina=view_cursos_listagem.php'";
+
     } else {
         echo "
         <script type=\"text/javascript\">

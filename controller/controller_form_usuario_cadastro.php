@@ -38,10 +38,16 @@
     $cadastroPerfilUsuarioEfetuado = $usuarioDao->inserirPerfil($conn, $usuario, $perfil);
 
     if($cadastroUsuarioEfetuado && $cadastroPerfilUsuarioEfetuado) {
-        echo "
+      echo '
+      <center>
+          <div class="alert alert-success" style="width: 455px;">
+              <strong>PARABÉNS!</strong>usuario cadastrado com sucesso!
+          </div>
+      </center>';
+        /*echo "
         <script>
             alert(Usuário cadastrado com sucesso!!!);
-        </script>";
+        </script>";*/
         header('Location: ../view/view_admin.php?pagina=view_usuarios_listagem.php');
     } else {
         echo "
