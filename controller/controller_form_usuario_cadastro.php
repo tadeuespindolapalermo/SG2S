@@ -38,8 +38,7 @@
     $cadastroPerfilUsuarioEfetuado = $usuarioDao->inserirPerfil($conn, $usuario, $perfil);
 
     if($cadastroUsuarioEfetuado && $cadastroPerfilUsuarioEfetuado) {
-      echo '
-      <center>
+      echo '<center>
           <div class="alert alert-success" style="width: 455px;">
               <strong>PARABÉNS!</strong>usuario cadastrado com sucesso!
           </div>
