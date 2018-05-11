@@ -1,5 +1,3 @@
-
-
 <div class="container listar">
     <div class="header clearfix">
         <h3 class="text-muted">Listagem de Usuários</h3><hr/>
@@ -29,7 +27,7 @@
         $selectUsuarioJoin = $usuarioDao->listar($conn);
     ?>
 
-    <div class="row " class="totalContent" >
+    <div class="row totalContent">
         <div class="col-md-12">
             <div class="panel panel-default">
                 <div class="panel-body">

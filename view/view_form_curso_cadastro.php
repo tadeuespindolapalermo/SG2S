@@ -21,7 +21,7 @@
 		<h3><strong><div style="margin-top: -50px;">Cadastrar Curso</div></strong></h3>
 		<small>AVISO: 'Nome' deve ser ÚNICO!</small><br/>
 		<br />
-		<form method="post" action="../controller/controller_form_curso_cadastro.php" id="formCurso">
+		<form method="post" action="view_admin.php?pagina=../controller/controller_form_curso_cadastro.php" id="formCurso">
 			<div class="form-group">
 				<small><strong>*Campos Obrigatórios</strong></small>
 

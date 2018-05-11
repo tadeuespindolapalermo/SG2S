@@ -31,7 +31,7 @@
         $usuario->setNome($_POST['nome']);
         $usuario->setFone($_POST['telefone']);
         $usuario->setUsuario($_POST['usuario']);
-        $usuario->setEmail($_POST['email']);    
+        $usuario->setEmail($_POST['email']);
         $usuario->setIdUsuarios($_GET['idUsuario']);
 
         // Inserção do Usuário no Banco

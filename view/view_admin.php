@@ -37,6 +37,9 @@
         <!-- Bootstrap 4 core CSS -->
         <link href="../lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
 
+        <!-- Bootstrap 3 core CSS -->
+        <!--<link href="../lib/bootstrap/css/bootstrap-3_3_6.min.css" rel="stylesheet" />-->
+
         <!-- Custom styles for this template -->
         <link href="../css/dashboard.css" rel="stylesheet" />
 
@@ -63,7 +66,7 @@
     <body>
 
         <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
-            <span class="navbar-brand col-sm-3 col-md-2 mr-0"><strong>SG2S - <?php echo $perfil; ?></strong></span>
+            <span class="navbar-brand col-sm-3 col-md-2 mr-0"><strong>SG2S - <?php echo $perfil;?></strong></span>
             <!--<input type="text" class="input-search" alt="listaSearch" placeholder="Pesquisa rápida..." />-->
             <input id="searchListagens" style="border: 1px solid grey; border-radius: 4px;" class="form-control form-control-dark w-100 input-search" alt="listaSearch" type="text" placeholder="Pesquisa rápida..." disabled aria-label="Pesquisa rápida..." />
             <!--<ul class="navbar-nav px-3">

@@ -22,7 +22,8 @@ class CursoDao implements Dao {
                 $curso_existe = isset($dados["nome"]);
 
         } else {
-            echo 'Erro ao tentar localizar o registro do curso!';
+            //echo 'Erro ao tentar localizar o registro do curso!';
+            echo '';
         }
         // -------------------------------------------------------------
 
@@ -33,8 +34,8 @@ class CursoDao implements Dao {
             if ($curso_existe) {
                 $retorno_get.= "erro_nome=1&";
             }
-
             header('Location: ../view/view_admin.php?pagina=view_form_curso_cadastro.php&' . $retorno_get);
+
             die();
         }
 
@@ -46,11 +47,17 @@ class CursoDao implements Dao {
 
             $stmtCreateCurso = $conn->prepare($sqlCurso);
 
-            $stmtCreateCurso->bindParam(1, $curso->getNome(), PDO::PARAM_STR, 60);
-            $stmtCreateCurso->bindParam(2, $curso->getPortaria(), PDO::PARAM_STR, 30);
-            $stmtCreateCurso->bindParam(3, $curso->getDuracao(), PDO::PARAM_STR, 02);
-            $stmtCreateCurso->bindParam(4, $curso->getGrau(), PDO::PARAM_STR, 30);
-            $stmtCreateCurso->bindParam(5, $curso->getDataPortaria(), PDO::PARAM_STR, 10);
+            $nome = $curso->getNome();
+            $portaria = $curso->getPortaria();
+            $duracao = $curso->getDuracao();
+            $grau = $curso->getGrau();
+            $dataPortaria = $curso->getDataPortaria();
+
+            $stmtCreateCurso->bindParam(1, $nome, PDO::PARAM_STR, 60);
+            $stmtCreateCurso->bindParam(2, $portaria, PDO::PARAM_STR, 30);
+            $stmtCreateCurso->bindParam(3, $duracao, PDO::PARAM_STR, 02);
+            $stmtCreateCurso->bindParam(4, $grau, PDO::PARAM_STR, 30);
+            $stmtCreateCurso->bindParam(5, $dataPortaria, PDO::PARAM_STR, 10);
 
             $cadastroCursoEfetuado = $stmtCreateCurso->execute();
 

@@ -49,7 +49,7 @@
             <h4><strong>Atualização Cadastral</strong></h4>
             <div style="margin-left: px;"><h5><strong><font color="#FF0000">'.strtoupper($curso->getNome()).'.</font><strong></h5></div><br />
             <form action="view_admin.php?pagina=../controller/controller_form_curso_update.php&idCurso='.$curso->getIdCurso().'" method="post">
-                <div class="form-group ">
+                <div class="form-group">
 
                     <small><strong>*Campos Obrigatórios</strong></small><br/><br/>
 
