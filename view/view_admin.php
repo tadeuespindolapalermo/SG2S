@@ -21,8 +21,8 @@
     } else {
         $perfil = 'Administrador';
     }
-?>
 
+?>
 <!DOCTYPE html>
 <html lang="pt-br" ng-app="sg2s">
     <head>
@@ -92,9 +92,11 @@
                                     <span data-feather="settings"></span>
                                     <strong>
                                         <?php
+                                            ob_start();
                                             $nome = $_SESSION['nome'];
                                             $nome = explode(" ", $nome);
                                             echo "$nome[0]";
+                                            ob_end_flush();
                                         ?>
                                     </strong>
                                 </a>
