@@ -27,13 +27,19 @@
 
     // VALIDAÇÃO DA INSERÇÃO DO USUÁRIO E DO PERFIL
     if($cadastroMatrizEfetuado) {
-        echo "
+      /*echo '
+      <center>
+          <div class="alert alert-success" style="width: 455px;">
+              <strong>PARABÉNS!</strong>matriz cadastrada com sucesso!
+          </div>
+      </center>';*/
+        echo"
         <script type=\"text/javascript\">
             alert(\"Matriz cadastrada com sucesso!!!\");
         </script>";
         header('Location: ../view/view_admin.php?pagina=view_matrizes_listagem.php');
     } else {
-        echo "
+        echo"
         <script type=\"text/javascript\">
             alert(\"Erro ao cadastrar matriz!!!\");
         </script>";
