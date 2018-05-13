@@ -43,10 +43,14 @@
 
         // VALIDAÇÃO DO UPDATE
         if ($updateGrade) {
+          echo '
+          <center>
+              <div class="alert alert-success" style="width: 600px;">
+                GRADE ATUALIZADA COM SUCESSSO!
+              </div>
+          </center>';
             echo "
-            <script type=\"text/javascript\">
-                alert(\"Grade atualizada com sucesso!\");
-            </script>
+
             <META HTTP-EQUIV=REFRESH CONTENT = '0;URL=
             http://localhost/SG2S/view/view_admin.php?pagina=view_grades_listagem.php'";
             //header('Location: ../view/view_admin.php?pagina=view_grades_listagem.php');

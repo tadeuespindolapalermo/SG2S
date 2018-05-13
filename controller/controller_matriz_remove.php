@@ -25,7 +25,7 @@
       echo '
       <center>
           <div class="alert alert-success" style="width: 455px;">
-              <p>matriz excluida com sucesso!</p>
+              MATRIZ EXCLUIDA COM SUCESSO!
           </div>
       </center>';
         echo "

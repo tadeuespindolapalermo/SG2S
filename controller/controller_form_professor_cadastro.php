@@ -29,14 +29,18 @@
 
     // VALIDAÇÃO DA INSERÇÃO DO PROFESSOR
     if($cadastroProfessorEfetuado) {
+      echo '
+      <center>
+          <div class="alert alert-success" style="width: 600px;">
+            PROFESSOR(A) CADASTRADO(A) COM SUCESSSO!
+          </div>
+      </center>';
         echo "
-        <script type=\"text/javascript\">
-            alert(\"Professor(a) cadastrado(a) com sucesso!\");
-        </script>
+
         <META HTTP-EQUIV=REFRESH CONTENT = '0;URL=
         http://localhost/SG2S/view/view_admin.php?pagina=view_professores_listagem.php'";
         //header('Location: ../view/view_admin.php?pagina=view_professores_listagem.php');
-    } else {        
+    } else {
         echo "
         <script type=\"text/javascript\">
             alert(\"Erro ao cadastrar Professor(a)!!!\");

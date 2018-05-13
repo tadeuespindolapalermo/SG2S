@@ -22,10 +22,14 @@
     $linhas = $usuarioDao->remover($conn, $idUsuario);
 
     if ($linhas != 0) {
+      echo'
+      <center>
+          <div class="alert alert-success" style="width: 455px;">
+          USUÁRIO REMOVIDO COM SUCESSO!
+          </div>
+      </center>';
         echo "
-        <script type=\"text/javascript\">
-            alert(\"Usuário excluído com sucesso!\");
-        </script>
+
         <META HTTP-EQUIV=REFRESH CONTENT = '0;URL=
         http://localhost/SG2S/view/view_admin.php?pagina=view_usuarios_listagem.php'";
     } else {

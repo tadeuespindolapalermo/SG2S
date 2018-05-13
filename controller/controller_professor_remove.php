@@ -22,10 +22,14 @@
     $linhas = $professorDao->remover($conn, $idProfessor);
 
     if ($linhas != 0) {
+
+      echo'
+      <center>
+          <div class="alert alert-success" style="width: 455px;">
+          PROFESSOR MOVIDO PARA A LIXEIRA!
+          </div>
+      </center>';
         echo "
-        <script type=\"text/javascript\">
-            alert(\"Professor enviado para a lixeira com sucesso!\");
-        </script>
         <META HTTP-EQUIV=REFRESH CONTENT = '0;URL=
         http://localhost/SG2S/view/view_admin.php?pagina=view_professores_listagem.php'";
     } else {

@@ -27,16 +27,14 @@
 
     // VALIDAÇÃO DA INSERÇÃO DO USUÁRIO E DO PERFIL
     if($cadastroMatrizEfetuado) {
-      /*echo '
+      echo '
       <center>
-          <div class="alert alert-success" style="width: 455px;">
-              <strong>PARABÉNS!</strong>matriz cadastrada com sucesso!
+          <div class="alert alert-success" style="width: 600px;">
+            MATRIZ CADASTRADA COM SUCESSSO!
           </div>
-      </center>';*/
+      </center>';
         echo"
-        <script type=\"text/javascript\">
-            alert(\"Matriz cadastrada com sucesso!\");
-        </script>
+
         <META HTTP-EQUIV=REFRESH CONTENT = '0;URL=
         http://localhost/SG2S/view/view_admin.php?pagina=view_matrizes_listagem.php'";
         //header('Location: ../view/view_admin.php?pagina=view_matrizes_listagem.php');

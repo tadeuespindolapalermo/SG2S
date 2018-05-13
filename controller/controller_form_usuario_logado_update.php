@@ -32,11 +32,15 @@
             $_SESSION['email'] = $usuario->getEmail();
 
             if($_SESSION['perfil_idperfil'] == 2) {
+              echo '
+              <center>
+                  <div class="alert alert-success" style="width: 600px;">
+                    USUÁRIO ALTERADO COM SUCESSSO!
+                  </div>
+              </center>';
 
                 echo "
-                <script type=\"text/javascript\">
-                    alert(\"Usuário atualizado com sucesso!\");
-                </script>
+
                 <META HTTP-EQUIV=REFRESH CONTENT = '0;URL=
                 http://localhost/SG2S/view/view_coordenador.php?pagina=view_home.php'";
 

@@ -22,10 +22,15 @@
     $linhas = $gradeDao->remover($conn, $idGrade);
 
     if ($linhas != 0) {
+      echo'
+    <center>
+        <div class="alert alert-success" style="width: 455px;">
+            GRADE REMOVIDA COM SUCESSO!! ATUALIZANDO LISTAGEM
+        </div>
+    </center>';
+
         echo "
-        <script type=\"text/javascript\">
-            alert(\"Grade excluída com sucesso! Atualizando listagem...\");
-        </script>
+
         <META HTTP-EQUIV=REFRESH CONTENT = '0;URL=
         http://localhost/SG2S/view/view_admin.php?pagina=view_grades_listagem.php'";
     } else {

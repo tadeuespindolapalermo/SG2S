@@ -39,7 +39,7 @@
             echo '
             <center>
                 <div class="alert alert-success" style="width: 455px;">
-                    <strong>PARABÉNS!</strong> Curso atualizado com sucesso!
+                  CURSO ATUALIZADO COM SUCESSO!
                 </div>
             </center>';
             echo "

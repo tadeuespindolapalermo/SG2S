@@ -22,10 +22,15 @@
     $linhas = $professorDao->removerDefinitivo($conn, $idProfessor);
 
     if ($linhas != 0) {
+      echo'
+    <center>
+        <div class="alert alert-success" style="width: 455px;">
+            PROFESSOR REMOVIDO COM SUCESSO!
+        </div>
+    </center>';
+
         echo "
-        <script type=\"text/javascript\">
-            alert(\"Professor excluído com sucesso!\");
-        </script>
+
         <META HTTP-EQUIV=REFRESH CONTENT = '0;URL=
         http://localhost/SG2S/view/view_admin.php?pagina=view_professores_lixeira_listagem.php'";
     } else {

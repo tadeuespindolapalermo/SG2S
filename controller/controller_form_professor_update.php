@@ -32,10 +32,14 @@
 
         // VALIDAÇÃO DO UPDATE
         if ($updateProfessor) {
+          echo '
+          <center>
+              <div class="alert alert-success" style="width: 600px;">
+                PROFESSOAR ATUALIZADO COM SUCESSSO!
+              </div>
+          </center>';
             echo "
-            <script type=\"text/javascript\">
-                alert(\"Professor atualizado com sucesso!\");
-            </script>
+
             <META HTTP-EQUIV=REFRESH CONTENT = '0;URL=
             http://localhost/SG2S/view/view_admin.php?pagina=view_professores_listagem.php'";
             //header('Location: ../view/view_admin.php?pagina=view_professores_listagem.php');
