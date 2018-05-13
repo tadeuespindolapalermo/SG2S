@@ -1,5 +1,5 @@
 <?php
-
+ob_start();
 class MatrizDao implements Dao {
 
     /*
@@ -22,7 +22,8 @@ class MatrizDao implements Dao {
                 $matriz_existe = isset($dados["nome_matriz"]);
 
         } else {
-            echo 'Erro ao tentar localizar o registro da matriz!';
+            //echo 'Erro ao tentar localizar o registro da matriz!';
+            echo '';
         }
         // -------------------------------------------------------------
 
@@ -46,10 +47,15 @@ class MatrizDao implements Dao {
 
             $stmtCreateMatriz = $conn->prepare($sqlMatriz);
 
-            $stmtCreateMatriz->bindValue(1, $matriz->getCursoIdCurso(), PDO::PARAM_INT);
-            $stmtCreateMatriz->bindValue(2, $matriz->getNomeMatriz(), PDO::PARAM_STR);
-            $stmtCreateMatriz->bindValue(3, $matriz->getCargaHoraria(), PDO::PARAM_STR);
-            $stmtCreateMatriz->bindValue(4, $matriz->getCredito(), PDO::PARAM_INT);
+            $idCurso = $matriz->getCursoIdCurso();
+            $nomeMatriz = $matriz->getNomeMatriz();
+            $cargaHoraria = $matriz->getCargaHoraria();
+            $credito = $matriz->getCredito();
+
+            $stmtCreateMatriz->bindParam(1, $idCurso, PDO::PARAM_INT, 11);
+            $stmtCreateMatriz->bindParam(2, $nomeMatriz, PDO::PARAM_STR, 100);
+            $stmtCreateMatriz->bindParam(3, $cargaHoraria, PDO::PARAM_STR, 5);
+            $stmtCreateMatriz->bindParam(4, $credito, PDO::PARAM_INT, 1);
 
             $cadastroMatrizEfetuado = $stmtCreateMatriz->execute();
 

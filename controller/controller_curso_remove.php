@@ -1,6 +1,6 @@
 <?php
     session_start();
-
+    ob_start();
     require('../db/Config.inc.php');
 
     // CONEXÃO COM PDO
@@ -22,24 +22,35 @@
     $linhas = $cursoDao->remover($conn, $idCurso);
 
     if ($linhas != 0) {
-      echo '<center>
-      <div class="alert alert-success" style="width: 455px;">
-          Curso removido com sucesso!
-      </div>
-  </center>';
-
+        /*echo "
+        <script type=\"text/javascript\">
+            alert(\"Curso excluído com sucesso!\");
+        </script>*/
+        echo '
+        <center>
+          <div class="alert alert-success" style="width: 455px;">
+              Curso excluído com sucesso!
+          </div>
+        </center>';
         echo "
         <META HTTP-EQUIV=REFRESH CONTENT = '0;URL=
         http://localhost/SG2S/view/view_admin.php?pagina=view_cursos_listagem.php'";
-
     } else {
-      echo '<center>
-      <div class="alert alert-danger" style="width: 600px;">
-          Erro ao excluir curso! Este curso está vinculado a uma ou mais matriz!
-      </div>
-  </center>';
+        /*echo "
+        <script type=\"text/javascript\">
+            alert(\"Erro ao excluir curso! Este curso está vinculado a uma ou mais matriz!\");
+        </script>*/
+        echo '
+        <center>
+          <div class="alert alert-danger" style="width: 600px;">
+              Erro ao excluir curso! Este curso está vinculado a uma ou mais matriz!
+          </div>
+        </center>';
         echo "
+<<<<<<< HEAD
 
+=======
+>>>>>>> 2b42bfa697d17431204951a28fd857ffe0e4d2ac
         <META HTTP-EQUIV=REFRESH CONTENT = '0;URL=
         http://localhost/SG2S/view/view_admin.php?pagina=view_cursos_listagem.php'";
     }

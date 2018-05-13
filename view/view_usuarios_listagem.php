@@ -6,7 +6,7 @@
 
     <?php
         session_start();
-
+        ob_start();
         require('../db/Config.inc.php');
 
         // CONEXÃO COM PDO
@@ -27,7 +27,7 @@
         $selectUsuarioJoin = $usuarioDao->listar($conn);
     ?>
 
-    <div class="row totalContent">
+    <div class="row">
         <div class="col-md-12">
             <div class="panel panel-default">
                 <div class="panel-body">

@@ -1,9 +1,8 @@
 <div class="container listar">
 
-
     <?php
         session_start();
-
+        ob_start();
         require('../db/Config.inc.php');
 
         // CONEXÃO COM PDO
@@ -90,7 +89,7 @@
 
                                         echo '
                                         <tbody>
-                                            <tr>                                                
+                                            <tr>
                                                 <td>'.$grade->getTurmas().'</td>
                                                 <td>'.$grade->getQuantidadeAlunos().'</td>
                                                 <td>'.$gradeGerada->getDisciplinaSegunda().'</td>

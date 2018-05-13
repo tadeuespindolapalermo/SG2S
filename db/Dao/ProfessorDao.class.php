@@ -1,5 +1,5 @@
 <?php
-
+ob_start();
 class ProfessorDao implements Dao {
 
     /*
@@ -24,7 +24,8 @@ class ProfessorDao implements Dao {
                 $cpf_existe = isset($dados["CPF"]);
 
         } else {
-            echo 'Erro ao tentar localizar o registro do professor!';
+            //echo 'Erro ao tentar localizar o registro do professor!';
+            echo '';
         }
         // -------------------------------------------------------------
 
@@ -41,7 +42,8 @@ class ProfessorDao implements Dao {
                 $rg_existe = isset($dados["RG"]);
 
         } else {
-            echo 'Erro ao tentar localizar o registro do professor!';
+            //echo 'Erro ao tentar localizar o registro do professor!';
+            echo '';
         }
         // -------------------------------------------------------------
 
@@ -58,7 +60,8 @@ class ProfessorDao implements Dao {
                 $email_existe = isset($dados["email"]);
 
         } else {
-            echo 'Erro ao tentar localizar o registro do professor!';
+            //echo 'Erro ao tentar localizar o registro do professor!';
+            echo '';
         }
         // -------------------------------------------------------------
 
@@ -90,12 +93,19 @@ class ProfessorDao implements Dao {
 
             $stmtCreateProfessor = $conn->prepare($sqlProfessor);
 
-            $stmtCreateProfessor->bindValue(1, $professor->getNome(), PDO::PARAM_STR);
-            $stmtCreateProfessor->bindValue(2, $professor->getCPF(), PDO::PARAM_STR);
-            $stmtCreateProfessor->bindValue(3, $professor->getRG(), PDO::PARAM_STR);
-            $stmtCreateProfessor->bindValue(4, $professor->getEmail(), PDO::PARAM_STR);
-            $stmtCreateProfessor->bindValue(5, $professor->getFone(), PDO::PARAM_STR);
-            $stmtCreateProfessor->bindValue(6, $professor->getExclusao(), PDO::PARAM_INT);
+            $nome = $professor->getNome();
+            $cpf = $professor->getCPF();
+            $rg = $professor->getRG();
+            $email = $professor->getEmail();
+            $fone = $professor->getFone();
+            $exclusao = $professor->getExclusao();
+
+            $stmtCreateProfessor->bindParam(1, $nome, PDO::PARAM_STR, 60);
+            $stmtCreateProfessor->bindParam(2, $cpf, PDO::PARAM_STR, 14);
+            $stmtCreateProfessor->bindParam(3, $rg, PDO::PARAM_STR, 20);
+            $stmtCreateProfessor->bindParam(4, $email, PDO::PARAM_STR, 60);
+            $stmtCreateProfessor->bindParam(5, $fone, PDO::PARAM_STR, 16);
+            $stmtCreateProfessor->bindParam(6, $exclusao, PDO::PARAM_INT, 1);
 
             $cadastroProfessorEfetuado = $stmtCreateProfessor->execute();
 

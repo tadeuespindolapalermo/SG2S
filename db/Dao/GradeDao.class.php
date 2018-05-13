@@ -1,5 +1,5 @@
 <?php
-
+ob_start();
 class GradeDao implements Dao {
 
     /*
@@ -12,14 +12,23 @@ class GradeDao implements Dao {
 
             $stmtCreateGrade = $conn->prepare($sqlGrade);
 
-            $stmtCreateGrade->bindParam(1, $grade->getAnoLetivo(), PDO::PARAM_INT, 4);
-            $stmtCreateGrade->bindParam(2, $grade->getSemestre(), PDO::PARAM_INT, 1);
-            $stmtCreateGrade->bindParam(3, $grade->getPeriodo(), PDO::PARAM_STR, 12);
-            $stmtCreateGrade->bindParam(4, $grade->getHorario(), PDO::PARAM_STR, 30);
-            $stmtCreateGrade->bindParam(5, $grade->getSala(), PDO::PARAM_INT, 2);
-            $stmtCreateGrade->bindParam(6, $grade->getQuantidadeAlunos(), PDO::PARAM_INT, 3);
-            $stmtCreateGrade->bindParam(7, $grade->getTurmas(), PDO::PARAM_STR, 50);
-            $stmtCreateGrade->bindParam(8, $grade->getCursoIdCurso(), PDO::PARAM_INT, 11);
+            $anoLetivo = $grade->getAnoLetivo();
+            $semestre = $grade->getSemestre();
+            $periodo = $grade->getPeriodo();
+            $horario = $grade->getHorario();
+            $sala = $grade->getSala();
+            $quantidadeAlunos = $grade->getQuantidadeAlunos();
+            $turmas = $grade->getTurmas();
+            $cursoIdCurso = $grade->getCursoIdCurso();
+
+            $stmtCreateGrade->bindParam(1, $anoLetivo , PDO::PARAM_INT, 4);
+            $stmtCreateGrade->bindParam(2, $semestre, PDO::PARAM_INT, 1);
+            $stmtCreateGrade->bindParam(3, $periodo, PDO::PARAM_STR, 12);
+            $stmtCreateGrade->bindParam(4, $horario, PDO::PARAM_STR, 30);
+            $stmtCreateGrade->bindParam(5, $sala, PDO::PARAM_INT, 2);
+            $stmtCreateGrade->bindParam(6, $quantidadeAlunos, PDO::PARAM_INT, 3);
+            $stmtCreateGrade->bindParam(7, $turmas, PDO::PARAM_STR, 50);
+            $stmtCreateGrade->bindParam(8, $cursoIdCurso, PDO::PARAM_INT, 11);
 
             $cadastroGradeEfetuado = $stmtCreateGrade->execute();
 

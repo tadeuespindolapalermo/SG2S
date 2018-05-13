@@ -6,7 +6,7 @@
 
     <?php
         session_start();
-
+        ob_start();
         require('../db/Config.inc.php');
 
         // CONEXÃO COM PDO

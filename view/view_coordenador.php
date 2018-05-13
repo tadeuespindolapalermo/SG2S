@@ -1,6 +1,6 @@
 <?php
     session_start();
-
+    ob_start();
     // TEMPO DE SESSÃO DO USUÁRIO (30 MINUTOS) INDEPENDENTE DE OCIOSIDADE - FORÇADA
     //if (!isset($_SESSION['start_login'])) { // se não tiver pego tempo que logou
         //$_SESSION['start_login'] = time(); //pega tempo que logou

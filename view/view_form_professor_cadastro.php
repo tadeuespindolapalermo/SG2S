@@ -1,6 +1,6 @@
 <?php
 	session_start();
-
+	ob_start();
 	if($_SESSION['perfil_idperfil'] == 2) {
 		unset($_SESSION['usuario']);
 	    unset($_SESSION['email']);
@@ -23,7 +23,7 @@
 		<h3><strong><div style="margin-top: -50px;">Cadastrar Professor</div></strong></h3>
 		<small>AVISO: 'CPF', 'RG' e 'E-mail' devem ser ÚNICOS!</small><br/>
 		<br />
-		<form method="post" action="../controller/controller_form_professor_cadastro.php" id="formProfessor">
+		<form method="post" action="view_admin.php?pagina=../controller/controller_form_professor_cadastro.php" id="formProfessor">
 			<div class="form-group">
 				<small><strong>*Campos Obrigatórios</strong></small>
 

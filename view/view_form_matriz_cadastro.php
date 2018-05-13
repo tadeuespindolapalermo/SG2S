@@ -1,6 +1,6 @@
 <?php
 	session_start();
-
+	ob_start();
     require('../db/Config.inc.php');
 
     // CONEXÃO COM PDO
@@ -32,7 +32,7 @@
 		<h3><strong><div style="margin-top: -50px;">Cadastrar Matriz (Disciplina)</div></strong></h3>
 		<small>AVISO: 'Nome' deve ser ÚNICO!</small><br/>
 		<br />
-		<form method="post" action="../controller/controller_form_matriz_cadastro.php" id="formMatriz">
+		<form method="post" action="view_admin.php?pagina=../controller/controller_form_matriz_cadastro.php" id="formMatriz">
 			<div class="form-group">
 				<small><strong>*Campos Obrigatórios</strong></small>
 

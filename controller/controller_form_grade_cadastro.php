@@ -1,6 +1,6 @@
 <?php
     session_start();
-
+    ob_start();
     require('../db/Config.inc.php');
 
     // CONEXÃO COM PDO
@@ -32,7 +32,7 @@
         $grade->setHorario('13:00 às 18:00');
     } elseif ($grade->getPeriodo() === 'Noturno') {
         $grade->setHorario('19:15 às 22:00');
-    }    
+    }
 
     // Inserção da Grade no Banco
     $cadastroGradeEfetuado = $gradeDao->inserir($conn, $grade);
@@ -41,13 +41,17 @@
     if($cadastroGradeEfetuado) {
         echo "
         <script type=\"text/javascript\">
-            alert(\"Grade cadastrada com sucesso!!!\");
-        </script>";
-        header('Location: ../view/view_admin.php?pagina=view_grades_listagem.php');
+            alert(\"Grade cadastrada com sucesso!\");
+        </script>
+        <META HTTP-EQUIV=REFRESH CONTENT = '0;URL=
+        http://localhost/SG2S/view/view_admin.php?pagina=view_grades_listagem.php'";
+        //header('Location: ../view/view_admin.php?pagina=view_grades_listagem.php');
     } else {
         echo "
         <script type=\"text/javascript\">
-            alert(\"Erro ao cadastrar grade!!!\");
-        </script>";
-        header('Location: ../view/view_admin.php?pagina=view_form_grade_cadastro.php');
+            alert(\"Erro ao cadastrar grade!\");
+        </script>
+        <META HTTP-EQUIV=REFRESH CONTENT = '0;URL=
+        http://localhost/SG2S/view/view_admin.php?pagina=view_form_grade_cadastro.php'";
+        //header('Location: ../view/view_admin.php?pagina=view_form_grade_cadastro.php');
     }

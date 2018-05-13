@@ -1,5 +1,5 @@
 <?php
-
+ob_start();
 class UsuarioDao implements Dao {
 
     /*
@@ -23,7 +23,8 @@ class UsuarioDao implements Dao {
                 $usuario_existe = isset($dados["usuario"]);
 
         } else {
-            echo 'Erro ao tentar localizar o registro de usuário!';
+            //echo 'Erro ao tentar localizar o registro de usuário!';
+            echo '';
         }
         // -------------------------------------------------------------
 
@@ -40,7 +41,8 @@ class UsuarioDao implements Dao {
                 $email_existe = isset($dados["email"]);
 
         } else {
-            echo 'Erro ao tentar localizar o registro de usuário!';
+            //echo 'Erro ao tentar localizar o registro de usuário!';
+            echo '';
         }
         // -----------------------------------------------------
 
@@ -156,7 +158,7 @@ class UsuarioDao implements Dao {
             $stmtUpdateUsuario->bindValue(':nome', $usuario->getNome());
             $stmtUpdateUsuario->bindValue(':telefone', $usuario->getFone());
             $stmtUpdateUsuario->bindValue(':email', $usuario->getEmail());
-            $stmtUpdateUsuario->bindValue(':usuario', $usuario->getUsuario());            
+            $stmtUpdateUsuario->bindValue(':usuario', $usuario->getUsuario());
             $stmtUpdateUsuario->bindValue(':idUsuario', $usuario->getIdUsuarios());
             $updateUsuario = $stmtUpdateUsuario->execute();
 

@@ -1,5 +1,5 @@
 <?php
-
+    ob_start();
     echo "<h6><strong>{$_SESSION['nome']}</strong><br /><strong><font color='#FF0000'>{$_SESSION['email']}</font></strong></h6>";
 
     echo '<hr><li>Links úteis:';

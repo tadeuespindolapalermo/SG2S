@@ -1,5 +1,5 @@
 <?php
-
+ob_start();
 class CursoDao implements Dao {
 
     /*
@@ -32,7 +32,7 @@ class CursoDao implements Dao {
             $retorno_get = '';
 
             if ($curso_existe) {
-                $retorno_get.= "erro_nome=1&";
+                $retorno_get.="erro_nome=1&";
             }
             header('Location: ../view/view_admin.php?pagina=view_form_curso_cadastro.php&' . $retorno_get);
 
@@ -116,7 +116,7 @@ class CursoDao implements Dao {
             return $updateCurso;
             // -----------------------------------------------------------
         } catch (PDOException $e) {
-            PHPErro($e->getCode(), $e->getMessage(), $e->getFile(), $e->getFile());
+            PHPErro($e->getCode(), $e->getMessage(), $e->getFile(), $e->getFile());            
         }
     }
 

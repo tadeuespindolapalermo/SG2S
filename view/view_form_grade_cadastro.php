@@ -1,6 +1,6 @@
 <?php
 	session_start();
-
+	ob_start();
     require('../db/Config.inc.php');
 
     // CONEXÃO COM PDO
@@ -29,7 +29,7 @@
 		<br />
 		<h3><strong><div style="margin-top: -50px;">Cadastrar Grade</div></strong></h3>
 		<br />
-		<form method="post" action="../controller/controller_form_grade_cadastro.php" id="formGrade">
+		<form method="post" action="view_admin.php?pagina=../controller/controller_form_grade_cadastro.php" id="formGrade">
 			<div class="form-group">
 				<small><strong>*Campos Obrigatórios</strong></small>
 
