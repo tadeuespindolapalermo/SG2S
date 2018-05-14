@@ -26,21 +26,23 @@
         $matriz->setCredito($_POST['credito']);
         $matriz->setIdMatrizCurricular($_GET['idMatriz']);
 
-        // Update do Curso no Banco
-      //  $updateMatriz = $matrizDao->atualizar($conn, $matriz);
         $matriz = $matrizDao->atualizar($conn, $matriz);
+
         // VALIDAÇÃO DO UPDATE
         if ($matriz) {
-          echo '
-          <center>
-              <div class="alert alert-success" style="width: 600px;">
-                MATRIZ ATUALIZADA COM SUCESSSO!
-              </div>
-          </center>';
+            /*echo "
+            <script type=\"text/javascript\">
+                alert(\"Curso atualizado com sucesso!\");
+            </script>*/
+            echo '
+            <center>
+                <div class="alert alert-success" style="width: 455px;">
+                    Matriz atualizada com sucesso!
+                </div>
+            </center>';
             echo "
-
             <META HTTP-EQUIV=REFRESH CONTENT = '0;URL=
-            http://localhost/SG2S/view/view_admin.php?pagina=view_matrizes_listagem.php'";
+            http://localhost/SG2S/view/view_admin.php?pagina=view_ponte_matriz.php'";
             //header('Location: ../view/view_admin.php?pagina=view_matrizes_listagem.php');
         } else {
             echo "

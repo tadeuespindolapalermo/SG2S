@@ -22,21 +22,20 @@
     $matriz->setCargaHoraria($_POST['cargaHoraria']);
     $matriz->setCredito($_POST['credito']);
 
-    // Inserção do Curso no Banco
+    // Inserção da Matriz no Banco
     $cadastroMatrizEfetuado = $matrizDao->inserir($conn, $matriz);
 
-    // VALIDAÇÃO DA INSERÇÃO DO USUÁRIO E DO PERFIL
+    // VALIDAÇÃO DA INSERÇÃO DA MATRIZ
     if($cadastroMatrizEfetuado) {
-      echo '
-      <center>
-          <div class="alert alert-success" style="width: 600px;">
-            MATRIZ CADASTRADA COM SUCESSSO!
-          </div>
-      </center>';
+        echo '
+        <center>
+            <div class="alert alert-success" style="width: 455px;">
+                <strong>PARABÉNS!</strong> Cadastro realizado com sucesso!
+            </div>
+        </center>';
         echo"
-
         <META HTTP-EQUIV=REFRESH CONTENT = '0;URL=
-        http://localhost/SG2S/view/view_admin.php?pagina=view_matrizes_listagem.php'";
+        http://localhost/SG2S/view/view_admin.php?pagina=view_ponte_matriz.php'";
         //header('Location: ../view/view_admin.php?pagina=view_matrizes_listagem.php');
     } else {
         echo"
