@@ -22,16 +22,15 @@
     $linhas = $usuarioDao->remover($conn, $idUsuario);
 
     if ($linhas != 0) {
-      echo'
-      <center>
-          <div class="alert alert-success" style="width: 455px;">
-          USUÁRIO REMOVIDO COM SUCESSO!
-          </div>
-      </center>';
+        echo'
+        <center>
+            <div class="alert alert-success" style="width: 455px;">
+                Usuário excluído com sucesso!
+            </div>
+        </center>';
         echo "
-
         <META HTTP-EQUIV=REFRESH CONTENT = '0;URL=
-        http://localhost/SG2S/view/view_admin.php?pagina=view_usuarios_listagem.php'";
+        http://localhost/SG2S/view/view_admin.php?pagina=view_ponte_usuario.php'";
     } else {
         echo "
         <script type=\"text/javascript\">

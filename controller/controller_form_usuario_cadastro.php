@@ -45,13 +45,14 @@
         http://localhost/SG2S/view/view_admin.php?pagina=view_usuarios_listagem.php'";*/
         echo '
         <center>
-            <div class="alert alert-success" style="width: 600px;">
-              Usuário cadastrado com sucesso!
+            <div class="alert alert-success" style="width: 455px;">
+                <strong>PARABÉNS!</strong> Cadastro realizado com sucesso!
             </div>
         </center>';
         echo "
         <META HTTP-EQUIV=REFRESH CONTENT = '0;URL=
-        http://localhost/SG2S/view/view_admin.php?pagina=view_usuarios_listagem.php'";
+        http://localhost/SG2S/view/view_admin.php?pagina=view_ponte_usuario.php'";
+        //header('Location: ../view/view_admin.php?pagina=view_usuarios_listagem.php');
     } else {
         echo "
         <script type=\"text/javascript\">
