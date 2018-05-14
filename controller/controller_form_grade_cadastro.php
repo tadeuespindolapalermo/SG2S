@@ -38,17 +38,16 @@
     $cadastroGradeEfetuado = $gradeDao->inserir($conn, $grade);
 
     // VALIDAÇÃO DA INSERÇÃO DA GRADE
-    if($cadastroGradeEfetuado) {
-      echo '
-      <center>
-          <div class="alert alert-success" style="width: 600px;">
-            GRADE CADASTRADA COM SUCESSSO!
-          </div>
-      </center>';
+    if ($cadastroGradeEfetuado) {
+        echo '
+        <center>
+            <div class="alert alert-success" style="width: 455px;">
+                <strong>PARABÉNS!</strong> Cadastro realizado com sucesso!
+            </div>
+        </center>';
         echo "
-
         <META HTTP-EQUIV=REFRESH CONTENT = '0;URL=
-        http://localhost/SG2S/view/view_admin.php?pagina=view_grades_listagem.php'";
+        http://localhost/SG2S/view/view_admin.php?pagina=view_ponte_grade.php'";
         //header('Location: ../view/view_admin.php?pagina=view_grades_listagem.php');
     } else {
         echo "

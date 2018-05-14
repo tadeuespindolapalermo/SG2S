@@ -43,16 +43,15 @@
 
         // VALIDAÇÃO DO UPDATE
         if ($updateGrade) {
-          echo '
-          <center>
-              <div class="alert alert-success" style="width: 600px;">
-                GRADE ATUALIZADA COM SUCESSSO!
-              </div>
-          </center>';
+            echo '
+            <center>
+                <div class="alert alert-success" style="width: 600px;">
+                    Grade atualizada com sucesso!
+                </div>
+            </center>';
             echo "
-
             <META HTTP-EQUIV=REFRESH CONTENT = '0;URL=
-            http://localhost/SG2S/view/view_admin.php?pagina=view_grades_listagem.php'";
+            http://localhost/SG2S/view/view_admin.php?pagina=view_ponte_grade.php'";
             //header('Location: ../view/view_admin.php?pagina=view_grades_listagem.php');
         } else {
             echo "
@@ -63,4 +62,5 @@
             http://localhost/SG2S/view/view_admin.php?pagina=view_grades_listagem.php'";
             //header('Location: ../view/view_admin.php?pagina=view_grades_listagem.php');
         }
+        
     }

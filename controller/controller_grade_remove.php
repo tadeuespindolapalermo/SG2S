@@ -18,21 +18,19 @@
         header('Location: ../controller/controller_sair.php');
     }
 
-    // Removendo curso do banco
+    // Removendo grade do banco
     $linhas = $gradeDao->remover($conn, $idGrade);
 
     if ($linhas != 0) {
-      echo'
-    <center>
-        <div class="alert alert-success" style="width: 455px;">
-            GRADE REMOVIDA COM SUCESSO!! ATUALIZANDO LISTAGEM
-        </div>
-    </center>';
-
+        echo'
+        <center>
+            <div class="alert alert-success" style="width: 455px;">
+                Grade removida com sucesso! Atualizando listagem...
+            </div>
+        </center>';
         echo "
-
         <META HTTP-EQUIV=REFRESH CONTENT = '0;URL=
-        http://localhost/SG2S/view/view_admin.php?pagina=view_grades_listagem.php'";
+        http://localhost/SG2S/view/view_admin.php?pagina=view_ponte_grade.php'";
     } else {
         echo "
         <script type=\"text/javascript\">
