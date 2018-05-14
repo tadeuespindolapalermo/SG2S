@@ -7,14 +7,14 @@
     $PDO = new Conn;
     $conn = $PDO->Conectar();
 
-    if($_SESSION['perfil_idperfil'] == 2) {
+    if ($_SESSION['perfil_idperfil'] == 2) {
         unset($_SESSION['usuario']);
         unset($_SESSION['email']);
         session_destroy();
         header('Location: ../controller/controller_sair.php');
     }
 
-    if($_SERVER["REQUEST_METHOD"] == "POST") {
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         $professorDao = new ProfessorDao();
         $professor = new Professor();
@@ -32,16 +32,15 @@
 
         // VALIDAÇÃO DO UPDATE
         if ($updateProfessor) {
-          echo '
-          <center>
-              <div class="alert alert-success" style="width: 600px;">
-                PROFESSOAR ATUALIZADO COM SUCESSSO!
-              </div>
-          </center>';
+            echo '
+            <center>
+                <div class="alert alert-success" style="width: 455px;">
+                    Professor '; echo $professor->getNome(); echo ' atualizado com sucesso!
+                </div>
+            </center>';
             echo "
-
             <META HTTP-EQUIV=REFRESH CONTENT = '0;URL=
-            http://localhost/SG2S/view/view_admin.php?pagina=view_professores_listagem.php'";
+            http://localhost/SG2S/view/view_admin.php?pagina=view_ponte_professor.php'";
             //header('Location: ../view/view_admin.php?pagina=view_professores_listagem.php');
         } else {
             echo "
@@ -52,6 +51,5 @@
             http://localhost/SG2S/view/view_admin.php?pagina=view_professores_listagem.php'";
             //header('Location: ../view/view_admin.php?pagina=view_professores_listagem.php');
         }
-    }
 
-?>
+    }

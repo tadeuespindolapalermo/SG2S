@@ -18,20 +18,19 @@
         header('Location: ../controller/controller_sair.php');
     }
 
-    // Removendo curso do banco
+    // Enviando professor para a lixeira (exclusão lógica)
     $linhas = $professorDao->remover($conn, $idProfessor);
 
     if ($linhas != 0) {
-
-      echo'
-      <center>
-          <div class="alert alert-success" style="width: 455px;">
-          PROFESSOR MOVIDO PARA A LIXEIRA!
-          </div>
-      </center>';
+        echo '
+        <center>
+            <div class="alert alert-success" style="width: 455px;">
+                Professor enviado para a lixeira com sucesso!
+            </div>
+        </center>';
         echo "
         <META HTTP-EQUIV=REFRESH CONTENT = '0;URL=
-        http://localhost/SG2S/view/view_admin.php?pagina=view_professores_listagem.php'";
+        http://localhost/SG2S/view/view_admin.php?pagina=view_ponte_professor.php'";
     } else {
         echo "
         <script type=\"text/javascript\">

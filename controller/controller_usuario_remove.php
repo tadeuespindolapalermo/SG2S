@@ -22,7 +22,7 @@
     $linhas = $usuarioDao->remover($conn, $idUsuario);
 
     if ($linhas != 0) {
-        echo'
+        echo '
         <center>
             <div class="alert alert-success" style="width: 455px;">
                 Usuário excluído com sucesso!

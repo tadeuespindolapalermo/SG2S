@@ -18,21 +18,19 @@
         header('Location: ../controller/controller_sair.php');
     }
 
-    // Removendo curso do banco
+    // Removendo professor definitivamente do banco (exclusão física)
     $linhas = $professorDao->removerDefinitivo($conn, $idProfessor);
 
     if ($linhas != 0) {
-      echo'
-    <center>
-        <div class="alert alert-success" style="width: 455px;">
-            PROFESSOR REMOVIDO COM SUCESSO!
-        </div>
-    </center>';
-
+        echo '
+        <center>
+            <div class="alert alert-success" style="width: 455px;">
+                Professor excluído definitivamente com sucesso!
+            </div>
+        </center>';
         echo "
-
         <META HTTP-EQUIV=REFRESH CONTENT = '0;URL=
-        http://localhost/SG2S/view/view_admin.php?pagina=view_professores_lixeira_listagem.php'";
+        http://localhost/SG2S/view/view_admin.php?pagina=view_ponte_professor_lixeira.php'";
     } else {
         echo "
         <script type=\"text/javascript\">
