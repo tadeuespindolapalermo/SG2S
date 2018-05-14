@@ -39,12 +39,12 @@
             echo '
             <center>
                 <div class="alert alert-success" style="width: 455px;">
-                  CURSO ATUALIZADO COM SUCESSO!
+                    Curso atualizado com sucesso!
                 </div>
             </center>';
             echo "
             <META HTTP-EQUIV=REFRESH CONTENT = '0;URL=
-            http://localhost/SG2S/view/view_admin.php?pagina=view_cursos_listagem.php'";
+            http://localhost/SG2S/view/view_admin.php?pagina=view_ponte_curso.php'";
             //header('Location: ../view/view_admin.php?pagina=view_cursos_listagem.php');
         } else {
             echo "

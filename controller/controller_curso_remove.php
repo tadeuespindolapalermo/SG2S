@@ -34,7 +34,7 @@
         </center>';
         echo "
         <META HTTP-EQUIV=REFRESH CONTENT = '0;URL=
-        http://localhost/SG2S/view/view_admin.php?pagina=view_cursos_listagem.php'";
+        http://localhost/SG2S/view/view_admin.php?pagina=view_ponte_curso.php'";
     } else {
         /*echo "
         <script type=\"text/javascript\">
@@ -47,10 +47,6 @@
           </div>
         </center>';
         echo "
-<<<<<<< HEAD
-
-=======
->>>>>>> 2b42bfa697d17431204951a28fd857ffe0e4d2ac
         <META HTTP-EQUIV=REFRESH CONTENT = '0;URL=
-        http://localhost/SG2S/view/view_admin.php?pagina=view_cursos_listagem.php'";
+        http://localhost/SG2S/view/view_admin.php?pagina=view_ponte_curso.php'";
     }
