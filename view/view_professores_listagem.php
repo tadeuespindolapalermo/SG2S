@@ -95,17 +95,25 @@
                             // Navegação da tabela pela paginação
                             echo '<div style="margin: cent;">';
                                 echo '<ul class="pagination justify-content-center">';
-                                    echo '<li class="page-item"><a class="page-link" href="view_admin.php?pagina=view_professores_listagem.php&pg=1">Início</a></li>&nbsp';
-                                    if($qtdPag > 1 && $pg <= $qtdPag){
-                                        for($i = 1; $i <= $qtdPag; $i++){
-                                            if($i == $pg){
+                                    if ($pg <= 1) {
+                                        echo '<li class="page-item disabled"><a class="page-link" href="view_admin.php?pagina=view_professores_listagem.php&pg=1">Início</a></li>&nbsp';
+                                    } else {
+                                        echo '<li class="page-item"><a class="page-link" href="view_admin.php?pagina=view_professores_listagem.php&pg=1">Início</a></li>&nbsp';
+                                    }
+                                    if($qtdPag > 1 && $pg <= $qtdPag) {
+                                        for($i = 1; $i <= $qtdPag; $i++) {
+                                            if ($i == $pg) {
                                                 echo "<li class='page-item'><a class='page-link'>".$i."</a></li>&nbsp";
                                             } else {
                                                 echo "<li class='page-item'><a class='page-link' href='view_admin.php?pagina=view_professores_listagem.php&pg=$i'>".$i."</a></li>&nbsp";
                                             }
                                         }
                                     }
-                                    echo "<li class='page-item'><a class='page-link' href='view_admin.php?pagina=view_professores_listagem.php&pg=$qtdPag'>Final</a></li>&nbsp";
+                                    if($pg == $qtdPag) {
+                                        echo "<li class='page-item disabled'><a class='page-link' href='view_admin.php?pagina=view_professores_listagem.php&pg=$qtdPag'>Final</a></li>&nbsp";
+                                    } else {
+                                        echo "<li class='page-item'><a class='page-link' href='view_admin.php?pagina=view_professores_listagem.php&pg=$qtdPag'>Final</a></li>&nbsp";
+                                    }
                                 echo '</ul>';
                             echo '</div>';
                         ?>
