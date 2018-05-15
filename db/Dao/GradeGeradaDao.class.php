@@ -6,7 +6,7 @@ class GradeGeradaDao implements Dao {
      * Método para inserir uma nova grade gerada no sistema (controller)
      **/
     public function inserir($conn, $gradeGerada) {
-        // INSERÇÃO DE GRADE COM PDO
+        // INSERÇÃO DE GRADE GERADA COM PDO
         try {
             $sqlGradeGerada = "INSERT INTO grade_gerada
             (disciplinaSEG, disciplinaTER, disciplinaQUA, disciplinaQUI, disciplinaSEX, disciplinaSAB,
@@ -60,43 +60,10 @@ class GradeGeradaDao implements Dao {
     }
 
     /*
-     * Método para atualizar uma grade do sistema (controller)
+     * Método para atualizar uma grade gerada do sistema (controller)
      **/
     public function atualizar($conn, $grade) {
-        /*try {
-
-            $strSqlGrade = "
-            UPDATE grade_semestral set
-                ano_letivo = :anoLetivo,
-                semestre = :semestre,
-                periodo = :periodo,
-                horario = :horario,
-                sala = :sala,
-                quantidade_alunos = :quantidadeAlunos,
-                turmas = :turmas,
-                curso_idcurso = :cursoIdCurso
-            WHERE
-                idgrade_semestral = :idGradeSemestral";
-
-            $stmtUpdateGrade = $conn->prepare($strSqlGrade);
-            $stmtUpdateGrade->bindValue(':anoLetivo', $grade->getAnoLetivo());
-            $stmtUpdateGrade->bindValue(':semestre', $grade->getSemestre());
-            $stmtUpdateGrade->bindValue(':periodo', $grade->getPeriodo());
-            $stmtUpdateGrade->bindValue(':horario', $grade->getHorario());
-            $stmtUpdateGrade->bindValue(':sala', $grade->getSala());
-            $stmtUpdateGrade->bindValue(':quantidadeAlunos', $grade->getQuantidadeAlunos());
-            $stmtUpdateGrade->bindValue(':turmas', $grade->getTurmas());
-            $stmtUpdateGrade->bindValue(':cursoIdCurso', $grade->getCursoIdCurso());
-            $stmtUpdateGrade->bindValue(':idGradeSemestral', $grade->getIdGradeSemestral());
-
-            $updateGrade = $stmtUpdateGrade->execute();
-
-            return $updateGrade;
-            // -----------------------------------------------------------
-        } catch (PDOException $e) {
-            PHPErro($e->getCode(), $e->getMessage(), $e->getFile(), $e->getFile());
-        }*/
-
+        // ...
     }
 
     /*
@@ -110,24 +77,13 @@ class GradeGeradaDao implements Dao {
     }
 
     /*
-     * Método para listar todos os cursos do sistema no combobox de cadastro de grade (view)
+     * ...
      **/
-    /*public function listarCombo($conn) {
-        $strSqlGrade = "SELECT * FROM curso";
-        $selectGrade = $conn->prepare($strSqlGrade);
-        $selectGrade->execute();
-        return $selectGrade;
-    }*/
-
-    /*
-     * Método para popular a view de update da grade (view)
-     **/
-    /*public function buscarPorId($conn, $idGrade) {
-        $strSqlGrade = "SELECT * FROM grade_semestral WHERE idgrade_semestral = :idGradeSemestral";
-        $selectGrade = $conn->prepare($strSqlGrade);
-        $selectGrade->bindValue(':idGradeSemestral', $idGrade);
-        $selectGrade->execute();
-        return $selectGrade;
-    }*/
+    public function listarProfessor($conn) {
+        $strSqlGradeGerada = "SELECT professor_idprofessor FROM disciplina_professor INNER JOIN matriz_curricular WHERE matriz_curricular_idmatriz_curricular = idmatriz_curricular";
+        $selectGradeGerada = $conn->prepare($strSqlGradeGerada);
+        $selectGradeGerada->execute();
+        return $selectGradeGerada;
+    }
 
 }

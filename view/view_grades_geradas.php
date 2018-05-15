@@ -36,7 +36,14 @@
             $grade->setQuantidadeAlunos($dados['quantidade_alunos']);
             $grade->setTurmas($dados['turmas']);
             $grade->setCursoIdCurso($dados['curso_idcurso']);
-            //$grade->setCursoNome($dados['nome']);
+            $grade->setCursoNome($dados['nome']);
+            $grade->setCursoGrau($dados['grau']);
+        }
+
+        $selectProfessor = $gradeGeradaDao->listarProfessor($conn);
+        $linhaProfessor = $selectProfessor->fetchAll(PDO::FETCH_ASSOC);
+        foreach ($linhaProfessor as $dados) {
+            $professor = $dados['professor_idprofessor'];
         }
     ?>
 
@@ -62,23 +69,12 @@
                             <?php
                                 echo '<br/>
                                 <div style="text-align: center;"><h6><strong>FACULDADE JK - SANTA MARIA</strong></h6></div>
-                                <div style="text-align: center;"><h6><strong>GRADE HORÁRIA: TECNÓLOGO EM '.$grade->getCursoNome().' - '.$grade->getSemestre().'º SEMESTRE DE '.$grade->getAnoLetivo().'</strong></h6></div>
+                                <div style="text-align: center;"><h6><strong>GRADE HORÁRIA: '.$grade->getCursoGrau().' em '.$grade->getCursoNome().' - '.$grade->getSemestre().'º SEMESTRE DE '.$grade->getAnoLetivo().'</strong></h6></div>
                                 <div style="text-align: center;"><h6><strong>Período: '.$grade->getPeriodo().' - '.$grade->getHorario().'</strong></h6></div><br/>';
                             ?>
                             <?php
                                 while ($linhaGradeGerada = $selectGradeGerada->fetchAll(PDO::FETCH_ASSOC)) {
                                     foreach ($linhaGradeGerada as $dados) {
-                                        /*$grade->setIdGradeSemestral($dados['idgrade_semestral']);
-                                        $grade->setAnoLetivo($dados['ano_letivo']);
-                                        $grade->setSemestre($dados['semestre']);
-                                        $grade->setPeriodo($dados['periodo']);
-                                        $grade->setHorario($dados['horario']);
-                                        $grade->setSala($dados['sala']);
-                                        $grade->setQuantidadeAlunos($dados['quantidade_alunos']);
-                                        $grade->setTurmas($dados['turmas']);
-                                        $grade->setCursoIdCurso($dados['curso_idcurso']);*/
-                                        //$grade->setCursoNome($dados['nome']);
-
                                         $gradeGerada->setDisciplinaSegunda($dados['disciplinaSEG']);
                                         $gradeGerada->setDisciplinaTerca($dados['disciplinaTER']);
                                         $gradeGerada->setDisciplinaQuarta($dados['disciplinaQUA']);
@@ -86,36 +82,33 @@
                                         $gradeGerada->setDisciplinaSexta($dados['disciplinaSEX']);
                                         $gradeGerada->setDisciplinaSabado($dados['disciplinaSAB']);
                                         $gradeGerada->setDisciplinaEad($dados['disciplinaEAD']);
-
+                                        $gradeGerada->setSalaSegunda($dados['salaSEG']);
+                                        $gradeGerada->setSalaTerca($dados['salaTER']);
+                                        $gradeGerada->setSalaQuarta($dados['salaQUA']);
+                                        $gradeGerada->setSalaQuinta($dados['salaQUI']);
+                                        $gradeGerada->setSalaSexta($dados['salaSEX']);
+                                        $gradeGerada->setSalaSabado($dados['salaSAB']);
+                                        $gradeGerada->setSalaEad($dados['salaEAD']);
                                         echo '
                                         <tbody>
                                             <tr>
                                                 <td>'.$grade->getTurmas().'</td>
                                                 <td>'.$grade->getQuantidadeAlunos().'</td>
-                                                <td>'.$gradeGerada->getDisciplinaSegunda().'</td>
-                                                <td>'.$gradeGerada->getDisciplinaTerca().'</td>
-                                                <td>'.$gradeGerada->getDisciplinaQuarta().'</td>
-                                                <td>'.$gradeGerada->getDisciplinaQuinta().'</td>
-                                                <td>'.$gradeGerada->getDisciplinaSexta().'</td>
-                                                <td>'.$gradeGerada->getDisciplinaSabado().'</td>
-                                                <td>'.$gradeGerada->getDisciplinaEad().'</td>';
-                                                /*<td><a href="javascript:void(null);" onclick="msgConfirmaDeleteCurso('.$curso->getIdCurso().')"><img src="../lib/open-iconic/svg/x.svg" alt="remover"></a></td>
-                                                <td><a href="view_admin.php?pagina=view_form_curso_update.php&idCurso='.$curso->getIdCurso().'"><img src="../lib/open-iconic/svg/brush.svg" alt="editar"></a></td>*/
-
+                                                <td>'.$gradeGerada->getDisciplinaSegunda().'<hr>Sala: '.$gradeGerada->getSalaSegunda().'<hr>Professor: '.$professor.'</td>
+                                                <td>'.$gradeGerada->getDisciplinaTerca().'<hr>Sala: '.$gradeGerada->getSalaTerca().'<hr>Professor: '.$professor.'</td>
+                                                <td>'.$gradeGerada->getDisciplinaQuarta().'<hr>Sala: '.$gradeGerada->getSalaQuarta().'<hr>Professor: '.$professor.'</td>
+                                                <td>'.$gradeGerada->getDisciplinaQuinta().'<hr>Sala: '.$gradeGerada->getSalaQuinta().'<hr>Professor: '.$professor.'</td>
+                                                <td>'.$gradeGerada->getDisciplinaSexta().'<hr>Sala: '.$gradeGerada->getSalaSexta().'<hr>Professor: '.$professor.'</td>
+                                                <td>'.$gradeGerada->getDisciplinaSabado().'<hr>Sala: '.$gradeGerada->getSalaSabado().'<hr>Professor: '.$professor.'</td>
+                                                <td>'.$gradeGerada->getDisciplinaEad().'<hr>Sala: '.$gradeGerada->getSalaEad().'<hr>Professor: '.$professor.'</td>';
                                                 echo '
                                             </tr>
                                         </tbody>';
                                     }
                                 }
                             ?>
-
                         </table>
                         <a href="view_admin.php?pagina=view_grades_listagem.php"><button onclick="javascript:iniciaRequisitaAjax('GET','view_blank.html','true');" type="button" class="btn btn-secondary">Voltar</button></a>
-                        <!--<a href="view_admin.php?pagina=view_form_curso_cadastro.php"><button type="button" class="btn btn-primary"><span data-feather="plus-circle"></span>&nbsp;Novo</button></a>
-                        <button export-to-excel="listaCursos" class="btn btn-success">
-                            <span data-feather="download"></span>&nbsp;Excel
-                        </button>
-                        <button id="btnSearch" onclick="alterarDisabledSearch()" class="btn btn-outline-dark"><span data-feather="search"></span>&nbsp;Busca</button>-->
                     </div>
                 </div>
             </div>

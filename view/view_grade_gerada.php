@@ -24,9 +24,16 @@
             session_destroy();
             header('Location: ../controller/controller_sair.php');
         }
+
         $grade->setIdGlobals($_GET['idGrade']);
         $id = $grade->getIdGlobals();
         $selectGrade = $gradeDao->buscarPorId($conn, $id);
+
+        $selectProfessor = $gradeGeradaDao->listarProfessor($conn);
+        $linhaProfessor = $selectProfessor->fetchAll(PDO::FETCH_ASSOC);
+        foreach ($linhaProfessor as $dados) {
+            $professor = $dados['professor_idprofessor'];
+        }
     ?>
 
     <div class="row">
@@ -72,7 +79,8 @@
                                     echo "
                                     <script type=\"text/javascript\">
                                         alert(\"Grade gerada com sucesso!\");
-                                    </script>"; /*echo "
+                                    </script>";
+                                    /*echo "
                                     <META HTTP-EQUIV=REFRESH CONTENT = '0;URL=
                                     http://localhost/SG2S/view/view_admin.php?pagina=view_grade_gerada.php'";*/
                                     //header('Location: ../view/view_admin.php?pagina=view_grade_gerada.php');
@@ -108,16 +116,13 @@
                                                 <div style="text-align: center;"><h6><strong>Período: '.$grade->getPeriodo().' - '.$grade->getHorario().'</strong></h6></div><br/>
                                                 <td>'.$grade->getTurmas().'</td>
                                                 <td>'.$grade->getQuantidadeAlunos().'</td>
-                                                <td>'.$gradeGerada->getDisciplinaSegunda().'<hr>Sala: '.$gradeGerada->getSalaSegunda().'<hr>Professor</td>
-                                                <td>'.$gradeGerada->getDisciplinaTerca().'<hr>Sala: '.$gradeGerada->getSalaTerca().'<hr>Professor</td>
-                                                <td>'.$gradeGerada->getDisciplinaQuarta().'<hr>Sala: '.$gradeGerada->getSalaQuarta().'<hr>Professor</td>
-                                                <td>'.$gradeGerada->getDisciplinaQuinta().'<hr>Sala: '.$gradeGerada->getSalaQuinta().'<hr>Professor</td>
-                                                <td>'.$gradeGerada->getDisciplinaSexta().'<hr>Sala: '.$gradeGerada->getSalaSexta().'<hr>Professor</td>
-                                                <td>'.$gradeGerada->getDisciplinaSabado().'<hr>Sala: '.$gradeGerada->getSalaSabado().'<hr>Professor</td>
-                                                <td>'.$gradeGerada->getDisciplinaEad().'<hr>Sala: '.$gradeGerada->getSalaEad().'<hr>Professor</td>';
-                                                /*<td><a href="javascript:void(null);" onclick="msgConfirmaDeleteCurso('.$curso->getIdCurso().')"><img src="../lib/open-iconic/svg/x.svg" alt="remover"></a></td>
-                                                <td><a href="view_admin.php?pagina=view_form_curso_update.php&idCurso='.$curso->getIdCurso().'"><img src="../lib/open-iconic/svg/brush.svg" alt="editar"></a></td>*/
-
+                                                <td>'.$gradeGerada->getDisciplinaSegunda().'<hr>Sala: '.$gradeGerada->getSalaSegunda().'<hr>Professor: '.$professor.'</td>
+                                                <td>'.$gradeGerada->getDisciplinaTerca().'<hr>Sala: '.$gradeGerada->getSalaTerca().'<hr>Professor: '.$professor.'</td>
+                                                <td>'.$gradeGerada->getDisciplinaQuarta().'<hr>Sala: '.$gradeGerada->getSalaQuarta().'<hr>Professor: '.$professor.'</td>
+                                                <td>'.$gradeGerada->getDisciplinaQuinta().'<hr>Sala: '.$gradeGerada->getSalaQuinta().'<hr>Professor: '.$professor.'</td>
+                                                <td>'.$gradeGerada->getDisciplinaSexta().'<hr>Sala: '.$gradeGerada->getSalaSexta().'<hr>Professor: '.$professor.'</td>
+                                                <td>'.$gradeGerada->getDisciplinaSabado().'<hr>Sala: '.$gradeGerada->getSalaSabado().'<hr>Professor: '.$professor.'</td>
+                                                <td>'.$gradeGerada->getDisciplinaEad().'<hr>Sala: '.$gradeGerada->getSalaEad().'<hr>Professor: '.$professor.'</td>';
                                                 echo '
                                             </tr>
                                         </tbody>';
@@ -128,11 +133,6 @@
                         </table>
                         <a href="view_admin.php?pagina=view_grades_geradas.php"><button class="btn btn-secondary"><span data-feather="list"></span>&nbsp;Listar Todas</button></a>
                         <a href="view_admin.php?pagina=view_grades_listagem.php"><button type="button" class="btn btn-dark">Voltar</button></a>
-                        <!--<a href="view_admin.php?pagina=view_form_curso_cadastro.php"><button type="button" class="btn btn-primary"><span data-feather="plus-circle"></span>&nbsp;Novo</button></a>
-                        <button export-to-excel="listaCursos" class="btn btn-success">
-                            <span data-feather="download"></span>&nbsp;Excel
-                        </button>
-                        <button id="btnSearch" onclick="alterarDisabledSearch()" class="btn btn-outline-dark"><span data-feather="search"></span>&nbsp;Busca</button>-->
                     </div>
                 </div>
             </div>

@@ -53,7 +53,9 @@
 
 			<div class="form-group">
 				<input type="date" class="form-control" id="dataPortaria" name="dataPortaria" placeholder="*Data Portaria: dd/mm/YYYY" required="required">
+				<small>*Data da Portaria: dd/mm/YYYY</small>
 			</div>
+
 			<button type="submit" style="margin-bottom: 5px;" class="botao3d botao3d:hover"><span data-feather="database"></span>&nbsp;Cadastrar</button>
 			<a href="view_admin.php?pagina=view_cursos_listagem.php"><button type="button" class="botao3d botao3d:hover"><span data-feather="arrow-left"></span>&nbsp;Voltar</button></a>
 		</form>
