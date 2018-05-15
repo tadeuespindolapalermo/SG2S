@@ -117,7 +117,6 @@
                                 echo '</ul>';
                             echo '</div>';
                         ?>
-                        <br/>
                         <a href="view_admin.php?pagina=view_form_professor_cadastro.php"><button type="button" class="btn btn-primary"><span data-feather="plus-circle"></span>&nbsp;Novo</button></a>
                         <button export-to-excel="listaProfessores" class="btn btn-success">
                             <span data-feather="download"></span>&nbsp;Excel

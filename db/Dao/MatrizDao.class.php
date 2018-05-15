@@ -149,4 +149,28 @@ class MatrizDao implements Dao {
         return $selectMatriz;
     }
 
+    // -----------------------------------------------------------------------------------
+    // Métodos da Paginação
+    /*
+     * Método para listar todas as matrizes do sistema (view) ordenado por id de forma ascendente (PAGINAÇÃO)
+     **/
+    public function listarLimite($conn, $inicio, $limite) {
+        // Seleciona os registros do banco de dados pelo inicio e limitando pelo limite da variável limite
+        $strSqlMatriz = "SELECT * FROM matriz_curricular INNER JOIN curso ON matriz_curricular.curso_idcurso = curso.idcurso ORDER BY idmatriz_curricular ASC LIMIT ".$inicio. ", ". $limite;
+        $selectMatriz = $conn->prepare($strSqlMatriz);
+        $selectMatriz->execute();
+        return $selectMatriz;
+    }
+
+    /*
+     * Seleciona o id de todos os registros de matriz (PAGINAÇÃO)
+     **/
+    public function listarId($conn) {
+        $strSqlMatriz = "SELECT idmatriz_curricular FROM matriz_curricular";
+        $selectMatriz = $conn->prepare($strSqlMatriz);
+        $selectMatriz->execute();
+        return $selectMatriz;
+    }
+    // -----------------------------------------------------------------------------------
+
 }

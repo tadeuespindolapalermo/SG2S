@@ -243,6 +243,8 @@ class ProfessorDao implements Dao {
         return $selectProfessor;
     }
 
+    // -----------------------------------------------------------------------------------
+    // Métodos da Paginação
     /*
      * Método para listar todos os professores do sistema (view) ordenado por id de forma ascendente (PAGINAÇÃO)
      **/
@@ -263,6 +265,7 @@ class ProfessorDao implements Dao {
         $selectProfessor->execute();
         return $selectProfessor;
     }
+    // -----------------------------------------------------------------------------------
 
     /*
      * Método para listar todos os professores excluídos do sistema (view)

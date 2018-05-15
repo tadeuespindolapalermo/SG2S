@@ -23,6 +23,28 @@
         }
 
         $selectMatriz = $matrizDao->listar($conn);
+
+        // Paginação
+        // Limita o número de registros a serem mostrados por página
+        $limite = 5;
+
+        // Se pg não existe atribui 1 a variável pg
+        $pg = (isset($_GET['pg'])) ? (int)$_GET['pg'] : 1;
+
+        // Atribui a variável inicio o inicio de onde os registros vão ser
+        // Mostrados por página, exemplo 0 à 10, 11 à 20 e assim por diante
+        $inicio = ($pg * $limite) - $limite;
+
+        $selectMatrizLimite = $matrizDao->listarLimite($conn, $inicio, $limite);
+
+        $selectMatrizId = $matrizDao->listarId($conn);
+        $resultado = $selectMatrizId->fetchAll(PDO::FETCH_ASSOC);
+
+        // Conta quantos registros tem no banco de dados
+        $contadorId =  $selectMatrizId->rowCount(PDO::FETCH_ASSOC);
+
+        // Calcula o total de páginas a serem exibidas
+        $qtdPag = ceil($contadorId/$limite);
     ?>
 
     <div class="row">
@@ -43,8 +65,8 @@
                                 </tr>
                             </thead>
                             <?php
-                                while ($linhaMatriz = $selectMatriz->fetchAll(PDO::FETCH_ASSOC)) {
-                                    foreach ($linhaMatriz as $dados) {
+                                while ($linhaMatrizLimite = $selectMatrizLimite->fetchAll(PDO::FETCH_ASSOC)) {
+                                    foreach ($linhaMatrizLimite as $dados) {
                                         $matriz->setIdMatrizCurricular($dados['idmatriz_curricular']);
                                         $matriz->setCursoIdCurso($dados['curso_idcurso']);
                                         $matriz->setCursoNome($dados['nome']);
@@ -67,6 +89,32 @@
                                 }
                             ?>
                         </table>
+                        <?php
+                            // Navegação da tabela pela paginação
+                            echo '<div style="margin: cent;">';
+                                echo '<ul class="pagination justify-content-center">';
+                                    if ($pg <= 1) {
+                                        echo '<li class="page-item disabled"><a class="page-link" href="view_admin.php?pagina=view_matrizes_listagem.php&pg=1">Início</a></li>&nbsp';
+                                    } else {
+                                        echo '<li class="page-item"><a class="page-link" href="view_admin.php?pagina=view_matrizes_listagem.php&pg=1">Início</a></li>&nbsp';
+                                    }
+                                    if($qtdPag > 1 && $pg <= $qtdPag) {
+                                        for($i = 1; $i <= $qtdPag; $i++) {
+                                            if ($i == $pg) {
+                                                echo "<li class='page-item'><a class='page-link'>".$i."</a></li>&nbsp";
+                                            } else {
+                                                echo "<li class='page-item'><a class='page-link' href='view_admin.php?pagina=view_matrizes_listagem.php&pg=$i'>".$i."</a></li>&nbsp";
+                                            }
+                                        }
+                                    }
+                                    if($pg == $qtdPag) {
+                                        echo "<li class='page-item disabled'><a class='page-link' href='view_admin.php?pagina=view_matrizes_listagem.php&pg=$qtdPag'>Final</a></li>&nbsp";
+                                    } else {
+                                        echo "<li class='page-item'><a class='page-link' href='view_admin.php?pagina=view_matrizes_listagem.php&pg=$qtdPag'>Final</a></li>&nbsp";
+                                    }
+                                echo '</ul>';
+                            echo '</div>';
+                        ?>
                         <a href="view_admin.php?pagina=view_form_matriz_cadastro.php"><button type="button" class="btn btn-primary"><span data-feather="plus-circle"></span>&nbsp;Novo</button></a>
                         <button export-to-excel="listaMatrizes" class="btn btn-success">
                             <span data-feather="download"></span>&nbsp;Excel
