@@ -110,7 +110,7 @@
                                             }
                                         }
                                     }
-                                    if($pg == $qtdPag) {
+                                    if($pg == $qtdPag || $qtdPag == 0) {
                                         echo "<li class='page-item disabled'><a class='page-link' href='view_admin.php?pagina=view_cursos_listagem.php&pg=$qtdPag'>Final</a></li>&nbsp";
                                     } else {
                                         echo "<li class='page-item'><a class='page-link' href='view_admin.php?pagina=view_cursos_listagem.php&pg=$qtdPag'>Final</a></li>&nbsp";

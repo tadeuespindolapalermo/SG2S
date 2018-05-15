@@ -23,6 +23,28 @@
         }
 
         $selectProfessor = $professorDao->listarExcluidos($conn);
+
+        // Paginação
+        // Limita o número de registros a serem mostrados por página
+        $limite = 5;
+
+        // Se pg não existe atribui 1 a variável pg
+        $pg = (isset($_GET['pg'])) ? (int)$_GET['pg'] : 1;
+
+        // Atribui a variável inicio o inicio de onde os registros vão ser
+        // Mostrados por página, exemplo 0 à 10, 11 à 20 e assim por diante
+        $inicio = ($pg * $limite) - $limite;
+
+        $selectProfessorLimiteLixeira = $professorDao->listarLimiteLixeira($conn, $inicio, $limite);
+
+        $selectProfessorIdLixeira = $professorDao->listarIdLixeira($conn);
+        $resultado = $selectProfessorIdLixeira->fetchAll(PDO::FETCH_ASSOC);
+
+        // Conta quantos registros tem no banco de dados
+        $contadorId =  $selectProfessorIdLixeira->rowCount(PDO::FETCH_ASSOC);
+
+        // Calcula o total de páginas a serem exibidas
+        $qtdPag = ceil($contadorId/$limite);
     ?>
 
     <div class="row">
@@ -44,8 +66,8 @@
                                 </tr>
                             </thead>
                             <?php
-                                while ($linhaProfessor = $selectProfessor->fetchAll(PDO::FETCH_ASSOC)) {
-                                    foreach ($linhaProfessor as $dados) {
+                                while ($linhaProfessorLimiteLixeira = $selectProfessorLimiteLixeira->fetchAll(PDO::FETCH_ASSOC)) {
+                                    foreach ($linhaProfessorLimiteLixeira as $dados) {
                                         $professor->setIdProfessor($dados['idprofessor']);
                                         $professor->setNome($dados['nome']);
                                         $professor->setCPF($dados['CPF']);
@@ -69,6 +91,34 @@
                                 }
                             ?>
                         </table>
+                        <?php
+                            // Navegação da tabela pela paginação
+                            echo '<div style="text-align: center;">';
+                                echo '<ul class="pagination justify-content-center">';
+                                    if ($pg <= 1) {
+                                        echo '<li class="page-item disabled"><a class="page-link" href="view_admin.php?pagina=view_professores_lixeira_listagem.php&pg=1">Início</a></li>&nbsp';
+                                    } else {
+                                        echo '<li class="page-item"><a class="page-link" href="view_admin.php?pagina=view_professores_lixeira_listagem.php&pg=1">Início</a></li>&nbsp';
+                                    }
+                                    if($qtdPag > 1 && $pg <= $qtdPag) {
+                                        for($i = 1; $i <= $qtdPag; $i++) {
+                                            if ($i == $pg) {
+                                                echo "<li class='page-item'><a class='page-link'><strong>".$i."</strong></a></li>&nbsp";
+                                            } else {
+                                                echo "<li class='page-item'><a class='page-link' href='view_admin.php?pagina=view_professores_lixeira_listagem.php&pg=$i'>".$i."</a></li>&nbsp";
+                                            }
+                                        }
+                                    }
+                                    if($pg == $qtdPag || $qtdPag == 0) {
+                                        echo "<li class='page-item disabled'><a class='page-link' href='view_admin.php?pagina=view_professores_lixeira_listagem.php&pg=$qtdPag'>Final</a></li>&nbsp";
+                                    } else {
+                                        echo "<li class='page-item'><a class='page-link' href='view_admin.php?pagina=view_professores_lixeira_listagem.php&pg=$qtdPag'>Final</a></li>&nbsp";
+                                    }
+                                echo '</ul>';
+                                echo '<small>Listando até 5 registros por página.</small>';
+                            echo '</div>';
+                        ?>
+                        <br/>
                         <button export-to-excel="listaProfessoresExcluidos" class="btn btn-success">
                             <span data-feather="download"></span>&nbsp;Excel
                         </button>

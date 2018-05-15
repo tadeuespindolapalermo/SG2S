@@ -243,32 +243,8 @@ class ProfessorDao implements Dao {
         return $selectProfessor;
     }
 
-    // -----------------------------------------------------------------------------------
-    // Métodos da Paginação
     /*
-     * Método para listar todos os professores do sistema (view) ordenado por id de forma ascendente (PAGINAÇÃO)
-     **/
-    public function listarLimite($conn, $inicio, $limite) {
-        // Seleciona os registros do banco de dados pelo inicio e limitando pelo limite da variável limite
-        $strSqlProfessor = "SELECT * FROM professor WHERE exclusao != 0 ORDER BY idprofessor ASC LIMIT ".$inicio. ", ". $limite;
-        $selectProfessor = $conn->prepare($strSqlProfessor);
-        $selectProfessor->execute();
-        return $selectProfessor;
-    }
-
-    /*
-     * Seleciona o id de todos os registros de professor (PAGINAÇÃO)
-     **/
-    public function listarId($conn) {
-        $strSqlProfessor = "SELECT idprofessor FROM professor";
-        $selectProfessor = $conn->prepare($strSqlProfessor);
-        $selectProfessor->execute();
-        return $selectProfessor;
-    }
-    // -----------------------------------------------------------------------------------
-
-    /*
-     * Método para listar todos os professores excluídos do sistema (view)
+     * Método para listar todos os professores excluídos do sistema (view) - LIXEIRA
      **/
     public function listarExcluidos($conn) {
         $strSqlProfessor = "SELECT * FROM professor WHERE exclusao != 1";
@@ -287,5 +263,50 @@ class ProfessorDao implements Dao {
         $selectProfessor->execute();
         return $selectProfessor;
     }
+
+    // -----------------------------------------------------------------------------------
+    // Métodos da Paginação
+    /*
+     * Método para listar todos os professores do sistema (view) ordenado por id de forma ascendente (PAGINAÇÃO)
+     **/
+    public function listarLimite($conn, $inicio, $limite) {
+        // Seleciona os registros do banco de dados pelo inicio e limitando pelo limite da variável limite
+        $strSqlProfessor = "SELECT * FROM professor WHERE exclusao != 0 ORDER BY idprofessor ASC LIMIT ".$inicio. ", ". $limite;
+        $selectProfessor = $conn->prepare($strSqlProfessor);
+        $selectProfessor->execute();
+        return $selectProfessor;
+    }
+
+    /*
+     * Método para listar todos os professores excluídos do sistema (view) ordenado por id de forma ascendente (PAGINAÇÃO) - LIXEIRA
+     **/
+    public function listarLimiteLixeira($conn, $inicio, $limite) {
+        // Seleciona os registros do banco de dados pelo inicio e limitando pelo limite da variável limite
+        $strSqlProfessor = "SELECT * FROM professor WHERE exclusao != 1 ORDER BY idprofessor ASC LIMIT ".$inicio. ", ". $limite;
+        $selectProfessor = $conn->prepare($strSqlProfessor);
+        $selectProfessor->execute();
+        return $selectProfessor;
+    }
+
+    /*
+     * Seleciona o id de todos os registros de professor (PAGINAÇÃO)
+     **/
+    public function listarId($conn) {
+        $strSqlProfessor = "SELECT idprofessor FROM professor WHERE exclusao != 0";
+        $selectProfessor = $conn->prepare($strSqlProfessor);
+        $selectProfessor->execute();
+        return $selectProfessor;
+    }
+
+    /*
+     * Seleciona o id de todos os registros de professor excluído/enviado para lixeira (PAGINAÇÃO) - LIXEIRA
+     **/
+    public function listarIdLixeira($conn) {
+        $strSqlProfessor = "SELECT idprofessor FROM professor WHERE exclusao != 1";
+        $selectProfessor = $conn->prepare($strSqlProfessor);
+        $selectProfessor->execute();
+        return $selectProfessor;
+    }
+    // -----------------------------------------------------------------------------------
 
 }
