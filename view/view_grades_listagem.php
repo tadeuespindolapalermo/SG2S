@@ -24,6 +24,28 @@
         }
 
         $selectGrade = $gradeDao->listar($conn);
+
+        // Paginação
+        // Limita o número de registros a serem mostrados por página
+        $limite = 5;
+
+        // Se pg não existe atribui 1 a variável pg
+        $pg = (isset($_GET['pg'])) ? (int)$_GET['pg'] : 1;
+
+        // Atribui a variável inicio o inicio de onde os registros vão ser
+        // Mostrados por página, exemplo 0 à 10, 11 à 20 e assim por diante
+        $inicio = ($pg * $limite) - $limite;
+
+        $selectGradeLimite = $gradeDao->listarLimite($conn, $inicio, $limite);
+
+        $selectGradeId = $gradeDao->listarId($conn);
+        $resultado = $selectGradeId->fetchAll(PDO::FETCH_ASSOC);
+
+        // Conta quantos registros tem no banco de dados
+        $contadorId =  $selectGradeId->rowCount(PDO::FETCH_ASSOC);
+
+        // Calcula o total de páginas a serem exibidas
+        $qtdPag = ceil($contadorId/$limite);
     ?>
 
     <div class="row">
@@ -48,8 +70,8 @@
                                 </tr>
                             </thead>
                             <?php
-                                while ($linhaGrade = $selectGrade->fetchAll(PDO::FETCH_ASSOC)) {
-                                    foreach ($linhaGrade as $dados) {
+                                while ($linhaGradeLimite = $selectGradeLimite->fetchAll(PDO::FETCH_ASSOC)) {
+                                    foreach ($linhaGradeLimite as $dados) {
                                         $grade->setIdGradeSemestral($dados['idgrade_semestral']);
                                         $GLOBALS['idGrade'] = $grade->getIdGradeSemestral();
                                         $grade->setAnoLetivo($dados['ano_letivo']);
@@ -81,6 +103,34 @@
                                 }
                             ?>
                         </table>
+                        <?php
+                            // Navegação da tabela pela paginação
+                            echo '<div style="text-align: center;">';
+                                echo '<ul class="pagination justify-content-center">';
+                                    if ($pg <= 1) {
+                                        echo '<li class="page-item disabled"><a class="page-link" href="view_admin.php?pagina=view_grades_listagem.php&pg=1">Início</a></li>&nbsp';
+                                    } else {
+                                        echo '<li class="page-item"><a class="page-link" href="view_admin.php?pagina=view_grades_listagem.php&pg=1">Início</a></li>&nbsp';
+                                    }
+                                    if($qtdPag > 1 && $pg <= $qtdPag) {
+                                        for($i = 1; $i <= $qtdPag; $i++) {
+                                            if ($i == $pg) {
+                                                echo "<li class='page-item'><a class='page-link'><strong>".$i."</strong></a></li>&nbsp";
+                                            } else {
+                                                echo "<li class='page-item'><a class='page-link' href='view_admin.php?pagina=view_grades_listagem.php&pg=$i'>".$i."</a></li>&nbsp";
+                                            }
+                                        }
+                                    }
+                                    if($pg == $qtdPag) {
+                                        echo "<li class='page-item disabled'><a class='page-link' href='view_admin.php?pagina=view_grades_listagem.php&pg=$qtdPag'>Final</a></li>&nbsp";
+                                    } else {
+                                        echo "<li class='page-item'><a class='page-link' href='view_admin.php?pagina=view_grades_listagem.php&pg=$qtdPag'>Final</a></li>&nbsp";
+                                    }
+                                echo '</ul>';
+                                echo '<small>Listando até 5 registros por página.</small>';
+                            echo '</div>';
+                        ?>
+                        <br/>
                         <a href="view_admin.php?pagina=view_form_grade_cadastro.php"><button type="button" class="btn btn-info"><span data-feather="plus-circle"></span>&nbsp;Novo</button></a>
                         <button export-to-excel="listaGrades" class="btn btn-success">
                             <span data-feather="download"></span>&nbsp;Excel

@@ -155,4 +155,28 @@ class GradeDao implements Dao {
         return $selectGrade;
     }
 
+    // -----------------------------------------------------------------------------------
+    // Métodos da Paginação
+    /*
+     * Método para listar todos as grades do sistema (view) ordenado por id de forma ascendente (PAGINAÇÃO)
+     **/
+    public function listarLimite($conn, $inicio, $limite) {
+        // Seleciona os registros do banco de dados pelo inicio e limitando pelo limite da variável limite        
+        $strSqlGrade = "SELECT * FROM grade_semestral INNER JOIN curso ON grade_semestral.curso_idcurso = curso.idcurso ORDER BY idgrade_semestral ASC LIMIT ".$inicio. ", ". $limite;
+        $selectGrade = $conn->prepare($strSqlGrade);
+        $selectGrade->execute();
+        return $selectGrade;
+    }
+
+    /*
+     * Seleciona o id de todos os registros de grade (PAGINAÇÃO)
+     **/
+    public function listarId($conn) {
+        $strSqlGrade = "SELECT idgrade_semestral FROM grade_semestral";
+        $selectGrade = $conn->prepare($strSqlGrade);
+        $selectGrade->execute();
+        return $selectGrade;
+    }
+    // -----------------------------------------------------------------------------------
+
 }
