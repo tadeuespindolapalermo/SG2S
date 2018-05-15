@@ -293,4 +293,28 @@ class UsuarioDao implements Dao {
         return $selectPerfilId;
     }
 
+    // -----------------------------------------------------------------------------------
+    // Métodos da Paginação
+    /*
+     * Método para listar todos os usuários do sistema (view) ordenado por id de forma ascendente (PAGINAÇÃO)
+     **/
+    public function listarLimite($conn, $inicio, $limite) {
+        // Seleciona os registros do banco de dados pelo inicio e limitando pelo limite da variável limite
+        $strSqlUsuario = "SELECT * FROM usuarios INNER JOIN usuario_perfil ON usuarios.idusuarios = usuario_perfil.idusuario_perfil ORDER BY idusuarios ASC LIMIT ".$inicio. ", ". $limite;
+        $selectUsuario = $conn->prepare($strSqlUsuario);
+        $selectUsuario->execute();
+        return $selectUsuario;
+    }
+
+    /*
+     * Seleciona o id de todos os registros de usuário (PAGINAÇÃO)
+     **/
+    public function listarId($conn) {
+        $strSqlUsuario = "SELECT idusuarios FROM usuarios";
+        $selectUsuario = $conn->prepare($strSqlUsuario);
+        $selectUsuario->execute();
+        return $selectUsuario;
+    }
+    // -----------------------------------------------------------------------------------
+
 }

@@ -93,7 +93,7 @@
                         </table>
                         <?php
                             // Navegação da tabela pela paginação
-                            echo '<div style="margin: cent;">';
+                            echo '<div style="text-align: center;">';
                                 echo '<ul class="pagination justify-content-center">';
                                     if ($pg <= 1) {
                                         echo '<li class="page-item disabled"><a class="page-link" href="view_admin.php?pagina=view_professores_listagem.php&pg=1">Início</a></li>&nbsp';
@@ -103,7 +103,7 @@
                                     if($qtdPag > 1 && $pg <= $qtdPag) {
                                         for($i = 1; $i <= $qtdPag; $i++) {
                                             if ($i == $pg) {
-                                                echo "<li class='page-item'><a class='page-link'>".$i."</a></li>&nbsp";
+                                                echo "<li class='page-item'><a class='page-link'><strong>".$i."</strong></a></li>&nbsp";
                                             } else {
                                                 echo "<li class='page-item'><a class='page-link' href='view_admin.php?pagina=view_professores_listagem.php&pg=$i'>".$i."</a></li>&nbsp";
                                             }
@@ -115,8 +115,10 @@
                                         echo "<li class='page-item'><a class='page-link' href='view_admin.php?pagina=view_professores_listagem.php&pg=$qtdPag'>Final</a></li>&nbsp";
                                     }
                                 echo '</ul>';
+                                echo '<small>Listando até 5 registros por página.</small>';
                             echo '</div>';
                         ?>
+                        <br/>
                         <a href="view_admin.php?pagina=view_form_professor_cadastro.php"><button type="button" class="btn btn-primary"><span data-feather="plus-circle"></span>&nbsp;Novo</button></a>
                         <button export-to-excel="listaProfessores" class="btn btn-success">
                             <span data-feather="download"></span>&nbsp;Excel
