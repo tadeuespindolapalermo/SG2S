@@ -22,7 +22,8 @@
             header('Location: ../controller/controller_sair.php');
         }
 
-        $selectProfessor = $professorDao->listarExcluidos($conn);
+        // Para listagem sem paginação
+        //$selectProfessor = $professorDao->listarExcluidos($conn);
 
         // Paginação
         // Limita o número de registros a serem mostrados por página

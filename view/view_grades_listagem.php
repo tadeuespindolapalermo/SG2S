@@ -23,7 +23,8 @@
             header('Location: ../controller/controller_sair.php');
         }
 
-        $selectGrade = $gradeDao->listar($conn);
+        // Para listagem sem paginação
+        //$selectGrade = $gradeDao->listar($conn);
 
         // Paginação
         // Limita o número de registros a serem mostrados por página

@@ -24,7 +24,8 @@
             header('Location: ../controller/controller_sair.php');
         }
 
-        $selectUsuarioJoin = $usuarioDao->listar($conn);
+        // Para listagem sem paginação
+        //$selectUsuarioJoin = $usuarioDao->listar($conn);
 
         // Paginação
         // Limita o número de registros a serem mostrados por página

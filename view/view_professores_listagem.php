@@ -22,7 +22,8 @@
             header('Location: ../controller/controller_sair.php');
         }
 
-        $selectProfessor = $professorDao->listar($conn);
+        // Para listagem sem paginação
+        //$selectProfessor = $professorDao->listar($conn);
 
         // Paginação
         // Limita o número de registros a serem mostrados por página

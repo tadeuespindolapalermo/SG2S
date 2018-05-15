@@ -22,7 +22,8 @@
             header('Location: ../controller/controller_sair.php');
         }
 
-        $selectMatriz = $matrizDao->listar($conn);
+        // Para listagem sem paginação
+        //$selectMatriz = $matrizDao->listar($conn);
 
         // Paginação
         // Limita o número de registros a serem mostrados por página

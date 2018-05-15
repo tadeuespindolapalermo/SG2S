@@ -23,7 +23,8 @@
             header('Location: ../controller/controller_sair.php');
         }
 
-        $selectCurso = $cursoDao->listar($conn);
+        // Para listagem sem paginação
+        //$selectCurso = $cursoDao->listar($conn);
 
         // Paginação
         // Limita o número de registros a serem mostrados por página
