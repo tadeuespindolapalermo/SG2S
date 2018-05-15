@@ -108,6 +108,7 @@ class MatrizDao implements Dao {
             $stmtUpdateMatriz->bindValue(':cargaHoraria', $matriz->getCargaHoraria());
             $stmtUpdateMatriz->bindValue(':credito', $matriz->getCredito());
             $stmtUpdateMatriz->bindValue(':idMatriz', $matriz->getIdMatrizCurricular());
+
             $updateMatriz = $stmtUpdateMatriz->execute();
 
             return $updateMatriz;

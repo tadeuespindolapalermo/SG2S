@@ -49,6 +49,7 @@
                             while ($linhaMatrizCombo = $selectMatrizCombo->fetchAll(PDO::FETCH_ASSOC)) {
                                 foreach ($linhaMatrizCombo as $dados) {
                                     $matriz->setCursoNome($dados['nome']);
+                                    $matriz->setCursoIdCurso($dados['idcurso']);
                                     echo '<option value="'.$matriz->getCursoIdCurso().'">'.$matriz->getCursoNome().'</option>';
                                 }
                             }

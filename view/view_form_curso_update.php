@@ -53,9 +53,8 @@
 
                     <small><strong>*Campos Obrigatórios</strong></small><br/><br/>
 
-
                     <label class="col-lg-12 control-label label-usuario">*Nome</label>
-                    <input type="text" maxlength="60" style="width: 320px; margin-bottom: -5px;" id="nome" name="nome" placeholder="*Nome - Até 60 caracteres." class="form-control" value="'.$curso->getNome().'" autofocus required><br/>                   
+                    <input type="text" maxlength="60" style="width: 320px; margin-bottom: -5px;" id="nome" name="nome" placeholder="*Nome - Até 60 caracteres." class="form-control" value="'.$curso->getNome().'" autofocus required><br/>
 
                     <label class="col-lg-2 control-label label-usuario" >*Portaria</label>
                     <input type="text" maxlength="30" style="width: 320px; margin-bottom: -5px;" id="portaria" name="portaria" placeholder="*Portaria - Até 30 caracteres." class="form-control" value="'.$curso->getPortaria().'" required><br/>
