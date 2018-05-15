@@ -116,7 +116,7 @@ class CursoDao implements Dao {
             return $updateCurso;
             // -----------------------------------------------------------
         } catch (PDOException $e) {
-            PHPErro($e->getCode(), $e->getMessage(), $e->getFile(), $e->getFile());            
+            PHPErro($e->getCode(), $e->getMessage(), $e->getFile(), $e->getFile());
         }
     }
 
@@ -140,5 +140,29 @@ class CursoDao implements Dao {
         $selectCurso->execute();
         return $selectCurso;
     }
+
+    // -----------------------------------------------------------------------------------
+    // Métodos da Paginação
+    /*
+     * Método para listar todos os cursos do sistema (view) ordenado por id de forma ascendente (PAGINAÇÃO)
+     **/
+    public function listarLimite($conn, $inicio, $limite) {
+        // Seleciona os registros do banco de dados pelo inicio e limitando pelo limite da variável limite
+        $strSqlCurso = "SELECT * FROM curso ORDER BY idcurso ASC LIMIT ".$inicio. ", ". $limite;
+        $selectCurso = $conn->prepare($strSqlCurso);
+        $selectCurso->execute();
+        return $selectCurso;
+    }
+
+    /*
+     * Seleciona o id de todos os registros de curso (PAGINAÇÃO)
+     **/
+    public function listarId($conn) {
+        $strSqlCurso = "SELECT idcurso FROM curso";
+        $selectCurso = $conn->prepare($strSqlCurso);
+        $selectCurso->execute();
+        return $selectCurso;
+    }
+    // -----------------------------------------------------------------------------------
 
 }
