@@ -1,3 +1,17 @@
+
+/* TABELA curso - Cursos da Faculdade JK*/
+
+INSERT INTO curso (nome, portaria, duracao, grau, data_portaria)
+VALUES ('Análise e Desenvolvimento de Sistemas', '2554-6', 2.5, 'Tecnólogo', '1992-03-24');
+
+INSERT INTO curso (nome, portaria, duracao, grau, data_portaria)
+VALUES ('Tecnologia em Redes de Computadores', '7715-6', 2.5, 'Tecnólogo', '1998-05-14');
+
+INSERT INTO curso (nome, portaria, duracao, grau, data_portaria)
+VALUES ('Sistemas de Informação', '5597-8	', 4.0, 'Bacharelado', '1998-07-18');
+
+/* --------------------------------------------------------------------------------------------------------- */
+
 /* TABELA matriz_curricular - Disciplinas do Curso de TADS*/
 
 INSERT INTO matriz_curricular (curso_idcurso, nome_matriz, carga_horaria, credito)
@@ -158,6 +172,16 @@ VALUES ('Carlos Fernandez', '028.985.147-94', '2974582', 'kaufernandez@gmail.com
 
 /* ------------------------------------------------------------------------------------------------------- */
 
+/* TABELA PERFIL */
+
+INSERT INTO perfil (idperfil, descricao)
+VALUES (1, 'Administrador');
+
+INSERT INTO perfil (idperfil, descricao)
+VALUES (2, 'Coordenador');
+
+/* ------------------------------------------------------------------------------------------------------- */
+
 /* TABELA usuarios - Usuários do SG2S*/
 
 /* ADMINISTRADOR */
@@ -192,18 +216,6 @@ VALUES (5, 1);
 
 /* --------------------------------------------------------------------------------------------------------- */
 
-/* TABELA curso - Cursos da Faculdade JK*/
-
-INSERT INTO curso (nome, portaria, duracao, grau, data_portaria)
-VALUES ('Análise e Desenvolvimento de Sistemas', '2554-6', 2.5, 'Tecnólogo', '1992-03-24');
-
-INSERT INTO curso (nome, portaria, duracao, grau, data_portaria)
-VALUES ('Tecnologia em Redes de Computadores', '7715-6', 2.5, 'Tecnólogo', '1998-05-14');
-
-INSERT INTO curso (nome, portaria, duracao, grau, data_portaria)
-VALUES ('Sistemas de Informação', '5597-8	', 4.0, 'Bacharelado', '1998-07-18');
-
-/* --------------------------------------------------------------------------------------------------------- */
 
 /* TABELA grade_semestral - Grades cadastradas pelo Coordenador*/
 
