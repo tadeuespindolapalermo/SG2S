@@ -229,3 +229,10 @@ INSERT INTO grade_semestral (ano_letivo, semestre, periodo, horario, sala, quant
 VALUES (2019, 1, 'Vespertino', '13:00 às 18:00', 12, 35, 'SIST3A', 3);
 
 /* --------------------------------------------------------------------------------------------------------- */
+
+/* TABELA disciplina_professor - Disciplinas associadas à um determinado professor*/
+
+INSERT INTO disciplina_professor (iddisciplina_professor, professor_idprofessor, matriz_curricular_idmatriz_curricular, matriz_curricular_curso_idcurso)
+VALUES (1, 8, 26, 1);
+
+/* --------------------------------------------------------------------------------------------------------- */
