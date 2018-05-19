@@ -16,12 +16,12 @@
         $grade = new Grade();
         $gradeDao = new GradeDao();
 
-        if($_SESSION['perfil_idperfil'] == 2) {
+        /*if($_SESSION['perfil_idperfil'] == 2) {
             unset($_SESSION['usuario']);
             unset($_SESSION['email']);
             session_destroy();
             header('Location: ../controller/controller_sair.php');
-        }
+        }*/
 
         // Para listagem sem paginação
         //$selectGrade = $gradeDao->listar($conn);
@@ -84,10 +84,19 @@
                                         $grade->setTurmas($dados['turmas']);
                                         $grade->setCursoIdCurso($dados['curso_idcurso']);
                                         $grade->setCursoNome($dados['nome']);
+
+                                        if ($_SESSION['perfil_idperfil'] == 1) {
+                                            $url = 'view_admin.php';
+                                            $alert = 'msgConfirmaDeleteGradeAdmin('.$grade->getIdGradeSemestral().')';
+                                        } elseif ($_SESSION['perfil_idperfil'] == 2) {
+                                            $url = 'view_coordenador.php';
+                                            $alert = 'msgConfirmaDeleteGradeCoordenador('.$grade->getIdGradeSemestral().')';
+                                        }
+
                                         echo '
                                         <tbody>
                                             <tr>
-                                                <td><a href="view_admin.php?pagina=view_form_grade_gerar.php&idGrade='.$grade->getIdGradeSemestral().'">'.$grade->getIdGradeSemestral().'</a></td>
+                                                <td><a href="';?><?php echo $url;?><?php echo '?pagina=view_form_grade_gerar.php&idGrade='.$grade->getIdGradeSemestral().'">'.$grade->getIdGradeSemestral().'</a></td>
                                                 <td>'.$grade->getAnoLetivo().'</td>
                                                 <td>'.$grade->getSemestre().'</td>
                                                 <td>'.$grade->getPeriodo().'</td>
@@ -96,8 +105,8 @@
                                                 <td>'.$grade->getQuantidadeAlunos().'</td>
                                                 <td>'.$grade->getTurmas().'</td>
                                                 <td>'.$grade->getCursoNome().'</td>
-                                                <td><a href="javascript:void(null);" onclick="msgConfirmaDeleteGrade('.$grade->getIdGradeSemestral().')"><img src="../lib/open-iconic/svg/x.svg" alt="remover"></a></td>
-                                                <td><a href="view_admin.php?pagina=view_form_grade_update.php&idGrade='.$grade->getIdGradeSemestral().'"><img src="../lib/open-iconic/svg/brush.svg" alt="editar"></a></td>
+                                                <td><a href="javascript:void(null);" onclick="'.$alert.'"><img src="../lib/open-iconic/svg/x.svg" alt="remover"></a></td>
+                                                <td><a href="';?><?php echo $url;?><?php echo '?pagina=view_form_grade_update.php&idGrade='.$grade->getIdGradeSemestral().'"><img src="../lib/open-iconic/svg/brush.svg" alt="editar"></a></td>
                                             </tr>
                                         </tbody>';
                                     }
@@ -109,30 +118,30 @@
                             echo '<div style="text-align: center;">';
                                 echo '<ul class="pagination justify-content-center">';
                                     if ($pg <= 1) {
-                                        echo '<li class="page-item disabled"><a class="page-link" href="view_admin.php?pagina=view_grades_listagem.php&pg=1">Início</a></li>&nbsp';
+                                        echo '<li class="page-item disabled"><a class="page-link" href="';?><?php echo $url;?><?php echo '?pagina=view_grades_listagem.php&pg=1">Início</a></li>&nbsp';
                                     } else {
-                                        echo '<li class="page-item"><a class="page-link" href="view_admin.php?pagina=view_grades_listagem.php&pg=1">Início</a></li>&nbsp';
+                                        echo '<li class="page-item"><a class="page-link" href="';?><?php echo $url;?><?php echo '?pagina=view_grades_listagem.php&pg=1">Início</a></li>&nbsp';
                                     }
                                     if($qtdPag > 1 && $pg <= $qtdPag) {
                                         for($i = 1; $i <= $qtdPag; $i++) {
                                             if ($i == $pg) {
                                                 echo "<li class='page-item'><a class='page-link'><strong>".$i."</strong></a></li>&nbsp";
                                             } else {
-                                                echo "<li class='page-item'><a class='page-link' href='view_admin.php?pagina=view_grades_listagem.php&pg=$i'>".$i."</a></li>&nbsp";
+                                                echo '<li class="page-item"><a class="page-link" href="';?><?php echo $url;?><?php echo '?pagina=view_grades_listagem.php&pg='.$i.'">'.$i.'</a></li>&nbsp';
                                             }
                                         }
                                     }
                                     if($pg == $qtdPag || $qtdPag == 0) {
-                                        echo "<li class='page-item disabled'><a class='page-link' href='view_admin.php?pagina=view_grades_listagem.php&pg=$qtdPag'>Final</a></li>&nbsp";
+                                        echo '<li class="page-item disabled"><a class="page-link" href="';?><?php echo $url;?><?php echo '?pagina=view_grades_listagem.php&pg='.$qtdPag.'">Final</a></li>&nbsp';
                                     } else {
-                                        echo "<li class='page-item'><a class='page-link' href='view_admin.php?pagina=view_grades_listagem.php&pg=$qtdPag'>Final</a></li>&nbsp";
+                                        echo '<li class="page-item"><a class="page-link" href="';?><?php echo $url;?><?php echo '?pagina=view_grades_listagem.php&pg='.$qtdPag.'">Final</a></li>&nbsp';
                                     }
                                 echo '</ul>';
                                 echo '<small>Listando até 5 registros por página.</small>';
                             echo '</div>';
                         ?>
                         <br/>
-                        <a href="view_admin.php?pagina=view_form_grade_cadastro.php"><button type="button" class="btn btn-info"><span data-feather="plus-circle"></span>&nbsp;Novo</button></a>
+                        <a href="<?php echo $url;?>?pagina=view_form_grade_cadastro.php"><button type="button" class="btn btn-info"><span data-feather="plus-circle"></span>&nbsp;Novo</button></a>
                         <button export-to-excel="listaGrades" class="btn btn-success">
                             <span data-feather="download"></span>&nbsp;Excel
                         </button>

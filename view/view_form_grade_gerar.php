@@ -17,12 +17,18 @@
 
     $grade->setIdGlobals($GLOBALS['idGrade']);
 
-    if($_SESSION['perfil_idperfil'] == 2) {
+    /*if($_SESSION['perfil_idperfil'] == 2) {
         unset($_SESSION['usuario']);
         unset($_SESSION['email']);
         session_destroy();
         header('Location: ../controller/controller_sair.php');
-    }
+    }*/
+
+    if ($_SESSION['perfil_idperfil'] == 1) {
+		$url = 'view_admin.php';
+	} elseif ($_SESSION['perfil_idperfil'] == 2) {
+		$url = 'view_coordenador.php';
+	}
 
     $selectMatrizSegunda = $matrizDao->listar($conn);
     $selectMatrizTerca = $matrizDao->listar($conn);
@@ -34,7 +40,7 @@
 
     echo '
 
-    <form action="view_admin.php?pagina=view_grade_gerada.php&idGrade='.$grade->getIdGlobals().'" method="post">
+    <form action="';?><?php echo $url;?><?php echo '?pagina=view_grade_gerada.php&idGrade='.$grade->getIdGlobals().'" method="post">
         <h6 style="font-weight: 900">Disciplinas Semanais:</h6><br />
         <div class="form-row">
             <div style="width: 397px;  class="col">
@@ -179,6 +185,6 @@
         </div><br/>
         <div style="margin-left: -5px;">
             <button type="submit" class="btn btn-success">Enviar</button>
-            <a href="view_admin.php?pagina=view_grades_listagem.php" ><button type="button" class="btn btn-secondary">Voltar</button></a>
+            <a href="';?><?php echo $url;?><?php echo '?pagina=view_grades_listagem.php" ><button type="button" class="btn btn-secondary">Voltar</button></a>
         </div>
     </form>'; ?>

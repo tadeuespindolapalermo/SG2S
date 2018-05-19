@@ -10,12 +10,12 @@
     $gradeGerada = new GradeGerada();
     $gradeGeradaDao = new GradeGeradaDao();
 
-    if($_SESSION['perfil_idperfil'] == 2) {
+    /*if($_SESSION['perfil_idperfil'] == 2) {
         unset($_SESSION['usuario']);
         unset($_SESSION['email']);
         session_destroy();
         header('Location: ../controller/controller_sair.php');
-    }
+    }*/
 
     $gradeGerada->setDisciplinaSegunda($_POST['disciplinaSegunda']);
     $gradeGerada->setDisciplinaTerca($_POST['disciplinaTerca']);
@@ -36,16 +36,28 @@
     $cadastroGradeGeradaEfetuado = $gradeGeradaDao->inserir($conn, $gradeGerada);
 
     // VALIDAÇÃO DA INSERÇÃO DA GRADE GERADA
-    if($cadastroGradeGeradaEfetuado) {
+    if($cadastroGradeGeradaEfetuado && $_SESSION['perfil_idperfil'] == 1) {
         echo "
         <script type=\"text/javascript\">
             alert(\"Grade cadastrada com sucesso!!!\");
         </script>";
         header('Location: ../view/view_admin.php?pagina=view_grade_gerada.php');
-    } else {
+    } elseif ($cadastroGradeGeradaEfetuado && $_SESSION['perfil_idperfil'] == 2) {
+        echo "
+        <script type=\"text/javascript\">
+            alert(\"Grade cadastrada com sucesso!!!\");
+        </script>";
+        header('Location: ../view/view_coordenador.php?pagina=view_grade_gerada.php');
+    } elseif (!$cadastroGradeGeradaEfetuado && $_SESSION['perfil_idperfil'] == 1) {
         echo "
         <script type=\"text/javascript\">
             alert(\"Erro ao cadastrar grade!!!\");
         </script>";
         header('Location: ../view/view_admin.php?pagina=view_form_grade_gerar.php');
+    } elseif (!$cadastroGradeGeradaEfetuado && $_SESSION['perfil_idperfil'] == 2) {
+        echo "
+        <script type=\"text/javascript\">
+            alert(\"Erro ao cadastrar grade!!!\");
+        </script>";
+        header('Location: ../view/view_coordenador.php?pagina=view_form_grade_gerar.php');
     }

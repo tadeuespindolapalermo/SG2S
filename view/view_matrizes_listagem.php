@@ -15,12 +15,12 @@
         $matriz = new Matriz();
         $matrizDao = new MatrizDao();
 
-        if($_SESSION['perfil_idperfil'] == 2) {
+        /*if($_SESSION['perfil_idperfil'] == 2) {
             unset($_SESSION['usuario']);
             unset($_SESSION['email']);
             session_destroy();
             header('Location: ../controller/controller_sair.php');
-        }
+        }*/
 
         // Para listagem sem paginação
         //$selectMatriz = $matrizDao->listar($conn);
@@ -74,6 +74,15 @@
                                         $matriz->setNomeMatriz($dados['nome_matriz']);
                                         $matriz->setCargaHoraria($dados['carga_horaria']);
                                         $matriz->setCredito($dados['credito']);
+
+                                        if ($_SESSION['perfil_idperfil'] == 1) {
+                                            $url = 'view_admin.php';
+                                            $alert = 'msgConfirmaDeleteMatrizAdmin('.$matriz->getIdMatrizCurricular().')';
+                                        } elseif ($_SESSION['perfil_idperfil'] == 2) {
+                                            $url = 'view_coordenador.php';
+                                            $alert = 'msgConfirmaDeleteMatrizCoordenador('.$matriz->getIdMatrizCurricular().')';
+                                        }
+                                        
                                         echo '
                                         <tbody>
                                             <tr>
@@ -82,8 +91,8 @@
                                                 <td style="text-align: left;">'.$matriz->getCursoNome().'</td>
                                                 <td>'.$matriz->getCargaHoraria().'</td>
                                                 <td>'.$matriz->getCredito().'</td>
-                                                <td><a href="javascript:void(null);" onclick="msgConfirmaDeleteMatriz('.$matriz->getIdMatrizCurricular().')"><img src="../lib/open-iconic/svg/x.svg" alt="remover"></a></td>
-                                                <td><a href="view_admin.php?pagina=view_form_matriz_update.php&idMatriz='.$matriz->getIdMatrizCurricular().'"><img src="../lib/open-iconic/svg/brush.svg" alt="editar"></a></td>
+                                                <td><a href="javascript:void(null);" onclick="'.$alert.'"><img src="../lib/open-iconic/svg/x.svg" alt="remover"></a></td>
+                                                <td><a href="';?><?php echo $url;?><?php echo '?pagina=view_form_matriz_update.php&idMatriz='.$matriz->getIdMatrizCurricular().'"><img src="../lib/open-iconic/svg/brush.svg" alt="editar"></a></td>
                                             </tr>
                                         </tbody>';
                                     }
@@ -95,30 +104,30 @@
                             echo '<div style="text-align: center;">';
                                 echo '<ul class="pagination justify-content-center">';
                                     if ($pg <= 1) {
-                                        echo '<li class="page-item disabled"><a class="page-link" href="view_admin.php?pagina=view_matrizes_listagem.php&pg=1">Início</a></li>&nbsp';
+                                        echo '<li class="page-item disabled"><a class="page-link" href="';?><?php echo $url;?><?php echo '?pagina=view_matrizes_listagem.php&pg=1">Início</a></li>&nbsp';
                                     } else {
-                                        echo '<li class="page-item"><a class="page-link" href="view_admin.php?pagina=view_matrizes_listagem.php&pg=1">Início</a></li>&nbsp';
+                                        echo '<li class="page-item"><a class="page-link" href="';?><?php echo $url;?><?php echo '?pagina=view_matrizes_listagem.php&pg=1">Início</a></li>&nbsp';
                                     }
                                     if($qtdPag > 1 && $pg <= $qtdPag) {
                                         for($i = 1; $i <= $qtdPag; $i++) {
                                             if ($i == $pg) {
                                                 echo "<li class='page-item'><a class='page-link'><strong>".$i."</strong></a></li>&nbsp";
                                             } else {
-                                                echo "<li class='page-item'><a class='page-link' href='view_admin.php?pagina=view_matrizes_listagem.php&pg=$i'>".$i."</a></li>&nbsp";
+                                                echo '<li class="page-item"><a class="page-link" href="';?><?php echo $url;?><?php echo '?pagina=view_matrizes_listagem.php&pg='.$i.'">'.$i.'</a></li>&nbsp';
                                             }
                                         }
                                     }
                                     if($pg == $qtdPag || $qtdPag == 0) {
-                                        echo "<li class='page-item disabled'><a class='page-link' href='view_admin.php?pagina=view_matrizes_listagem.php&pg=$qtdPag'>Final</a></li>&nbsp";
+                                        echo '<li class="page-item disabled"><a class="page-link" href="';?><?php echo $url;?><?php echo '?pagina=view_matrizes_listagem.php&pg='.$qtdPag.'">Final</a></li>&nbsp';
                                     } else {
-                                        echo "<li class='page-item'><a class='page-link' href='view_admin.php?pagina=view_matrizes_listagem.php&pg=$qtdPag'>Final</a></li>&nbsp";
+                                        echo '<li class="page-item"><a class="page-link" href="';?><?php echo $url;?><?php echo '?pagina=view_matrizes_listagem.php&pg='.$qtdPag.'">Final</a></li>&nbsp';
                                     }
                                 echo '</ul>';
                                 echo '<small>Listando até 5 registros por página.</small>';
                             echo '</div>';
                         ?>
                         <br/>
-                        <a href="view_admin.php?pagina=view_form_matriz_cadastro.php"><button type="button" class="btn btn-primary"><span data-feather="plus-circle"></span>&nbsp;Novo</button></a>
+                        <a href="<?php echo $url;?>?pagina=view_form_matriz_cadastro.php"><button type="button" class="btn btn-primary"><span data-feather="plus-circle"></span>&nbsp;Novo</button></a>
                         <button export-to-excel="listaMatrizes" class="btn btn-success">
                             <span data-feather="download"></span>&nbsp;Excel
                         </button>

@@ -10,12 +10,12 @@
     $grade = new Grade();
     $gradeDao = new GradeDao();
 
-    if($_SESSION['perfil_idperfil'] == 2) {
+    /*if($_SESSION['perfil_idperfil'] == 2) {
         unset($_SESSION['usuario']);
         unset($_SESSION['email']);
         session_destroy();
         header('Location: ../controller/controller_sair.php');
-    }
+    }*/
 
     $grade->setAnoLetivo($_POST['anoLetivo']);
     $grade->setSemestre($_POST['semestre']);
@@ -38,7 +38,7 @@
     $cadastroGradeEfetuado = $gradeDao->inserir($conn, $grade);
 
     // VALIDAÇÃO DA INSERÇÃO DA GRADE
-    if ($cadastroGradeEfetuado) {
+    if ($cadastroGradeEfetuado && $_SESSION['perfil_idperfil'] == 1) {
         echo '
         <center>
             <div class="alert alert-success" style="width: 455px;">
@@ -47,9 +47,20 @@
         </center>';
         echo "
         <META HTTP-EQUIV=REFRESH CONTENT = '0;URL=
-        http://localhost/SG2S/view/view_admin.php?pagina=view_ponte_grade.php'";
+        http://localhost/SG2S/view/view_admin.php?pagina=view_ponte_admin_grade.php'";
         //header('Location: ../view/view_admin.php?pagina=view_grades_listagem.php');
-    } else {
+    } elseif ($cadastroGradeEfetuado && $_SESSION['perfil_idperfil'] == 2) {
+        echo '
+        <center>
+            <div class="alert alert-success" style="width: 455px;">
+                <strong>PARABÉNS!</strong> Cadastro realizado com sucesso!
+            </div>
+        </center>';
+        echo "
+        <META HTTP-EQUIV=REFRESH CONTENT = '0;URL=
+        http://localhost/SG2S/view/view_coordenador.php?pagina=view_ponte_coordenador_grade.php'";
+        //header('Location: ../view/view_coordenador.php?pagina=view_grades_listagem.php');
+    } elseif (!$cadastroGradeEfetuado && $_SESSION['perfil_idperfil'] == 1) {
         echo "
         <script type=\"text/javascript\">
             alert(\"Erro ao cadastrar grade!\");
@@ -57,4 +68,12 @@
         <META HTTP-EQUIV=REFRESH CONTENT = '0;URL=
         http://localhost/SG2S/view/view_admin.php?pagina=view_form_grade_cadastro.php'";
         //header('Location: ../view/view_admin.php?pagina=view_form_grade_cadastro.php');
+    } elseif (!$cadastroGradeEfetuado && $_SESSION['perfil_idperfil'] == 2) {
+        echo "
+        <script type=\"text/javascript\">
+            alert(\"Erro ao cadastrar grade!\");
+        </script>
+        <META HTTP-EQUIV=REFRESH CONTENT = '0;URL=
+        http://localhost/SG2S/view/view_coordenador.php?pagina=view_form_grade_cadastro.php'";
+        //header('Location: ../view/coordenador_admin.php?pagina=view_form_grade_cadastro.php');
     }

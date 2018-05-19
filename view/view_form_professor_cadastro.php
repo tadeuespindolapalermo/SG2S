@@ -1,12 +1,18 @@
 <?php
 	session_start();
 	ob_start();
-	if($_SESSION['perfil_idperfil'] == 2) {
+	/*if($_SESSION['perfil_idperfil'] == 2) {
 		unset($_SESSION['usuario']);
 	    unset($_SESSION['email']);
 	    session_destroy();
         header('Location: ../controller/controller_sair.php');
-    }
+    }*/
+
+	if ($_SESSION['perfil_idperfil'] == 1) {
+		$url = 'view_admin.php';
+	} elseif ($_SESSION['perfil_idperfil'] == 2) {
+		$url = 'view_coordenador.php';
+	}
 
 	$erro_cpf = isset($_GET['erro_cpf']) ? $_GET['erro_cpf'] : 0;
     $erro_rg = isset($_GET['erro_rg']) ? $_GET['erro_rg'] : 0;
@@ -23,7 +29,7 @@
 		<h3><strong><div style="margin-top: -50px;">Cadastrar Professor</div></strong></h3>
 		<small>AVISO: 'CPF', 'RG' e 'E-mail' devem ser ÚNICOS!</small><br/>
 		<br />
-		<form method="post" action="view_admin.php?pagina=../controller/controller_form_professor_cadastro.php" id="formProfessor">
+		<form method="post" action="<?php echo $url;?>?pagina=../controller/controller_form_professor_cadastro.php" id="formProfessor">
 			<div class="form-group">
 				<small><strong>*Campos Obrigatórios</strong></small>
 
@@ -63,7 +69,7 @@
                 <input type="text" class="form-control" id="telefone" name="telefone" placeholder="*Telefone (xx) x xxxx-xxxx" required="required">
             </div>
 			<button type="submit" style="margin-bottom: 5px;" class="btn btn-outline-success form-control"><span data-feather="database"></span>&nbsp;Cadastrar</button>
-			<a href="view_admin.php?pagina=view_professores_listagem.php"><button type="button" class="btn btn-outline-secondary form-control"><span data-feather="arrow-left"></span>&nbsp;Voltar</button></a>
+			<a href="<?php echo $url;?>?pagina=view_professores_listagem.php"><button type="button" class="btn btn-outline-secondary form-control"><span data-feather="arrow-left"></span>&nbsp;Voltar</button></a>
 		</form>
 	</div>
 </div>

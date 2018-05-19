@@ -30,7 +30,7 @@
         </center>';
         echo "
         <META HTTP-EQUIV=REFRESH CONTENT = '0;URL=
-        http://localhost/SG2S/view/view_admin.php?pagina=view_ponte_usuario.php'";
+        http://localhost/SG2S/view/view_admin.php?pagina=view_ponte_admin_usuario.php'";
     } else {
         echo "
         <script type=\"text/javascript\">

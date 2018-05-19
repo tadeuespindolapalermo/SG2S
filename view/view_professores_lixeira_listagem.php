@@ -15,12 +15,18 @@
         $professor = new Professor();
         $professorDao = new ProfessorDao();
 
-        if($_SESSION['perfil_idperfil'] == 2) {
+        if ($_SESSION['perfil_idperfil'] == 1) {
+            $url = 'view_admin.php';
+        } elseif ($_SESSION['perfil_idperfil'] == 2) {
+            $url = 'view_coordenador.php';
+        }
+
+        /*if($_SESSION['perfil_idperfil'] == 2) {
             unset($_SESSION['usuario']);
             unset($_SESSION['email']);
             session_destroy();
             header('Location: ../controller/controller_sair.php');
-        }
+        }*/
 
         // Para listagem sem paginação
         //$selectProfessor = $professorDao->listarExcluidos($conn);
@@ -75,6 +81,13 @@
                                         $professor->setRG($dados['RG']);
                                         $professor->setEmail($dados['email']);
                                         $professor->setFone($dados['fone']);
+
+                                        if ($_SESSION['perfil_idperfil'] == 1) {
+                                            $alert = 'msgConfirmaDeleteProfessorDefinitivoBancoDadosAdmin('.$professor->getIdProfessor().')';
+                                        } elseif ($_SESSION['perfil_idperfil'] == 2) {
+                                            $alert = 'msgConfirmaDeleteProfessorDefinitivoBancoDadosCoordenador('.$professor->getIdProfessor().')';                                            
+                                        }
+
                                         echo '
                                         <tbody>
                                             <tr>
@@ -84,8 +97,8 @@
                                                 <td>'.$professor->getRG().'</td>
                                                 <td style="text-align: left;">'.$professor->getEmail().'</td>
                                                 <td>'.$professor->getFone().'</td>
-                                                <td><a href="javascript:void(null);" onclick="msgConfirmaDeleteProfessorDefinitivoBancoDados('.$professor->getIdProfessor().')"><img src="../lib/open-iconic/svg/x.svg" alt="remover"></a></td>
-                                                <td><a href="view_admin.php?pagina=../controller/controller_professor_recuperar.php&idProfessor='.$professor->getIdProfessor().'"><img src="../lib/open-iconic/svg/action-undo.svg" alt="editar"></a></td>
+                                                <td><a href="javascript:void(null);" onclick="'.$alert.'"><img src="../lib/open-iconic/svg/x.svg" alt="remover"></a></td>
+                                                <td><a href="';?><?php echo $url;?><?php echo '?pagina=../controller/controller_professor_recuperar.php&idProfessor='.$professor->getIdProfessor().'"><img src="../lib/open-iconic/svg/action-undo.svg" alt="editar"></a></td>
                                             </tr>
                                         </tbody>';
                                     }
@@ -97,23 +110,23 @@
                             echo '<div style="text-align: center;">';
                                 echo '<ul class="pagination justify-content-center">';
                                     if ($pg <= 1) {
-                                        echo '<li class="page-item disabled"><a class="page-link" href="view_admin.php?pagina=view_professores_lixeira_listagem.php&pg=1">Início</a></li>&nbsp';
+                                        echo '<li class="page-item disabled"><a class="page-link" href="';?><?php echo $url;?><?php echo '?pagina=view_professores_lixeira_listagem.php&pg=1">Início</a></li>&nbsp';
                                     } else {
-                                        echo '<li class="page-item"><a class="page-link" href="view_admin.php?pagina=view_professores_lixeira_listagem.php&pg=1">Início</a></li>&nbsp';
+                                        echo '<li class="page-item"><a class="page-link" href="';?><?php echo $url;?><?php echo '?pagina=view_professores_lixeira_listagem.php&pg=1">Início</a></li>&nbsp';
                                     }
                                     if($qtdPag > 1 && $pg <= $qtdPag) {
                                         for($i = 1; $i <= $qtdPag; $i++) {
                                             if ($i == $pg) {
                                                 echo "<li class='page-item'><a class='page-link'><strong>".$i."</strong></a></li>&nbsp";
                                             } else {
-                                                echo "<li class='page-item'><a class='page-link' href='view_admin.php?pagina=view_professores_lixeira_listagem.php&pg=$i'>".$i."</a></li>&nbsp";
+                                                echo '<li class="page-item"><a class="page-link" href="';?><?php echo $url;?><?php echo '?pagina=view_professores_lixeira_listagem.php&pg='.$i.'">'.$i.'</a></li>&nbsp';
                                             }
                                         }
                                     }
                                     if($pg == $qtdPag || $qtdPag == 0) {
-                                        echo "<li class='page-item disabled'><a class='page-link' href='view_admin.php?pagina=view_professores_lixeira_listagem.php&pg=$qtdPag'>Final</a></li>&nbsp";
+                                        echo '<li class="page-item disabled"><a class="page-link" href="';?><?php echo $url;?><?php echo '?pagina=view_professores_lixeira_listagem.php&pg='.$qtdPag.'">Final</a></li>&nbsp';
                                     } else {
-                                        echo "<li class='page-item'><a class='page-link' href='view_admin.php?pagina=view_professores_lixeira_listagem.php&pg=$qtdPag'>Final</a></li>&nbsp";
+                                        echo '<li class="page-item"><a class="page-link" href="';?><?php echo $url;?><?php echo '?pagina=view_professores_lixeira_listagem.php&pg='.$qtdPag.'">Final</a></li>&nbsp';
                                     }
                                 echo '</ul>';
                                 echo '<small>Listando até 5 registros por página.</small>';
@@ -123,7 +136,7 @@
                         <button export-to-excel="listaProfessoresExcluidos" class="btn btn-success">
                             <span data-feather="download"></span>&nbsp;Excel
                         </button>
-                        <a href="view_admin.php?pagina=view_professores_listagem.php"><button type="button" class="btn btn-info"><span data-feather="arrow-left"></span>&nbsp;Voltar</button></a>
+                        <a href="<?php echo $url;?>?pagina=view_professores_listagem.php"><button type="button" class="btn btn-info"><span data-feather="arrow-left"></span>&nbsp;Voltar</button></a>
                         <button id="btnSearch" onclick="alterarDisabledSearch()" class="btn btn-outline-dark"><span data-feather="search"></span>&nbsp;Busca</button>
                     </div>
                 </div>

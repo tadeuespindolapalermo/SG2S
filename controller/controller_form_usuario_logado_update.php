@@ -40,7 +40,7 @@
                 </center>';
                 echo "
                 <META HTTP-EQUIV=REFRESH CONTENT = '0;URL=
-                http://localhost/SG2S/view/view_coordenador.php?pagina=view_ponte_usuario_logado_coordenador.php'";
+                http://localhost/SG2S/view/view_coordenador.php?pagina=view_ponte_coordenador_usuario_logado.php'";
             } elseif ($_SESSION['perfil_idperfil'] == 1) {
                 echo '
                 <center>
@@ -50,7 +50,7 @@
                 </center>';
                 echo "
                 <META HTTP-EQUIV=REFRESH CONTENT = '0;URL=
-                http://localhost/SG2S/view/view_admin.php?pagina=view_ponte_usuario_logado_admin.php'";
+                http://localhost/SG2S/view/view_admin.php?pagina=view_ponte_admin_usuario_logado.php'";
             }
 
         } elseif ($_SESSION['perfil_idperfil'] == 2) {

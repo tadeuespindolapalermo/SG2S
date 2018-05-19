@@ -18,11 +18,17 @@
         $gradeGerada = new GradeGerada();
         $gradeGeradaDao = new GradeGeradaDao();
 
-        if($_SESSION['perfil_idperfil'] == 2) {
+        /*if($_SESSION['perfil_idperfil'] == 2) {
             unset($_SESSION['usuario']);
             unset($_SESSION['email']);
             session_destroy();
             header('Location: ../controller/controller_sair.php');
+        }*/
+
+        if ($_SESSION['perfil_idperfil'] == 1) {
+            $url = 'view_admin.php';
+        } elseif ($_SESSION['perfil_idperfil'] == 2) {
+            $url = 'view_coordenador.php';
         }
 
         $grade->setIdGlobals($_GET['idGrade']);
@@ -75,7 +81,7 @@
                                 $cadastroGradeGeradaEfetuado = $gradeGeradaDao->inserir($conn, $gradeGerada);
 
                                 // VALIDAÇÃO DA INSERÇÃO DA GRADE GERADA
-                                if($cadastroGradeGeradaEfetuado) {
+                                if($cadastroGradeGeradaEfetuado && $_SESSION['perfil_idperfil'] == 1) {
                                     echo "
                                     <script type=\"text/javascript\">
                                         alert(\"Grade gerada com sucesso!\");
@@ -84,7 +90,16 @@
                                     <META HTTP-EQUIV=REFRESH CONTENT = '0;URL=
                                     http://localhost/SG2S/view/view_admin.php?pagina=view_grade_gerada.php'";*/
                                     //header('Location: ../view/view_admin.php?pagina=view_grade_gerada.php');
-                                } else {
+                                } elseif ($cadastroGradeGeradaEfetuado && $_SESSION['perfil_idperfil'] == 2) {
+                                    echo "
+                                    <script type=\"text/javascript\">
+                                        alert(\"Grade gerada com sucesso!\");
+                                    </script>";
+                                    /*echo "
+                                    <META HTTP-EQUIV=REFRESH CONTENT = '0;URL=
+                                    http://localhost/SG2S/view/view_coordenador.php?pagina=view_grade_gerada.php'";*/
+                                    //header('Location: ../view/view_coordenador.php?pagina=view_grade_gerada.php');
+                                } elseif (!$cadastroGradeGeradaEfetuado && $_SESSION['perfil_idperfil'] == 1) {
                                     echo "
                                     <script type=\"text/javascript\">
                                         alert(\"Erro ao gerar a grade!!!\");
@@ -92,6 +107,14 @@
                                     <META HTTP-EQUIV=REFRESH CONTENT = '0;URL=
                                     http://localhost/SG2S/view/view_admin.php?pagina=view_form_grade_gerar.php'";
                                     //header('Location: ../view/view_admin.php?pagina=view_form_grade_gerar.php');
+                                } elseif (!$cadastroGradeGeradaEfetuado && $_SESSION['perfil_idperfil'] == 2) {
+                                    echo "
+                                    <script type=\"text/javascript\">
+                                        alert(\"Erro ao gerar a grade!!!\");
+                                    </script>
+                                    <META HTTP-EQUIV=REFRESH CONTENT = '0;URL=
+                                    http://localhost/SG2S/view/view_coordenador.php?pagina=view_form_grade_gerar.php'";
+                                    //header('Location: ../view/view_coordenador.php?pagina=view_form_grade_gerar.php');
                                 }
 
                                 while ($linhaGrade = $selectGrade->fetchAll(PDO::FETCH_ASSOC)) {
@@ -131,8 +154,8 @@
                             ?>
 
                         </table>
-                        <a href="view_admin.php?pagina=view_grades_geradas.php"><button class="btn btn-secondary"><span data-feather="list"></span>&nbsp;Listar Todas</button></a>
-                        <a href="view_admin.php?pagina=view_grades_listagem.php"><button type="button" class="btn btn-dark">Voltar</button></a>
+                        <a href="<?php echo $url;?>?pagina=view_grades_geradas.php"><button class="btn btn-secondary"><span data-feather="list"></span>&nbsp;Listar Todas</button></a>
+                        <a href="<?php echo $url;?>?pagina=view_grades_listagem.php"><button type="button" class="btn btn-dark">Voltar</button></a>
                     </div>
                 </div>
             </div>

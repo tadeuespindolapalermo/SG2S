@@ -10,12 +10,12 @@
     $professor = new Professor();
     $professorDao = new ProfessorDao();
 
-    if($_SESSION['perfil_idperfil'] == 2) {
+    /*if($_SESSION['perfil_idperfil'] == 2) {
         unset($_SESSION['usuario']);
         unset($_SESSION['email']);
         session_destroy();
         header('Location: ../controller/controller_sair.php');
-    }
+    }*/
 
     $professor->setNome($_POST['nome']);
     $professor->setCPF($_POST['cpf']);
@@ -28,7 +28,7 @@
     $cadastroProfessorEfetuado = $professorDao->inserir($conn, $professor);
 
     // VALIDAÇÃO DA INSERÇÃO DO PROFESSOR
-    if($cadastroProfessorEfetuado) {
+    if($cadastroProfessorEfetuado && $_SESSION['perfil_idperfil'] == 1) {
         echo '
         <center>
             <div class="alert alert-success" style="width: 455px;">
@@ -37,9 +37,20 @@
         </center>';
         echo "
         <META HTTP-EQUIV=REFRESH CONTENT = '0;URL=
-        http://localhost/SG2S/view/view_admin.php?pagina=view_ponte_professor.php'";
+        http://localhost/SG2S/view/view_admin.php?pagina=view_ponte_admin_professor.php'";
         //header('Location: ../view/view_admin.php?pagina=view_professores_listagem.php');
-    } else {
+    } elseif ($cadastroProfessorEfetuado && $_SESSION['perfil_idperfil'] == 2) {
+        echo '
+        <center>
+            <div class="alert alert-success" style="width: 455px;">
+                <strong>PARABÉNS!</strong> Cadastro realizado com sucesso!
+            </div>
+        </center>';
+        echo "
+        <META HTTP-EQUIV=REFRESH CONTENT = '0;URL=
+        http://localhost/SG2S/view/view_coordenador.php?pagina=view_ponte_coordenador_professor.php'";
+        //header('Location: ../view/view_coordenador.php?pagina=view_professores_listagem.php');
+    } elseif (!$cadastroProfessorEfetuado && $_SESSION['perfil_idperfil'] == 1) {
         echo "
         <script type=\"text/javascript\">
             alert(\"Erro ao cadastrar Professor(a)!\");
@@ -47,4 +58,12 @@
         <META HTTP-EQUIV=REFRESH CONTENT = '0;URL=
         http://localhost/SG2S/view/view_admin.php?pagina=view_form_professor_cadastro.php'";
         //header('Location: ../view/view_admin.php?pagina=view_form_professor_cadastro.php');
+    } elseif (!$cadastroProfessorEfetuado && $_SESSION['perfil_idperfil'] == 2) {
+        echo "
+        <script type=\"text/javascript\">
+            alert(\"Erro ao cadastrar Professor(a)!\");
+        </script>
+        <META HTTP-EQUIV=REFRESH CONTENT = '0;URL=
+        http://localhost/SG2S/view/view_coordenador.php?pagina=view_form_professor_cadastro.php'";
+        //header('Location: ../view/view_coordenador.php?pagina=view_form_professor_cadastro.php');
     }

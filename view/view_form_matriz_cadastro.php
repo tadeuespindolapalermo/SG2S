@@ -10,12 +10,18 @@
     $matriz = new Matriz();
     $matrizDao = new MatrizDao();
 
-	if($_SESSION['perfil_idperfil'] == 2) {
+	/*if($_SESSION['perfil_idperfil'] == 2) {
 		unset($_SESSION['usuario']);
 	    unset($_SESSION['email']);
 	    session_destroy();
         header('Location: ../controller/controller_sair.php');
-    }
+    }*/
+
+	if ($_SESSION['perfil_idperfil'] == 1) {
+		$url = 'view_admin.php';
+	} elseif ($_SESSION['perfil_idperfil'] == 2) {
+		$url = 'view_coordenador.php';
+	}
 
     $selectMatriz = $matrizDao->listarCombo($conn);
 
@@ -32,7 +38,7 @@
 		<h3><strong><div style="margin-top: -50px;">Cadastrar Matriz (Disciplina)</div></strong></h3>
 		<small>AVISO: 'Nome' deve ser ÚNICO!</small><br/>
 		<br />
-		<form method="post" action="view_admin.php?pagina=../controller/controller_form_matriz_cadastro.php" id="formMatriz">
+		<form method="post" action="<?php echo $url;?>?pagina=../controller/controller_form_matriz_cadastro.php" id="formMatriz">
 			<div class="form-group">
 				<small><strong>*Campos Obrigatórios</strong></small>
 
@@ -69,7 +75,7 @@
 			</div>
 
 			<button type="submit" style="margin-bottom: 5px;" class="btn btn-outline-success form-control"><span data-feather="database"></span>&nbsp;Cadastrar</button>
-			<a href="view_admin.php?pagina=view_matrizes_listagem.php"><button type="button" class="btn btn-outline-secondary form-control"><span data-feather="arrow-left"></span>&nbsp;Voltar</button></a>
+			<a href="<?php echo $url;?>?pagina=view_matrizes_listagem.php"><button type="button" class="btn btn-outline-secondary form-control"><span data-feather="arrow-left"></span>&nbsp;Voltar</button></a>
 		</form>
 	</div>
 </div>

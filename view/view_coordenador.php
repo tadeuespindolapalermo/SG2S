@@ -43,6 +43,9 @@
         <!-- Estilos gerais -->
         <link href="../css/estilo.css" rel="stylesheet" />
 
+        <!-- Tabela Personalizada para SEARCH -->
+        <link href="../css/tableSearch.css" rel="stylesheet" />
+
         <!-- jquery 1.3.2 sem cdn, fixo no código-->
 		<script src="../lib/jquery/jquery-1_3_2.min.js"></script>
 		<!-- jquery 1.3.2 - link cdn-->
@@ -54,13 +57,15 @@
 		<!-- Máscaras dos campos de formulários-->
 		<script src="../lib/jquery/masks.js"></script>
         <script src="../js/dom.js"></script>
+        <script src="../js/alerts.js"></script>
     </head>
 
     <body>
 
         <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
             <span class="navbar-brand col-sm-3 col-md-2 mr-0"><strong>SG2S - <?php echo $perfil; ?></strong></span>
-            <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search" />
+            <!--<input type="text" class="input-search" alt="listaSearch" placeholder="Pesquisa rápida..." />-->
+            <input id="searchListagens" style="border: 1px solid grey; border-radius: 4px;" class="form-control form-control-dark w-100 input-search" alt="listaSearch" type="text" placeholder="Pesquisa rápida..." disabled aria-label="Pesquisa rápida..." />
             <!--<ul class="navbar-nav px-3">
                 <li class="nav-item text-nowrap">
                     <a class="nav-link" href="../controller/controller_sair.php">Sair</a>
@@ -81,16 +86,53 @@
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="view_coordenador.php?pagina=view_form_usuario_logado_update.php">
-                                    <span data-feather="user"></span>
-                                    <strong><?= $_SESSION['nome'] ?></strong>
+                                    <span data-feather="settings"></span>
+                                    <strong>
+                                        <?php
+                                            $nome = $_SESSION['nome'];
+                                            $nome = explode(" ", $nome);
+                                            echo "$nome[0]";
+                                        ?>
+                                    </strong>
+                                </a>
+                            </li>
+                            <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+                                <span>CADASTROS</span>
+                            </h6>
+                            <li class="nav-item">
+                                <a class="nav-link" href="view_coordenador.php?pagina=view_grades_listagem.php">
+                                    <span data-feather="grid"></span>
+                                    Grade de Turma
+                                </a>
+                            </li>
+                            <span class="nav-item">
+                                <span style="margin-left: 16px;" href="">
+                                    <span data-feather="alert-triangle"></span>
+                                    <font color="gray"><span style="margin-left: 4px;">Grade de Aluno<span></font><br/>
+                                    <small style="margin-left: 42px;"><strong><font color="red">Implementação futura!</font></strong></small>
+                                </span>
+                            </span>
+                            <li class="nav-item">
+                                <a class="nav-link" href="view_coordenador.php?pagina=view_cursos_listagem.php">
+                                    <span data-feather="layers"></span>
+                                    Cursos
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">
-                                    <span data-feather="grid"></span>
-                                    Grade
+                                <a class="nav-link" href="view_coordenador.php?pagina=view_matrizes_listagem.php">
+                                    <span data-feather="edit-2"></span>
+                                    Matriz
                                 </a>
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="view_coordenador.php?pagina=view_professores_listagem.php">
+                                    <span data-feather="user"></span>
+                                    Professor
+                                </a>
+                            </li>
+                            <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+                                <span>UTILITÁRIOS</span>
+                            </h6>
                             <li class="nav-item">
                                 <a class="nav-link" href="#">
                                     <span data-feather="bar-chart-2"></span>
@@ -121,8 +163,8 @@
                           </li>
                           <li class="nav-item">
                               <a class="nav-link" href="#">
-                                <span data-feather="tag"></span>
-                                1.2019
+                                  <span data-feather="tag"></span>
+                                  1.2019
                               </a>
                           </li>
                           <li class="nav-item">
@@ -195,6 +237,13 @@
 
         <!-- jquery 3.2.1 sem cdn -->
         <script src="../lib/jquery/jquery-3_2_1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+
+        <!-- jquery 1.9.1 com cdn -->
+        <!--<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>-->
+
+        <!-- jquery 1.9.1 sem cdn -->
+        <script src="../lib/jquery/jquery-1_9_1.min.js"></script>-->
+
         <script>window.jQuery || document.write('<script src="../lib/jquery/jquery-slim.min.js"><\/script>')</script>
         <script src="../js/popper.min.js"></script>
         <script src="../lib/bootstrap/js/bootstrap.min.js"></script>
@@ -218,5 +267,7 @@
         <script src="../lib/angularjs/angular-route.min.js"></script>
         <script src="../js/app/app.js"></script>
         <script src="../js/app/controllers.js"></script>
+        <script src="../lib/jquery/buscaDinamica.js"></script>
+        <script src="../lib/ajax/requisicoesAjax.js"></script>
     </body>
 </html>

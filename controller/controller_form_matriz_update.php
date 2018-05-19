@@ -7,12 +7,12 @@
     $PDO = new Conn;
     $conn = $PDO->Conectar();
 
-    if($_SESSION['perfil_idperfil'] == 2) {
+    /*if($_SESSION['perfil_idperfil'] == 2) {
         unset($_SESSION['usuario']);
         unset($_SESSION['email']);
         session_destroy();
         header('Location: ../controller/controller_sair.php');
-    }
+    }*/
 
     if($_SERVER["REQUEST_METHOD"] == "POST") {
 
@@ -29,7 +29,7 @@
         $matriz = $matrizDao->atualizar($conn, $matriz);
 
         // VALIDAÇÃO DO UPDATE
-        if ($matriz) {
+        if ($matriz && $_SESSION['perfil_idperfil'] == 1) {
             /*echo "
             <script type=\"text/javascript\">
                 alert(\"Curso atualizado com sucesso!\");
@@ -42,9 +42,24 @@
             </center>';
             echo "
             <META HTTP-EQUIV=REFRESH CONTENT = '0;URL=
-            http://localhost/SG2S/view/view_admin.php?pagina=view_ponte_matriz.php'";
+            http://localhost/SG2S/view/view_admin.php?pagina=view_ponte_admin_matriz.php'";
             //header('Location: ../view/view_admin.php?pagina=view_matrizes_listagem.php');
-        } else {
+        } elseif ($matriz && $_SESSION['perfil_idperfil'] == 2) {
+            /*echo "
+            <script type=\"text/javascript\">
+                alert(\"Curso atualizado com sucesso!\");
+            </script>*/
+            echo '
+            <center>
+                <div class="alert alert-success" style="width: 455px;">
+                    Matriz atualizada com sucesso!
+                </div>
+            </center>';
+            echo "
+            <META HTTP-EQUIV=REFRESH CONTENT = '0;URL=
+            http://localhost/SG2S/view/view_coordenador.php?pagina=view_ponte_coordenador_matriz.php'";
+            //header('Location: ../view/view_coordenador.php?pagina=view_matrizes_listagem.php');
+        } elseif (!$matriz && $_SESSION['perfil_idperfil'] == 1) {
             echo "
             <script type=\"text/javascript\">
                 alert(\"Erro ao atualizar a matriz!\");
@@ -52,6 +67,14 @@
             <META HTTP-EQUIV=REFRESH CONTENT = '0;URL=
             http://localhost/SG2S/view/view_admin.php?pagina=view_matrizes_listagem.php'";
             //header('Location: ../view/view_admin.php?pagina=view_matrizes_listagem.php');
+        } elseif (!$matriz && $_SESSION['perfil_idperfil'] == 2) {
+            echo "
+            <script type=\"text/javascript\">
+                alert(\"Erro ao atualizar a matriz!\");
+            </script>
+            <META HTTP-EQUIV=REFRESH CONTENT = '0;URL=
+            http://localhost/SG2S/view/view_coordenador.php?pagina=view_matrizes_listagem.php'";
+            //header('Location: ../view/view_coordenador.php?pagina=view_matrizes_listagem.php');
         }
     }
 

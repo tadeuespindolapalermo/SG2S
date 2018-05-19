@@ -15,11 +15,17 @@
         $gradeGerada = new GradeGerada();
         $gradeGeradaDao = new GradeGeradaDao();
 
-        if($_SESSION['perfil_idperfil'] == 2) {
+        /*if($_SESSION['perfil_idperfil'] == 2) {
             unset($_SESSION['usuario']);
             unset($_SESSION['email']);
             session_destroy();
             header('Location: ../controller/controller_sair.php');
+        }*/
+
+        if ($_SESSION['perfil_idperfil'] == 1) {
+            $url = 'view_admin.php';
+        } elseif ($_SESSION['perfil_idperfil'] == 2) {
+            $url = 'view_coordenador.php';
         }
 
         $selectGradeGerada = $gradeGeradaDao->listar($conn);
@@ -108,7 +114,7 @@
                                 }
                             ?>
                         </table>
-                        <a href="view_admin.php?pagina=view_grades_listagem.php"><button onclick="javascript:iniciaRequisitaAjax('GET','view_blank.html','true');" type="button" class="btn btn-secondary">Voltar</button></a>
+                        <a href="<?php echo $url;?>?pagina=view_grades_listagem.php"><button onclick="javascript:iniciaRequisitaAjax('GET','view_blank.html','true');" type="button" class="btn btn-secondary">Voltar</button></a>
                     </div>
                 </div>
             </div>

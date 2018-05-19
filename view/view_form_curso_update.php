@@ -12,11 +12,17 @@
 
     $idCurso = $_GET['idCurso'];
 
-    if($_SESSION['perfil_idperfil'] == 2) {
+    /*if($_SESSION['perfil_idperfil'] == 2) {
         unset($_SESSION['usuario']);
         unset($_SESSION['email']);
         session_destroy();
         header('Location: ../controller/controller_sair.php');
+    }*/
+
+    if ($_SESSION['perfil_idperfil'] == 1) {
+        $url = 'view_admin.php';
+    } elseif ($_SESSION['perfil_idperfil'] == 2) {
+        $url = 'view_coordenador.php';
     }
 
     $selectCurso = $cursoDao->buscarPorId($conn, $idCurso);
@@ -48,7 +54,7 @@
         <div class="col-md-4">
             <h4><strong>Atualização Cadastral</strong></h4>
             <div style="margin-left: px;"><h5><strong><font color="#FF0000">'.strtoupper($curso->getNome()).'.</font><strong></h5></div><br />
-            <form action="view_admin.php?pagina=../controller/controller_form_curso_update.php&idCurso='.$curso->getIdCurso().'" method="post">
+            <form action="';?><?php echo $url;?><?php echo '?pagina=../controller/controller_form_curso_update.php&idCurso='.$curso->getIdCurso().'" method="post">
                 <div class="form-group">
 
                     <small><strong>*Campos Obrigatórios</strong></small><br/><br/>
@@ -75,7 +81,7 @@
                     <input type="date" style="width: 320px; margin-bottom: -5px;" id="dataPortaria" name="dataPortaria" class="form-control" placeholder="*Data Portaria: dd/mm/YYYY" value="'.$curso->getDataPortaria().'" required><br/>
 
                     <button type="submit" style="margin-bottom: 5px;" class="btn btn-outline-primary form-control"><span data-feather="save"></span>&nbsp;Atualizar</button>
-                    <a href="view_admin.php?pagina=view_cursos_listagem.php"><button type="button" class="btn btn-outline-secondary form-control"><span data-feather="arrow-left"></span>&nbsp;Voltar</button></a>
+                    <a href="';?><?php echo $url;?><?php echo '?pagina=view_cursos_listagem.php"><button type="button" class="btn btn-outline-secondary form-control"><span data-feather="arrow-left"></span>&nbsp;Voltar</button></a>
                 </div>
             </form>
         </div>

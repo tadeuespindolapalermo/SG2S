@@ -1,12 +1,19 @@
 <?php
 	session_start();
 	ob_start();
-	if($_SESSION['perfil_idperfil'] == 2) {
+
+	if ($_SESSION['perfil_idperfil'] == 1) {
+		$url = 'view_admin.php';
+	} elseif ($_SESSION['perfil_idperfil'] == 2) {
+		$url = 'view_coordenador.php';
+	}
+
+	/*if($_SESSION['perfil_idperfil'] == 2) {
 		unset($_SESSION['usuario']);
 	    unset($_SESSION['email']);
 	    session_destroy();
         header('Location: ../controller/controller_sair.php');
-    }
+    }*/
 
 	$erro_nome = isset($_GET['erro_nome']) ? $_GET['erro_nome'] : 0;
  ?>
@@ -21,7 +28,7 @@
 		<h3><strong><div style="margin-top: -50px;">Cadastrar Curso</div></strong></h3>
 		<small>AVISO: 'Nome' deve ser ÚNICO!</small><br/>
 		<br />
-		<form method="post" action="view_admin.php?pagina=../controller/controller_form_curso_cadastro.php" id="formCurso">
+		<form method="post" action="<?php echo $url;?>?pagina=../controller/controller_form_curso_cadastro.php" id="formCurso">
 			<div class="form-group">
 				<small><strong>*Campos Obrigatórios</strong></small>
 
@@ -57,7 +64,7 @@
 			</div>
 
 			<button type="submit" style="margin-bottom: 5px;" class="botao3d botao3d:hover"><span data-feather="database"></span>&nbsp;Cadastrar</button>
-			<a href="view_admin.php?pagina=view_cursos_listagem.php"><button type="button" class="botao3d botao3d:hover"><span data-feather="arrow-left"></span>&nbsp;Voltar</button></a>
+			<a href="<?php echo $url;?>p?pagina=view_cursos_listagem.php"><button type="button" class="botao3d botao3d:hover"><span data-feather="arrow-left"></span>&nbsp;Voltar</button></a>
 		</form>
 	</div>
 </div>

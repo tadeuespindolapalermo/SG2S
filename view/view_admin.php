@@ -184,8 +184,8 @@
                           </li>
                           <li class="nav-item">
                               <a class="nav-link" href="#">
-                                <span data-feather="tag"></span>
-                                1.2019
+                                  <span data-feather="tag"></span>
+                                  1.2019
                               </a>
                           </li>
                           <li class="nav-item">

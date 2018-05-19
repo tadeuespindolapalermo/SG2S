@@ -10,12 +10,12 @@
     $curso = new Curso();
     $cursoDao = new CursoDao();
 
-    if($_SESSION['perfil_idperfil'] == 2) {
+    /*if($_SESSION['perfil_idperfil'] == 2) {
         unset($_SESSION['usuario']);
         unset($_SESSION['email']);
         session_destroy();
         header('Location: ../controller/controller_sair.php');
-    }
+    }*/
 
     $curso->setNome($_POST['nome']);
     $curso->setPortaria($_POST['portaria']);
@@ -27,7 +27,7 @@
     $cadastroCursoEfetuado = $cursoDao->inserir($conn, $curso);
 
     // VALIDAÇÃO DA INSERÇÃO DO CURSO
-    if($cadastroCursoEfetuado) {
+    if($cadastroCursoEfetuado && $_SESSION['perfil_idperfil'] == 1) {
         echo '
         <center>
             <div class="alert alert-success" style="width: 455px;">
@@ -36,9 +36,20 @@
         </center>';
         echo "
         <META HTTP-EQUIV=REFRESH CONTENT = '0;URL=
-        http://localhost/SG2S/view/view_admin.php?pagina=view_ponte_curso.php'";
+        http://localhost/SG2S/view/view_admin.php?pagina=view_ponte_admin_curso.php'";
         //header('Location: ../view/view_admin.php?pagina=view_cursos_listagem.php');
-    } else {
+    } elseif ($cadastroCursoEfetuado && $_SESSION['perfil_idperfil'] == 2) {
+        echo '
+        <center>
+            <div class="alert alert-success" style="width: 455px;">
+                <strong>PARABÉNS!</strong> Cadastro realizado com sucesso!
+            </div>
+        </center>';
+        echo "
+        <META HTTP-EQUIV=REFRESH CONTENT = '0;URL=
+        http://localhost/SG2S/view/view_coordenador.php?pagina=view_ponte_coordenador_curso.php'";
+        //header('Location: ../view/view_coordenador.php?pagina=view_cursos_listagem.php');
+    } elseif (!$cadastroCursoEfetuado && $_SESSION['perfil_idperfil'] == 1) {
         echo "
         <script type=\"text/javascript\">
             alert(\"Erro ao cadastrar curso!!!\");
@@ -47,6 +58,15 @@
         <META HTTP-EQUIV=REFRESH CONTENT = '0;URL=
         http://localhost/SG2S/view/view_admin.php?pagina=view_form_curso_cadastro.php'";
         //header('Location: ../view/view_admin.php?pagina=view_form_curso_cadastro.php');
+    } elseif (!$cadastroCursoEfetuado && $_SESSION['perfil_idperfil'] == 2) {
+        echo "
+        <script type=\"text/javascript\">
+            alert(\"Erro ao cadastrar curso!!!\");
+        </script>";
+        echo "
+        <META HTTP-EQUIV=REFRESH CONTENT = '0;URL=
+        http://localhost/SG2S/view/view_coordenador.php?pagina=view_form_curso_cadastro.php'";
+        //header('Location: ../view/view_coordenador.php?pagina=view_form_curso_cadastro.php');
     }
     /*echo '
     <div class="container col-md-4 form-group">
