@@ -111,9 +111,16 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="view_admin.php?pagina=view_grades_listagem.php">
                                     <span data-feather="grid"></span>
-                                    Grade
+                                    Grade de Turma
                                 </a>
                             </li>
+                            <span class="nav-item">
+                                <span style="margin-left: 16px;" href="">
+                                    <span data-feather="alert-triangle"></span>
+                                    <font color="gray"><span style="margin-left: 4px;">Grade de Aluno<span></font><br/>
+                                    <small style="margin-left: 42px;"><strong><font color="red">Implementação futura!</font></strong></small>
+                                </span>
+                            </span>
                             <li class="nav-item">
                                 <a class="nav-link" href="view_admin.php?pagina=view_cursos_listagem.php">
                                     <span data-feather="layers"></span>
