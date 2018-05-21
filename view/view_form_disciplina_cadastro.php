@@ -7,8 +7,8 @@
     $PDO = new Conn;
     $conn = $PDO->Conectar();
 
-    $matriz = new Matriz();
-    $matrizDao = new MatrizDao();
+    $disciplina = new Disciplina();
+    $disciplinaDao = new DisciplinaDao();
 
 	/*if($_SESSION['perfil_idperfil'] == 2) {
 		unset($_SESSION['usuario']);
@@ -23,7 +23,7 @@
 		$url = 'view_coordenador.php';
 	}
 
-    $selectMatriz = $matrizDao->listarCombo($conn);
+    $selectDisciplina = $disciplinaDao->listarCombo($conn);
 
 	$erro_nome = isset($_GET['erro_nome']) ? $_GET['erro_nome'] : 0;
  ?>
@@ -35,10 +35,10 @@
     <div class="col-md-4"></div>
 	<div class="col-md-4">
 		<br />
-		<h3><strong><div style="margin-top: -50px;">Cadastrar Matriz (Disciplina)</div></strong></h3>
+		<h3><strong><div style="margin-top: -50px;">Cadastrar Disciplina</div></strong></h3>
 		<small>AVISO: 'Nome' deve ser ÚNICO!</small><br/>
 		<br />
-		<form method="post" action="<?php echo $url;?>?pagina=../controller/controller_form_matriz_cadastro.php" id="formMatriz">
+		<form method="post" action="<?php echo $url;?>?pagina=../controller/controller_form_disciplina_cadastro.php" id="formDisciplina">
 			<div class="form-group">
 				<small><strong>*Campos Obrigatórios</strong></small>
 
@@ -46,11 +46,11 @@
                     <select class="form-control" id="curso_idcurso" name="curso_idcurso" required="required" autofocus>
 						<option value="">-*Selecione o Curso-</option>
                         <?php
-							while ($linhaMatriz = $selectMatriz->fetchAll(PDO::FETCH_ASSOC)) {
-								foreach ($linhaMatriz as $dados) {
-									$matriz->setCursoIdCurso($dados['idcurso']);
-									$matriz->setCursoNome($dados['nome']);
-									echo '<option value="'.$matriz->getCursoIdCurso().'">'.$matriz->getCursoNome().'</option>';
+							while ($linhaDisciplina = $selectDisciplina->fetchAll(PDO::FETCH_ASSOC)) {
+								foreach ($linhaDisciplina as $dados) {
+									$disciplina->setCursoIdCurso($dados['idcurso']);
+									$disciplina->setCursoNome($dados['nome']);
+									echo '<option value="'.$disciplina->getCursoIdCurso().'">'.$disciplina->getCursoNome().'</option>';
 								}
 							}
                         ?>
@@ -58,10 +58,10 @@
 				</div>
 
 				<div class="form-group">
-					<input type="text" maxlength="100" class="form-control" id="nomeMatriz" name="nomeMatriz" placeholder="*Nome - Até 100 caracteres." required="required">
+					<input type="text" maxlength="100" class="form-control" id="nomeDisciplina" name="nomeDisciplina" placeholder="*Nome - Até 100 caracteres." required="required">
                     <?php
     					if($erro_nome) {
-    						echo '<font color="#FF0000">Matriz já existe!</font>';
+    						echo '<font color="#FF0000">Disciplina já existe!</font>';
     					}
     				?>
 				</div>
@@ -75,7 +75,7 @@
 			</div>
 
 			<button type="submit" style="margin-bottom: 5px;" class="btn btn-outline-success form-control"><span data-feather="database"></span>&nbsp;Cadastrar</button>
-			<a href="<?php echo $url;?>?pagina=view_matrizes_listagem.php"><button type="button" class="btn btn-outline-secondary form-control"><span data-feather="arrow-left"></span>&nbsp;Voltar</button></a>
+			<a href="<?php echo $url;?>?pagina=view_disciplinas_listagem.php"><button type="button" class="btn btn-outline-secondary form-control"><span data-feather="arrow-left"></span>&nbsp;Voltar</button></a>
 		</form>
 	</div>
 </div>

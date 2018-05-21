@@ -59,12 +59,9 @@
                                 <tr>
                                     <th>ID</th>
                                     <th>Ano Letivo</th>
-                                    <th>Semestre</th>
-                                    <th>Período</th>
+                                    <th>Semestre Letivo</th>
+                                    <th>Turno</th>
                                     <th>Horário</th>
-                                    <th>Sala</th>
-                                    <th>Qtd. Alunos</th>
-                                    <th>Turmas</th>
                                     <th>Curso</th>
                                     <th>Excluir</th>
                                     <th>Editar</th>
@@ -76,12 +73,9 @@
                                         $grade->setIdGradeSemestral($dados['idgrade_semestral']);
                                         $GLOBALS['idGrade'] = $grade->getIdGradeSemestral();
                                         $grade->setAnoLetivo($dados['ano_letivo']);
-                                        $grade->setSemestre($dados['semestre']);
-                                        $grade->setPeriodo($dados['periodo']);
+                                        $grade->setSemestreLetivo($dados['semestre_letivo']);
+                                        $grade->setTurno($dados['turno']);
                                         $grade->setHorario($dados['horario']);
-                                        $grade->setSala($dados['sala']);
-                                        $grade->setQuantidadeAlunos($dados['quantidade_alunos']);
-                                        $grade->setTurmas($dados['turmas']);
                                         $grade->setCursoIdCurso($dados['curso_idcurso']);
                                         $grade->setCursoNome($dados['nome']);
 
@@ -98,12 +92,9 @@
                                             <tr>
                                                 <td><a href="';?><?php echo $url;?><?php echo '?pagina=view_form_grade_gerar.php&idGrade='.$grade->getIdGradeSemestral().'">'.$grade->getIdGradeSemestral().'</a></td>
                                                 <td>'.$grade->getAnoLetivo().'</td>
-                                                <td>'.$grade->getSemestre().'</td>
-                                                <td>'.$grade->getPeriodo().'</td>
-                                                <td>'.$grade->getHorario().'</td>
-                                                <td>'.$grade->getSala().'</td>
-                                                <td>'.$grade->getQuantidadeAlunos().'</td>
-                                                <td>'.$grade->getTurmas().'</td>
+                                                <td>'.$grade->getSemestreLetivo().'</td>
+                                                <td>'.$grade->getTurno().'</td>
+                                                <td>'.$grade->getHorario().'</td>                                            
                                                 <td>'.$grade->getCursoNome().'</td>
                                                 <td><a href="javascript:void(null);" onclick="'.$alert.'"><img src="../lib/open-iconic/svg/x.svg" alt="remover"></a></td>
                                                 <td><a href="';?><?php echo $url;?><?php echo '?pagina=view_form_grade_update.php&idGrade='.$grade->getIdGradeSemestral().'"><img src="../lib/open-iconic/svg/brush.svg" alt="editar"></a></td>

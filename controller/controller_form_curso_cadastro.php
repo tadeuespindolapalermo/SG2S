@@ -22,6 +22,7 @@
     $curso->setDuracao($_POST['duracao']);
     $curso->setGrau($_POST['grau']);
     $curso->setDataPortaria($_POST['dataPortaria']);
+    $curso->setVersaoMatriz($_POST['versaoMatriz']);
 
     // Inserção do Curso no Banco
     $cadastroCursoEfetuado = $cursoDao->inserir($conn, $curso);

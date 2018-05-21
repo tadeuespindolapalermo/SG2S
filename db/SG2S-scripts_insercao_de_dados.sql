@@ -1,113 +1,113 @@
 
 /* TABELA curso - Cursos da Faculdade JK*/
 
-INSERT INTO curso (nome, portaria, duracao, grau, data_portaria)
-VALUES ('Análise e Desenvolvimento de Sistemas', '2554-6', 2.5, 'Tecnólogo', '1992-03-24');
+INSERT INTO curso (nome, portaria, duracao, grau, data_portaria, versao_matriz)
+VALUES ('Análise e Desenvolvimento de Sistemas', '2554-6', 2.5, 'Tecnólogo', '1992-03-24', 12018);
 
-INSERT INTO curso (nome, portaria, duracao, grau, data_portaria)
-VALUES ('Tecnologia em Redes de Computadores', '7715-6', 2.5, 'Tecnólogo', '1998-05-14');
+INSERT INTO curso (nome, portaria, duracao, grau, data_portaria, versao_matriz)
+VALUES ('Tecnologia em Redes de Computadores', '7715-6', 2.5, 'Tecnólogo', '1998-05-14', 22018);
 
-INSERT INTO curso (nome, portaria, duracao, grau, data_portaria)
-VALUES ('Sistemas de Informação', '5597-8	', 4.0, 'Bacharelado', '1998-07-18');
+INSERT INTO curso (nome, portaria, duracao, grau, data_portaria, versao_matriz)
+VALUES ('Sistemas de Informação', '5597-8	', 4.0, 'Bacharelado', '1998-07-18', 12019);
 
 /* --------------------------------------------------------------------------------------------------------- */
 
-/* TABELA matriz_curricular - Disciplinas do Curso de TADS*/
+/* TABELA disciplinas - Disciplinas do Curso de TADS*/
 
-INSERT INTO matriz_curricular (curso_idcurso, nome_matriz, carga_horaria, credito)
+INSERT INTO disciplinas (curso_idcurso, nome_disciplina, carga_horaria, credito)
 VALUES (1, 'Fundamentos de Redes de Computadores I', 72.00, 4);
 
-INSERT INTO matriz_curricular (curso_idcurso, nome_matriz, carga_horaria, credito)
+INSERT INTO disciplinas (curso_idcurso, nome_disciplina, carga_horaria, credito)
 VALUES (1, 'Metodologia Científica', 72.00, 4);
 
-INSERT INTO matriz_curricular (curso_idcurso, nome_matriz, carga_horaria, credito)
+INSERT INTO disciplinas (curso_idcurso, nome_disciplina, carga_horaria, credito)
 VALUES (1, 'Lógica de Programação e Algoritmos', 72.00, 4);
 
-INSERT INTO matriz_curricular (curso_idcurso, nome_matriz, carga_horaria, credito)
+INSERT INTO disciplinas (curso_idcurso, nome_disciplina, carga_horaria, credito)
 VALUES (1, 'Organização e Arquitetura de Computadores', 72.00, 4);
 
-INSERT INTO matriz_curricular (curso_idcurso, nome_matriz, carga_horaria, credito)
+INSERT INTO disciplinas (curso_idcurso, nome_disciplina, carga_horaria, credito)
 VALUES (1, 'Sistemas Operacionais', 72.00, 4);
 
-INSERT INTO matriz_curricular (curso_idcurso, nome_matriz, carga_horaria, credito)
+INSERT INTO disciplinas (curso_idcurso, nome_disciplina, carga_horaria, credito)
 VALUES (1, 'Estrutura de Dados', 72.00, 4);
 
-INSERT INTO matriz_curricular (curso_idcurso, nome_matriz, carga_horaria, credito)
+INSERT INTO disciplinas (curso_idcurso, nome_disciplina, carga_horaria, credito)
 VALUES (1, 'Língua Portuguesa', 72.00, 4);
 
-INSERT INTO matriz_curricular (curso_idcurso, nome_matriz, carga_horaria, credito)
+INSERT INTO disciplinas (curso_idcurso, nome_disciplina, carga_horaria, credito)
 VALUES (1, 'Banco de Dados', 72.00, 4);
 
-INSERT INTO matriz_curricular (curso_idcurso, nome_matriz, carga_horaria, credito)
+INSERT INTO disciplinas (curso_idcurso, nome_disciplina, carga_horaria, credito)
 VALUES (1, 'Desenvolvimento Pessoal e Profissional', 72.00, 4);
 
-INSERT INTO matriz_curricular (curso_idcurso, nome_matriz, carga_horaria, credito)
+INSERT INTO disciplinas (curso_idcurso, nome_disciplina, carga_horaria, credito)
 VALUES (1, 'Inglês Instrumental', 72.00, 4);
 
-INSERT INTO matriz_curricular (curso_idcurso, nome_matriz, carga_horaria, credito)
+INSERT INTO disciplinas (curso_idcurso, nome_disciplina, carga_horaria, credito)
 VALUES (1, 'Projeto Integrador I', 72.00, 4);
 
-INSERT INTO matriz_curricular (curso_idcurso, nome_matriz, carga_horaria, credito)
+INSERT INTO disciplinas (curso_idcurso, nome_disciplina, carga_horaria, credito)
 VALUES (1, 'Optativa I - Libras', 72.00, 4);
 
-INSERT INTO matriz_curricular (curso_idcurso, nome_matriz, carga_horaria, credito)
+INSERT INTO disciplinas (curso_idcurso, nome_disciplina, carga_horaria, credito)
 VALUES (1, 'Introdução à Orientação a Objetos', 72.00, 4);
 
-INSERT INTO matriz_curricular (curso_idcurso, nome_matriz, carga_horaria, credito)
+INSERT INTO disciplinas (curso_idcurso, nome_disciplina, carga_horaria, credito)
 VALUES (1, 'Psicologia Geral', 72.00, 4);
 
-INSERT INTO matriz_curricular (curso_idcurso, nome_matriz, carga_horaria, credito)
+INSERT INTO disciplinas (curso_idcurso, nome_disciplina, carga_horaria, credito)
 VALUES (1, 'Programação para Dispositivos Móveis', 72.00, 4);
 
-INSERT INTO matriz_curricular (curso_idcurso, nome_matriz, carga_horaria, credito)
+INSERT INTO disciplinas (curso_idcurso, nome_disciplina, carga_horaria, credito)
 VALUES (1, 'Linguagem de Programação Web I', 72.00, 4);
 
-INSERT INTO matriz_curricular (curso_idcurso, nome_matriz, carga_horaria, credito)
+INSERT INTO disciplinas (curso_idcurso, nome_disciplina, carga_horaria, credito)
 VALUES (1, 'Software Livre (Portal do Software Público)', 72.00, 4);
 
-INSERT INTO matriz_curricular (curso_idcurso, nome_matriz, carga_horaria, credito)
+INSERT INTO disciplinas (curso_idcurso, nome_disciplina, carga_horaria, credito)
 VALUES (1, 'Design para Web', 72.00, 4);
 
-INSERT INTO matriz_curricular (curso_idcurso, nome_matriz, carga_horaria, credito)
+INSERT INTO disciplinas (curso_idcurso, nome_disciplina, carga_horaria, credito)
 VALUES (1, 'Engenharia de Software', 72.00, 4);
 
-INSERT INTO matriz_curricular (curso_idcurso, nome_matriz, carga_horaria, credito)
+INSERT INTO disciplinas (curso_idcurso, nome_disciplina, carga_horaria, credito)
 VALUES (1, 'Sociedade, Ética, Cidadania e Direitos Humanos', 72.00, 4);
 
-INSERT INTO matriz_curricular (curso_idcurso, nome_matriz, carga_horaria, credito)
+INSERT INTO disciplinas (curso_idcurso, nome_disciplina, carga_horaria, credito)
 VALUES (1, 'Progamação Orientada a Objetos', 72.00, 4);
 
-INSERT INTO matriz_curricular (curso_idcurso, nome_matriz, carga_horaria, credito)
+INSERT INTO disciplinas (curso_idcurso, nome_disciplina, carga_horaria, credito)
 VALUES (1, 'Fundamentos de Teste de Software', 72.00, 4);
 
-INSERT INTO matriz_curricular (curso_idcurso, nome_matriz, carga_horaria, credito)
+INSERT INTO disciplinas (curso_idcurso, nome_disciplina, carga_horaria, credito)
 VALUES (1, 'Gerencia de Projetos', 72.00, 4);
 
-INSERT INTO matriz_curricular (curso_idcurso, nome_matriz, carga_horaria, credito)
+INSERT INTO disciplinas (curso_idcurso, nome_disciplina, carga_horaria, credito)
 VALUES (1, 'Segurança da Informação', 72.00, 4);
 
-INSERT INTO matriz_curricular (curso_idcurso, nome_matriz, carga_horaria, credito)
+INSERT INTO disciplinas (curso_idcurso, nome_disciplina, carga_horaria, credito)
 VALUES (1, 'Processo de Desenvolvimento de Software', 72.00, 4);
 
-INSERT INTO matriz_curricular (curso_idcurso, nome_matriz, carga_horaria, credito)
+INSERT INTO disciplinas (curso_idcurso, nome_disciplina, carga_horaria, credito)
 VALUES (1, 'Linguagem de Programação Web II', 72.00, 4);
 
-INSERT INTO matriz_curricular (curso_idcurso, nome_matriz, carga_horaria, credito)
+INSERT INTO disciplinas (curso_idcurso, nome_disciplina, carga_horaria, credito)
 VALUES (1, 'Projeto Integrador II', 72.00, 4);
 
-INSERT INTO matriz_curricular (curso_idcurso, nome_matriz, carga_horaria, credito)
+INSERT INTO disciplinas (curso_idcurso, nome_disciplina, carga_horaria, credito)
 VALUES (1, 'Engenharia de Requisitos e Métricas de Software', 72.00, 4);
 
-INSERT INTO matriz_curricular (curso_idcurso, nome_matriz, carga_horaria, credito)
+INSERT INTO disciplinas (curso_idcurso, nome_disciplina, carga_horaria, credito)
 VALUES (1, 'Empreendedorismo', 72.00, 4);
 
-INSERT INTO matriz_curricular (curso_idcurso, nome_matriz, carga_horaria, credito)
+INSERT INTO disciplinas (curso_idcurso, nome_disciplina, carga_horaria, credito)
 VALUES (1, 'Estágio Supervisionado', 72.00, 4);
 
-INSERT INTO matriz_curricular (curso_idcurso, nome_matriz, carga_horaria, credito)
+INSERT INTO disciplinas (curso_idcurso, nome_disciplina, carga_horaria, credito)
 VALUES (1, 'Atividades Complementares I', 72.00, 4);
 
-INSERT INTO matriz_curricular (curso_idcurso, nome_matriz, carga_horaria, credito)
+INSERT INTO disciplinas (curso_idcurso, nome_disciplina, carga_horaria, credito)
 VALUES (1, 'Atividades Complementares II', 72.00, 4);
 /* ----------------------------------------------------------------------------- */
 
@@ -219,20 +219,20 @@ VALUES (5, 1);
 
 /* TABELA grade_semestral - Grades cadastradas pelo Coordenador*/
 
-INSERT INTO grade_semestral (ano_letivo, semestre, periodo, horario, sala, quantidade_alunos, turmas, curso_idcurso)
-VALUES (2018, 1, 'Noturno', '19:15 às 22:00', 15, 40, 'SIST5A', 1);
+INSERT INTO grade_semestral (ano_letivo, semestre_letivo, turno, horario, curso_idcurso)
+VALUES (2018, 1, 'Noturno', '19:15 às 22:00', 1);
 
-INSERT INTO grade_semestral (ano_letivo, semestre, periodo, horario, sala, quantidade_alunos, turmas, curso_idcurso)
-VALUES (2018, 2, 'Matutino', '08:00 às 12:00', 20, 60, 'SIST4B', 2);
+INSERT INTO grade_semestral (ano_letivo, semestre_letivo, turno, horario, curso_idcurso)
+VALUES (2018, 2, 'Matutino', '08:00 às 12:00', 2);
 
-INSERT INTO grade_semestral (ano_letivo, semestre, periodo, horario, sala, quantidade_alunos, turmas, curso_idcurso)
-VALUES (2019, 1, 'Vespertino', '13:00 às 18:00', 12, 35, 'SIST3A', 3);
+INSERT INTO grade_semestral (ano_letivo, semestre_letivo, turno, horario, curso_idcurso)
+VALUES (2019, 1, 'Vespertino', '13:00 às 18:00', 3);
 
 /* --------------------------------------------------------------------------------------------------------- */
 
 /* TABELA disciplina_professor - Disciplinas associadas à um determinado professor*/
 
-INSERT INTO disciplina_professor (iddisciplina_professor, professor_idprofessor, matriz_curricular_idmatriz_curricular, matriz_curricular_curso_idcurso)
-VALUES (1, 8, 26, 1);
+/*INSERT INTO disciplina_professor (iddisciplina_professor, professor_idprofessor, matriz_curricular_idmatriz_curricular, matriz_curricular_curso_idcurso)
+VALUES (1, 8, 26, 1);*/
 
 /* --------------------------------------------------------------------------------------------------------- */

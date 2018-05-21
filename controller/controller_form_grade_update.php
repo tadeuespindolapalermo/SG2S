@@ -21,20 +21,17 @@
 
         // Dados recebidos do formulário via POST
         $grade->setAnoLetivo($_POST['anoLetivo']);
-        $grade->setSemestre($_POST['semestre']);
-        $grade->setPeriodo($_POST['periodo']);
-        $grade->setSala($_POST['sala']);
-        $grade->setQuantidadeAlunos($_POST['quantidadeAlunos']);
-        $grade->setTurmas($_POST['turmas']);
+        $grade->setSemestreLetivo($_POST['semestreLetivo']);
+        $grade->setTurno($_POST['turno']);
         $grade->setCursoIdCurso($_POST['curso']);
         $grade->setIdGradeSemestral($_GET['idGrade']);
 
         // Verificação do Horário
-        if($grade->getPeriodo() === 'Matutino') {
+        if($grade->getTurno() === 'Matutino') {
             $grade->setHorario('08:00 às 12:00');
-        } elseif ($grade->getPeriodo() === 'Vespertino') {
+        } elseif ($grade->getTurno() === 'Vespertino') {
             $grade->setHorario('13:00 às 18:00');
-        } elseif ($grade->getPeriodo() === 'Noturno') {
+        } elseif ($grade->getTurno() === 'Noturno') {
             $grade->setHorario('19:15 às 22:00');
         }
 

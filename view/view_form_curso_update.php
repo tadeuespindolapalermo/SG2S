@@ -77,6 +77,9 @@
                         </select>
                     </div><br />
 
+                    <label class="col-lg-2 control-label label-usuario" >*Versão_Matriz</label>
+                    <input type="number" min="0" max="29999" style="width: 320px; margin-bottom: -5px;" id="versaoMatriz" name="versaoMatriz" placeholder="*Versão da Matriz - Até 5 digitos." class="form-control" value="'.$curso->getVersaoMatriz().'" required><br/>
+
                     <label class="col-lg-2 control-label label-usuario">*Data_Portaria</label>
                     <input type="date" style="width: 320px; margin-bottom: -5px;" id="dataPortaria" name="dataPortaria" class="form-control" placeholder="*Data Portaria: dd/mm/YYYY" value="'.$curso->getDataPortaria().'" required><br/>
 

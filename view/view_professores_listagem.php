@@ -56,7 +56,6 @@
                         <table class="table table-hover table-striped listaSearch" style="text-align: center;" id="listaProfessores">
                             <thead>
                                 <tr>
-                                    <th>Id</th>
                                     <th>Nome</th>
                                     <th>CPF</th>
                                     <th>RG</th>
@@ -86,8 +85,7 @@
 
                                         echo '
                                         <tbody>
-                                            <tr>
-                                                <td>'.$professor->getIdProfessor().'</td>
+                                            <tr>                                                
                                                 <td style="text-align: left;">'.$professor->getNome().'</td>
                                                 <td>'.$professor->getCPF().'</td>
                                                 <td>'.$professor->getRG().'</td>

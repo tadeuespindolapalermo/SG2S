@@ -26,6 +26,7 @@
         $curso->setGrau($_POST['grau']);
         $curso->setDataPortaria($_POST['dataPortaria']);
         $curso->setIdCurso($_GET['idCurso']);
+        $curso->setVersaoMatriz($_POST['versaoMatriz']);
 
         // Update do Curso no Banco
         $updateCurso = $cursoDao->atualizar($conn, $curso);

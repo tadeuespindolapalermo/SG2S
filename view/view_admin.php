@@ -111,7 +111,7 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="view_admin.php?pagina=view_grades_listagem.php">
                                     <span data-feather="grid"></span>
-                                    Grade de Turma
+                                    Grade Semestral
                                 </a>
                             </li>
                             <span class="nav-item">
@@ -128,9 +128,9 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="view_admin.php?pagina=view_matrizes_listagem.php">
+                                <a class="nav-link" href="view_admin.php?pagina=view_disciplinas_listagem.php">
                                     <span data-feather="edit-2"></span>
-                                    Matriz
+                                    Disciplinas
                                 </a>
                             </li>
                             <li class="nav-item">

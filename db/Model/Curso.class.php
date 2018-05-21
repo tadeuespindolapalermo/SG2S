@@ -2,13 +2,16 @@
 
 class Curso {
 
+    // Atributos do Banco de Dados
     private $idCurso;
     private $nome;
     private $portaria;
     private $duracao;
     private $grau;
     private $dataPortaria;
+    private $versaoMatriz;
 
+    // Getters dos Atributos do Banco
     public function getIdCurso() {
         return $this->idCurso;
     }
@@ -33,6 +36,11 @@ class Curso {
         return $this->dataPortaria;
     }
 
+    public function getVersaoMatriz() {
+        return $this->versaoMatriz;
+    }
+
+    // Setters dos Atributos do Banco
     public function setIdCurso($idCurso) {
         $this->idCurso = $idCurso;
     }
@@ -55,6 +63,10 @@ class Curso {
 
     public function setDataPortaria($dataPortaria) {
         $this->dataPortaria = $dataPortaria;
+    }
+
+    public function setVersaoMatriz($versaoMatriz) {
+        $this->versaoMatriz = $versaoMatriz;
     }
 
 }

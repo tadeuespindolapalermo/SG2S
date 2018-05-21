@@ -56,12 +56,12 @@
                         <table class="table table-hover table-striped listaSearch" style="text-align: center;" id="listaCursos">
                             <thead>
                                 <tr>
-                                    <th>Id</th>
                                     <th>Nome</th>
                                     <th>Portaria</th>
                                     <th>Duração</th>
                                     <th>Grau</th>
                                     <th>Data Portaria</th>
+                                    <th>Versão Matriz</th>
                                     <th>Excluir</th>
                                     <th>Editar</th>
                                 </tr>
@@ -75,6 +75,7 @@
                                         $curso->setDuracao($dados['duracao']);
                                         $curso->setGrau($dados['grau']);
                                         $curso->setDataPortaria($dados['data_portaria']);
+                                        $curso->setVersaoMatriz($dados['versao_matriz']);
 
                                         if ($_SESSION['perfil_idperfil'] == 1) {
                                             $url = 'view_admin.php';
@@ -83,16 +84,16 @@
                                             $url = 'view_coordenador.php';
                                             $alert = 'msgConfirmaDeleteCursoCoordenador('.$curso->getIdCurso().')';
                                         }
-                                        
+
                                         echo '
                                         <tbody>
-                                            <tr>
-                                                <td>'.$curso->getIdCurso().'</td>
+                                            <tr>                                            
                                                 <td style="text-align: left;">'.$curso->getNome().'</td>
                                                 <td>'.$curso->getPortaria().'</td>
                                                 <td>'.$curso->getDuracao().'</td>
                                                 <td>'.$curso->getGrau().'</td>
                                                 <td>'.$curso->getDataPortaria().'</td>
+                                                <td>'.$curso->getVersaoMatriz().'</td>
                                                 <td><a href="javascript:void(null);" onclick="'.$alert.'"><img src="../lib/open-iconic/svg/x.svg" alt="remover"></a></td>
                                                 <td><a href="';?><?php echo $url;?><?php echo '?pagina=view_form_curso_update.php&idCurso='.$curso->getIdCurso().'"><img src="../lib/open-iconic/svg/brush.svg" alt="editar"></a></td>
                                             </tr>

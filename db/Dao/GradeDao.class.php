@@ -8,27 +8,21 @@ class GradeDao implements Dao {
     public function inserir($conn, $grade) {
         // INSERÇÃO DE GRADE COM PDO
         try {
-            $sqlGrade = "INSERT INTO grade_semestral(ano_letivo, semestre, periodo, horario, sala, quantidade_alunos, turmas, curso_idcurso) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+            $sqlGrade = "INSERT INTO grade_semestral(ano_letivo, semestre_letivo, turno, horario, curso_idcurso) VALUES (?, ?, ?, ?, ?)";
 
             $stmtCreateGrade = $conn->prepare($sqlGrade);
 
             $anoLetivo = $grade->getAnoLetivo();
-            $semestre = $grade->getSemestre();
-            $periodo = $grade->getPeriodo();
+            $semestreLetivo = $grade->getSemestreLetivo();
+            $turno = $grade->getTurno();
             $horario = $grade->getHorario();
-            $sala = $grade->getSala();
-            $quantidadeAlunos = $grade->getQuantidadeAlunos();
-            $turmas = $grade->getTurmas();
             $cursoIdCurso = $grade->getCursoIdCurso();
 
             $stmtCreateGrade->bindParam(1, $anoLetivo , PDO::PARAM_INT, 4);
-            $stmtCreateGrade->bindParam(2, $semestre, PDO::PARAM_INT, 1);
-            $stmtCreateGrade->bindParam(3, $periodo, PDO::PARAM_STR, 12);
+            $stmtCreateGrade->bindParam(2, $semestreLetivo, PDO::PARAM_INT, 1);
+            $stmtCreateGrade->bindParam(3, $turno, PDO::PARAM_STR, 12);
             $stmtCreateGrade->bindParam(4, $horario, PDO::PARAM_STR, 30);
-            $stmtCreateGrade->bindParam(5, $sala, PDO::PARAM_INT, 2);
-            $stmtCreateGrade->bindParam(6, $quantidadeAlunos, PDO::PARAM_INT, 3);
-            $stmtCreateGrade->bindParam(7, $turmas, PDO::PARAM_STR, 50);
-            $stmtCreateGrade->bindParam(8, $cursoIdCurso, PDO::PARAM_INT, 11);
+            $stmtCreateGrade->bindParam(5, $cursoIdCurso, PDO::PARAM_INT, 11);
 
             $cadastroGradeEfetuado = $stmtCreateGrade->execute();
 
@@ -68,24 +62,18 @@ class GradeDao implements Dao {
             $strSqlGrade = "
             UPDATE grade_semestral set
                 ano_letivo = :anoLetivo,
-                semestre = :semestre,
-                periodo = :periodo,
+                semestre_letivo = :semestreLetivo,
+                turno = :turno,
                 horario = :horario,
-                sala = :sala,
-                quantidade_alunos = :quantidadeAlunos,
-                turmas = :turmas,
                 curso_idcurso = :cursoIdCurso
             WHERE
                 idgrade_semestral = :idGradeSemestral";
 
             $stmtUpdateGrade = $conn->prepare($strSqlGrade);
             $stmtUpdateGrade->bindValue(':anoLetivo', $grade->getAnoLetivo());
-            $stmtUpdateGrade->bindValue(':semestre', $grade->getSemestre());
-            $stmtUpdateGrade->bindValue(':periodo', $grade->getPeriodo());
-            $stmtUpdateGrade->bindValue(':horario', $grade->getHorario());
-            $stmtUpdateGrade->bindValue(':sala', $grade->getSala());
-            $stmtUpdateGrade->bindValue(':quantidadeAlunos', $grade->getQuantidadeAlunos());
-            $stmtUpdateGrade->bindValue(':turmas', $grade->getTurmas());
+            $stmtUpdateGrade->bindValue(':semestreLetivo', $grade->getSemestreLetivo());
+            $stmtUpdateGrade->bindValue(':turno', $grade->getTurno());
+            $stmtUpdateGrade->bindValue(':horario', $grade->getHorario());            
             $stmtUpdateGrade->bindValue(':cursoIdCurso', $grade->getCursoIdCurso());
             $stmtUpdateGrade->bindValue(':idGradeSemestral', $grade->getIdGradeSemestral());
 
@@ -161,7 +149,7 @@ class GradeDao implements Dao {
      * Método para listar todos as grades do sistema (view) ordenado por id de forma ascendente (PAGINAÇÃO)
      **/
     public function listarLimite($conn, $inicio, $limite) {
-        // Seleciona os registros do banco de dados pelo inicio e limitando pelo limite da variável limite        
+        // Seleciona os registros do banco de dados pelo inicio e limitando pelo limite da variável limite
         $strSqlGrade = "SELECT * FROM grade_semestral INNER JOIN curso ON grade_semestral.curso_idcurso = curso.idcurso ORDER BY idgrade_semestral ASC LIMIT ".$inicio. ", ". $limite;
         $selectGrade = $conn->prepare($strSqlGrade);
         $selectGrade->execute();

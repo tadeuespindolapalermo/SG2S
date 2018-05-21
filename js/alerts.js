@@ -47,19 +47,19 @@ function msgConfirmaDeleteCursoCoordenador(idCurso) {
     }
 }
 
-// Delete Matriz (ADMIN)
-function msgConfirmaDeleteMatrizAdmin(idMatriz) {
-    var deletarMatriz = confirm('Deseja realmente excluir esta matriz?');
-    if (deletarMatriz) {
-        location.href = 'view_admin.php?pagina=../controller/controller_matriz_remove.php&idMatriz=' + idMatriz;
+// Delete Disciplina (ADMIN)
+function msgConfirmaDeleteDisciplinaAdmin(idDisciplina) {
+    var deletarDisciplina = confirm('Deseja realmente excluir esta disciplina?');
+    if (deletarDisciplina) {
+        location.href = 'view_admin.php?pagina=../controller/controller_disciplina_remove.php&idDisciplina=' + idDisciplina;
     }
 }
 
-// Delete Matriz (COORDENADOR)
-function msgConfirmaDeleteMatrizCoordenador(idMatriz) {
-    var deletarMatriz = confirm('Deseja realmente excluir esta matriz?');
-    if (deletarMatriz) {
-        location.href = 'view_coordenador.php?pagina=../controller/controller_matriz_remove.php&idMatriz=' + idMatriz;
+// Delete Disciplina (COORDENADOR)
+function msgConfirmaDeleteDisciplinaCoordenador(idDisciplina) {
+    var deletarDisciplina = confirm('Deseja realmente excluir esta disciplina?');
+    if (deletarDisciplina) {
+        location.href = 'view_coordenador.php?pagina=../controller/controller_disciplina_remove.php&idDisciplina=' + idDisciplina;
     }
 }
 

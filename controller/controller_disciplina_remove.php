@@ -7,9 +7,9 @@
     $PDO = new Conn;
     $conn = $PDO->Conectar();
 
-    $matrizDao = new MatrizDao();
+    $disciplinaDao = new DisciplinaDao();
 
-    $idMatrizCurricular = $_GET['idMatriz'];
+    $idDisciplina = $_GET['idDisciplina'];
 
     /*if($_SESSION['perfil_idperfil'] == 2) {
         unset($_SESSION['usuario']);
@@ -18,49 +18,49 @@
         header('Location: ../controller/controller_sair.php');
     }*/
 
-    // Removendo matriz do banco
-    $linhas = $matrizDao->remover($conn, $idMatrizCurricular);
+    // Removendo disciplina do banco
+    $linhas = $disciplinaDao->remover($conn, $idDisciplina);
 
     if ($linhas != 0 && $_SESSION['perfil_idperfil'] == 1) {
         /*echo "
         <script type=\"text/javascript\">
-            alert(\"Matriz excluída com sucesso!!\");
+            alert(\"Disciplina excluída com sucesso!!\");
         </script>*/
         echo '
         <center>
             <div class="alert alert-success" style="width: 455px;">
-                Matriz excluída com sucesso!
+                Disciplina excluída com sucesso!
             </div>
         </center>';
         echo "
         <META HTTP-EQUIV=REFRESH CONTENT = '0;URL=
-        http://localhost/SG2S/view/view_admin.php?pagina=view_ponte_admin_matriz.php'";
+        http://localhost/SG2S/view/view_admin.php?pagina=view_ponte_admin_disciplina.php'";
     } elseif ($linhas != 0 && $_SESSION['perfil_idperfil'] == 2) {
         /*echo "
         <script type=\"text/javascript\">
-            alert(\"Matriz excluída com sucesso!!\");
+            alert(\"Disciplina excluída com sucesso!!\");
         </script>*/
         echo '
         <center>
             <div class="alert alert-success" style="width: 455px;">
-                Matriz excluída com sucesso!
+                Disciplina excluída com sucesso!
             </div>
         </center>';
         echo "
         <META HTTP-EQUIV=REFRESH CONTENT = '0;URL=
-        http://localhost/SG2S/view/view_coordenador.php?pagina=view_ponte_coordenador_matriz.php'";
+        http://localhost/SG2S/view/view_coordenador.php?pagina=view_ponte_coordenador_disciplina.php'";
     } elseif ($linhas == 0 && $_SESSION['perfil_idperfil'] == 1) {
         echo "
         <script type=\"text/javascript\">
-            alert(\"Erro ao excluir matriz!\");
+            alert(\"Erro ao excluir disciplina!\");
         </script>
         <META HTTP-EQUIV=REFRESH CONTENT = '0;URL=
-        http://localhost/SG2S/view/view_admin.php?pagina=view_matrizes_listagem.php'";
+        http://localhost/SG2S/view/view_admin.php?pagina=view_disciplinas_listagem.php'";
     } elseif ($linhas == 0 && $_SESSION['perfil_idperfil'] == 2) {
         echo "
         <script type=\"text/javascript\">
-            alert(\"Erro ao excluir matriz!\");
+            alert(\"Erro ao excluir disciplina!\");
         </script>
         <META HTTP-EQUIV=REFRESH CONTENT = '0;URL=
-        http://localhost/SG2S/view/view_coordenador.php?pagina=view_matrizes_listagem.php'";
+        http://localhost/SG2S/view/view_coordenador.php?pagina=view_disciplinas_listagem.php'";
     }

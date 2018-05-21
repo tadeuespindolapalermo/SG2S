@@ -33,45 +33,42 @@
     foreach ($linhaGrade as $dados) {
         $grade->setIdGradeSemestral($dados['idgrade_semestral']);
         $grade->setAnoLetivo($dados['ano_letivo']);
-        $grade->setSemestre($dados['semestre']);
-        $grade->setPeriodo($dados['periodo']);
+        $grade->setSemestreLetivo($dados['semestreLetivo']);
+        $grade->setTurno($dados['turno']);
         $grade->setHorario($dados['horario']);
-        $grade->setSala($dados['sala']);
-        $grade->setQuantidadeAlunos($dados['quantidade_alunos']);
-        $grade->setTurmas($dados['turmas']);
         $grade->setCursoIdCurso($dados['curso_idcurso']);
     }
 
     // VERIFICAÇÕES DO COMBO BOX SEMESTRE
-    if ($grade->getSemestre() == 1) {
-        $semestre = '1º Semestre';
-        $semestreOption = '2º Semestre';
-        $numSemestreOption = 2;
-    } elseif ($grade->getSemestre() == 2) {
-        $semestre = '2º Semestre';
-        $semestreOption = '1º Semestre';
-        $numSemestreOption = 1;
+    if ($grade->getSemestreLetivo() == 1) {
+        $semestreLetivo = '1º Semestre';
+        $semestreLetivoOption = '2º Semestre';
+        $numSemestreLetivoOption = 2;
+    } elseif ($grade->getSemestreLetivo() == 2) {
+        $semestreLetivo = '2º Semestre';
+        $semestreLetivoOption = '1º Semestre';
+        $numSemestreLetivoOption = 1;
     }
 
     // VERIFICAÇÕES DO COMBO BOX PERIODO
-    if ($grade->getPeriodo() == 'Matutino') {
-        $periodoUmOption = 'Vespertino - 13:00 às 18:00';
-        $valuePeriodoUmOption = 'Vespertino';
-        $periodoDoisOption = 'Noturno - 19:15 às 22:00';
-        $valuePeriodoDoisOption = 'Noturno';
-        $periodo = '08:00 às 12:00';
-    } elseif ($grade->getPeriodo() == 'Vespertino') {
-        $periodoUmOption = 'Matutino - 08:00 às 12:00';
-        $valuePeriodoUmOption = 'Matutino';
-        $periodoDoisOption = 'Noturno - 19:15 às 22:00';
-        $valuePeriodoDoisOption = 'Noturno';
-        $periodo = '13:00 às 18:00';
-    } elseif ($grade->getPeriodo() == 'Noturno') {
-        $periodoUmOption = 'Vespertino - 13:00 às 18:00';
-        $valuePeriodoUmOption = 'Vespertino';
-        $periodoDoisOption = 'Matutino - 08:00 às 12:00';
-        $valuePeriodoDoisOption = 'Matutino';
-        $periodo = '19:15 às 22:00';
+    if ($grade->getTurno() == 'Matutino') {
+        $turnoUmOption = 'Vespertino - 13:00 às 18:00';
+        $valueTurnoUmOption = 'Vespertino';
+        $turnoDoisOption = 'Noturno - 19:15 às 22:00';
+        $valueTurnoDoisOption = 'Noturno';
+        $turno = '08:00 às 12:00';
+    } elseif ($grade->getTurno() == 'Vespertino') {
+        $turnoUmOption = 'Matutino - 08:00 às 12:00';
+        $valueTurnoUmOption = 'Matutino';
+        $turnoDoisOption = 'Noturno - 19:15 às 22:00';
+        $valueTurnoDoisOption = 'Noturno';
+        $turno = '13:00 às 18:00';
+    } elseif ($grade->getTurno() == 'Noturno') {
+        $turnoUmOption = 'Vespertino - 13:00 às 18:00';
+        $valueTurnoUmOption = 'Vespertino';
+        $turnoDoisOption = 'Matutino - 08:00 às 12:00';
+        $valueTurnoDoisOption = 'Matutino';
+        $turno = '19:15 às 22:00';
     }
 
     echo '
@@ -101,18 +98,18 @@
 
                     <label class="col-lg-12 control-label label-usuario">*Semestre</label>
                     <div class="form-group" style="width: 320px; margin-bottom: -5px;">
-                        <select class="form-control" id="semestre" name="semestre" required>
-                            <option value="'.$grade->getSemestre().'">'.$semestre.'</option>
-                            <option value="'.$numSemestreOption.'">'.$semestreOption.'</option>
+                        <select class="form-control" id="semestreLetivo" name="semestreLetivo" required>
+                            <option value="'.$grade->getSemestreLetivo().'">'.$semestreLetivo.'</option>
+                            <option value="'.$numSemestreLetivoOption.'">'.$semestreLetivoOption.'</option>
                         </select>
                     </div><br/>
 
-                    <label class="col-lg-12 control-label label-usuario">*Período</label>
+                    <label class="col-lg-12 control-label label-usuario">*Turno</label>
                     <div class="form-group" style="width: 320px; margin-bottom: -5px;">
-                        <select class="form-control" id="periodo" name="periodo" required>
-                            <option value="'.$grade->getPeriodo().'">'.$grade->getPeriodo().' - '.$periodo.'</option>
-                            <option value="'.$valuePeriodoUmOption.'">'.$periodoUmOption.'</option>
-                            <option value="'.$valuePeriodoDoisOption.'">'.$periodoDoisOption.'</option>
+                        <select class="form-control" id="turno" name="turno" required>
+                            <option value="'.$grade->getTurno().'">'.$grade->getTurno().' - '.$turno.'</option>
+                            <option value="'.$valueTurnoUmOption.'">'.$turnoUmOption.'</option>
+                            <option value="'.$valueTurnoDoisOption.'">'.$turnoDoisOption.'</option>
                         </select>
                     </div><br/>
 
@@ -120,21 +117,6 @@
                     <input type="number" min="2000" max="9999" style="width: 320px; margin-bottom: -5px;" required
                     id="anoLetivo" name="anoLetivo" class="form-control" value="'.$grade->getAnoLetivo().'"
                     placeholder="*Ano Letivo - Até 4 números"><br/>
-
-                    <label class="col-lg-2 control-label label-usuario" >*Sala</label>
-                    <input type="number" min="1" max="99" style="width: 320px; margin-bottom: -5px;" id="sala"
-                    name="sala" class="form-control" value="'.$grade->getSala().'"
-                    placeholder="*Sala - Entre 1 a 99" required><br/>
-
-                    <label class="col-lg-2 control-label label-usuario">*Quantidade_Alunos</label>
-                    <input type="number" min="1" max="999" style="width: 320px; margin-bottom: -5px;"
-                    id="quantidadeAlunos" name="quantidadeAlunos" class="form-control" value="'.$grade->getQuantidadeAlunos().'"
-                    placeholder="*Quantidade de Alunos - Entre 1 a 999" required><br/>
-
-                    <label class="col-lg-2 control-label label-usuario">*Turmas</label>
-                    <input type="text" maxlength="50" style="width: 320px; margin-bottom: -5px; text-transform:uppercase;"
-                    id="turmas" name="turmas" class="form-control" value="'.$grade->getTurmas().'"
-                    inputonchange="this.value = this.value.toUpperCase()" required placeholder="*SIST5A"><br/>
 
                     <button type="submit" style="margin-bottom: 5px;" class="btn btn-outline-primary form-control"><span data-feather="save"></span>&nbsp;Atualizar</button>
                     <a href="';?><?php echo $url;?><?php echo '?pagina=view_grades_listagem.php"><button type="button" class="btn btn-outline-secondary form-control"><span data-feather="arrow-left"></span>&nbsp;Voltar</button></a>

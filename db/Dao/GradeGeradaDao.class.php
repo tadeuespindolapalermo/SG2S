@@ -80,7 +80,7 @@ class GradeGeradaDao implements Dao {
      * ...
      **/
     public function listarProfessor($conn) {
-        $strSqlGradeGerada = "SELECT professor_idprofessor FROM disciplina_professor INNER JOIN matriz_curricular WHERE matriz_curricular_idmatriz_curricular = idmatriz_curricular";
+        $strSqlGradeGerada = "SELECT professor_idprofessor FROM disciplina_professor INNER JOIN disciplina WHERE disciplinas_iddisciplinas = iddisciplinas";
         $selectGradeGerada = $conn->prepare($strSqlGradeGerada);
         $selectGradeGerada->execute();
         return $selectGradeGerada;

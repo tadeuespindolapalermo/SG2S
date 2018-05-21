@@ -2,57 +2,47 @@
 
 class Grade {
 
+    // Atributos do Banco de Dados
     private $idGradeSemestral;
-    private $idGlobals;
     private $anoLetivo;
-    private $semestre;
-    private $periodo;
+    private $semestreLetivo;
+    private $turno;
     private $horario;
-    private $sala;
-    private $quantidadeAlunos;
-    private $turmas;
     private $cursoIdCurso;
+
+    // Atributos auxiliares
+    private $idGlobals;
     private $cursoNome;
     private $cursoGrau;
 
+    // Getters dos Atributos do Banco
     public function getIdGradeSemestral() {
         return $this->idGradeSemestral;
-    }
-
-    public function getIdGlobals() {
-        return $this->idGlobals;
     }
 
     public function getAnoLetivo() {
         return $this->anoLetivo;
     }
 
-    public function getSemestre() {
-        return $this->semestre;
+    public function getSemestreLetivo() {
+        return $this->semestreLetivo;
     }
 
-    public function getPeriodo() {
-        return $this->periodo;
+    public function getTurno() {
+        return $this->turno;
     }
 
     public function getHorario()  {
         return $this->horario;
     }
 
-    public function getSala() {
-        return $this->sala;
-    }
-
-    public function getQuantidadeAlunos()  {
-        return $this->quantidadeAlunos;
-    }
-
-    public function getTurmas() {
-        return $this->turmas;
-    }
-
     public function getCursoIdCurso() {
         return $this->cursoIdCurso;
+    }
+
+    // Getters dos Atributos Auxiliares
+    public function getIdGlobals() {
+        return $this->idGlobals;
     }
 
     public function getCursoNome() {
@@ -63,44 +53,34 @@ class Grade {
         return $this->cursoGrau;
     }
 
+    // Setters dos Atributos do Banco
     public function setIdGradeSemestral($idGradeSemestral) {
         $this->idGradeSemestral = $idGradeSemestral;
-    }
-
-    public function setIdGlobals($idGlobals) {
-        $this->idGlobals = $idGlobals;
     }
 
     public function setAnoLetivo($anoLetivo) {
         $this->anoLetivo = $anoLetivo;
     }
 
-    public function setSemestre($semestre) {
-        $this->semestre = $semestre;
+    public function setSemestreLetivo($semestreLetivo) {
+        $this->semestreLetivo = $semestreLetivo;
     }
 
-    public function setPeriodo($periodo) {
-        $this->periodo = $periodo;
+    public function setTurno($turno) {
+        $this->turno = $turno;
     }
 
     public function setHorario($horario) {
         $this->horario = $horario;
     }
 
-    public function setSala($sala) {
-        $this->sala = $sala;
-    }
-
-    public function setQuantidadeAlunos($quantidadeAlunos) {
-        $this->quantidadeAlunos = $quantidadeAlunos;
-    }
-
-    public function setTurmas($turmas) {
-        $this->turmas = $turmas;
-    }
-
     public function setCursoIdCurso($cursoIdCurso) {
         $this->cursoIdCurso = $cursoIdCurso;
+    }
+
+    // Setters dos Atributos Auxiliares
+    public function setIdGlobals($idGlobals) {
+        $this->idGlobals = $idGlobals;
     }
 
     public function setCursoNome($cursoNome) {
@@ -110,6 +90,5 @@ class Grade {
     public function setCursoGrau($cursoGrau) {
         $this->cursoGrau = $cursoGrau;
     }
-
 
 }

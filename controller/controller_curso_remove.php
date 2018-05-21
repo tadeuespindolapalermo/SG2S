@@ -52,12 +52,12 @@
     } elseif ($linhas == 0 && $_SESSION['perfil_idperfil'] == 1) {
         /*echo "
         <script type=\"text/javascript\">
-            alert(\"Erro ao excluir curso! Este curso está vinculado a uma ou mais matriz!\");
+            alert(\"Erro ao excluir curso! Este curso está vinculado a uma ou mais disciplina!\");
         </script>*/
         echo '
         <center>
           <div class="alert alert-danger" style="width: 600px;">
-              Erro ao excluir curso! Este curso está vinculado a uma ou mais matriz!
+              Erro ao excluir curso! Este curso está vinculado a uma ou mais disciplina!
           </div>
         </center>';
         echo "
@@ -66,12 +66,12 @@
     } elseif ($linhas == 0 && $_SESSION['perfil_idperfil'] == 2) {
         /*echo "
         <script type=\"text/javascript\">
-            alert(\"Erro ao excluir curso! Este curso está vinculado a uma ou mais matriz!\");
+            alert(\"Erro ao excluir curso! Este curso está vinculado a uma ou mais disciplina!\");
         </script>*/
         echo '
         <center>
           <div class="alert alert-danger" style="width: 600px;">
-              Erro ao excluir curso! Este curso está vinculado a uma ou mais matriz!
+              Erro ao excluir curso! Este curso está vinculado a uma ou mais disciplina!
           </div>
         </center>';
         echo "

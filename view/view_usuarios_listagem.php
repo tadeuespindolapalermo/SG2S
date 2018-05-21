@@ -58,7 +58,6 @@
                         <table class="table table-hover table-striped listaSearch" style="text-align: center;" id="listaUsuarios">
                             <thead>
                                 <tr>
-                                    <th>Id</th>
                                     <th>Nome</th>
                                     <th>Usuário</th>
                                     <th>Perfil</th>
@@ -95,8 +94,7 @@
 
                                         echo '
                                         <tbody>
-                                            <tr>
-                                                <td>'.$usuarios->getIdUsuarios().'</td>
+                                            <tr>                                                
                                                 <td style="text-align: left;">'.$usuarios->getNome().'</td>
                                                 <td style="text-align: left;">'.$usuarios->getUsuario().'</td>
                                                 <td>'.$perfil->getDescricao().'</td>

@@ -55,7 +55,7 @@
 	            </div>
 
                 <div class="form-group">
-                    <select class="form-control" id="semestre" name="semestre" required>
+                    <select class="form-control" id="semestreLetivo" name="semestreLetivo" required>
 						<option value="">-*Selecione o Semestre do Ano Letivo-</option>
                         <option value="1">1º Semestre</option>
                         <option value="2">2º Semestre</option>
@@ -63,8 +63,8 @@
 				</div>
 
                 <div class="form-group">
-                    <select class="form-control" id="periodo" name="periodo" required>
-						<option value="">-*Selecione o Período-</option>
+                    <select class="form-control" id="turno" name="turno" required>
+						<option value="">-*Selecione o Turno-</option>
                         <option value="Matutino">Matutino - 08:00 às 12:00</option>
                         <option value="Vespertino">Vespertino - 13:00 às 18:00</option>
                         <option value="Noturno">Noturno - 19:15 às 22:00</option>
@@ -76,20 +76,7 @@
 					placeholder="*Ano Letivo - Até 4 números" required>
 				</div>
 
-				<div class="form-group">
-					<input type="number" min="1" max="99" class="form-control" id="sala" name="sala" placeholder="*Sala - Entre 1 a 99"
-                    required>
-				</div>
-
-				<input type="number" min="1" max="999" class="form-control" id="quantidadeAlunos"
-                name="quantidadeAlunos" placeholder="*Quantidade de Alunos - Entre 1 a 999" required>
-
-			</div>
-
-			<div class="form-group">
-				<input type="text" maxlength="50" class="form-control" id="turmas" name="turmas" placeholder="*SIST 5A"
-                style="text-transform:uppercase" inputonchange="this.value = this.value.toUpperCase()" required>
-			</div>
+			</div>			
 
 			<button type="submit" style="margin-bottom: 5px;" class="btn btn-outline-success form-control"><span data-feather="database"></span>&nbsp;Cadastrar</button>
 			<a href="<?php echo $url;?>?pagina=view_grades_listagem.php"><button type="button" class="btn btn-outline-secondary form-control"><span data-feather="arrow-left"></span>&nbsp;Voltar</button></a>

@@ -62,7 +62,6 @@
                         <table class="table table-hover table-striped listaSearch" style="text-align: center;" id="listaProfessoresExcluidos">
                             <thead>
                                 <tr>
-                                    <th>Id</th>
                                     <th>Nome</th>
                                     <th>CPF</th>
                                     <th>RG</th>
@@ -85,13 +84,12 @@
                                         if ($_SESSION['perfil_idperfil'] == 1) {
                                             $alert = 'msgConfirmaDeleteProfessorDefinitivoBancoDadosAdmin('.$professor->getIdProfessor().')';
                                         } elseif ($_SESSION['perfil_idperfil'] == 2) {
-                                            $alert = 'msgConfirmaDeleteProfessorDefinitivoBancoDadosCoordenador('.$professor->getIdProfessor().')';                                            
+                                            $alert = 'msgConfirmaDeleteProfessorDefinitivoBancoDadosCoordenador('.$professor->getIdProfessor().')';
                                         }
 
                                         echo '
                                         <tbody>
-                                            <tr>
-                                                <td>'.$professor->getIdProfessor().'</td>
+                                            <tr>                                            
                                                 <td style="text-align: left;">'.$professor->getNome().'</td>
                                                 <td>'.$professor->getCPF().'</td>
                                                 <td>'.$professor->getRG().'</td>

@@ -43,7 +43,7 @@ class CursoDao implements Dao {
 
         // INSERÇÃO DE CURSO COM PDO
         try {
-            $sqlCurso = "INSERT INTO curso(nome, portaria, duracao, grau, data_portaria) VALUES (?, ?, ?, ?, ?)";
+            $sqlCurso = "INSERT INTO curso(nome, portaria, duracao, grau, data_portaria, versao_matriz) VALUES (?, ?, ?, ?, ?, ?)";
 
             $stmtCreateCurso = $conn->prepare($sqlCurso);
 
@@ -52,12 +52,14 @@ class CursoDao implements Dao {
             $duracao = $curso->getDuracao();
             $grau = $curso->getGrau();
             $dataPortaria = $curso->getDataPortaria();
+            $versaoMatriz = $curso->getVersaoMatriz();
 
             $stmtCreateCurso->bindParam(1, $nome, PDO::PARAM_STR, 60);
             $stmtCreateCurso->bindParam(2, $portaria, PDO::PARAM_STR, 30);
             $stmtCreateCurso->bindParam(3, $duracao, PDO::PARAM_STR, 02);
             $stmtCreateCurso->bindParam(4, $grau, PDO::PARAM_STR, 30);
             $stmtCreateCurso->bindParam(5, $dataPortaria, PDO::PARAM_STR, 10);
+            $stmtCreateCurso->bindParam(6, $versaoMatriz, PDO::PARAM_INT, 5);
 
             $cadastroCursoEfetuado = $stmtCreateCurso->execute();
 
@@ -100,7 +102,8 @@ class CursoDao implements Dao {
                 portaria = :portaria,
                 duracao = :duracao,
                 grau = :grau,
-                data_portaria = :dataPortaria
+                data_portaria = :dataPortaria,
+                versao_matriz = :versaoMatriz
             WHERE
                 idcurso = :idCurso";
 
@@ -111,6 +114,7 @@ class CursoDao implements Dao {
             $stmtUpdateCurso->bindValue(':grau', $curso->getGrau());
             $stmtUpdateCurso->bindValue(':dataPortaria', $curso->getDataPortaria());
             $stmtUpdateCurso->bindValue(':idCurso', $curso->getIdCurso());
+            $stmtUpdateCurso->bindValue(':versaoMatriz', $curso->getVersaoMatriz());
             $updateCurso = $stmtUpdateCurso->execute();
 
             return $updateCurso;

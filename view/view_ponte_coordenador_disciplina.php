@@ -7,6 +7,6 @@
     }
     echo "
     <META HTTP-EQUIV=REFRESH CONTENT = '0;URL=
-    http://localhost/SG2S/view/view_coordenador.php?pagina=view_matrizes_listagem.php'";
+    http://localhost/SG2S/view/view_coordenador.php?pagina=view_disciplinas_listagem.php'";
     sleep(2);
 ?>
