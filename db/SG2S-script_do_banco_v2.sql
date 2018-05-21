@@ -104,13 +104,13 @@ CREATE TABLE IF NOT EXISTS `codigofonteonline1`.`usuario_perfil` (
   CONSTRAINT `fk_usuario_perfil_usuarios1`
     FOREIGN KEY (`usuarios_idusuarios`)
     REFERENCES `codigofonteonline1`.`usuarios` (`idusuarios`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
   CONSTRAINT `fk_usuario_perfil_perfil1`
     FOREIGN KEY (`perfil_idperfil`)
     REFERENCES `codigofonteonline1`.`perfil` (`idperfil`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8
 COMMENT = 'Associação entre as tabelas usuarios e perfil';

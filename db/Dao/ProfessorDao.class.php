@@ -237,7 +237,7 @@ class ProfessorDao implements Dao {
      * Método para listar todos os professores do sistema (view)
      **/
     public function listar($conn) {
-        $strSqlProfessor = "SELECT * FROM professor WHERE exclusao != 0";
+        $strSqlProfessor = "SELECT * FROM professor WHERE exclusao != 0 ORDER BY nome";
         $selectProfessor = $conn->prepare($strSqlProfessor);
         $selectProfessor->execute();
         return $selectProfessor;
@@ -247,7 +247,7 @@ class ProfessorDao implements Dao {
      * Método para listar todos os professores excluídos do sistema (view) - LIXEIRA
      **/
     public function listarExcluidos($conn) {
-        $strSqlProfessor = "SELECT * FROM professor WHERE exclusao != 1";
+        $strSqlProfessor = "SELECT * FROM professor WHERE exclusao != 1 ORDER BY nome";
         $selectProfessor = $conn->prepare($strSqlProfessor);
         $selectProfessor->execute();
         return $selectProfessor;
@@ -271,7 +271,7 @@ class ProfessorDao implements Dao {
      **/
     public function listarLimite($conn, $inicio, $limite) {
         // Seleciona os registros do banco de dados pelo inicio e limitando pelo limite da variável limite
-        $strSqlProfessor = "SELECT * FROM professor WHERE exclusao != 0 ORDER BY idprofessor ASC LIMIT ".$inicio. ", ". $limite;
+        $strSqlProfessor = "SELECT * FROM professor WHERE exclusao != 0 ORDER BY nome ASC LIMIT ".$inicio. ", ". $limite;
         $selectProfessor = $conn->prepare($strSqlProfessor);
         $selectProfessor->execute();
         return $selectProfessor;
@@ -282,7 +282,7 @@ class ProfessorDao implements Dao {
      **/
     public function listarLimiteLixeira($conn, $inicio, $limite) {
         // Seleciona os registros do banco de dados pelo inicio e limitando pelo limite da variável limite
-        $strSqlProfessor = "SELECT * FROM professor WHERE exclusao != 1 ORDER BY idprofessor ASC LIMIT ".$inicio. ", ". $limite;
+        $strSqlProfessor = "SELECT * FROM professor WHERE exclusao != 1 ORDER BY nome ASC LIMIT ".$inicio. ", ". $limite;
         $selectProfessor = $conn->prepare($strSqlProfessor);
         $selectProfessor->execute();
         return $selectProfessor;

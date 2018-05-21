@@ -33,7 +33,7 @@
     foreach ($linhaGrade as $dados) {
         $grade->setIdGradeSemestral($dados['idgrade_semestral']);
         $grade->setAnoLetivo($dados['ano_letivo']);
-        $grade->setSemestreLetivo($dados['semestreLetivo']);
+        $grade->setSemestreLetivo($dados['semestre_letivo']);
         $grade->setTurno($dados['turno']);
         $grade->setHorario($dados['horario']);
         $grade->setCursoIdCurso($dados['curso_idcurso']);
@@ -96,7 +96,7 @@
                         </select>
                     </div><br/>
 
-                    <label class="col-lg-12 control-label label-usuario">*Semestre</label>
+                    <label class="col-lg-12 control-label label-usuario">*Semestre_Letivo</label>
                     <div class="form-group" style="width: 320px; margin-bottom: -5px;">
                         <select class="form-control" id="semestreLetivo" name="semestreLetivo" required>
                             <option value="'.$grade->getSemestreLetivo().'">'.$semestreLetivo.'</option>

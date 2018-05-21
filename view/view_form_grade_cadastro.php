@@ -56,7 +56,7 @@
 
                 <div class="form-group">
                     <select class="form-control" id="semestreLetivo" name="semestreLetivo" required>
-						<option value="">-*Selecione o Semestre do Ano Letivo-</option>
+						<option value="">-*Selecione o Semestre Letivo-</option>
                         <option value="1">1º Semestre</option>
                         <option value="2">2º Semestre</option>
                     </select>
@@ -76,7 +76,7 @@
 					placeholder="*Ano Letivo - Até 4 números" required>
 				</div>
 
-			</div>			
+			</div>
 
 			<button type="submit" style="margin-bottom: 5px;" class="btn btn-outline-success form-control"><span data-feather="database"></span>&nbsp;Cadastrar</button>
 			<a href="<?php echo $url;?>?pagina=view_grades_listagem.php"><button type="button" class="btn btn-outline-secondary form-control"><span data-feather="arrow-left"></span>&nbsp;Voltar</button></a>

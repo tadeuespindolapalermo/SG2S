@@ -128,7 +128,7 @@ class CursoDao implements Dao {
      * Método para listar todos os cursos do sistema (view)
      **/
     public function listar($conn) {
-        $strSqlCurso = "SELECT * FROM curso";
+        $strSqlCurso = "SELECT * FROM curso ORDER BY nome";
         $selectCurso = $conn->prepare($strSqlCurso);
         $selectCurso->execute();
         return $selectCurso;
@@ -152,7 +152,7 @@ class CursoDao implements Dao {
      **/
     public function listarLimite($conn, $inicio, $limite) {
         // Seleciona os registros do banco de dados pelo inicio e limitando pelo limite da variável limite
-        $strSqlCurso = "SELECT * FROM curso ORDER BY idcurso ASC LIMIT ".$inicio. ", ". $limite;
+        $strSqlCurso = "SELECT * FROM curso ORDER BY nome ASC LIMIT ".$inicio. ", ". $limite;
         $selectCurso = $conn->prepare($strSqlCurso);
         $selectCurso->execute();
         return $selectCurso;

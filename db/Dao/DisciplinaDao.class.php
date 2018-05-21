@@ -123,7 +123,7 @@ class DisciplinaDao implements Dao {
      * Método para listar todos as disciplinas do sistema (view)
      **/
     public function listar($conn) {
-        $strSqlDisciplinaJoinCurso = "SELECT * FROM disciplinas INNER JOIN curso ON disciplinas.curso_idcurso = curso.idcurso ORDER BY iddisciplinas";
+        $strSqlDisciplinaJoinCurso = "SELECT * FROM disciplinas INNER JOIN curso ON disciplinas.curso_idcurso = curso.idcurso ORDER BY nome_disciplina";
         $selectDisciplinaJoinCurso = $conn->prepare($strSqlDisciplinaJoinCurso);
         $selectDisciplinaJoinCurso->execute();
         return $selectDisciplinaJoinCurso;
@@ -157,7 +157,7 @@ class DisciplinaDao implements Dao {
      **/
     public function listarLimite($conn, $inicio, $limite) {
         // Seleciona os registros do banco de dados pelo inicio e limitando pelo limite da variável limite
-        $strSqlDisciplina = "SELECT * FROM disciplinas INNER JOIN curso ON disciplinas.curso_idcurso = curso.idcurso ORDER BY iddisciplinas ASC LIMIT ".$inicio. ", ". $limite;
+        $strSqlDisciplina = "SELECT * FROM disciplinas INNER JOIN curso ON disciplinas.curso_idcurso = curso.idcurso ORDER BY nome_disciplina ASC LIMIT ".$inicio. ", ". $limite;
         $selectDisciplina = $conn->prepare($strSqlDisciplina);
         $selectDisciplina->execute();
         return $selectDisciplina;

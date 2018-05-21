@@ -35,6 +35,7 @@
         $curso->setDuracao($dados['duracao']);
         $curso->setGrau($dados['grau']);
         $curso->setDataPortaria($dados['data_portaria']);
+        $curso->setVersaoMatriz($dados['versao_matriz']);
     }
 
     // VERIFICAÇÕES DO COMBO BOX GRAU

@@ -229,7 +229,7 @@ class UsuarioDao implements Dao {
      * Método para listar todos os usuários do sistema (view)
      **/
     public function listar($conn) {
-        $strSqlJoin = "SELECT * FROM usuarios INNER JOIN usuario_perfil ON usuarios.idusuarios = usuario_perfil.idusuario_perfil";
+        $strSqlJoin = "SELECT * FROM usuarios INNER JOIN usuario_perfil ON usuarios.idusuarios = usuario_perfil.idusuario_perfil ORDER BY nome";
         $selectUsuarioJoin = $conn->prepare($strSqlJoin);
         $selectUsuarioJoin->execute();
         return $selectUsuarioJoin;
@@ -300,7 +300,7 @@ class UsuarioDao implements Dao {
      **/
     public function listarLimite($conn, $inicio, $limite) {
         // Seleciona os registros do banco de dados pelo inicio e limitando pelo limite da variável limite
-        $strSqlUsuario = "SELECT * FROM usuarios INNER JOIN usuario_perfil ON usuarios.idusuarios = usuario_perfil.idusuario_perfil ORDER BY idusuarios ASC LIMIT ".$inicio. ", ". $limite;
+        $strSqlUsuario = "SELECT * FROM usuarios INNER JOIN usuario_perfil ON usuarios.idusuarios = usuario_perfil.idusuario_perfil ORDER BY nome ASC LIMIT ".$inicio. ", ". $limite;
         $selectUsuario = $conn->prepare($strSqlUsuario);
         $selectUsuario->execute();
         return $selectUsuario;
