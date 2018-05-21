@@ -161,7 +161,7 @@ class DisciplinaDao implements Dao {
         $selectDisciplina = $conn->prepare($strSqlDisciplina);
         $selectDisciplina->execute();
         return $selectDisciplina;
-    }
+    }    
 
     /*
      * Seleciona o id de todos os registros de disciplina (PAGINAÇÃO)

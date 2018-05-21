@@ -1,6 +1,7 @@
 <div class="container listar">
     <div class="header clearfix">
-        <h3 class="text-muted">Listagem de Cursos</h3><hr />
+        <h3 class="text-muted">Listagem de Cursos</h3><hr/>
+        <h6><strong>Clique no <font color="blue">Nome do Curso</font> para visualizar a Matriz!</strong></h6>
     </div>
 
     <?php
@@ -56,7 +57,7 @@
                         <table class="table table-hover table-striped listaSearch" style="text-align: center;" id="listaCursos">
                             <thead>
                                 <tr>
-                                    <th>Nome</th>
+                                    <th>Nome do Curso</th>
                                     <th>Portaria</th>
                                     <th>Duração</th>
                                     <th>Grau</th>
@@ -87,8 +88,8 @@
 
                                         echo '
                                         <tbody>
-                                            <tr>                                            
-                                                <td style="text-align: left;">'.$curso->getNome().'</td>
+                                            <tr>
+                                                <td style="text-align: left;"><a href="#">'.$curso->getNome().'</a></td>
                                                 <td>'.$curso->getPortaria().'</td>
                                                 <td>'.$curso->getDuracao().'</td>
                                                 <td>'.$curso->getGrau().'</td>

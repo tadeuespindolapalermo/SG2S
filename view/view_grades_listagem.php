@@ -1,7 +1,7 @@
 <div class="container listar">
     <div class="header clearfix">
         <h3 class="text-muted">Listagem de Grades</h3><hr />
-        <h6><strong>Clique no ID da grade para gerá-la!</strong></h6>
+        <h6><strong>Clique no <font color="blue">ID</font> da grade para gerá-la!</strong></h6>
     </div>
 
     <?php
@@ -94,7 +94,7 @@
                                                 <td>'.$grade->getAnoLetivo().'</td>
                                                 <td>'.$grade->getSemestreLetivo().'</td>
                                                 <td>'.$grade->getTurno().'</td>
-                                                <td>'.$grade->getHorario().'</td>                                            
+                                                <td>'.$grade->getHorario().'</td>
                                                 <td>'.$grade->getCursoNome().'</td>
                                                 <td><a href="javascript:void(null);" onclick="'.$alert.'"><img src="../lib/open-iconic/svg/x.svg" alt="remover"></a></td>
                                                 <td><a href="';?><?php echo $url;?><?php echo '?pagina=view_form_grade_update.php&idGrade='.$grade->getIdGradeSemestral().'"><img src="../lib/open-iconic/svg/brush.svg" alt="editar"></a></td>
