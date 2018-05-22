@@ -34,6 +34,7 @@
 	<div class="col-md-4">
 		<br />
 		<h3><strong><div style="margin-top: -50px;">Cadastrar Grade</div></strong></h3>
+		<small><strong>AVISO: 'Ano', 'Semestre' e 'Curso': trinca única!<strong></small><br/>
 		<br />
 		<form method="post" action="<?php echo $url;?>?pagina=../controller/controller_form_grade_cadastro.php" id="formGrade">
 			<div class="form-group">

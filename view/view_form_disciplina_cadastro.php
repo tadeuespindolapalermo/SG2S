@@ -36,7 +36,7 @@
 	<div class="col-md-4">
 		<br />
 		<h3><strong><div style="margin-top: -50px;">Cadastrar Disciplina</div></strong></h3>
-		<small>AVISO: 'Nome' deve ser ÚNICO!</small><br/>
+		<small><strong>AVISO: 'Nome' deve ser ÚNICO!</strong></small><br/>
 		<br />
 		<form method="post" action="<?php echo $url;?>?pagina=../controller/controller_form_disciplina_cadastro.php" id="formDisciplina">
 			<div class="form-group">

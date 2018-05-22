@@ -27,7 +27,7 @@
 	<div class="col-md-4">
 		<br />
 		<h3><strong><div style="margin-top: -50px;">Cadastrar Professor</div></strong></h3>
-		<small>AVISO: 'CPF', 'RG' e 'E-mail' devem ser ÚNICOS!</small><br/>
+		<small><strong>AVISO: 'CPF', 'RG' e 'E-mail' devem ser ÚNICOS!</strong></small><br/>
 		<br />
 		<form method="post" action="<?php echo $url;?>?pagina=../controller/controller_form_professor_cadastro.php" id="formProfessor">
 			<div class="form-group">
