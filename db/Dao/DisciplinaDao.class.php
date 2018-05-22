@@ -143,7 +143,7 @@ class DisciplinaDao implements Dao {
      * Método para popular a view de update de disciplina (view)
      **/
     public function buscarPorId($conn, $idDisciplina) {
-        $strSqlDisciplina = "SELECT * FROM disciplinas INNER JOIN curso WHERE iddisciplinas = :idDisciplina";
+        $strSqlDisciplina = "SELECT * FROM disciplinas INNER JOIN curso ON disciplinas.curso_idcurso = curso.idcurso WHERE iddisciplinas = :idDisciplina";
         $selectDisciplina = $conn->prepare($strSqlDisciplina);
         $selectDisciplina->bindValue(':idDisciplina', $idDisciplina);
         $selectDisciplina->execute();
@@ -161,7 +161,7 @@ class DisciplinaDao implements Dao {
         $selectDisciplina = $conn->prepare($strSqlDisciplina);
         $selectDisciplina->execute();
         return $selectDisciplina;
-    }    
+    }
 
     /*
      * Seleciona o id de todos os registros de disciplina (PAGINAÇÃO)

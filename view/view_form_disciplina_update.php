@@ -37,7 +37,7 @@
         $disciplina->setCargaHoraria($dados['carga_horaria']);
         $disciplina->setCredito($dados['credito']);
     }
-
+    $cursoNomeAuxiliar = $disciplina->getCursoNome();
     echo '
     <div class="container">
         <div class="col-md-4">
@@ -51,12 +51,17 @@
                     <label class="col-lg-12 control-label label-usuario">*Curso</label>
                     <div class="form-group" style="width: 320px; margin-bottom: -5px;">
                         <select class="form-control" id="curso" name="curso" required="required" autofocus>
-                            <option value="">-Selecione o Curso-</option>';
+                            <option value="'.$disciplina->getCursoIdCurso().'">'.$disciplina->getCursoNome().'</option>';
                             while ($linhaDisciplinaCombo = $selectDisciplinaCombo->fetchAll(PDO::FETCH_ASSOC)) {
                                 foreach ($linhaDisciplinaCombo as $dados) {
                                     $disciplina->setCursoNome($dados['nome']);
                                     $disciplina->setCursoIdCurso($dados['idcurso']);
-                                    echo '<option value="'.$disciplina->getCursoIdCurso().'">'.$disciplina->getCursoNome().'</option>';
+                                    if ($disciplina->getCursoNome($dados['nome']) === $cursoNomeAuxiliar) {
+                                        $cursoCombo = '';
+                                    } else {
+                                        $cursoCombo = '<option value="'.$disciplina->getCursoIdCurso().'">'.$disciplina->getCursoNome().'</option>';
+                                    }
+                                    echo $cursoCombo;
                                 }
                             }
                             echo '

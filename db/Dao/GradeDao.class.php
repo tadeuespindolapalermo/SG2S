@@ -73,7 +73,7 @@ class GradeDao implements Dao {
             $stmtUpdateGrade->bindValue(':anoLetivo', $grade->getAnoLetivo());
             $stmtUpdateGrade->bindValue(':semestreLetivo', $grade->getSemestreLetivo());
             $stmtUpdateGrade->bindValue(':turno', $grade->getTurno());
-            $stmtUpdateGrade->bindValue(':horario', $grade->getHorario());            
+            $stmtUpdateGrade->bindValue(':horario', $grade->getHorario());
             $stmtUpdateGrade->bindValue(':cursoIdCurso', $grade->getCursoIdCurso());
             $stmtUpdateGrade->bindValue(':idGradeSemestral', $grade->getIdGradeSemestral());
 
@@ -135,8 +135,8 @@ class GradeDao implements Dao {
     /*
      * Método para popular a view de update da grade (view)
      **/
-    public function buscarPorId($conn, $idGrade) {
-        $strSqlGrade = "SELECT * FROM grade_semestral, curso WHERE grade_semestral.idgrade_semestral = curso.idcurso AND idgrade_semestral = :idGradeSemestral";
+    public function buscarPorId($conn, $idGrade) {        
+        $strSqlGrade = "SELECT * FROM grade_semestral INNER JOIN curso ON grade_semestral.idgrade_semestral = curso.idcurso WHERE idgrade_semestral = :idGradeSemestral";
         $selectGrade = $conn->prepare($strSqlGrade);
         $selectGrade->bindValue(':idGradeSemestral', $idGrade);
         $selectGrade->execute();

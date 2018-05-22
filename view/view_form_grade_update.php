@@ -37,7 +37,9 @@
         $grade->setTurno($dados['turno']);
         $grade->setHorario($dados['horario']);
         $grade->setCursoIdCurso($dados['curso_idcurso']);
+        $grade->setCursoNome($dados['nome']);
     }
+    $cursoNomeAuxiliar = $grade->getCursoNome();
 
     // VERIFICAÇÕES DO COMBO BOX SEMESTRE
     if ($grade->getSemestreLetivo() == 1) {
@@ -84,12 +86,17 @@
                     <label class="col-lg-12 control-label label-usuario">*Curso</label>
                     <div class="form-group" style="width: 320px; margin-bottom: -5px;">
                         <select class="form-control" id="curso" name="curso" required autofocus>
-                            <option value="">-Selecione o Curso-</option>';
+                            <option value="'.$grade->getCursoIdCurso().'">'.$grade->getCursoNome().'</option>';
                             while ($linhaGradeCombo = $selectGradeCombo->fetchAll(PDO::FETCH_ASSOC)) {
                                 foreach ($linhaGradeCombo as $dados) {
                                     $grade->setCursoIdCurso($dados['idcurso']);
                                     $grade->setCursoNome($dados['nome']);
-                                    echo '<option value="'.$grade->getCursoIdCurso().'">'.$grade->getCursoNome().'</option>';
+                                    if ($grade->getCursoNome($dados['nome']) === $cursoNomeAuxiliar) {
+                                        $cursoCombo = '';
+                                    } else {
+                                        $cursoCombo = '<option value="'.$grade->getCursoIdCurso().'">'.$grade->getCursoNome().'</option>';
+                                    }
+                                    echo $cursoCombo;                                    
                                 }
                             }
                             echo '
