@@ -16,18 +16,18 @@ function msgConfirmaDeleteUsuario(idUsuario) {
 }
 
 // Delete Grade (ADMIN)
-function msgConfirmaDeleteGradeAdmin(idGrade) {
-    var deletarGrade = confirm('Deseja realmente excluir esta grade?');
-    if (deletarGrade) {
-        location.href = 'view_admin.php?pagina=../controller/controller_grade_remove.php&idGrade=' + idGrade;
+function msgConfirmaDeleteGradeSemestralAdmin(idGradeSemestral) {
+    var deletarGradeSemestral = confirm('Deseja realmente excluir esta grade semestral?');
+    if (deletarGradeSemestral) {
+        location.href = 'view_admin.php?pagina=../controller/controller_grade_semestral_remove.php&idGradeSemestral=' + idGradeSemestral;
     }
 }
 
 // Delete Grade (COORDENADOR)
-function msgConfirmaDeleteGradeCoordenador(idGrade) {
-    var deletarGrade = confirm('Deseja realmente excluir esta grade?');
-    if (deletarGrade) {
-        location.href = 'view_coordenador.php?pagina=../controller/controller_grade_remove.php&idGrade=' + idGrade;
+function msgConfirmaDeleteGradeSemestralCoordenador(idGradeSemestral) {
+    var deletarGradeSemestral = confirm('Deseja realmente excluir esta grade semestral?');
+    if (deletarGradeSemestral) {
+        location.href = 'view_coordenador.php?pagina=../controller/controller_grade_semestral_remove.php&idGradeSemestral=' + idGradeSemestral;
     }
 }
 

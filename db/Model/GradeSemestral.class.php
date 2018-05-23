@@ -1,6 +1,6 @@
 <?php
 
-class Grade {
+class GradeSemestral {
 
     // Atributos do Banco de Dados
     private $idGradeSemestral;

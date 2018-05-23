@@ -100,7 +100,7 @@
                                 <span>CADASTROS</span>
                             </h6>
                             <li class="nav-item">
-                                <a class="nav-link" href="view_coordenador.php?pagina=view_grades_listagem.php">
+                                <a class="nav-link" href="view_coordenador.php?pagina=view_grades_semestrais_listagem.php">
                                     <span data-feather="grid"></span>
                                     Grade Semestral
                                 </a>

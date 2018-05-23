@@ -7,8 +7,8 @@
     $PDO = new Conn;
     $conn = $PDO->Conectar();
 
-    $grade = new Grade();
-    $gradeDao = new GradeDao();
+    $gradeSemestral = new GradeSemestral();
+    $gradeSemestralDao = new GradeSemestralDao();
 
 	/*if($_SESSION['perfil_idperfil'] == 2) {
 		unset($_SESSION['usuario']);
@@ -23,7 +23,7 @@
 		$url = 'view_coordenador.php';
 	}
 
-    $selectGrade = $gradeDao->listarCombo($conn);
+    $selectGradeSemestral = $gradeSemestralDao->listarCombo($conn);
 
 	$erro_ano = isset($_GET['erro_ano']) ? $_GET['erro_ano'] : 0;
 	$erro_semestre = isset($_GET['erro_semestre']) ? $_GET['erro_semestre'] : 0;
@@ -40,7 +40,7 @@
 		<h3><strong><div style="margin-top: -50px;">Cadastrar Grade</div></strong></h3>
 		<small><strong>AVISO: 'Ano', 'Semestre' e 'Curso': trinca única!<strong></small><br/>
 		<br />
-		<form method="post" action="<?php echo $url;?>?pagina=../controller/controller_form_grade_cadastro.php" id="formGrade">
+		<form method="post" action="<?php echo $url;?>?pagina=../controller/controller_form_grade_semestral_cadastro.php" id="formGradeSemestral">
 			<div class="form-group">
 				<small><strong>*Campos Obrigatórios</strong></small>
 
@@ -48,11 +48,11 @@
 	                <select class="form-control" id="curso_idcurso" name="curso_idcurso" required autofocus>
 	                    <option value="">-*Selecione o Curso-</option>
 	                    <?php
-	                        while ($linhaGrade = $selectGrade->fetchAll(PDO::FETCH_ASSOC)) {
-	                            foreach ($linhaGrade as $dados) {
-	                                $grade->setCursoIdCurso($dados['idcurso']);
-	                                $grade->setCursoNome($dados['nome']);
-	                                echo '<option value="'.$grade->getCursoIdCurso().'">'.$grade->getCursoNome().'</option>';
+	                        while ($linhaGradeSemestral = $selectGradeSemestral->fetchAll(PDO::FETCH_ASSOC)) {
+	                            foreach ($linhaGradeSemestral as $dados) {
+	                                $gradeSemestral->setCursoIdCurso($dados['idcurso']);
+	                                $gradeSemestral->setCursoNome($dados['nome']);
+	                                echo '<option value="'.$gradeSemestral->getCursoIdCurso().'">'.$gradeSemestral->getCursoNome().'</option>';
 	                            }
 	                        }
 	                    ?>
@@ -99,7 +99,7 @@
 			</div>
 
 			<button type="submit" style="margin-bottom: 5px;" class="btn btn-outline-success form-control"><span data-feather="database"></span>&nbsp;Cadastrar</button>
-			<a href="<?php echo $url;?>?pagina=view_grades_listagem.php"><button type="button" class="btn btn-outline-secondary form-control"><span data-feather="arrow-left"></span>&nbsp;Voltar</button></a>
+			<a href="<?php echo $url;?>?pagina=view_grades_semestrais_listagem.php"><button type="button" class="btn btn-outline-secondary form-control"><span data-feather="arrow-left"></span>&nbsp;Voltar</button></a>
 		</form>
 	</div>
 </div>
