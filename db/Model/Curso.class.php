@@ -9,7 +9,7 @@ class Curso {
     private $duracao;
     private $grau;
     private $dataPortaria;
-    private $versaoMatriz;
+    private $versaoMatriz;    
 
     // Getters dos Atributos do Banco
     public function getIdCurso() {

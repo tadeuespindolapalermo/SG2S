@@ -9,6 +9,8 @@
         ob_start();
         require('../db/Config.inc.php');
 
+        //$idCurso = $_GET['idCurso'];
+
         // CONEXÃO COM PDO
         $PDO = new Conn;
         $conn = $PDO->Conectar();
@@ -22,6 +24,12 @@
             session_destroy();
             header('Location: ../controller/controller_sair.php');
         }*/
+
+        if ($_SESSION['perfil_idperfil'] == 1) {
+            $url = 'view_admin.php';
+        } elseif ($_SESSION['perfil_idperfil'] == 2) {
+            $url = 'view_coordenador.php';
+        }
 
         // Para listagem sem paginação
         //$selectCurso = $cursoDao->listar($conn);
@@ -79,17 +87,15 @@
                                         $curso->setVersaoMatriz($dados['versao_matriz']);
 
                                         if ($_SESSION['perfil_idperfil'] == 1) {
-                                            $url = 'view_admin.php';
                                             $alert = 'msgConfirmaDeleteCursoAdmin('.$curso->getIdCurso().')';
                                         } elseif ($_SESSION['perfil_idperfil'] == 2) {
-                                            $url = 'view_coordenador.php';
                                             $alert = 'msgConfirmaDeleteCursoCoordenador('.$curso->getIdCurso().')';
                                         }
-
+                                                                                
                                         echo '
                                         <tbody>
                                             <tr>
-                                                <td style="text-align: left;"><a href="#">'.$curso->getNome().'</a></td>
+                                                <td style="text-align: left;"><a href="';?><?php echo $url;?><?php echo '?pagina=view_matriz_listagem.php&idCurso='.$curso->getIdCurso().'">'.$curso->getNome().'</a></td>
                                                 <td>'.$curso->getPortaria().'</td>
                                                 <td>'.$curso->getDuracao().'</td>
                                                 <td>'.$curso->getGrau().'</td>

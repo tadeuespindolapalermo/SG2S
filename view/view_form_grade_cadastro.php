@@ -24,6 +24,10 @@
 	}
 
     $selectGrade = $gradeDao->listarCombo($conn);
+
+	$erro_ano = isset($_GET['erro_ano']) ? $_GET['erro_ano'] : 0;
+	$erro_semestre = isset($_GET['erro_semestre']) ? $_GET['erro_semestre'] : 0;
+	$erro_curso = isset($_GET['erro_curso']) ? $_GET['erro_curso'] : 0;
  ?>
 
 <div class="container">
@@ -53,6 +57,11 @@
 	                        }
 	                    ?>
 	                </select>
+					<?php
+    					if($erro_curso) {
+    						echo '<font color="#FF0000">Grade já existe!</font>';
+    					}
+    				?>
 	            </div>
 
                 <div class="form-group">
@@ -61,6 +70,11 @@
                         <option value="1">1º Semestre</option>
                         <option value="2">2º Semestre</option>
                     </select>
+					<?php
+    					if($erro_semestre) {
+    						echo '<font color="#FF0000">Grade já existe!</font>';
+    					}
+    				?>
 				</div>
 
                 <div class="form-group">
@@ -75,6 +89,11 @@
 				<div class="form-group">
 					<input type="number" min="2000" max="9999" class="form-control" id="anoLetivo" name="anoLetivo"
 					placeholder="*Ano Letivo - Até 4 números" required>
+					<?php
+    					if($erro_ano) {
+    						echo '<font color="#FF0000">Grade já existe!</font>';
+    					}
+    				?>
 				</div>
 
 			</div>

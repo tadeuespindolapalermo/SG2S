@@ -23,6 +23,12 @@
             header('Location: ../controller/controller_sair.php');
         }*/
 
+        if ($_SESSION['perfil_idperfil'] == 1) {
+            $url = 'view_admin.php';
+        } elseif ($_SESSION['perfil_idperfil'] == 2) {
+            $url = 'view_coordenador.php';            
+        }
+
         // Para listagem sem paginação
         //$selectGrade = $gradeDao->listar($conn);
 
@@ -80,10 +86,8 @@
                                         $grade->setCursoNome($dados['nome']);
 
                                         if ($_SESSION['perfil_idperfil'] == 1) {
-                                            $url = 'view_admin.php';
                                             $alert = 'msgConfirmaDeleteGradeAdmin('.$grade->getIdGradeSemestral().')';
                                         } elseif ($_SESSION['perfil_idperfil'] == 2) {
-                                            $url = 'view_coordenador.php';
                                             $alert = 'msgConfirmaDeleteGradeCoordenador('.$grade->getIdGradeSemestral().')';
                                         }
 

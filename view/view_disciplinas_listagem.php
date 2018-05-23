@@ -22,6 +22,12 @@
             header('Location: ../controller/controller_sair.php');
         }*/
 
+        if ($_SESSION['perfil_idperfil'] == 1) {
+            $url = 'view_admin.php';
+        } elseif ($_SESSION['perfil_idperfil'] == 2) {
+            $url = 'view_coordenador.php';            
+        }
+
         // Para listagem sem paginação
         //$selectDisciplina = $disciplinaDao->listar($conn);
 
@@ -75,10 +81,8 @@
                                         $disciplina->setCredito($dados['credito']);
 
                                         if ($_SESSION['perfil_idperfil'] == 1) {
-                                            $url = 'view_admin.php';
                                             $alert = 'msgConfirmaDeleteDisciplinaAdmin('.$disciplina->getIdDisciplina().')';
                                         } elseif ($_SESSION['perfil_idperfil'] == 2) {
-                                            $url = 'view_coordenador.php';
                                             $alert = 'msgConfirmaDeleteDisciplinaCoordenador('.$disciplina->getIdDisciplina().')';
                                         }
 

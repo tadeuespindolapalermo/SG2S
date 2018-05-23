@@ -6,6 +6,56 @@ class GradeDao implements Dao {
      * Método para inserir uma nova grade no sistema (controller)
      **/
     public function inserir($conn, $grade) {
+
+        $ano_existe = false;
+        $semestre_existe = false;
+        $curso_existe = false;
+
+        // VERIFICA SE A GRADE INFORMADA JÁ EXISTE - TRINCA: ANO, SEMESTRE  E CURSO
+        $sql = "SELECT ano_letivo, semestre_letivo, curso_idcurso FROM grade_semestral
+                WHERE ano_letivo = :anoLetivo
+                AND semestre_letivo = :semestreLetivo
+                AND curso_idcurso = :idCurso";
+        $select = $conn->prepare($sql);
+        $select->bindValue(':anoLetivo', $grade->getAnoLetivo());
+        $select->bindValue(':semestreLetivo', $grade->getSemestreLetivo());
+        $select->bindValue(':idCurso', $grade->getCursoIdCurso());
+        $select->execute();
+
+        if ($select->rowCount() >= 1) {
+            $dadosSelect = $select->fetchAll(PDO::FETCH_ASSOC);
+            foreach ($dadosSelect as $dados)
+                $ano_existe = isset($dados["ano_letivo"]);
+                $semestre_existe = isset($dados["semestre_letivo"]);
+                $curso_existe = isset($dados["curso_idcurso"]);
+        } else {
+            //echo 'Erro ao tentar efetuar a consulta da grade!';
+            echo '';
+        }
+        // -------------------------------------------------------------
+
+        if ($ano_existe && $semestre_existe && $curso_existe) {
+
+            $retorno_get = '';
+
+            if ($ano_existe) {
+                $retorno_get.= "erro_ano=1&";
+            }
+
+            if ($semestre_existe) {
+                $retorno_get.= "erro_semestre=1&";
+            }
+
+            if ($curso_existe) {
+                $retorno_get.= "erro_curso=1&";
+            }
+
+            header('Location: ../view/view_admin.php?pagina=view_form_grade_cadastro.php&' . $retorno_get);
+            die();
+        }
+
+        // -------------------------------------------------------------
+
         // INSERÇÃO DE GRADE COM PDO
         try {
             $sqlGrade = "INSERT INTO grade_semestral(ano_letivo, semestre_letivo, turno, horario, curso_idcurso) VALUES (?, ?, ?, ?, ?)";
@@ -135,7 +185,7 @@ class GradeDao implements Dao {
     /*
      * Método para popular a view de update da grade (view)
      **/
-    public function buscarPorId($conn, $idGrade) {        
+    public function buscarPorId($conn, $idGrade) {
         $strSqlGrade = "SELECT * FROM grade_semestral INNER JOIN curso ON grade_semestral.idgrade_semestral = curso.idcurso WHERE idgrade_semestral = :idGradeSemestral";
         $selectGrade = $conn->prepare($strSqlGrade);
         $selectGrade->bindValue(':idGradeSemestral', $idGrade);

@@ -22,6 +22,12 @@
             header('Location: ../controller/controller_sair.php');
         }*/
 
+        if ($_SESSION['perfil_idperfil'] == 1) {
+            $url = 'view_admin.php';
+        } elseif ($_SESSION['perfil_idperfil'] == 2) {
+            $url = 'view_coordenador.php';            
+        }
+
         // Para listagem sem paginação
         //$selectProfessor = $professorDao->listar($conn);
 
@@ -76,16 +82,14 @@
                                         $professor->setFone($dados['fone']);
 
                                         if ($_SESSION['perfil_idperfil'] == 1) {
-                                            $url = 'view_admin.php';
                                             $alert = 'msgConfirmaDeleteProfessorProvisorioLixeiraAdmin('.$professor->getIdProfessor().')';
                                         } elseif ($_SESSION['perfil_idperfil'] == 2) {
-                                            $url = 'view_coordenador.php';
                                             $alert = 'msgConfirmaDeleteProfessorProvisorioLixeiraCoordenador('.$professor->getIdProfessor().')';
                                         }
 
                                         echo '
                                         <tbody>
-                                            <tr>                                                
+                                            <tr>
                                                 <td style="text-align: left;">'.$professor->getNome().'</td>
                                                 <td>'.$professor->getCPF().'</td>
                                                 <td>'.$professor->getRG().'</td>
