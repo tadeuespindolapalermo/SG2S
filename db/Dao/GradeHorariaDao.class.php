@@ -1,6 +1,6 @@
 <?php
 ob_start();
-class GradeGeradaDao implements Dao {
+class GradeHorariaDao implements Dao {
 
     /*
      * Método que verifica o perfil do usuário logado e retorna a string de url correspondente
@@ -68,7 +68,7 @@ class GradeGeradaDao implements Dao {
     /*
      * Método para atualizar uma grade horária do sistema (controller)
      **/
-    public function atualizar($conn, $grade) {
+    public function atualizar($conn, $gradeHoraria) {
         // ...
     }
 
@@ -83,11 +83,34 @@ class GradeGeradaDao implements Dao {
     }
 
     /*
+     * Método para listar todos os cursos do sistema no combobox de cadastro de grade horária (view)
+     **/
+    public function listarComboCurso($conn) {
+        $strSqlGradeHoraria = "SELECT * FROM curso";
+        $selectGradeHoraria = $conn->prepare($strSqlGradeHoraria);
+        $selectGradeHoraria->execute();
+        return $selectGradeHoraria;
+    }
+
+    /*
      * ...
      **/
     public function listarProfessor($conn) {
         $strSqlGradeHoraria = "SELECT professor_idprofessor FROM disciplina_professor INNER JOIN disciplinas WHERE disciplinas_iddisciplinas = iddisciplinas";
         $selectGradeHoraria = $conn->prepare($strSqlGradeHoraria);
+        $selectGradeHoraria->execute();
+        return $selectGradeHoraria;
+    }
+
+    /*
+     * Método para popular a o campo de curso da view de cadastro da grade horária (view)
+     **/
+    public function buscarPorId($conn, $idGradeSemestral) {
+        $strSqlGradeHoraria = "SELECT * FROM grade_semestral
+        INNER JOIN curso ON grade_semestral.curso_idcurso = curso.idcurso
+        WHERE idgrade_semestral = :idGradeSemestral";
+        $selectGradeHoraria = $conn->prepare($strSqlGradeHoraria);
+        $selectGradeHoraria->bindValue(':idGradeSemestral', $idGradeSemestral);
         $selectGradeHoraria->execute();
         return $selectGradeHoraria;
     }
