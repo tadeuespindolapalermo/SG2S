@@ -99,4 +99,5 @@ class GradeHoraria {
     public function setCursoNome($cursoNome) {
         $this->cursoNome = $cursoNome;
     }
+    
 }

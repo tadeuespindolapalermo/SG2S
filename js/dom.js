@@ -36,3 +36,8 @@ function voltarInicioAdmin() {
 function voltarInicioCoordenador() {
     location.href = 'view_coordenador.php?pagina=view_home.php';
 }
+
+function alterarDisabledCadastroGradeHoraria() {
+    document.getElementById("idGradeSemestral").disabled = false;
+    document.getElementById("idCursoGradeSemestral").disabled = false;
+}

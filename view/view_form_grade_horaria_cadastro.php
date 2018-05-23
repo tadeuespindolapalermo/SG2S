@@ -74,9 +74,9 @@
 
 				<?php echo '
 				<div class="form-group">
-					<small><strong>Curso da Grade Semestral</strong></small>
+					<strong>ID do Curso de:<br/><font color="blue">'.$gradeHorariaCurso->getCursoNome().'</font></strong>
 					<input type="text" class="form-control" id="idCursoGradeSemestral" name="idCursoGradeSemestral"
-					placeholder="*Curso da Grade Horária" value="'.$gradeHorariaCurso->getCursoNome().'" disabled>
+					placeholder="*Curso da Grade Horária" value="'.$gradeHorariaCurso->getIdCursoGradeSemestral().'" disabled>
 				</div>';?>
 
 				<div class="form-group">
@@ -92,7 +92,7 @@
 				</div>
 
 				<div class="form-group">
-					<input type="text" maxlength="50" min="0" max="999" class="form-control" id="turmas" name="turmas"
+					<input type="text" maxlength="50" class="form-control" id="turmas" name="turmas"
 					placeholder="*Turmas - Ex.: TADS (TADS2A)" required>
 					<!-- PED - Pedagogia (PED6B)
 						 LET - Letras (LET1A)
@@ -146,7 +146,7 @@
 
 			</div>
 
-			<button type="submit" style="margin-bottom: 5px;" class="btn btn-outline-success form-control"><span data-feather="database"></span>&nbsp;Cadastrar</button>
+			<button type="submit" onclick="alterarDisabledCadastroGradeHoraria()" style="margin-bottom: 5px;" class="btn btn-outline-success form-control"><span data-feather="database"></span>&nbsp;Cadastrar</button>
 			<a href="<?php echo $url;?>?pagina=view_grades_semestrais_listagem.php"><button type="button" class="btn btn-outline-secondary form-control"><span data-feather="arrow-left"></span>&nbsp;Voltar</button></a>
 		</form>
 	</div>
