@@ -115,4 +115,31 @@ class GradeHorariaDao implements Dao {
         return $selectGradeHoraria;
     }
 
+    // -----------------------------------------------------------------------------------
+    // Métodos da Paginação
+    /*
+     * Método para listar todos as grades horarias do sistema (view) ordenado por id de forma ascendente (PAGINAÇÃO)
+     **/
+    public function listarLimite($conn, $inicio, $limite) {
+        // Seleciona os registros do banco de dados pelo inicio e limitando pelo limite da variável limite
+        $strSqlGradeHoraria = "SELECT * FROM grade_horaria
+        INNER JOIN curso ON grade_horaria.grade_semestral_curso_idcurso = curso.idcurso
+        INNER JOIN grade_semestral ON grade_horaria.grade_semestral_idgrade_semestral = grade_semestral.idgrade_semestral
+        ORDER BY idgrade_horaria ASC LIMIT ".$inicio. ", ". $limite;
+        $selectGradeHoraria = $conn->prepare($strSqlGradeHoraria);
+        $selectGradeHoraria->execute();
+        return $selectGradeHoraria;
+    }
+
+    /*
+     * Seleciona o id de todos os registros de grade horária (PAGINAÇÃO)
+     **/
+    public function listarId($conn) {
+        $strSqlGradeHoraria = "SELECT idgrade_horaria FROM grade_horaria";
+        $selectGradeHoraria = $conn->prepare($strSqlGradeHoraria);
+        $selectGradeHoraria->execute();
+        return $selectGradeHoraria;
+    }
+    // -----------------------------------------------------------------------------------
+
 }

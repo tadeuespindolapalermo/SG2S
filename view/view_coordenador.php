@@ -101,8 +101,14 @@
                             </h6>
                             <li class="nav-item">
                                 <a class="nav-link" href="view_coordenador.php?pagina=view_grades_semestrais_listagem.php">
-                                    <span data-feather="grid"></span>
+                                    <span data-feather="slack"></span>
                                     Grade Semestral
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="view_coordenador.php?pagina=view_grades_horarias_listagem.php">
+                                    <span data-feather="globe"></span>
+                                    Grade Horária
                                 </a>
                             </li>
                             <span class="nav-item">
@@ -123,7 +129,7 @@
                                     <span data-feather="layers"></span>
                                     Cursos
                                 </a>
-                            </li>                            
+                            </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="view_coordenador.php?pagina=view_professores_listagem.php">
                                     <span data-feather="user"></span>

@@ -100,8 +100,8 @@
 				</div>
 
 				<div class="form-group">
-					<input type="number" min="0" max="9" class="form-control" id="periodoCurso" name="periodoCurso"
-					placeholder="*Período Curso (Semestre) - de 1 a 9" required>
+					<input type="number" min="0" max="8" class="form-control" id="periodoCurso" name="periodoCurso"
+					placeholder="*Período Curso (Semestre) - de 1 a 8" required>
 					<!-- Dependendo do curso:
                          Tecnólogo: 1 a 5
 					 	 Licenciatura e bacharelado: 1 a 8.

@@ -110,8 +110,14 @@
                             </h6>
                             <li class="nav-item">
                                 <a class="nav-link" href="view_admin.php?pagina=view_grades_semestrais_listagem.php">
-                                    <span data-feather="grid"></span>
+                                    <span data-feather="slack"></span>
                                     Grade Semestral
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="view_admin.php?pagina=view_grades_horarias_listagem.php">
+                                    <span data-feather="globe"></span>
+                                    Grade Horária
                                 </a>
                             </li>
                             <span class="nav-item">

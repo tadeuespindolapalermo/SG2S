@@ -15,7 +15,7 @@ function msgConfirmaDeleteUsuario(idUsuario) {
     }
 }
 
-// Delete Grade (ADMIN)
+// Delete GRADE SEMESTRAL (ADMIN)
 function msgConfirmaDeleteGradeSemestralAdmin(idGradeSemestral) {
     var deletarGradeSemestral = confirm('Deseja realmente excluir esta grade semestral?');
     if (deletarGradeSemestral) {
@@ -23,11 +23,27 @@ function msgConfirmaDeleteGradeSemestralAdmin(idGradeSemestral) {
     }
 }
 
-// Delete Grade (COORDENADOR)
+// Delete GRADE SEMESTRAL (COORDENADOR)
 function msgConfirmaDeleteGradeSemestralCoordenador(idGradeSemestral) {
     var deletarGradeSemestral = confirm('Deseja realmente excluir esta grade semestral?');
     if (deletarGradeSemestral) {
         location.href = 'view_coordenador.php?pagina=../controller/controller_grade_semestral_remove.php&idGradeSemestral=' + idGradeSemestral;
+    }
+}
+
+// Delete GRADE HORÁRIA (ADMIN)
+function msgConfirmaDeleteGradeHorariaAdmin(idGradeHoraria) {
+    var deletarGradeHoraria = confirm('Deseja realmente excluir esta grade horária?');
+    if (deletarGradeHoraria) {
+        location.href = 'view_admin.php?pagina=../controller/controller_grade_horaria_remove.php&idGradeHoraria=' + idGradeHoraria;
+    }
+}
+
+// Delete GRADE HORÁRIA (COORDENADOR)
+function msgConfirmaDeleteGradeHorariaCoordenador(idGradeHoraria) {
+    var deletarGradeHoraria = confirm('Deseja realmente excluir esta grade horária?');
+    if (deletarGradeHoraria) {
+        location.href = 'view_coordenador.php?pagina=../controller/controller_grade_horaria_remove.php&idGradeHoraria=' + idGradeHoraria;
     }
 }
 
