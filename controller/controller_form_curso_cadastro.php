@@ -17,6 +17,12 @@
         header('Location: ../controller/controller_sair.php');
     }*/
 
+    if ($_SESSION['perfil_idperfil'] == 1) {
+        $url = 'view_admin.php';
+    } elseif ($_SESSION['perfil_idperfil'] == 2) {
+        $url = 'view_coordenador.php';
+    }
+
     $curso->setNome($_POST['nome']);
     $curso->setPortaria($_POST['portaria']);
     $curso->setDuracao($_POST['duracao']);
@@ -71,5 +77,5 @@
     }
     /*echo '
     <div class="container col-md-4 form-group">
-        <a href="view_admin.php?pagina=view_cursos_listagem.php"><button type="button" class="btn btn-outline-secondary form-control"><span data-feather="arrow-left"></span>&nbsp;Voltar</button></a>
+        <a href="';?><?php echo $url;?><?php echo '?pagina=view_cursos_listagem.php"><button type="button" class="btn btn-outline-secondary form-control"><span data-feather="arrow-left"></span>&nbsp;Voltar</button></a>
     </div>';*/

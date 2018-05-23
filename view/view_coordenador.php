@@ -113,17 +113,17 @@
                                 </span>
                             </span>
                             <li class="nav-item">
-                                <a class="nav-link" href="view_coordenador.php?pagina=view_cursos_listagem.php">
-                                    <span data-feather="layers"></span>
-                                    Cursos
-                                </a>
-                            </li>
-                            <li class="nav-item">
                                 <a class="nav-link" href="view_coordenador.php?pagina=view_disciplinas_listagem.php">
                                     <span data-feather="edit-2"></span>
                                     Disciplinas
                                 </a>
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="view_coordenador.php?pagina=view_cursos_listagem.php">
+                                    <span data-feather="layers"></span>
+                                    Cursos
+                                </a>
+                            </li>                            
                             <li class="nav-item">
                                 <a class="nav-link" href="view_coordenador.php?pagina=view_professores_listagem.php">
                                     <span data-feather="user"></span>

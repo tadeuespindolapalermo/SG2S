@@ -3,6 +3,18 @@ ob_start();
 class GradeGeradaDao implements Dao {
 
     /*
+     * Método que verifica o perfil do usuário logado e retorna a string de url correspondente
+     **/
+    public function verificarUrl() {
+        if ($_SESSION['perfil_idperfil'] == 1) {
+            $url = 'view_admin.php';
+        } elseif ($_SESSION['perfil_idperfil'] == 2) {
+            $url = 'view_coordenador.php';
+        }
+        return $url;
+    }
+
+    /*
      * Método para inserir uma nova grade horária no sistema (controller)
      **/
     public function inserir($conn, $gradeHoraria) {

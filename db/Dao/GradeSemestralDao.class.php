@@ -3,6 +3,18 @@ ob_start();
 class GradeSemestralDao implements Dao {
 
     /*
+     * Método que verifica o perfil do usuário logado e retorna a string de url correspondente
+     **/
+    public function verificarUrl() {
+        if ($_SESSION['perfil_idperfil'] == 1) {
+            $url = 'view_admin.php';
+        } elseif ($_SESSION['perfil_idperfil'] == 2) {
+            $url = 'view_coordenador.php';
+        }
+        return $url;
+    }
+
+    /*
      * Método para inserir uma nova grade semestral no sistema (controller)
      **/
     public function inserir($conn, $gradeSemestral) {
@@ -50,7 +62,7 @@ class GradeSemestralDao implements Dao {
                 $retorno_get.= "erro_curso=1&";
             }
 
-            header('Location: ../view/view_admin.php?pagina=view_form_grade_semestral_cadastro.php&' . $retorno_get);
+            header('Location: ../view/'.$this->verificarUrl().'?pagina=view_form_grade_semestral_cadastro.php&' . $retorno_get);
             die();
         }
 

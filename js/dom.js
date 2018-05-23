@@ -29,6 +29,10 @@ function alterarDisabledSearch() {
     document.getElementById("btnSearch").disabled = true;
 }
 
-function voltarInicio() {
+function voltarInicioAdmin() {
     location.href = 'view_admin.php?pagina=view_home.php';
+}
+
+function voltarInicioCoordenador() {
+    location.href = 'view_coordenador.php?pagina=view_home.php';
 }

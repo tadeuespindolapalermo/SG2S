@@ -25,8 +25,10 @@
 
     if ($_SESSION['perfil_idperfil'] == 1) {
         $url = 'view_admin.php';
+        $voltar = 'voltarInicioAdmin()';
     } elseif ($_SESSION['perfil_idperfil'] == 2) {
-        $url = 'view_coordenador.php';        
+        $url = 'view_coordenador.php';
+        $voltar = 'voltarInicioCoordenador()';
     }
 
     echo '
@@ -61,7 +63,7 @@
                     <button id="btnSalvar" type="submit" class="btn btn-outline-success form-control" style="margin-bottom: 5px;" disabled>Salvar</button><br/>
                     <button id="btnEditar" type="button" onclick="alterarDisabledEditar()" style="margin-bottom: 5px;" class="btn btn-outline-info form-control">Editar</button><br/>
                     <button id="btnProteger" type="button" onclick="alterarDisabledProteger()" style="margin-bottom: 5px;" class="btn btn-outline-secondary form-control" disabled>Proteger</button><br/>
-                    <button id="btnVoltarInicio" type="button" onclick="voltarInicio()" class="btn btn-outline-secondary form-control">Voltar Início</button>
+                    <button id="btnVoltarInicio" type="button" onclick="'.$voltar.'" class="btn btn-outline-secondary form-control">Voltar Início</button>
                 </div>
             </form>
         </div>
