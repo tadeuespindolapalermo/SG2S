@@ -20,8 +20,8 @@
     <div class="col-md-4"></div>
 	<div class="col-md-4">
 		<br />
-		<h3><strong><div style="margin-top: -50px;">Cadastrar Usuário</div></strong></h3>
-		<small><strong>AVISO: 'Usuário' e 'E-mail' devem ser ÚNICOS!<strong></small><br/>
+		<h3><strong><div style="margin-top: -50px; text-align: center;">Cadastrar Usuário</div></strong></h3>
+		<div style="text-align: center;"><small><strong>AVISO: 'Usuário' e 'E-mail' devem ser ÚNICOS!<strong></small></div>
 		<br />
 		<form method="post" action="view_admin.php?pagina=../controller/controller_form_usuario_cadastro.php" id="formCadastrarse">
 			<div class="form-group">

@@ -48,12 +48,12 @@
     echo '
     <div class="container">
         <div class="col-md-4">
-            <h4><strong>Atualização Cadastral</strong></h4>
-            <div style="margin-left: px;"><h5><strong><font color="#FF0000">'.strtoupper($usuario->getNome()).'.</font><strong></h5></div><br />
+            <div style="text-align: center;"><h4><strong>Atualizar Usuário</strong></h4></div>
+            <div style="text-align: center;"><h5><strong><font color="#FF0000">'.strtoupper($usuario->getNome()).'</font><strong></h5></div>
             <form action="view_admin.php?pagina=../controller/controller_form_usuario_update.php&idUsuario='.$usuario->getIdUsuarios().'" method="post">
                 <div class="form-group ">
 
-                    <small><strong>*Campos Obrigatórios</strong></small><br/><br/>
+                    <div style="text-align: center;"><small><strong>*Campos Obrigatórios</strong></small></div><br/>
 
                     <label class="col-lg-12 control-label label-usuario">*Perfil</label>
                     <div class="form-group" style="width: 320px; margin-bottom: -5px;">

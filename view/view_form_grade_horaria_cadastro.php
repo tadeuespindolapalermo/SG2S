@@ -63,7 +63,7 @@
 		<form method="post" action="<?php echo $url;?>?pagina=../controller/controller_form_grade_horaria_cadastro.php" id="formGradeHoraria">
 
 			<div class="form-group">
-				<small><strong>*Campos Obrigatórios</strong></small><br/>
+				<div style="text-align: center;"><small><strong>*Campos Obrigatórios</strong></small></div>
 
 				<?php echo '<br/>
 				<small><strong>ID Grade Semestral</strong></small>

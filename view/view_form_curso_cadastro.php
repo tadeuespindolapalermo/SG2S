@@ -25,8 +25,8 @@
     <div class="col-md-4"></div>
 	<div class="col-md-4">
 		<br />
-		<h3><strong><div style="margin-top: -50px;">Cadastrar Curso</div></strong></h3>
-		<small><strong>AVISO: 'Nome' deve ser ÚNICO!</strong></small><br/>
+		<h3><strong><div style="margin-top: -50px; text-align: center;">Cadastrar Curso</div></strong></h3>
+		<div style="text-align: center;"><small><strong>AVISO: 'Nome' deve ser ÚNICO!</strong></small></div>
 		<br />
 		<form method="post" action="<?php echo $url;?>?pagina=../controller/controller_form_curso_cadastro.php" id="formCurso">
 			<div class="form-group">
@@ -67,8 +67,8 @@
 				<small>*Data da Portaria: dd/mm/YYYY</small>
 			</div>
 
-			<button type="submit" style="margin-bottom: 5px;" class="botao3d botao3d:hover"><span data-feather="database"></span>&nbsp;Cadastrar</button>
-			<a href="<?php echo $url;?>?pagina=view_cursos_listagem.php"><button type="button" class="botao3d botao3d:hover"><span data-feather="arrow-left"></span>&nbsp;Voltar</button></a>
+			<button type="submit" style="margin-bottom: 5px;" class="btn btn-outline-success form-control"><span data-feather="database"></span>&nbsp;Cadastrar</button>
+			<a href="<?php echo $url;?>?pagina=view_cursos_listagem.php"><button type="button" class="btn btn-outline-secondary form-control"><span data-feather="arrow-left"></span>&nbsp;Voltar</button></a>
 		</form>
 	</div>
 </div>

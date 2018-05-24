@@ -41,12 +41,12 @@
     echo '
     <div class="container">
         <div class="col-md-4">
-            <h4><strong>Atualização Cadastral</strong></h4>
-            <div style="margin-left: px;"><h5><strong><font color="#FF0000">'.strtoupper($disciplina->getNomeDisciplina()).'.</font><strong></h5></div><br />
+            <div style="text-align: center;"><h4><strong>Atualizar Disciplina</strong></h4></div>
+            <div style="text-align: center;"><h5><strong><font color="#FF0000">'.strtoupper($disciplina->getNomeDisciplina()).'</font><strong></h5></div>
             <form action="';?><?php echo $url;?><?php echo '?pagina=../controller/controller_form_disciplina_update.php&idDisciplina='.$disciplina->getIdDisciplina().'" method="post">
                 <div class="form-group ">
 
-                    <small><strong>*Campos Obrigatórios</strong></small><br/><br/>
+                    <div style="text-align: center;"><small><strong>*Campos Obrigatórios</strong></small></div><br/>
 
                     <label class="col-lg-12 control-label label-usuario">*Curso</label>
                     <div class="form-group" style="width: 320px; margin-bottom: -5px;">

@@ -34,12 +34,12 @@
     echo '
     <div class="container">
         <div class="col-md-4">
-            <h4><strong>Atualização Cadastral</strong></h4>
-            <div style="margin-left: px;"><h5><strong><font color="#FF0000">'.strtoupper($usuario->getNome()).'.</font><strong></h5></div><br />
+            <div style="text-align: center;"><h4><strong>Atualizar Perfil Pessoal</strong></h4></div>
+            <div style="text-align: center;"><h5><strong><font color="#FF0000">'.strtoupper($usuario->getNome()).'.</font><strong></h5></div>
             <form action="';?><?php echo $url;?><?php echo '?pagina=../controller/controller_form_usuario_logado_update.php" method="post">
                 <div class="form-group">
 
-                    <small><strong>*Campos Obrigatórios</strong></small><br/><br/>
+                    <div style="text-align: center;"><small><strong>*Campos Obrigatórios</strong></small></div><br/>
 
                     <label class="col-lg-12 control-label label-usuario">*Nome</label>
                     <input type="text" maxlength="60" style="width: 320px; margin-bottom: -5px;" id="nome" name="nome" class="form-control" placeholder="*Nome - Máximo 60 caracteres." value="'.$usuario->getNome().'" required disabled><br/>
