@@ -198,7 +198,9 @@ class GradeSemestralDao implements Dao {
      * Método para popular a view de update da grade semestral (view)
      **/
     public function buscarPorId($conn, $idGradeSemestral) {
-        $strSqlGradeSemestral = "SELECT * FROM grade_semestral INNER JOIN curso ON grade_semestral.idgrade_semestral = curso.idcurso WHERE idgrade_semestral = :idGradeSemestral";
+        $strSqlGradeSemestral = "SELECT * FROM grade_semestral
+        INNER JOIN curso ON grade_semestral.curso_idcurso = curso.idcurso
+        WHERE idgrade_semestral = :idGradeSemestral";
         $selectGradeSemestral = $conn->prepare($strSqlGradeSemestral);
         $selectGradeSemestral->bindValue(':idGradeSemestral', $idGradeSemestral);
         $selectGradeSemestral->execute();
@@ -212,7 +214,9 @@ class GradeSemestralDao implements Dao {
      **/
     public function listarLimite($conn, $inicio, $limite) {
         // Seleciona os registros do banco de dados pelo inicio e limitando pelo limite da variável limite
-        $strSqlGradeSemestral = "SELECT * FROM grade_semestral INNER JOIN curso ON grade_semestral.curso_idcurso = curso.idcurso ORDER BY idgrade_semestral ASC LIMIT ".$inicio. ", ". $limite;
+        $strSqlGradeSemestral = "SELECT * FROM grade_semestral
+        INNER JOIN curso ON grade_semestral.curso_idcurso = curso.idcurso
+        ORDER BY idgrade_semestral ASC LIMIT ".$inicio. ", ". $limite;
         $selectGradeSemestral = $conn->prepare($strSqlGradeSemestral);
         $selectGradeSemestral->execute();
         return $selectGradeSemestral;
