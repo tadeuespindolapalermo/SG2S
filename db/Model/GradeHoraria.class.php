@@ -15,6 +15,8 @@ class GradeHoraria {
 
     // Atributos auxiliares
     private $cursoNome;
+    private $disciplinaNome;
+    private $disciplinaId;
 
     // Getters dos Atributos do Banco
     public function getIdGradeHoraria()  {
@@ -58,6 +60,14 @@ class GradeHoraria {
         return $this->cursoNome;
     }
 
+    public function getDisciplinaNome() {
+        return $this->disciplinaNome;
+    }
+
+    public function getDisciplinaId() {
+        return $this->disciplinaId;
+    }
+
     // Setters dos Atributos do Banco
     public function setIdGradeHoraria($idGradeHoraria) {
         $this->idGradeHoraria = $idGradeHoraria;
@@ -99,5 +109,13 @@ class GradeHoraria {
     public function setCursoNome($cursoNome) {
         $this->cursoNome = $cursoNome;
     }
-    
+
+    public function setDisciplinaNome($disciplinaNome) {
+        $this->disciplinaNome = $disciplinaNome;
+    }
+
+    public function setDisciplinaId($disciplinaId) {
+        $this->disciplinaId = $disciplinaId;
+    }
+
 }

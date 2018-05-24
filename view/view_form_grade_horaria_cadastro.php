@@ -37,6 +37,15 @@
         $gradeHorariaCurso->setCursoNome($dados['nome']);
     }
 
+	//Para listagem sem paginação
+	$selectMatrizSeg = $gradeHorariaDao->listarMatriz($conn, $gradeHorariaCurso->getIdCursoGradeSemestral());
+	$selectMatrizTer = $gradeHorariaDao->listarMatriz($conn, $gradeHorariaCurso->getIdCursoGradeSemestral());
+	$selectMatrizQua = $gradeHorariaDao->listarMatriz($conn, $gradeHorariaCurso->getIdCursoGradeSemestral());
+	$selectMatrizQui = $gradeHorariaDao->listarMatriz($conn, $gradeHorariaCurso->getIdCursoGradeSemestral());
+	$selectMatrizSex = $gradeHorariaDao->listarMatriz($conn, $gradeHorariaCurso->getIdCursoGradeSemestral());
+	$selectMatrizSab = $gradeHorariaDao->listarMatriz($conn, $gradeHorariaCurso->getIdCursoGradeSemestral());
+	$selectMatrizEad = $gradeHorariaDao->listarMatriz($conn, $gradeHorariaCurso->getIdCursoGradeSemestral());
+
 	// DEBUG
 	/*echo $gradeHorariaCurso->getIdCursoGradeSemestral();
 	echo $gradeHorariaCurso->getCursoNome();
@@ -53,54 +62,59 @@
 
 	<br /><br />
 
-    <div class="col-md-4"></div>
-	<div class="col-md-4">
+
+	<div>
 		<br />
-		<h3><strong><div style="margin-top: -50px; text-align: center;">Cadastrar Grade Horária</div></strong></h3>
+		<h3><strong><div style="margin-top: -50px; text-align: center;">Cadastrar Grade Horária</div></strong></h3><br/><br/><br/>
+		<h3><strong><div style="margin-top: -60px; text-align: center;"><font color="blue"><?php echo $gradeHorariaCurso->getCursoNome();?></font></div></strong></h3>
+
+		<?php
+		echo '
+		<div class="col" style="padding: 5px; margin-top: -90px;">
+			<div style="margin-left: -5px;"><small><strong>ID Grade Semestral</strong></small></div>
+			<input style="width: 105px; margin-left: -5px;" type="text" class="form-control" id="idGradeSemestral" name="idGradeSemestral"
+			placeholder="*ID da Grade Horária" value="'.$gradeHorariaCurso->getIdGradeSemestral().'" disabled>
+		</div>';?>
+
+		<?php echo '
+		<div class="col" style="padding: 5px;">
+			<div style="margin-left: -5px;"><small><strong>ID do Curso da Grade Semestral</strong></small></div>
+			<input style="width: 175px; margin-left: -5px;" type="text" class="form-control" id="idCursoGradeSemestral" name="idCursoGradeSemestral"
+			placeholder="*Curso da Grade Horária" value="'.$gradeHorariaCurso->getIdCursoGradeSemestral().'" disabled>
+		</div>';?>
 		<!-- VERIFICAR COM GEORGE A LÓGICA DE NEGÓCIO PARA REPETIÇÃO DE GRADE HORÁRIA-->
 		<!--<small><strong>AVISO: 'Ano', 'Semestre' e 'Curso': trinca única!<strong></small><br/>-->
-		<br />
+
 		<form method="post" action="<?php echo $url;?>?pagina=../controller/controller_form_grade_horaria_cadastro.php" id="formGradeHoraria">
 
-			<div class="form-group">
-				<div style="text-align: center;"><small><strong>*Campos Obrigatórios</strong></small></div>
+			<div class="form-row">
+				<!--<div style="text-align: center;"><small><strong>*Campos Obrigatórios</strong></small></div>-->
 
-				<?php echo '<br/>
-				<small><strong>ID Grade Semestral</strong></small>
-				<div class="form-group">
-					<input style="width: 105px;" type="text" class="form-control" id="idGradeSemestral" name="idGradeSemestral"
-					placeholder="*ID da Grade Horária" value="'.$gradeHorariaCurso->getIdGradeSemestral().'" disabled>
-				</div>';?>
+				<?php echo '<br/>';?>
+				<!--<small><strong>ID Grade Semestral</strong></small>-->
 
-				<?php echo '
-				<div class="form-group">
-					<strong>ID do Curso de:<br/><font color="blue">'.$gradeHorariaCurso->getCursoNome().'</font></strong>
-					<input type="text" class="form-control" id="idCursoGradeSemestral" name="idCursoGradeSemestral"
-					placeholder="*Curso da Grade Horária" value="'.$gradeHorariaCurso->getIdCursoGradeSemestral().'" disabled>
-				</div>';?>
-
-				<div class="form-group">
-					<input type="number" min="0" max="99" class="form-control" id="sala" name="sala"
+				<div class="col">
+					<input style="width: 320px;" type="number" min="0" max="99" class="form-control" id="sala" name="sala"
 					placeholder="*Sala (Presencial) - Até 2 números" required autofocus>
 					<!-- Local da aula presencial. -->
 				</div>
 
-				<div class="form-group">
-					<input type="number" min="0" max="999" class="form-control" id="quantidadeAlunos" name="quantidadeAlunos"
+				<div class="col">
+					<input style="width: 320px;" type="number" min="0" max="999" class="form-control" id="quantidadeAlunos" name="quantidadeAlunos"
 					placeholder="*Quantidade Alunos - Até 3 números" required>
 					<!-- Quantidade de alunos das turmas somados. -->
 				</div>
 
-				<div class="form-group">
-					<input type="text" maxlength="50" class="form-control" id="turmas" name="turmas"
+				<div class="col">
+					<input style="width: 320px;" type="text" maxlength="50" class="form-control" id="turmas" name="turmas"
 					placeholder="*Turmas - Ex.: TADS (TADS2A)" required>
 					<!-- PED - Pedagogia (PED6B)
 						 LET - Letras (LET1A)
 						 TADS (TADS2A)-->
 				</div>
 
-				<div class="form-group">
-					<input type="number" min="0" max="8" class="form-control" id="periodoCurso" name="periodoCurso"
+				<div class="col" style="padding: 5px;">
+					<input style="width: 320px;" type="number" min="0" max="8" class="form-control" id="periodoCurso" name="periodoCurso"
 					placeholder="*Período Curso (Semestre) - de 1 a 8" required>
 					<!-- Dependendo do curso:
                          Tecnólogo: 1 a 5
@@ -108,8 +122,8 @@
 						 Licenciatura grade antiga: 1 a 7.-->
 				</div>
 
-				<div class="form-group">
-					<input type="number" min="1" max="7" class="form-control" id="diaSemana" name="diaSemana"
+				<div class="col" style="padding: 5px;">
+					<input style="width: 320px;" type="number" min="1" max="7" class="form-control" id="diaSemana" name="diaSemana"
 					placeholder="*Dia Semana - de 1 (Dom) a 7 (Sab)" required>
 					<!-- Segunda a sábado:
 						 - 1: Domingo
@@ -121,8 +135,8 @@
 						 - 7: Sábado-->
 				</div>
 
-				<div class="form-group">
-					<input type="number" min="0" max="1" class="form-control" id="ead" name="ead"
+				<div class="col" style="padding: 5px;">
+					<input style="width: 320px;" type="number" min="0" max="1" class="form-control" id="ead" name="ead"
 					placeholder="*EAD: [ 0 ] Não - [ 1 ] Sim" required>
 					<!-- 0 - Não é EAD
 						 1 - EAD-->
@@ -145,9 +159,117 @@
 	            </div>-->
 
 			</div>
+			<?php
+			echo '<br/>
+		    <h6 style="font-weight: 900">Disciplinas Semanais:</h6>
+			<div class="form-row">
+				<div style="width: 505px;  class="col">
+				   <select style="margin-bottom: 5px;" class="form-control" id="disciplinaSegunda" name="disciplinaSegunda" required>';
+					   echo '<option value="">Segunda-feira - Selecione:</option>';
+					   echo '<option value="">Dia Livre</option>';
+					   while ($linhaMatrizCombo = $selectMatrizSeg->fetchAll(PDO::FETCH_ASSOC)) {
+						   foreach ($linhaMatrizCombo as $dados) {
+							   $gradeHorariaCurso->setDisciplinaNome($dados['nome_disciplina']);
+							   $gradeHorariaCurso->setDisciplinaId($dados['iddisciplinas']);
+							   echo '<option value="'.$gradeHorariaCurso->getDisciplinaId().'">'.$gradeHorariaCurso->getDisciplinaNome().'</option>';
+						   }
+					   }
+				   echo '
+				   </select>
+				</div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
-			<button type="submit" onclick="alterarDisabledCadastroGradeHoraria()" style="margin-bottom: 5px;" class="btn btn-outline-success form-control"><span data-feather="database"></span>&nbsp;Cadastrar</button>
-			<a href="<?php echo $url;?>?pagina=view_grades_semestrais_listagem.php"><button type="button" class="btn btn-outline-secondary form-control"><span data-feather="arrow-left"></span>&nbsp;Voltar</button></a>
-		</form>
+				<div style="width: 505px; class="col">
+				   <select class="form-control" id="disciplinaTerca" name="disciplinaTerca" required>';
+					   echo '<option value="">Terça-feira - Selecione:</option>';
+					   echo '<option value="">Dia Livre</option>';
+					   while ($linhaMatrizCombo = $selectMatrizTer->fetchAll(PDO::FETCH_ASSOC)) {
+						   foreach ($linhaMatrizCombo as $dados) {
+							   $gradeHorariaCurso->setDisciplinaNome($dados['nome_disciplina']);
+							   $gradeHorariaCurso->setDisciplinaId($dados['iddisciplinas']);
+							   echo '<option value="'.$gradeHorariaCurso->getDisciplinaId().'">'.$gradeHorariaCurso->getDisciplinaNome().'</option>';
+						   }
+					   }
+				   echo '
+				   </select>
+				</div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+				<div style="width: 505px; class="col">
+				   <select style="margin-bottom: 5px;" class="form-control" id="disciplinaQuarta" name="disciplinaQuarta" required>';
+					   echo '<option value="">Quarta-feira - Selecione:</option>';
+					   echo '<option value="">Dia Livre</option>';
+					   while ($linhaMatrizCombo = $selectMatrizQua->fetchAll(PDO::FETCH_ASSOC)) {
+ 						  foreach ($linhaMatrizCombo as $dados) {
+ 							  $gradeHorariaCurso->setDisciplinaNome($dados['nome_disciplina']);
+ 							  $gradeHorariaCurso->setDisciplinaId($dados['iddisciplinas']);
+ 							  echo '<option value="'.$gradeHorariaCurso->getDisciplinaId().'">'.$gradeHorariaCurso->getDisciplinaNome().'</option>';
+ 						  }
+ 					  }
+				   echo '
+				   </select>
+				</div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+				<div style="width: 505px; class="col">
+				   <select class="form-control" id="disciplinaQuinta" name="disciplinaQuinta" required>';
+					   echo '<option value="">Quinta-feira - Selecione:</option>';
+					   echo '<option value="">Dia Livre</option>';
+					   while ($linhaMatrizCombo = $selectMatrizQui->fetchAll(PDO::FETCH_ASSOC)) {
+ 						  foreach ($linhaMatrizCombo as $dados) {
+ 							  $gradeHorariaCurso->setDisciplinaNome($dados['nome_disciplina']);
+ 							  $gradeHorariaCurso->setDisciplinaId($dados['iddisciplinas']);
+ 							  echo '<option value="'.$gradeHorariaCurso->getDisciplinaId().'">'.$gradeHorariaCurso->getDisciplinaNome().'</option>';
+ 						  }
+ 					  }
+				   echo '
+				   </select>
+				</div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+				<div style="width: 505px; class="col">
+				   <select style="margin-bottom: 5px;" class="form-control" id="disciplinaSexta" name="disciplinaSexta" required>';
+					   echo '<option value="">Sexta-feira - Selecione:</option>';
+					   echo '<option value="">Dia Livre</option>';
+					   while ($linhaMatrizCombo = $selectMatrizSex->fetchAll(PDO::FETCH_ASSOC)) {
+						   foreach ($linhaMatrizCombo as $dados) {
+							   $gradeHorariaCurso->setDisciplinaNome($dados['nome_disciplina']);
+							   $gradeHorariaCurso->setDisciplinaId($dados['iddisciplinas']);
+							   echo '<option value="'.$gradeHorariaCurso->getDisciplinaId().'">'.$gradeHorariaCurso->getDisciplinaNome().'</option>';
+						   }
+					   }
+				   echo '
+				   </select>
+				</div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+				<div style="width: 505px; class="col">
+				   <select class="form-control" id="disciplinaSabado" name="disciplinaSabado" required>';
+					   echo '<option value="">Sábado - Selecione:</option>';
+					   echo '<option value="">Dia Livre</option>';
+					   while ($linhaMatrizCombo = $selectMatrizSab->fetchAll(PDO::FETCH_ASSOC)) {
+ 						  foreach ($linhaMatrizCombo as $dados) {
+ 							  $gradeHorariaCurso->setDisciplinaNome($dados['nome_disciplina']);
+ 							  $gradeHorariaCurso->setDisciplinaId($dados['iddisciplinas']);
+ 							  echo '<option value="'.$gradeHorariaCurso->getDisciplinaId().'">'.$gradeHorariaCurso->getDisciplinaNome().'</option>';
+ 						  }
+ 					  }
+				   echo '
+				   </select>
+				</div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+				<div style="width: 505px; class="col">
+				   <select class="form-control" id="disciplinaEad" name="disciplinaEad" required>';
+					   echo '<option value="">EAD - Selecione:</option>';
+					   echo '<option value="">Dia Livre</option>';
+					   while ($linhaMatrizCombo = $selectMatrizEad->fetchAll(PDO::FETCH_ASSOC)) {
+ 						  foreach ($linhaMatrizCombo as $dados) {
+ 							  $gradeHorariaCurso->setDisciplinaNome($dados['nome_disciplina']);
+ 							  $gradeHorariaCurso->setDisciplinaId($dados['iddisciplinas']);
+ 							  echo '<option value="'.$gradeHorariaCurso->getDisciplinaId().'">'.$gradeHorariaCurso->getDisciplinaNome().'</option>';
+ 						  }
+ 					  }
+				   echo '
+				   </select>
+				</div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		    </div><br/>'; ?>
+			<button type="submit" onclick="alterarDisabledCadastroGradeHoraria()" style="width: 250px; margin-left: -5px;" class="btn btn-outline-success form-control"><span data-feather="database"></span>&nbsp;Cadastrar</button>
+			<a href="<?php echo $url;?>?pagina=view_grades_semestrais_listagem.php"><button style="width: 250px;" type="button" class="btn btn-outline-secondary form-control"><span data-feather="arrow-left"></span>&nbsp;Voltar</button></a>
+        </form>
 	</div>
 </div>
