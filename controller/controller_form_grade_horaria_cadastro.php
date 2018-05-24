@@ -26,6 +26,13 @@
     $gradeHoraria->setIdGradeSemestral($_POST['idGradeSemestral']);
     $gradeHoraria->setIdCursoGradeSemestral($_POST['idCursoGradeSemestral']);
 
+    // TRATAMENTO DO CAMPO EAD (SALVAR NO BANCO)
+    /*if($_POST['ead'] == 0) {
+        $gradeHoraria->setEad("NÃO");
+    } else {
+        $gradeHoraria->setEad("SIM");
+    }*/
+
     // DEBUG
     /*echo $gradeHoraria->getIdGradeSemestral();
     echo "<br>";

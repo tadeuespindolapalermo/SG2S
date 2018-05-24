@@ -90,6 +90,7 @@
                                         $gradeHoraria->setEad($dados['ead']);
                                         $gradeHoraria->setIdGradeSemestral($dados['grade_semestral_idgrade_semestral']);
                                         $gradeHoraria->setIdCursoGradeSemestral($dados['grade_semestral_curso_idcurso']);
+                                        $gradeHoraria->setCursoNome($dados['nome']);
 
                                         if ($_SESSION['perfil_idperfil'] == 1) {
                                             $alert = 'msgConfirmaDeleteGradeHorariaAdmin('.$gradeHoraria->getIdGradeHoraria().')';
@@ -97,17 +98,54 @@
                                             $alert = 'msgConfirmaDeleteGradeHorariaCoordenador('.$gradeHoraria->getIdGradeHoraria().')';
                                         }
 
+                                        // TRATAMENTO DO CAMPO EAD (APENAS VISUALIZAÇÃO)
+                                        $eadListagem = "";
+                                        if($gradeHoraria->getEad() == 0) {
+                                            $eadListagem = "NÃO";
+                                        } else {
+                                            $eadListagem = "SIM";
+                                        }
+
+                                        // TRATAMENTO DO CAMPO DIA DA SEMANA (APENAS VISUALIZAÇÃO)
+                                        $diaSemanaListagem = "";
+                                        switch($gradeHoraria->getDiaSemana()) {
+                                            case 1:
+                                                $diaSemanaListagem = "Domingo";
+                                                break;
+                                            case 2:
+                                                $diaSemanaListagem = "Segunda-feira";
+                                                break;
+                                            case 3:
+                                                $diaSemanaListagem = "Terça-feira";
+                                                break;
+                                            case 4:
+                                                $diaSemanaListagem = "Quarta-feira";
+                                                break;
+                                            case 5:
+                                                $diaSemanaListagem = "Quinta-fera";
+                                                break;
+                                            case 6:
+                                                $diaSemanaListagem = "Sexta-feira";
+                                                break;
+                                            case 7:
+                                                $diaSemanaListagem = "Sábado";
+                                                break;
+                                            default:
+                                                $diaSemanaListagem = "";
+                                                break;
+                                        }             
+
                                         echo '
                                         <tbody>
                                             <tr>
                                                 <td>'.$gradeHoraria->getSala().'</td>
                                                 <td>'.$gradeHoraria->getQuantidadeAlunos().'</td>
                                                 <td>'.$gradeHoraria->getTurmas().'</td>
-                                                <td>'.$gradeHoraria->getPeriodoCurso().'</td>
-                                                <td>'.$gradeHoraria->getDiaSemana().'</td>
-                                                <td>'.$gradeHoraria->getEad().'</td>
+                                                <td>'.$gradeHoraria->getPeriodoCurso().'º Semestre</td>
+                                                <td>'.$diaSemanaListagem.'</td>
+                                                <td>'.$eadListagem.'</td>
                                                 <td>'.$gradeHoraria->getIdGradeSemestral().'</td>
-                                                <td>'.$gradeHoraria->getIdCursoGradeSemestral().'</td>
+                                                <td>'.$gradeHoraria->getCursoNome().'</td>
                                                 <td><a href="javascript:void(null);" onclick="'.$alert.'"><img src="../lib/open-iconic/svg/x.svg" alt="remover"></a></td>
                                                 <td><a href="';?><?php echo $url;?><?php echo '?pagina=view_form_grade_horaria_update.php&idGradeHoraria='.$gradeHoraria->getIdGradeHoraria().'"><img src="../lib/open-iconic/svg/brush.svg" alt="editar"></a></td>
                                             </tr>
@@ -143,7 +181,7 @@
                                 echo '<small>Listando até 5 registros por página.</small>';
                             echo '</div>';
                         ?>
-                        <br/>                        
+                        <br/>
                         <button export-to-excel="listaGradesHorarias" class="btn btn-success">
                             <span data-feather="download"></span>&nbsp;Excel
                         </button>

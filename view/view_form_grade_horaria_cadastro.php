@@ -109,7 +109,7 @@
 				</div>
 
 				<div class="form-group">
-					<input type="number" min="0" max="7" class="form-control" id="diaSemana" name="diaSemana"
+					<input type="number" min="1" max="7" class="form-control" id="diaSemana" name="diaSemana"
 					placeholder="*Dia Semana - de 1 (Dom) a 7 (Sab)" required>
 					<!-- Segunda a sábado:
 						 - 1: Domingo
