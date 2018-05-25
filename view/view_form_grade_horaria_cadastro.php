@@ -78,9 +78,9 @@
 
 		<?php echo '
 		<div class="col" style="padding: 5px; display:none;">
-			<div style="margin-left: -5px;"><small><strong>ID do Curso da Grade Semestral</strong></small></div>
+			<div style="margin-left: -5px;"><small><strong>ID Curso Grade Semestral</strong></small></div>
 			<input style="width: 175px; margin-left: -5px;" type="text" class="form-control" id="idCursoGradeSemestral" name="idCursoGradeSemestral"
-			placeholder="*Id Curso da Grade Horária" value="'.$gradeHorariaCurso->getIdCursoGradeSemestral().'" disabled>
+			placeholder="*Id do Curso da Grade Semestral" value="'.$gradeHorariaCurso->getIdCursoGradeSemestral().'" disabled>
 		</div>';?>
 		<!-- VERIFICAR COM GEORGE A LÓGICA DE NEGÓCIO PARA REPETIÇÃO DE GRADE HORÁRIA-->
 		<!--<small><strong>AVISO: 'Ano', 'Semestre' e 'Curso': trinca única!<strong></small><br/>-->
