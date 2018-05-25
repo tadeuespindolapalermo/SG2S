@@ -1,7 +1,7 @@
 <div class="container listar">
     <div class="header clearfix">
         <h3 class="text-muted">Listagem de Grades Semestrais</h3><hr />
-        <h6><strong>Clique no <font color="blue">ID</font> da grade semestral para gerar uma grade horária!</strong></h6>
+        <h6><strong>Clique no ícone <img src="../icons/accept.png" alt="gerar"> para gerar uma grade horária!</strong></h6>
     </div>
 
     <?php
@@ -63,7 +63,7 @@
                         <table class="table table-hover table-striped listaSearch" id="listaGradesSemestrais" style="text-align: center;">
                             <thead>
                                 <tr>
-                                    <th>ID</th>
+                                    <th>GERAR</th>
                                     <th>Ano Letivo</th>
                                     <th>Semestre Letivo</th>
                                     <th>Turno</th>
@@ -94,7 +94,7 @@
                                         echo '
                                         <tbody>
                                             <tr>
-                                                <td><a href="';?><?php echo $url;?><?php echo '?pagina=view_form_grade_horaria_cadastro.php&idGradeSemestral='.$gradeSemestral->getIdGradeSemestral().'">'.$gradeSemestral->getIdGradeSemestral().'</a></td>
+                                                <td><a href="';?><?php echo $url;?><?php echo '?pagina=view_form_grade_horaria_cadastro.php&idGradeSemestral='.$gradeSemestral->getIdGradeSemestral().'"><img src="../icons/accept.png" alt="gerar"></a></td>
                                                 <td>'.$gradeSemestral->getAnoLetivo().'</td>
                                                 <td>'.$gradeSemestral->getSemestreLetivo().'</td>
                                                 <td>'.$gradeSemestral->getTurno().'</td>

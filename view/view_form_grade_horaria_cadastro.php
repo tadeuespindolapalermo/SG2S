@@ -66,21 +66,21 @@
 	<div>
 		<br />
 		<h3><strong><div style="margin-top: -50px; text-align: center;">Cadastrar Grade Horária</div></strong></h3><br/><br/><br/>
-		<h3><strong><div style="margin-top: -60px; text-align: center;"><font color="blue"><?php echo $gradeHorariaCurso->getCursoNome();?></font></div></strong></h3>
+		<h3><strong><div style="margin-top: -60px; text-align: center;"><font color="blue"><?php echo $gradeHorariaCurso->getCursoNome();?></font></div></strong></h3><br/>
 
 		<?php
 		echo '
-		<div class="col" style="padding: 5px; margin-top: -90px;">
+		<div class="col" style="padding: 5px; margin-top: -90px; display:none;">
 			<div style="margin-left: -5px;"><small><strong>ID Grade Semestral</strong></small></div>
 			<input style="width: 105px; margin-left: -5px;" type="text" class="form-control" id="idGradeSemestral" name="idGradeSemestral"
-			placeholder="*ID da Grade Horária" value="'.$gradeHorariaCurso->getIdGradeSemestral().'" disabled>
+			placeholder="*ID da Grade Semestral" value="'.$gradeHorariaCurso->getIdGradeSemestral().'" disabled>
 		</div>';?>
 
 		<?php echo '
-		<div class="col" style="padding: 5px;">
+		<div class="col" style="padding: 5px; display:none;">
 			<div style="margin-left: -5px;"><small><strong>ID do Curso da Grade Semestral</strong></small></div>
 			<input style="width: 175px; margin-left: -5px;" type="text" class="form-control" id="idCursoGradeSemestral" name="idCursoGradeSemestral"
-			placeholder="*Curso da Grade Horária" value="'.$gradeHorariaCurso->getIdCursoGradeSemestral().'" disabled>
+			placeholder="*Id Curso da Grade Horária" value="'.$gradeHorariaCurso->getIdCursoGradeSemestral().'" disabled>
 		</div>';?>
 		<!-- VERIFICAR COM GEORGE A LÓGICA DE NEGÓCIO PARA REPETIÇÃO DE GRADE HORÁRIA-->
 		<!--<small><strong>AVISO: 'Ano', 'Semestre' e 'Curso': trinca única!<strong></small><br/>-->

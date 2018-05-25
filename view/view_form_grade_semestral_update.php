@@ -76,8 +76,9 @@
     echo '
     <div class="container">
         <div class="col-md-4">
-            <div style="text-align: center;"><h4><strong>Atualizar Grade Semestral</strong></h4></div>
-            <div style="text-align: center;"><h5><strong><font color="#FF0000">Grade ID: '.strtoupper($gradeSemestral->getIdGradeSemestral()).'</font><strong></h5></div>
+            <div style="text-align: center;"><h4><strong>Atualizar Grade Semestral</strong></h4></div>';
+            ?><!--<div style="text-align: center;"><h5><strong><font color="#FF0000">Grade ID: '.strtoupper($gradeSemestral->getIdGradeSemestral()).'</font><strong></h5></div>--><?php
+            echo '
             <form action="';?><?php echo $url;?><?php echo '?pagina=../controller/controller_form_grade_semestral_update.php&idGradeSemestral='.$gradeSemestral->getIdGradeSemestral().'" method="post">
                 <div class="form-group ">
 
