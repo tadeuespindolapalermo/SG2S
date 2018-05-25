@@ -22,8 +22,9 @@ class GradeHorariaDao implements Dao {
         try {
             $sqlGradeHoraria = "INSERT INTO grade_horaria
             (sala, quantidade_alunos, turmas, periodo_curso, dia_semana, ead,
-             grade_semestral_idgrade_semestral, grade_semestral_curso_idcurso)
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+             grade_semestral_idgrade_semestral, grade_semestral_curso_idcurso,
+             dsSeg, dsTer, dsQua, dsQui, dsSex, dsSab, dsEad)
+             VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
             $stmtCreateGradeHoraria = $conn->prepare($sqlGradeHoraria);
 
@@ -35,6 +36,13 @@ class GradeHorariaDao implements Dao {
             $stmtCreateGradeHoraria->bindValue(6, $gradeHoraria->getEad(), PDO::PARAM_STR);
             $stmtCreateGradeHoraria->bindValue(7, $gradeHoraria->getIdGradeSemestral(), PDO::PARAM_INT);
             $stmtCreateGradeHoraria->bindValue(8, $gradeHoraria->getIdCursoGradeSemestral(), PDO::PARAM_INT);
+            $stmtCreateGradeHoraria->bindValue(9, $gradeHoraria->getDsSeg(), PDO::PARAM_STR );
+            $stmtCreateGradeHoraria->bindValue(10, $gradeHoraria->getDsTer(), PDO::PARAM_STR);
+            $stmtCreateGradeHoraria->bindValue(11, $gradeHoraria->getDsQua(), PDO::PARAM_STR);
+            $stmtCreateGradeHoraria->bindValue(12, $gradeHoraria->getDsQui(), PDO::PARAM_STR);
+            $stmtCreateGradeHoraria->bindValue(13, $gradeHoraria->getDsSex(), PDO::PARAM_STR);
+            $stmtCreateGradeHoraria->bindValue(14, $gradeHoraria->getDsSab(), PDO::PARAM_STR);
+            $stmtCreateGradeHoraria->bindValue(15, $gradeHoraria->getDsEad(), PDO::PARAM_STR);
 
             $cadastroGradeHorariaEfetuado = $stmtCreateGradeHoraria->execute();
 
@@ -119,7 +127,7 @@ class GradeHorariaDao implements Dao {
      * Método para listar todos as disciplinas de um curso
      **/
     public function listarMatriz($conn, $idCurso) {
-        $strSqlCursoMatriz = "SELECT nome_disciplina FROM disciplinas INNER JOIN curso
+        $strSqlCursoMatriz = "SELECT nome_disciplina, iddisciplinas FROM disciplinas INNER JOIN curso
                               ON disciplinas.curso_idcurso = curso.idcurso WHERE idcurso = :idCurso
                               ORDER BY nome_disciplina";
         $selectCursoMatriz = $conn->prepare($strSqlCursoMatriz);

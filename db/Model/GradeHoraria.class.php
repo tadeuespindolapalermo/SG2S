@@ -12,11 +12,18 @@ class GradeHoraria {
     private $ead;
     private $idGradeSemestral;
     private $idCursoGradeSemestral;
+    private $dsSeg;
+    private $dsTer;
+    private $dsQua;
+    private $dsQui;
+    private $dsSex;
+    private $dsSab;
+    private $dsEad; 
 
     // Atributos auxiliares
     private $cursoNome;
     private $disciplinaNome;
-    private $disciplinaId;
+    private $disciplinaId;    
 
     // Getters dos Atributos do Banco
     public function getIdGradeHoraria()  {
@@ -53,6 +60,35 @@ class GradeHoraria {
 
     public function getIdCursoGradeSemestral() {
         return $this->idCursoGradeSemestral;
+    }
+    
+    //------ DIAS DA SEMANA ----------
+    public function getDsSeg() {
+        return $this->dsSeg;
+    }
+    
+    public function getDsTer() {
+        return $this->dsTer;
+    }
+    
+    public function getDsQua() {
+        return $this->dsQua;
+    }
+    
+    public function getDsQui() {
+        return $this->dsQui;
+    }
+    
+    public function getDsSex() {
+        return $this->dsSex;
+    }
+    
+    public function getDsSab() {
+        return $this->dsSab;
+    }
+    
+    public function getDsEad() {
+        return $this->dsEad;
     }
 
     // Getters dos Atributos Auxiliares
@@ -103,6 +139,35 @@ class GradeHoraria {
 
     public function setIdCursoGradeSemestral($idCursoGradeSemestral) {
         $this->idCursoGradeSemestral = $idCursoGradeSemestral;
+    }
+    
+    //--------- DIAS DA SEMANA -------------
+    public function setDsSeg($dsSeg) {
+        $this->dsSeg = $dsSeg;
+    }
+    
+    public function setDsTer($dsTer) {
+        $this->dsTer = $dsTer;
+    }
+    
+    public function setDsQua($dsQua) {
+        $this->dsQua = $dsQua;
+    }
+    
+    public function setDsQui($dsQui) {
+        $this->dsQui = $dsQui;
+    }
+    
+    public function setDsSex($dsSex) {
+        $this->dsSex = $dsSex;
+    }
+    
+    public function setDsSab($dsSab) {
+        $this->dsSab = $dsSab;
+    }
+    
+    public function setDsEad($dsEad) {
+        $this->dsEad = $dsEad;
     }
 
     // Setters dos Atributos Auxiliares

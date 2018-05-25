@@ -25,6 +25,13 @@
     $gradeHoraria->setEad($_POST['ead']);
     $gradeHoraria->setIdGradeSemestral($_POST['idGradeSemestral']);
     $gradeHoraria->setIdCursoGradeSemestral($_POST['idCursoGradeSemestral']);
+    $gradeHoraria->setDsSeg($_POST['dsSeg']);
+    $gradeHoraria->setDsTer($_POST['dsTer']);
+    $gradeHoraria->setDsQua($_POST['dsQua']);
+    $gradeHoraria->setDsQui($_POST['dsQui']);
+    $gradeHoraria->setDsSex($_POST['dsSex']);
+    $gradeHoraria->setDsSab($_POST['dsSab']);
+    $gradeHoraria->setDsEad($_POST['dsEad']);
 
     // TRATAMENTO DO CAMPO EAD (SALVAR NO BANCO)
     /*if($_POST['ead'] == 0) {
@@ -34,21 +41,50 @@
     }*/
 
     // DEBUG
-    /*echo $gradeHoraria->getIdGradeSemestral();
+    /*echo "ID GRADE SEMESTRAL: ";
+    echo $gradeHoraria->getIdGradeSemestral();
     echo "<br>";
+    echo "ID CURSO GRADE SEMESTRAL: ";
     echo $gradeHoraria->getIdCursoGradeSemestral();
     echo "<br>";
+    echo "SALA: ";
     echo $gradeHoraria->getSala();
     echo "<br>";
+    echo "QUANTIDADE DE ALUNOS: ";
     echo $gradeHoraria->getQuantidadeAlunos();
     echo "<br>";
+    echo "TURMAS: ";
     echo $gradeHoraria->getTurmas();
     echo "<br>";
+    echo "PERÍODO DO CURSO: ";
     echo $gradeHoraria->getPeriodoCurso();
     echo "<br>";
+    echo "DIA DA SEMANA: ";
     echo $gradeHoraria->getDiaSemana();
     echo "<br>";
+    echo "EAD - SIM OU NÃO: ";
     echo $gradeHoraria->getEad();
+    echo "<br>";
+    echo "DISCIPLINA SEGUNDA: ";
+    echo $gradeHoraria->getDsSeg();
+    echo "<br>";
+    echo "DISCIPLINA TERÇA: ";
+    echo $gradeHoraria->getDsTer();
+    echo "<br>";
+    echo "DISCIPLINA QUARTA: ";
+    echo $gradeHoraria->getDsQua();
+    echo "<br>";
+    echo "DISCIPLINA QUINTA: ";
+    echo $gradeHoraria->getDsQui();
+    echo "<br>";
+    echo "DISCIPLINA SEXTA: ";
+    echo $gradeHoraria->getDsSex();
+    echo "<br>";
+    echo "DISCIPLINA SÁBADO: ";
+    echo $gradeHoraria->getDsSab();
+    echo "<br>";
+    echo "DISCIPLINA EAD: ";
+    echo $gradeHoraria->getDsEad();
     echo "<br>";
     exit();*/
 

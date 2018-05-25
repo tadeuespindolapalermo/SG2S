@@ -73,6 +73,13 @@
                                     <th>EAD</th>
                                     <th>ID Grade Semestral</th>
                                     <th>Curso</th>
+                                    <th>SEGUNDA</th>
+                                    <th>TERÇA</th>
+                                    <th>QUARTA</th>
+                                    <th>QUINTA</th>
+                                    <th>SEXTA</th>
+                                    <th>SÁBADO</th>
+                                    <th>EAD</th>
                                     <th>Excluir</th>
                                     <th>Editar</th>
                                 </tr>
@@ -91,6 +98,13 @@
                                         $gradeHoraria->setIdGradeSemestral($dados['grade_semestral_idgrade_semestral']);
                                         $gradeHoraria->setIdCursoGradeSemestral($dados['grade_semestral_curso_idcurso']);
                                         $gradeHoraria->setCursoNome($dados['nome']);
+                                        $gradeHoraria->setDsSeg($dados['dsSeg']);
+                                        $gradeHoraria->setDsTer($dados['dsTer']);
+                                        $gradeHoraria->setDsQua($dados['dsQua']);
+                                        $gradeHoraria->setDsQui($dados['dsQui']);
+                                        $gradeHoraria->setDsSex($dados['dsSex']);
+                                        $gradeHoraria->setDsSab($dados['dsSab']);
+                                        $gradeHoraria->setDsEad($dados['dsEad']);
 
                                         if ($_SESSION['perfil_idperfil'] == 1) {
                                             $alert = 'msgConfirmaDeleteGradeHorariaAdmin('.$gradeHoraria->getIdGradeHoraria().')';
@@ -133,7 +147,7 @@
                                             default:
                                                 $diaSemanaListagem = "";
                                                 break;
-                                        }             
+                                        }
 
                                         echo '
                                         <tbody>
@@ -146,6 +160,13 @@
                                                 <td>'.$eadListagem.'</td>
                                                 <td>'.$gradeHoraria->getIdGradeSemestral().'</td>
                                                 <td>'.$gradeHoraria->getCursoNome().'</td>
+                                                <td>'.$gradeHoraria->getDsSeg().'</td>
+                                                <td>'.$gradeHoraria->getDsTer().'</td>
+                                                <td>'.$gradeHoraria->getDsQua().'</td>
+                                                <td>'.$gradeHoraria->getDsQui().'</td>
+                                                <td>'.$gradeHoraria->getDsSex().'</td>
+                                                <td>'.$gradeHoraria->getDsSab().'</td>
+                                                <td>'.$gradeHoraria->getDsEad().'</td>
                                                 <td><a href="javascript:void(null);" onclick="'.$alert.'"><img src="../lib/open-iconic/svg/x.svg" alt="remover"></a></td>
                                                 <td><a href="';?><?php echo $url;?><?php echo '?pagina=view_form_grade_horaria_update.php&idGradeHoraria='.$gradeHoraria->getIdGradeHoraria().'"><img src="../lib/open-iconic/svg/brush.svg" alt="editar"></a></td>
                                             </tr>
