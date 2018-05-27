@@ -1,7 +1,7 @@
 <div class="container listar">
     <div class="header clearfix">
         <h3 class="text-muted">Listagem de Cursos</h3><hr/>
-        <h6><strong>Clique no <font color="blue">Nome do Curso</font> para visualizar a Matriz!</strong></h6>
+        <h6><strong>Clique no ícone <img src="../icons/infor.png" alt="matriz"> para visualizar a Matriz!</strong></h6>
     </div>
 
     <?php
@@ -62,7 +62,7 @@
             <div class="panel panel-default">
                 <div class="panel-body">
                     <div class="table-responsive">
-                        <table class="table table-hover table-striped listaSearch" style="text-align: center;" id="listaCursos">
+                        <table class="table table-hover table-striped listaSearch" style="text-align: center;" id="listarCursos">
                             <thead>
                                 <tr>
                                     <th>Nome do Curso</th>
@@ -71,6 +71,7 @@
                                     <th>Grau</th>
                                     <th>Data Portaria</th>
                                     <th>Versão Matriz</th>
+                                    <th>MATRIZ</th>
                                     <th>Excluir</th>
                                     <th>Editar</th>
                                 </tr>
@@ -91,16 +92,17 @@
                                         } elseif ($_SESSION['perfil_idperfil'] == 2) {
                                             $alert = 'msgConfirmaDeleteCursoCoordenador('.$curso->getIdCurso().')';
                                         }
-                                                                                
+
                                         echo '
                                         <tbody>
                                             <tr>
-                                                <td style="text-align: left;"><a href="';?><?php echo $url;?><?php echo '?pagina=view_matriz_listagem.php&idCurso='.$curso->getIdCurso().'">'.$curso->getNome().'</a></td>
+                                                <td>'.$curso->getNome().'</td>
                                                 <td>'.$curso->getPortaria().'</td>
                                                 <td>'.$curso->getDuracao().'</td>
                                                 <td>'.$curso->getGrau().'</td>
                                                 <td>'.$curso->getDataPortaria().'</td>
                                                 <td>'.$curso->getVersaoMatriz().'</td>
+                                                <td><a href="';?><?php echo $url;?><?php echo '?pagina=view_matriz_listagem.php&idCurso='.$curso->getIdCurso().'"><img src="../icons/infor.png" alt="matriz"></a></td>
                                                 <td><a href="javascript:void(null);" onclick="'.$alert.'"><img src="../lib/open-iconic/svg/x.svg" alt="remover"></a></td>
                                                 <td><a href="';?><?php echo $url;?><?php echo '?pagina=view_form_curso_update.php&idCurso='.$curso->getIdCurso().'"><img src="../lib/open-iconic/svg/brush.svg" alt="editar"></a></td>
                                             </tr>
@@ -138,7 +140,7 @@
                         ?>
                         <br/>
                         <a href="<?php echo $url;?>?pagina=view_form_curso_cadastro.php"><button type="button" class="btn btn-primary"><span data-feather="plus-circle"></span>&nbsp;Novo</button></a>
-                        <button export-to-excel="listaCursos" class="btn btn-success">
+                        <button export-to-excel-curso="listarCursos" class="btn btn-success">
                             <span data-feather="download"></span>&nbsp;Excel
                         </button>
                         <button id="btnSearch" onclick="alterarDisabledSearch()" class="btn btn-outline-dark"><span data-feather="search"></span>&nbsp;Busca</button>

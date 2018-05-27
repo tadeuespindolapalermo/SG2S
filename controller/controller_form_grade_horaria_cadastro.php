@@ -129,5 +129,5 @@
         </script>
         <META HTTP-EQUIV=REFRESH CONTENT = '0;URL=
         http://localhost/SG2S/view/view_coordenador.php?pagina=view_form_grade_horaria_cadastro.php'";
-        //header('Location: ../view/coordenador_admin.php?pagina=view_form_grade_horaria_cadastro.php');
+        //header('Location: ../view/view_coordenador.php?pagina=view_form_grade_horaria_cadastro.php');
     }

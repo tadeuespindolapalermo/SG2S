@@ -91,6 +91,31 @@ class GradeHorariaDao implements Dao {
     }
 
     /*
+     * Método para listar todos as grades horárias do sistema (view)
+     **/
+    public function listarPorGradeSemestral($conn, $idGradeSemestral) {
+        $strSqlGradeHoraria = "SELECT * FROM grade_horaria
+        INNER JOIN grade_semestral ON grade_horaria.grade_semestral_idgrade_semestral = grade_semestral.idgrade_semestral
+        INNER JOIN curso ON grade_semestral.curso_idcurso = curso.idcurso
+        WHERE grade_semestral_idgrade_semestral = :idGradeSemestral";
+        $selectGradeHoraria = $conn->prepare($strSqlGradeHoraria);
+        $selectGradeHoraria->bindValue(':idGradeSemestral', $idGradeSemestral);
+        $selectGradeHoraria->execute();
+        return $selectGradeHoraria;
+    }
+
+    /*
+     * Método para listar todos as grades horárias do sistema (view)
+     **/
+    public function listarGradesSemestrais($conn) {
+        $strSqlGradeHoraria = "SELECT * FROM grade_semestral
+        INNER JOIN curso ON grade_semestral.curso_idcurso = curso.idcurso";
+        $selectGradeHoraria = $conn->prepare($strSqlGradeHoraria);
+        $selectGradeHoraria->execute();
+        return $selectGradeHoraria;
+    }
+
+    /*
      * Método para listar todos os cursos do sistema no combobox de cadastro de grade horária (view)
      **/
     public function listarComboCurso($conn) {

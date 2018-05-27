@@ -55,7 +55,7 @@
             <div class="panel panel-default">
                 <div class="panel-body">
                     <div class="table-responsive">
-                        <table class="table table-hover table-striped listaSearch" style="text-align: center;" id="listaUsuarios">
+                        <table class="table table-hover table-striped listaSearch" style="text-align: center;" id="listarUsuarios">
                             <thead>
                                 <tr>
                                     <th>Nome</th>
@@ -94,7 +94,7 @@
 
                                         echo '
                                         <tbody>
-                                            <tr>                                                
+                                            <tr>
                                                 <td style="text-align: left;">'.$usuarios->getNome().'</td>
                                                 <td style="text-align: left;">'.$usuarios->getUsuario().'</td>
                                                 <td>'.$perfil->getDescricao().'</td>
@@ -137,7 +137,7 @@
                         ?>
                         <br/>
                         <a href="view_admin.php?pagina=view_form_usuario_cadastro.php"><button type="button" class="btn btn-primary"><span data-feather="plus-circle"></span>&nbsp;Novo</button></a>
-                        <button export-to-excel="listaUsuarios" class="btn btn-success">
+                        <button export-to-excel-usuario="listarUsuarios" class="btn btn-success">
                             <span data-feather="download"></span>&nbsp;Excel
                         </button>
                         <button id="btnSearch" onclick="alterarDisabledSearch()" class="btn btn-outline-dark"><span data-feather="search"></span>&nbsp;Busca</button>

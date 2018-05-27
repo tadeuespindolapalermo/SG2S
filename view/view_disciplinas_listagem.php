@@ -25,7 +25,7 @@
         if ($_SESSION['perfil_idperfil'] == 1) {
             $url = 'view_admin.php';
         } elseif ($_SESSION['perfil_idperfil'] == 2) {
-            $url = 'view_coordenador.php';            
+            $url = 'view_coordenador.php';
         }
 
         // Para listagem sem paginação
@@ -59,7 +59,7 @@
             <div class="panel panel-default">
                 <div class="panel-body">
                     <div class="table-responsive">
-                        <table class="table table-hover table-striped listaSearch" style="text-align: center;" id="listaDisciplinas">
+                        <table class="table table-hover table-striped listaSearch" style="text-align: center;" id="listarDisciplinas">
                             <thead>
                                 <tr>
                                     <th>Nome</th>
@@ -130,7 +130,7 @@
                         ?>
                         <br/>
                         <a href="<?php echo $url;?>?pagina=view_form_disciplina_cadastro.php"><button type="button" class="btn btn-primary"><span data-feather="plus-circle"></span>&nbsp;Novo</button></a>
-                        <button export-to-excel="listaDisciplinas" class="btn btn-success">
+                        <button export-to-excel-disciplina="listarDisciplinas" class="btn btn-success">
                             <span data-feather="download"></span>&nbsp;Excel
                         </button>
                         <button id="btnSearch" onclick="alterarDisabledSearch()" class="btn btn-outline-dark"><span data-feather="search"></span>&nbsp;Busca</button>

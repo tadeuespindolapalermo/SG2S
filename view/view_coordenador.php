@@ -106,7 +106,7 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="view_coordenador.php?pagina=view_grades_horarias_listagem.php">
+                                <a class="nav-link" href="view_coordenador.php?pagina=view_form_grade_semestral_selecionar.php">
                                     <span data-feather="globe"></span>
                                     Grade Horária
                                 </a>

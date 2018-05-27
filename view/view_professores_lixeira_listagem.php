@@ -59,7 +59,7 @@
             <div class="panel panel-default">
                 <div class="panel-body">
                     <div class="table-responsive">
-                        <table class="table table-hover table-striped listaSearch" style="text-align: center;" id="listaProfessoresExcluidos">
+                        <table class="table table-hover table-striped listaSearch" style="text-align: center;" id="listarProfessoresExcluidos">
                             <thead>
                                 <tr>
                                     <th>Nome</th>
@@ -89,7 +89,7 @@
 
                                         echo '
                                         <tbody>
-                                            <tr>                                            
+                                            <tr>
                                                 <td style="text-align: left;">'.$professor->getNome().'</td>
                                                 <td>'.$professor->getCPF().'</td>
                                                 <td>'.$professor->getRG().'</td>
@@ -131,7 +131,7 @@
                             echo '</div>';
                         ?>
                         <br/>
-                        <button export-to-excel="listaProfessoresExcluidos" class="btn btn-success">
+                        <button export-to-excel-usuario="listarProfessoresExcluidos" class="btn btn-success">
                             <span data-feather="download"></span>&nbsp;Excel
                         </button>
                         <a href="<?php echo $url;?>?pagina=view_professores_listagem.php"><button type="button" class="btn btn-info"><span data-feather="arrow-left"></span>&nbsp;Voltar</button></a>

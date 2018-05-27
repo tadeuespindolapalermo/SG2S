@@ -60,15 +60,15 @@
             <div class="panel panel-default">
                 <div class="panel-body">
                     <div class="table-responsive">
-                        <table class="table table-hover table-striped listaSearch" id="listaGradesSemestrais" style="text-align: center;">
+                        <table class="table table-hover table-striped listaSearch" id="listarGradesSemestrais" style="text-align: center;">
                             <thead>
                                 <tr>
-                                    <th>GERAR</th>
                                     <th>Ano Letivo</th>
                                     <th>Semestre Letivo</th>
                                     <th>Turno</th>
                                     <th>Horário</th>
                                     <th>Curso</th>
+                                    <th>GERAR</th>
                                     <th>Excluir</th>
                                     <th>Editar</th>
                                 </tr>
@@ -94,12 +94,12 @@
                                         echo '
                                         <tbody>
                                             <tr>
-                                                <td><a href="';?><?php echo $url;?><?php echo '?pagina=view_form_grade_horaria_cadastro.php&idGradeSemestral='.$gradeSemestral->getIdGradeSemestral().'"><img src="../icons/accept.png" alt="gerar"></a></td>
                                                 <td>'.$gradeSemestral->getAnoLetivo().'</td>
                                                 <td>'.$gradeSemestral->getSemestreLetivo().'</td>
                                                 <td>'.$gradeSemestral->getTurno().'</td>
                                                 <td>'.$gradeSemestral->getHorario().'</td>
                                                 <td>'.$gradeSemestral->getCursoNome().'</td>
+                                                <td><a href="';?><?php echo $url;?><?php echo '?pagina=view_form_grade_horaria_cadastro.php&idGradeSemestral='.$gradeSemestral->getIdGradeSemestral().'"><img src="../icons/accept.png" alt="gerar"></a></td>
                                                 <td><a href="javascript:void(null);" onclick="'.$alert.'"><img src="../lib/open-iconic/svg/x.svg" alt="remover"></a></td>
                                                 <td><a href="';?><?php echo $url;?><?php echo '?pagina=view_form_grade_semestral_update.php&idGradeSemestral='.$gradeSemestral->getIdGradeSemestral().'"><img src="../lib/open-iconic/svg/brush.svg" alt="editar"></a></td>
                                             </tr>
@@ -137,7 +137,7 @@
                         ?>
                         <br/>
                         <a href="<?php echo $url;?>?pagina=view_form_grade_semestral_cadastro.php"><button type="button" class="btn btn-info"><span data-feather="plus-circle"></span>&nbsp;Novo</button></a>
-                        <button export-to-excel="listaGradesSemestrais" class="btn btn-success">
+                        <button export-to-excel-usuario="listarGradesSemestrais" class="btn btn-success">
                             <span data-feather="download"></span>&nbsp;Excel
                         </button>
                         <!--<button type="button" onclick="javascript:iniciaRequisitaAjax('GET','view_grades_geradas.php','true');" class="btn btn-dark"><span data-feather="layers"></span>&nbsp;Geradas</button>-->
