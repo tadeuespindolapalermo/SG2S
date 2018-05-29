@@ -53,7 +53,7 @@ class DisciplinaDao implements Dao {
 
         // -------------------------------------------------------------
 
-        // INSERÇÃO DE CURSO COM PDO
+        // INSERÇÃO DA DISCIPLINA COM PDO
         try {
             $sqlDisciplina = "INSERT INTO disciplinas(curso_idcurso, nome_disciplina, carga_horaria, credito) VALUES (?, ?, ?, ?)";
 
@@ -72,6 +72,31 @@ class DisciplinaDao implements Dao {
             $cadastroDisciplinaEfetuado = $stmtCreateDisciplina->execute();
 
             return $cadastroDisciplinaEfetuado;
+            // -----------------------------------------
+        } catch (PDOException $e) {
+            PHPErro($e->getCode(), $e->getMessage(), $e->getFile(), $e->getFile());
+        }
+
+    }
+
+    public function associarProfessor($conn, $disciplina) {
+        // ASSOCIAÇÃO DE PROFESSOR E DISCIPLINA COM PDO
+        try {
+            $sqlDisciplinaProfessor = "INSERT INTO disciplina_professor(professor_idprofessor, disciplinas_iddisciplinas, disciplinas_curso_idcurso) VALUES (?, ?, ?)";
+
+            $stmtAssociaProfessor = $conn->prepare($sqlDisciplinaProfessor);
+
+            $idProfessor = $disciplina->getIdProfessorDisciplina();
+            $idDisciplina = $disciplina->getIdDisciplina();
+            $idCursoDisciplina = $disciplina->getCursoIdCurso();            
+
+            $stmtAssociaProfessor->bindParam(1, $idProfessor, PDO::PARAM_INT, 11);
+            $stmtAssociaProfessor->bindParam(2, $idDisciplina, PDO::PARAM_INT, 11);
+            $stmtAssociaProfessor->bindParam(3, $idCursoDisciplina, PDO::PARAM_INT, 11);
+
+            $professorDisciplinaAssociado = $stmtAssociaProfessor->execute();
+
+            return $professorDisciplinaAssociado;
             // -----------------------------------------
         } catch (PDOException $e) {
             PHPErro($e->getCode(), $e->getMessage(), $e->getFile(), $e->getFile());

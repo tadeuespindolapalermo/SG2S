@@ -11,6 +11,7 @@ class Disciplina {
 
     // Atributos Auxiliares
     private $cursoNome;
+    private $idProfessorDisciplina;
 
     // Getters dos Atributos do Banco
     public function getIdDisciplina() {
@@ -38,6 +39,10 @@ class Disciplina {
         return $this->cursoNome;
     }
 
+    public function getIdProfessorDisciplina() {
+        return $this->idProfessorDisciplina;
+    }
+
     // Setters dos Atributos do Banco
     public function setIdDisciplina($idDisciplina) {
         $this->idDisciplina = $idDisciplina;
@@ -62,6 +67,10 @@ class Disciplina {
     // Setters dos Atributos Auxiliares
     public function setCursoNome($cursoNome) {
         $this->cursoNome = $cursoNome;
+    }
+
+    public function setIdProfessorDisciplina($idProfessorDisciplina) {
+        $this->idProfessorDisciplina = $idProfessorDisciplina;
     }
 
 }

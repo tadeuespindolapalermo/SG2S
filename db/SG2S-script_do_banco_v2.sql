@@ -181,10 +181,10 @@ COMMENT = 'Tabela de Cadastro e Identificação de Professores';
 -- Table `codigofonteonline1`.`disciplina_professor`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `codigofonteonline1`.`disciplina_professor` (
-  `iddisciplina_professor` INT NOT NULL,
-  `professor_idprofessor` INT NOT NULL,
-  `disciplinas_iddisciplinas` INT NOT NULL,
-  `disciplinas_curso_idcurso` INT NOT NULL,
+  `iddisciplina_professor` INT(11) NOT NULL AUTO_INCREMENT,
+  `professor_idprofessor` INT(11) NOT NULL,
+  `disciplinas_iddisciplinas` INT(11) NOT NULL,
+  `disciplinas_curso_idcurso` INT(11) NOT NULL,
   PRIMARY KEY (`iddisciplina_professor`, `professor_idprofessor`, `disciplinas_iddisciplinas`, `disciplinas_curso_idcurso`),
   INDEX `fk_disciplina_professor_professor1_idx` (`professor_idprofessor` ASC),
   INDEX `fk_disciplina_professor_disciplinas1_idx` (`disciplinas_iddisciplinas` ASC, `disciplinas_curso_idcurso` ASC),

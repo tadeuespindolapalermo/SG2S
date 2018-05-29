@@ -66,7 +66,8 @@
                                     <th>CPF</th>
                                     <th>RG</th>
                                     <th>E-mail</th>
-                                    <th>Fone</th>
+                                    <th>Fone</th>                                
+                                    <th>Associar</th>
                                     <th>Lixeira</th>
                                     <th>Editar</th>
                                 </tr>
@@ -95,6 +96,7 @@
                                                 <td>'.$professor->getRG().'</td>
                                                 <td style="text-align: left;">'.$professor->getEmail().'</td>
                                                 <td>'.$professor->getFone().'</td>
+                                                <td><a href="';?><?php echo $url;?><?php echo '?pagina=view_form_professor_associar.php&idProfessor='.$professor->getIdProfessor().'"><img src="../icons/alert.png" alt="gerar"></a></td>
                                                 <td><a href="javascript:void(null);" onclick="'.$alert.'"><img src="../lib/open-iconic/svg/x.svg" alt="remover"></a></td>
                                                 <td><a href="';?><?php echo $url;?><?php echo '?pagina=view_form_professor_update.php&idProfessor='.$professor->getIdProfessor().'"><img src="../lib/open-iconic/svg/brush.svg" alt="editar"></a></td>
                                             </tr>

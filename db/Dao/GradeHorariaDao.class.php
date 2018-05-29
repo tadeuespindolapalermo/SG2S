@@ -105,6 +105,20 @@ class GradeHorariaDao implements Dao {
     }
 
     /*
+     * ...
+     **/
+    /*public function listarNomeProfessor($conn, $nomeDisciplina) {
+        $strSqlGradeHoraria = "SELECT * FROM professor
+        INNER JOIN disciplina_professor ON professor.idprofessor = disciplina_professor.professor_idprofessor
+        INNER JOIN disciplina ON disciplina.iddisciplinas = disciplina_professor.disciplinas_iddisciplinas
+        WHERE nome_disciplina = :nomeDisciplina";
+        $selectGradeHoraria = $conn->prepare($strSqlGradeHoraria);
+        $selectGradeHoraria->bindValue(':nomeDisciplina', $nomeDisciplina);
+        $selectGradeHoraria->execute();
+        return $selectGradeHoraria;
+    }*/
+
+    /*
      * Método para listar todos as grades horárias do sistema (view)
      **/
     public function listarGradesSemestrais($conn) {

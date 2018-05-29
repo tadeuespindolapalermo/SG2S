@@ -31,7 +31,6 @@
 
 	$selectGradeHoraria = $gradeHorariaDao->buscarPorId($conn, $idGradeSemestral);
     $linhaGradeHoraria = $selectGradeHoraria->fetchAll(PDO::FETCH_ASSOC);
-
     foreach ($linhaGradeHoraria as $dados) {
         $gradeHorariaCurso->setIdCursoGradeSemestral($dados['curso_idcurso']);
         $gradeHorariaCurso->setCursoNome($dados['nome']);
@@ -62,12 +61,10 @@
 
 	<br /><br />
 
-
 	<div>
 		<br />
 		<h3><strong><div style="margin-top: -50px; text-align: center;">Cadastrar Grade Horária</div></strong></h3><br/><br/><br/>
 		<h3><strong><div style="margin-top: -60px; text-align: center;"><font color="blue"><?php echo $gradeHorariaCurso->getCursoNome();?></font></div></strong></h3><br/>
-
 
 		<!-- VERIFICAR COM GEORGE A LÓGICA DE NEGÓCIO PARA REPETIÇÃO DE GRADE HORÁRIA-->
 		<!--<small><strong>AVISO: 'Ano', 'Semestre' e 'Curso': trinca única!<strong></small><br/>-->

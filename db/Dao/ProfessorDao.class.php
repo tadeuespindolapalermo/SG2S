@@ -283,7 +283,8 @@ class ProfessorDao implements Dao {
      **/
     public function listarLimite($conn, $inicio, $limite) {
         // Seleciona os registros do banco de dados pelo inicio e limitando pelo limite da variável limite
-        $strSqlProfessor = "SELECT * FROM professor WHERE exclusao != 0 ORDER BY nome ASC LIMIT ".$inicio. ", ". $limite;
+        $strSqlProfessor = "SELECT * FROM professor        
+        WHERE exclusao != 0 ORDER BY nome ASC LIMIT ".$inicio. ", ". $limite;
         $selectProfessor = $conn->prepare($strSqlProfessor);
         $selectProfessor->execute();
         return $selectProfessor;

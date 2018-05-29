@@ -2,6 +2,7 @@
 
 class Professor {
 
+    // Atributos do Banco de Dados
     private $idProfessor;
     private $nome;
     private $CPF;
@@ -10,6 +11,10 @@ class Professor {
     private $fone;
     private $exclusao; // pode ser NULL
 
+    // Atributos auxiliares 29/05/18
+    private $professorDisciplina;
+
+    // Getters dos Atributos do Banco
     public function getIdProfessor() {
         return $this->idProfessor;
     }
@@ -38,6 +43,12 @@ class Professor {
         return $this->exclusao;
     }
 
+    // Getters dos Atributos Auxiliares
+    public function getProfessorDisciplina() {
+        return $this->professorDisciplina;
+    }
+
+    // Setters dos Atributos do Banco
     public function setIdProfessor($idProfessor) {
         $this->idProfessor = $idProfessor;
     }
@@ -64,6 +75,11 @@ class Professor {
 
     public function setExclusao($exclusao) {
         $this->exclusao = $exclusao;
+    }
+
+    // Setters dos Atributos Auxiliares
+    public function setProfessorDisciplina($professorDisciplina) {
+        $this->$professorDisciplina = $professorDisciplina;
     }
 
 }
