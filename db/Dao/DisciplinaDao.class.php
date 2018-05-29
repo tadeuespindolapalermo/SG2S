@@ -79,6 +79,9 @@ class DisciplinaDao implements Dao {
 
     }
 
+    /*
+     * Método para associar um Professor à uma disciplina (controller)
+     **/
     public function associarProfessor($conn, $disciplina) {
         // ASSOCIAÇÃO DE PROFESSOR E DISCIPLINA COM PDO
         try {
@@ -88,7 +91,7 @@ class DisciplinaDao implements Dao {
 
             $idProfessor = $disciplina->getIdProfessorDisciplina();
             $idDisciplina = $disciplina->getIdDisciplina();
-            $idCursoDisciplina = $disciplina->getCursoIdCurso();            
+            $idCursoDisciplina = $disciplina->getCursoIdCurso();
 
             $stmtAssociaProfessor->bindParam(1, $idProfessor, PDO::PARAM_INT, 11);
             $stmtAssociaProfessor->bindParam(2, $idDisciplina, PDO::PARAM_INT, 11);
@@ -97,6 +100,32 @@ class DisciplinaDao implements Dao {
             $professorDisciplinaAssociado = $stmtAssociaProfessor->execute();
 
             return $professorDisciplinaAssociado;
+            // -----------------------------------------
+        } catch (PDOException $e) {
+            PHPErro($e->getCode(), $e->getMessage(), $e->getFile(), $e->getFile());
+        }
+
+    }
+
+    /*
+     * Método para definir uma disciplina pré-requisito (controller)
+     **/
+    public function definirDisciplinaPreRequisito($conn, $disciplina) {
+        // DEFINIÇÃO DE DISCIPLINA PRÉ-REQUISITO COM PDO
+        try {
+            $sqlDisciplinaPreRequisito = "INSERT INTO pre_requisito(disciplinas_iddisciplinas, disciplinas_curso_idcurso) VALUES (?, ?)";
+
+            $stmtDisciplinaPreRequisito = $conn->prepare($sqlDisciplinaPreRequisito);
+
+            $idDisciplina = $disciplina->getIdDisciplina();
+            $idCursoDisciplina = $disciplina->getCursoIdCurso();
+
+            $stmtDisciplinaPreRequisito->bindParam(1, $idDisciplina, PDO::PARAM_INT, 11);
+            $stmtDisciplinaPreRequisito->bindParam(2, $idCursoDisciplina, PDO::PARAM_INT, 11);
+
+            $disciplinaPreRequisitoDefinida = $stmtDisciplinaPreRequisito->execute();
+
+            return $disciplinaPreRequisitoDefinida;
             // -----------------------------------------
         } catch (PDOException $e) {
             PHPErro($e->getCode(), $e->getMessage(), $e->getFile(), $e->getFile());

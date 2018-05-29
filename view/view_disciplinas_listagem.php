@@ -1,6 +1,7 @@
 <div class="container listar">
     <div class="header clearfix">
         <h3 class="text-muted">Listagem de Disciplinas</h3><hr />
+        <h6><strong>Clique no ícone <img src="../icons/error.png" alt="matriz"> para definir disciplina pré-requisito!</strong></h6>
     </div>
 
     <?php
@@ -66,6 +67,7 @@
                                     <th>Curso</th>
                                     <th>Carga Horária</th>
                                     <th>Crédito</th>
+                                    <th>Pré Requisito</th>
                                     <th>Excluir</th>
                                     <th>Editar</th>
                                 </tr>
@@ -93,6 +95,7 @@
                                                 <td style="text-align: left;">'.$disciplina->getCursoNome().'</td>
                                                 <td>'.$disciplina->getCargaHoraria().'</td>
                                                 <td>'.$disciplina->getCredito().'</td>
+                                                <td><a href="';?><?php echo $url;?><?php echo '?pagina=view_form_disciplina_pre-requisito.php&idDisciplina='.$disciplina->getIdDisciplina().'"><img src="../icons/error.png" alt="pre-requisito"></a></td>
                                                 <td><a href="javascript:void(null);" onclick="'.$alert.'"><img src="../lib/open-iconic/svg/x.svg" alt="remover"></a></td>
                                                 <td><a href="';?><?php echo $url;?><?php echo '?pagina=view_form_disciplina_update.php&idDisciplina='.$disciplina->getIdDisciplina().'"><img src="../lib/open-iconic/svg/brush.svg" alt="editar"></a></td>
                                             </tr>

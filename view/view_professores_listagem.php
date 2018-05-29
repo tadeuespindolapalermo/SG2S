@@ -1,6 +1,7 @@
 <div class="container listar">
     <div class="header clearfix">
         <h3 class="text-muted">Listagem de Professores</h3><hr />
+        <h6><strong>Clique no ícone <img src="../icons/alert.png" alt="matriz"> para associar Professor à disciplina!</strong></h6>
     </div>
 
     <?php
@@ -66,7 +67,7 @@
                                     <th>CPF</th>
                                     <th>RG</th>
                                     <th>E-mail</th>
-                                    <th>Fone</th>                                
+                                    <th>Fone</th>
                                     <th>Associar</th>
                                     <th>Lixeira</th>
                                     <th>Editar</th>

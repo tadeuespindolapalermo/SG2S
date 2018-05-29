@@ -120,9 +120,9 @@ COMMENT = 'Associação entre as tabelas usuarios e perfil';
 -- Table `codigofonteonline1`.`pre_requisito`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `codigofonteonline1`.`pre_requisito` (
-  `idpre_requisito` INT NOT NULL,
-  `disciplinas_iddisciplinas` INT NOT NULL,
-  `disciplinas_curso_idcurso` INT NOT NULL,
+  `idpre_requisito` INT(11) NOT NULL AUTO_INCREMENT,
+  `disciplinas_iddisciplinas` INT(11) NOT NULL,
+  `disciplinas_curso_idcurso` INT(11) NOT NULL,
   PRIMARY KEY (`idpre_requisito`, `disciplinas_iddisciplinas`, `disciplinas_curso_idcurso`),
   INDEX `fk_pre_requisito_disciplinas1_idx` (`disciplinas_iddisciplinas` ASC, `disciplinas_curso_idcurso` ASC),
   CONSTRAINT `fk_pre_requisito_disciplinas1`
