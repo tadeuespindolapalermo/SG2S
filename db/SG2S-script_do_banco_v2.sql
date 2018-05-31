@@ -74,18 +74,11 @@ COMMENT = 'Tabela para cadastro de cursos.';
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `codigofonteonline1`.`disciplinas` (
   `iddisciplinas` INT(11) NOT NULL AUTO_INCREMENT,
-  `curso_idcurso` INT(11) NOT NULL,
   `nome_disciplina` VARCHAR(100) CHARACTER SET 'utf8' COLLATE 'utf8_general_ci' NOT NULL COMMENT 'Nome da disciplina',
   `carga_horaria` DECIMAL(5,2) NOT NULL COMMENT 'Formato: 999.99\nEx.:\n100.00 - 100 horas\n105.30 - 105 horas e 30 minutos',
   `credito` INT(1) NOT NULL COMMENT 'Peso da disciplina',
-  PRIMARY KEY (`iddisciplinas`, `curso_idcurso`),
-  INDEX `fk_matriz_curricular_curso1_idx` (`curso_idcurso` ASC),
-  UNIQUE INDEX `nome_UNIQUE` (`nome_disciplina` ASC),
-  CONSTRAINT `fk_matriz_curricular_curso1`
-    FOREIGN KEY (`curso_idcurso`)
-    REFERENCES `codigofonteonline1`.`curso` (`idcurso`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+  PRIMARY KEY (`iddisciplinas`),
+  UNIQUE INDEX `nome_UNIQUE` (`nome_disciplina` ASC))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8
 COMMENT = 'Tabela para cadastro disciplinas';
@@ -122,14 +115,13 @@ COMMENT = 'Associação entre as tabelas usuarios e perfil';
 CREATE TABLE IF NOT EXISTS `codigofonteonline1`.`pre_requisito` (
   `idpre_requisito` INT(11) NOT NULL AUTO_INCREMENT,
   `disciplinas_iddisciplinas` INT(11) NOT NULL,
-  `disciplinas_curso_idcurso` INT(11) NOT NULL,
-  PRIMARY KEY (`idpre_requisito`, `disciplinas_iddisciplinas`, `disciplinas_curso_idcurso`),
-  INDEX `fk_pre_requisito_disciplinas1_idx` (`disciplinas_iddisciplinas` ASC, `disciplinas_curso_idcurso` ASC),
+  PRIMARY KEY (`idpre_requisito`, `disciplinas_iddisciplinas`),
+  INDEX `fk_pre_requisito_disciplinas1_idx` (`disciplinas_iddisciplinas` ASC),
   CONSTRAINT `fk_pre_requisito_disciplinas1`
-    FOREIGN KEY (`disciplinas_iddisciplinas` , `disciplinas_curso_idcurso`)
-    REFERENCES `codigofonteonline1`.`disciplinas` (`iddisciplinas` , `curso_idcurso`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    FOREIGN KEY (`disciplinas_iddisciplinas`)
+    REFERENCES `codigofonteonline1`.`disciplinas` (`iddisciplinas`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8
 COMMENT = 'Tabela que representa disciplinas que são pré requisitos para outras disciplinas.';
@@ -150,8 +142,8 @@ CREATE TABLE IF NOT EXISTS `codigofonteonline1`.`grade_semestral` (
   CONSTRAINT `fk_grade_semestral_curso1`
     FOREIGN KEY (`curso_idcurso`)
     REFERENCES `codigofonteonline1`.`curso` (`idcurso`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8
 COMMENT = 'Tabela para cadastro das informações presentes na grade semestral.';
@@ -184,20 +176,19 @@ CREATE TABLE IF NOT EXISTS `codigofonteonline1`.`disciplina_professor` (
   `iddisciplina_professor` INT(11) NOT NULL AUTO_INCREMENT,
   `professor_idprofessor` INT(11) NOT NULL,
   `disciplinas_iddisciplinas` INT(11) NOT NULL,
-  `disciplinas_curso_idcurso` INT(11) NOT NULL,
-  PRIMARY KEY (`iddisciplina_professor`, `professor_idprofessor`, `disciplinas_iddisciplinas`, `disciplinas_curso_idcurso`),
+  PRIMARY KEY (`iddisciplina_professor`, `professor_idprofessor`, `disciplinas_iddisciplinas`),
   INDEX `fk_disciplina_professor_professor1_idx` (`professor_idprofessor` ASC),
-  INDEX `fk_disciplina_professor_disciplinas1_idx` (`disciplinas_iddisciplinas` ASC, `disciplinas_curso_idcurso` ASC),
+  INDEX `fk_disciplina_professor_disciplinas1_idx` (`disciplinas_iddisciplinas` ASC),
   CONSTRAINT `fk_disciplina_professor_professor1`
     FOREIGN KEY (`professor_idprofessor`)
     REFERENCES `codigofonteonline1`.`professor` (`idprofessor`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
   CONSTRAINT `fk_disciplina_professor_disciplinas1`
-    FOREIGN KEY (`disciplinas_iddisciplinas` , `disciplinas_curso_idcurso`)
-    REFERENCES `codigofonteonline1`.`disciplinas` (`iddisciplinas` , `curso_idcurso`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    FOREIGN KEY (`disciplinas_iddisciplinas`)
+    REFERENCES `codigofonteonline1`.`disciplinas` (`iddisciplinas`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8
 COMMENT = 'Tabela associativa entre as tabelas disciplina (matriz curricular) e professor.';
@@ -223,16 +214,48 @@ CREATE TABLE IF NOT EXISTS `codigofonteonline1`.`grade_horaria` (
   `dsSex` VARCHAR(200) CHARACTER SET 'utf8' COLLATE 'utf8_general_ci' NULL COMMENT 'Disciplina de SEXTA-FEIRA.',
   `dsSab` VARCHAR(200) CHARACTER SET 'utf8' COLLATE 'utf8_general_ci' NULL COMMENT 'Disciplina de SÁBADO.',
   `dsEad` VARCHAR(200) CHARACTER SET 'utf8' COLLATE 'utf8_general_ci' NULL COMMENT 'Disciplina de EAD.',
+  `dsSegProf` VARCHAR(200) CHARACTER SET 'utf8' COLLATE 'utf8_general_ci' NULL COMMENT 'Professor da disciplina de SEGUNDA-FEIRA.',
+  `dsTerProf` VARCHAR(200) CHARACTER SET 'utf8' COLLATE 'utf8_general_ci' NULL COMMENT 'Professor da disciplina de TERÇA-FEIRA.',
+  `dsQuaProf` VARCHAR(200) CHARACTER SET 'utf8' COLLATE 'utf8_general_ci' NULL COMMENT 'Professor da disciplina de QUARTA-FEIRA.',
+  `dsQuiProf` VARCHAR(200) CHARACTER SET 'utf8' COLLATE 'utf8_general_ci' NULL COMMENT 'Professor da disciplina de QUINTA-FEIRA.',
+  `dsSexProf` VARCHAR(200) CHARACTER SET 'utf8' COLLATE 'utf8_general_ci' NULL COMMENT 'Professor da disciplina de SEXTA-FEIRA.',
+  `dsSabProf` VARCHAR(200) CHARACTER SET 'utf8' COLLATE 'utf8_general_ci' NULL COMMENT 'Professor da disciplina de SÁBADO',
+  `dsEadProf` VARCHAR(200) CHARACTER SET 'utf8' COLLATE 'utf8_general_ci' NULL COMMENT 'Professor da disciplina EAD',
   PRIMARY KEY (`idgrade_horaria`, `grade_semestral_idgrade_semestral`, `grade_semestral_curso_idcurso`),
   INDEX `fk_grade_horaria_grade_semestral1_idx` (`grade_semestral_idgrade_semestral` ASC, `grade_semestral_curso_idcurso` ASC),
   CONSTRAINT `fk_grade_horaria_grade_semestral1`
     FOREIGN KEY (`grade_semestral_idgrade_semestral` , `grade_semestral_curso_idcurso`)
     REFERENCES `codigofonteonline1`.`grade_semestral` (`idgrade_semestral` , `curso_idcurso`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8
 COMMENT = 'Tabela para cadastro das informações presentes na grade horária.';
+
+
+-- -----------------------------------------------------
+-- Table `codigofonteonline1`.`curso_disciplinas`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `codigofonteonline1`.`curso_disciplinas` (
+  `idcurso_disciplinas` INT(11) NOT NULL AUTO_INCREMENT,
+  `curso_idcurso` INT(11) NOT NULL,
+  `disciplinas_iddisciplinas` INT(11) NOT NULL,
+  PRIMARY KEY (`idcurso_disciplinas`, `curso_idcurso`, `disciplinas_iddisciplinas`),
+  INDEX `fk_curso_has_disciplinas_disciplinas1_idx` (`disciplinas_iddisciplinas` ASC),
+  INDEX `fk_curso_has_disciplinas_curso1_idx` (`curso_idcurso` ASC),
+  CONSTRAINT `fk_curso_has_disciplinas_curso1`
+    FOREIGN KEY (`curso_idcurso`)
+    REFERENCES `codigofonteonline1`.`curso` (`idcurso`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `fk_curso_has_disciplinas_disciplinas1`
+    FOREIGN KEY (`disciplinas_iddisciplinas`)
+    REFERENCES `codigofonteonline1`.`disciplinas` (`iddisciplinas`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8
+COMMENT = 'Tabela para associar vários cursos à uma única disciplina';
 
 
 SET SQL_MODE=@OLD_SQL_MODE;

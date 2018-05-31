@@ -162,8 +162,10 @@ class CursoDao implements Dao {
      * Método para listar todos as disciplinas de um curso
      **/
     public function listarMatriz($conn, $idCurso) {
-        $strSqlCursoMatriz = "SELECT nome_disciplina FROM disciplinas INNER JOIN curso
-                              ON disciplinas.curso_idcurso = curso.idcurso WHERE idcurso = :idCurso
+        $strSqlCursoMatriz = "SELECT nome_disciplina FROM disciplinas
+                              INNER JOIN curso_disciplinas ON disciplinas.iddisciplinas = curso_disciplinas.disciplinas_iddisciplinas
+                              INNER JOIN curso ON curso_disciplinas.curso_idcurso = curso.idcurso
+                              WHERE idcurso = :idCurso
                               ORDER BY nome_disciplina";
         $selectCursoMatriz = $conn->prepare($strSqlCursoMatriz);
         $selectCursoMatriz->bindValue(':idCurso', $idCurso);

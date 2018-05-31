@@ -18,7 +18,7 @@
     }*/
 
     $disciplina->setIdDisciplina($_POST['comboDisciplinas']);
-    $disciplina->setCursoIdCurso($_POST['cursoDisciplina']);
+    //$disciplina->setCursoIdCurso($_POST['cursoDisciplina']);
 
     // Estabelecer disciplina pré-requisito
     $definirDisciplinaPreRequisito = $disciplinaDao->definirDisciplinaPreRequisito($conn, $disciplina);

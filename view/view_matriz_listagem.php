@@ -33,9 +33,9 @@
         } elseif ($_SESSION['perfil_idperfil'] == 2) {
             $url = 'view_coordenador.php';
         }
-
+        ;
         //Para listagem sem paginação
-        $selectMatriz = $cursoDao->listarMatriz($conn, $idCurso);
+        $selectMatriz = $cursoDao->listarMatriz($conn, $idCurso);    
     ?>
     <div class="row">
         <div class="col-md-12">

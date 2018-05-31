@@ -31,13 +31,13 @@
     $linhaDisciplina = $selectDisciplina->fetchAll(PDO::FETCH_ASSOC);
     foreach ($linhaDisciplina as $dados) {
         $disciplina->setIdDisciplina($dados['iddisciplinas']);
-        $disciplina->setCursoIdCurso($dados['curso_idcurso']);
-        $disciplina->setCursoNome($dados['nome']);
+        //$disciplina->setCursoIdCurso($dados['curso_idcurso']);
+        //$disciplina->setCursoNome($dados['nome']);
         $disciplina->setNomeDisciplina($dados['nome_disciplina']);
         $disciplina->setCargaHoraria($dados['carga_horaria']);
         $disciplina->setCredito($dados['credito']);
     }
-    $cursoNomeAuxiliar = $disciplina->getCursoNome();
+    //$cursoNomeAuxiliar = $disciplina->getCursoNome();
     echo '
     <div class="container">
         <div class="col-md-4">
@@ -46,9 +46,9 @@
             <form action="';?><?php echo $url;?><?php echo '?pagina=../controller/controller_form_disciplina_update.php&idDisciplina='.$disciplina->getIdDisciplina().'" method="post">
                 <div class="form-group ">
 
-                    <div style="text-align: center;"><small><strong>*Campos Obrigatórios</strong></small></div><br/>
+                    <div style="text-align: center;"><small><strong>*Campos Obrigatórios</strong></small></div><br/>';
 
-                    <label class="col-lg-12 control-label label-usuario">*Curso</label>
+                    /*<label class="col-lg-12 control-label label-usuario">*Curso</label>
                     <div class="form-group" style="width: 320px; margin-bottom: -5px;">
                         <select class="form-control" id="curso" name="curso" required="required" autofocus>
                             <option value="'.$disciplina->getCursoIdCurso().'">'.$disciplina->getCursoNome().'</option>';
@@ -66,8 +66,8 @@
                             }
                             echo '
                         </select>
-                    </div><br/>
-
+                    </div><br/>*/
+                    echo '
                     <label class="col-lg-12 control-label label-usuario">*Nome</label>
                     <input type="text" maxlength="100" style="width: 320px; margin-bottom: -5px;" id="nomeDisciplina" name="nomeDisciplina" class="form-control" placeholder="*Nome - Até 100 caracteres." value="'.$disciplina->getNomeDisciplina().'" required><br/>
 

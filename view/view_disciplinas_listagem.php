@@ -64,7 +64,6 @@
                             <thead>
                                 <tr>
                                     <th>Nome</th>
-                                    <th>Curso</th>
                                     <th>Carga Horária</th>
                                     <th>Crédito</th>
                                     <th>Pré Requisito</th>
@@ -75,9 +74,7 @@
                             <?php
                                 while ($linhaDisciplinaLimite = $selectDisciplinaLimite->fetchAll(PDO::FETCH_ASSOC)) {
                                     foreach ($linhaDisciplinaLimite as $dados) {
-                                        $disciplina->setIdDisciplina($dados['iddisciplinas']);
-                                        $disciplina->setCursoIdCurso($dados['curso_idcurso']);
-                                        $disciplina->setCursoNome($dados['nome']);
+                                        $disciplina->setIdDisciplina($dados['iddisciplinas']);                                        
                                         $disciplina->setNomeDisciplina($dados['nome_disciplina']);
                                         $disciplina->setCargaHoraria($dados['carga_horaria']);
                                         $disciplina->setCredito($dados['credito']);
@@ -92,7 +89,6 @@
                                         <tbody>
                                             <tr>
                                                 <td style="text-align: left;">'.$disciplina->getNomeDisciplina().'</td>
-                                                <td style="text-align: left;">'.$disciplina->getCursoNome().'</td>
                                                 <td>'.$disciplina->getCargaHoraria().'</td>
                                                 <td>'.$disciplina->getCredito().'</td>
                                                 <td><a href="';?><?php echo $url;?><?php echo '?pagina=view_form_disciplina_pre-requisito.php&idDisciplina='.$disciplina->getIdDisciplina().'"><img src="../icons/error.png" alt="pre-requisito"></a></td>

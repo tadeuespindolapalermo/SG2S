@@ -72,6 +72,7 @@
                                     <th>Data Portaria</th>
                                     <th>Versão Matriz</th>
                                     <th>MATRIZ</th>
+                                    <th>ASSOCIAR</th>
                                     <th>Excluir</th>
                                     <th>Editar</th>
                                 </tr>
@@ -103,6 +104,7 @@
                                                 <td>'.$curso->getDataPortaria().'</td>
                                                 <td>'.$curso->getVersaoMatriz().'</td>
                                                 <td><a href="';?><?php echo $url;?><?php echo '?pagina=view_matriz_listagem.php&idCurso='.$curso->getIdCurso().'"><img src="../icons/infor.png" alt="matriz"></a></td>
+                                                <td><a href="';?><?php echo $url;?><?php echo '?pagina=view_form_curso_associar.php&idCurso='.$curso->getIdCurso().'"><img src="../icons/alert.png" alt="associar"></a></td>
                                                 <td><a href="javascript:void(null);" onclick="'.$alert.'"><img src="../lib/open-iconic/svg/x.svg" alt="remover"></a></td>
                                                 <td><a href="';?><?php echo $url;?><?php echo '?pagina=view_form_curso_update.php&idCurso='.$curso->getIdCurso().'"><img src="../lib/open-iconic/svg/brush.svg" alt="editar"></a></td>
                                             </tr>

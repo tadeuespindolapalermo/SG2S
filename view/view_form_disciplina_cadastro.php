@@ -42,20 +42,20 @@
 			<div class="form-group">
 				<small><strong>*Campos Obrigatórios</strong></small>
 
-                <div class="form-group">
+                <!--<div class="form-group">
                     <select class="form-control" id="curso_idcurso" name="curso_idcurso" required="required" autofocus>
-						<option value="">-*Selecione o Curso-</option>
+						<option value="">-*Selecione o Curso-</option>-->
                         <?php
-							while ($linhaDisciplina = $selectDisciplina->fetchAll(PDO::FETCH_ASSOC)) {
+							/*while ($linhaDisciplina = $selectDisciplina->fetchAll(PDO::FETCH_ASSOC)) {
 								foreach ($linhaDisciplina as $dados) {
 									$disciplina->setCursoIdCurso($dados['idcurso']);
 									$disciplina->setCursoNome($dados['nome']);
 									echo '<option value="'.$disciplina->getCursoIdCurso().'">'.$disciplina->getCursoNome().'</option>';
 								}
-							}
+							}*/
                         ?>
-                    </select>
-				</div>
+                    <!--</select>
+				</div>-->
 
 				<div class="form-group">
 					<input type="text" maxlength="100" class="form-control" id="nomeDisciplina" name="nomeDisciplina" placeholder="*Nome - Até 100 caracteres." required="required">

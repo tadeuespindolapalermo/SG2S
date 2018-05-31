@@ -45,7 +45,7 @@
             <div class="panel panel-default">
                 <div class="panel-body">
                     <div class="table-responsive">
-                        <table class="table table-hover table-striped listaSearch" id="listarGradesHorarias" style="text-align: center;">
+                        <table class="table-hover table-striped listaSearch" id="listarGradesHorarias" style="text-align: center;">
                             <thead>
                                 <tr>
                                     <!--<th>Sala</th>
@@ -107,6 +107,13 @@
                                         $gradeHoraria->setDsSex($dados['dsSex']);
                                         $gradeHoraria->setDsSab($dados['dsSab']);
                                         $gradeHoraria->setDsEad($dados['dsEad']);
+                                        $gradeHoraria->setDsSegProf($dados['dsSegProf']);
+                                        $gradeHoraria->setDsTerProf($dados['dsTerProf']);
+                                        $gradeHoraria->setDsQuaProf($dados['dsQuaProf']);
+                                        $gradeHoraria->setDsQuiProf($dados['dsQuiProf']);
+                                        $gradeHoraria->setDsSexProf($dados['dsSexProf']);
+                                        $gradeHoraria->setDsSabProf($dados['dsSabProf']);
+                                        $gradeHoraria->setDsEadProf($dados['dsEadProf']);
 
                                         if ($_SESSION['perfil_idperfil'] == 1) {
                                             $alert = 'msgConfirmaDeleteGradeHorariaAdmin('.$gradeHoraria->getIdGradeHoraria().')';
@@ -174,13 +181,13 @@
                                                 <td>'.$gradeHoraria->getTurmas().'</td>
                                                 <td>'.$gradeHoraria->getQuantidadeAlunos().'</td>
                                                 <td>'.$gradeHoraria->getSala().'</td>
-                                                <td>'.$gradeHoraria->getDsSeg().'</td>
-                                                <td>'.$gradeHoraria->getDsTer().'</td>
-                                                <td>'.$gradeHoraria->getDsQua().'</td>
-                                                <td>'.$gradeHoraria->getDsQui().'</td>
-                                                <td>'.$gradeHoraria->getDsSex().'</td>
-                                                <td>'.$gradeHoraria->getDsSab().'</td>
-                                                <td>'.$gradeHoraria->getDsEad().'</td>
+                                                <td>'.$gradeHoraria->getDsSeg().'<br/><small>Professor:<br/><strong>'.$gradeHoraria->getDsSegProf().'</strong></small></td>
+                                                <td>'.$gradeHoraria->getDsTer().'<br/><small>Professor:<br/><strong>'.$gradeHoraria->getDsTerProf().'</strong></small></td>
+                                                <td>'.$gradeHoraria->getDsQua().'<br/><small>Professor:<br/><strong>'.$gradeHoraria->getDsQuaProf().'</strong></small></td>
+                                                <td>'.$gradeHoraria->getDsQui().'<br/><small>Professor:<br/><strong>'.$gradeHoraria->getDsQuiProf().'</strong></small></td>
+                                                <td>'.$gradeHoraria->getDsSex().'<br/><small>Professor:<br/><strong>'.$gradeHoraria->getDsSexProf().'</strong></small></td>
+                                                <td>'.$gradeHoraria->getDsSab().'<br/><small>Professor:<br/><strong>'.$gradeHoraria->getDsSabProf().'</strong></small></td>
+                                                <td>'.$gradeHoraria->getDsEad().'<br/><small>Professor:<br/><strong>'.$gradeHoraria->getDsEadProf().'</strong></small></td>
                                                 <td><a href="javascript:void(null);" onclick="'.$alert.'"><img src="../lib/open-iconic/svg/x.svg" alt="remover"></a></td>
                                                 <td><a href="';?><?php echo $url;?><?php echo '?pagina=view_form_grade_horaria_update.php&idGradeHoraria='.$gradeHoraria->getIdGradeHoraria().'"><img src="../lib/open-iconic/svg/brush.svg" alt="editar"></a></td>
                                             </tr>

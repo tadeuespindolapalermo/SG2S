@@ -20,7 +20,7 @@
         $disciplina = new Disciplina();
 
         // Dados recebidos do formulário via POST
-        $disciplina->setCursoIdCurso($_POST['curso']);
+        //$disciplina->setCursoIdCurso($_POST['curso']);
         $disciplina->setNomeDisciplina($_POST['nomeDisciplina']);
         $disciplina->setCargaHoraria($_POST['cargaHoraria']);
         $disciplina->setCredito($_POST['credito']);

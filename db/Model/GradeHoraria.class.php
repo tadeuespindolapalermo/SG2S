@@ -31,6 +31,13 @@ class GradeHoraria {
     private $gradeSemestralId;
     private $gradeSemestralHorario;
     private $verificaArray;
+    private $dsSegProf;
+    private $dsTerProf;
+    private $dsQuaProf;
+    private $dsQuiProf;
+    private $dsSexProf;
+    private $dsSabProf;
+    private $dsEadProf;
 
     // Getters dos Atributos do Banco
     public function getIdGradeHoraria()  {
@@ -139,6 +146,35 @@ class GradeHoraria {
         return $this->verificaArray;
     }
 
+    //------ PROFESSORES DIAS DA SEMANA ----------
+    public function getDsSegProf() {
+        return $this->dsSegProf;
+    }
+
+    public function getDsTerProf() {
+        return $this->dsTerProf;
+    }
+
+    public function getDsQuaProf() {
+        return $this->dsQuaProf;
+    }
+
+    public function getDsQuiProf() {
+        return $this->dsQuiProf;
+    }
+
+    public function getDsSexProf() {
+        return $this->dsSexProf;
+    }
+
+    public function getDsSabProf() {
+        return $this->dsSabProf;
+    }
+
+    public function getDsEadProf() {
+        return $this->dsEadProf;
+    }
+
     // Setters dos Atributos do Banco
     public function setIdGradeHoraria($idGradeHoraria) {
         $this->idGradeHoraria = $idGradeHoraria;
@@ -244,6 +280,35 @@ class GradeHoraria {
 
     public function setVerificaArray($verificaArray) {
         $this->verificaArray = $verificaArray;
+    }
+
+    //--------- PROFESSORES DIAS DA SEMANA -------------
+    public function setDsSegProf($dsSegProf) {
+        $this->dsSegProf = $dsSegProf;
+    }
+
+    public function setDsTerProf($dsTerProf) {
+        $this->dsTerProf = $dsTerProf;
+    }
+
+    public function setDsQuaProf($dsQuaProf) {
+        $this->dsQuaProf = $dsQuaProf;
+    }
+
+    public function setDsQuiProf($dsQuiProf) {
+        $this->dsQuiProf = $dsQuiProf;
+    }
+
+    public function setDsSexProf($dsSexProf) {
+        $this->dsSexProf = $dsSexProf;
+    }
+
+    public function setDsSabProf($dsSabProf) {
+        $this->dsSabProf = $dsSabProf;
+    }
+
+    public function setDsEadProf($dsEadProf) {
+        $this->dsEadProf = $dsEadProf;
     }
 
 }

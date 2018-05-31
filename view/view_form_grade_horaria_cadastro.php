@@ -35,7 +35,7 @@
         $gradeHorariaCurso->setIdCursoGradeSemestral($dados['curso_idcurso']);
         $gradeHorariaCurso->setCursoNome($dados['nome']);
     }
-
+	
 	//Para listagem sem paginação
 	$selectMatrizSeg = $gradeHorariaDao->listarMatriz($conn, $gradeHorariaCurso->getIdCursoGradeSemestral());
 	$selectMatrizTer = $gradeHorariaDao->listarMatriz($conn, $gradeHorariaCurso->getIdCursoGradeSemestral());

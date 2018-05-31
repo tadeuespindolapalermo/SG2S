@@ -34,17 +34,19 @@ function msgConfirmaDeleteGradeSemestralCoordenador(idGradeSemestral) {
 // Delete GRADE HORÁRIA (ADMIN)
 function msgConfirmaDeleteGradeHorariaAdmin(idGradeHoraria) {
     //var deletarGradeHoraria = confirm('Deseja realmente excluir esta grade horária?');
-    var deletarGradeHoraria = confirm('EXCLUSÃO DE GRADE HORÁRIA EM CONSTRUÇÃO!!!?');
+    alert('EXCLUSÃO DE GRADE HORÁRIA EM CONSTRUÇÃO!!!')
+    //var deletarGradeHoraria = confirm('EXCLUSÃO DE GRADE HORÁRIA EM CONSTRUÇÃO!!!?');
     if (deletarGradeHoraria) {
         //location.href = 'view_admin.php?pagina=../controller/controller_grade_horaria_remove.php&idGradeHoraria=' + idGradeHoraria;
-        location.href = '';
+        location.href = '#';
     }
 }
 
 // Delete GRADE HORÁRIA (COORDENADOR)
 function msgConfirmaDeleteGradeHorariaCoordenador(idGradeHoraria) {
     //var deletarGradeHoraria = confirm('Deseja realmente excluir esta grade horária?');
-    var deletarGradeHoraria = confirm('EXCLUSÃO DE GRADE HORÁRIA EM CONSTRUÇÃO!!!?');
+    alert('EXCLUSÃO DE GRADE HORÁRIA EM CONSTRUÇÃO!!!')
+    //var deletarGradeHoraria = confirm('EXCLUSÃO DE GRADE HORÁRIA EM CONSTRUÇÃO!!!?');
     if (deletarGradeHoraria) {
         //location.href = 'view_coordenador.php?pagina=../controller/controller_grade_horaria_remove.php&idGradeHoraria=' + idGradeHoraria;
         location.href = '';

@@ -17,7 +17,7 @@
         header('Location: ../controller/controller_sair.php');
     }*/
 
-    $disciplina->setCursoIdCurso($_POST['curso_idcurso']);
+    //$disciplina->setCursoIdCurso($_POST['curso_idcurso']);
     $disciplina->setNomeDisciplina($_POST['nomeDisciplina']);
     $disciplina->setCargaHoraria($_POST['cargaHoraria']);
     $disciplina->setCredito($_POST['credito']);

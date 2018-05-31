@@ -25,6 +25,7 @@
     $gradeHoraria->setEad($_POST['ead']);
     $gradeHoraria->setIdGradeSemestral($_POST['idGradeSemestral']);
     $gradeHoraria->setIdCursoGradeSemestral($_POST['idCursoGradeSemestral']);
+
     $gradeHoraria->setDsSeg($_POST['dsSeg']);
     $gradeHoraria->setDsTer($_POST['dsTer']);
     $gradeHoraria->setDsQua($_POST['dsQua']);
@@ -32,6 +33,48 @@
     $gradeHoraria->setDsSex($_POST['dsSex']);
     $gradeHoraria->setDsSab($_POST['dsSab']);
     $gradeHoraria->setDsEad($_POST['dsEad']);
+
+    $selectProfessorDisciplinaSeg = $gradeHorariaDao->listarProfessorDisciplina($conn, $gradeHoraria->getDsSeg());
+    $linhaProfessorDisciplinaSeg = $selectProfessorDisciplinaSeg->fetchAll(PDO::FETCH_ASSOC);
+    foreach ($linhaProfessorDisciplinaSeg as $dados) {
+        $gradeHoraria->setDsSegProf($dados['nome']);
+    }
+
+    $selectProfessorDisciplinaTer = $gradeHorariaDao->listarProfessorDisciplina($conn, $gradeHoraria->getDsTer());
+    $linhaProfessorDisciplinaTer = $selectProfessorDisciplinaTer->fetchAll(PDO::FETCH_ASSOC);
+    foreach ($linhaProfessorDisciplinaTer as $dados) {
+        $gradeHoraria->setDsTerProf($dados['nome']);
+    }
+
+    $selectProfessorDisciplinaQua = $gradeHorariaDao->listarProfessorDisciplina($conn, $gradeHoraria->getDsQua());
+    $linhaProfessorDisciplinaQua = $selectProfessorDisciplinaQua->fetchAll(PDO::FETCH_ASSOC);
+    foreach ($linhaProfessorDisciplinaQua as $dados) {
+        $gradeHoraria->setDsQuaProf($dados['nome']);
+    }
+
+    $selectProfessorDisciplinaQui = $gradeHorariaDao->listarProfessorDisciplina($conn, $gradeHoraria->getDsQui());
+    $linhaProfessorDisciplinaQui = $selectProfessorDisciplinaQui->fetchAll(PDO::FETCH_ASSOC);
+    foreach ($linhaProfessorDisciplinaQui as $dados) {
+        $gradeHoraria->setDsQuiProf($dados['nome']);
+    }
+
+    $selectProfessorDisciplinaSex = $gradeHorariaDao->listarProfessorDisciplina($conn, $gradeHoraria->getDsSex());
+    $linhaProfessorDisciplinaSex = $selectProfessorDisciplinaSex->fetchAll(PDO::FETCH_ASSOC);
+    foreach ($linhaProfessorDisciplinaSex as $dados) {
+        $gradeHoraria->setDsSexProf($dados['nome']);
+    }
+
+    $selectProfessorDisciplinaSab = $gradeHorariaDao->listarProfessorDisciplina($conn, $gradeHoraria->getDsSab());
+    $linhaProfessorDisciplinaSab = $selectProfessorDisciplinaSab->fetchAll(PDO::FETCH_ASSOC);
+    foreach ($linhaProfessorDisciplinaSab as $dados) {
+        $gradeHoraria->setDsSabProf($dados['nome']);
+    }
+
+    $selectProfessorDisciplinaEad = $gradeHorariaDao->listarProfessorDisciplina($conn, $gradeHoraria->getDsEad());
+    $linhaProfessorDisciplinaEad = $selectProfessorDisciplinaEad->fetchAll(PDO::FETCH_ASSOC);
+    foreach ($linhaProfessorDisciplinaEad as $dados) {
+        $gradeHoraria->setDsEadProf($dados['nome']);
+    }
 
     // TRATAMENTO DO CAMPO EAD (SALVAR NO BANCO)
     /*if($_POST['ead'] == 0) {

@@ -34,9 +34,8 @@
         $linhaDisciplina = $selectDisciplina->fetchAll(PDO::FETCH_ASSOC);
         foreach ($linhaDisciplina as $dados) {
             $disciplina->setNomeDisciplina($dados['nome_disciplina']);
-            $disciplina->setCursoIdCurso($dados['curso_idcurso']);
+            //$disciplina->setCursoIdCurso($dados['curso_idcurso']);
         }
-
 
         $selectDisciplinas = $disciplinaDao->listar($conn);
 
@@ -56,13 +55,13 @@
             </div>';?>
 
             <?php
-            echo '
+            /*echo '
             <div>
                 <div class="col" style="padding: 5px; margin-top: -90px; position:absolute; left:-9999px;">
                 <div style="margin-left: -5px;"><small><strong>Curso Disciplina</strong></small></div>
                 <input style="width: 105px; margin-left: -5px;" type="text" class="form-control" id="cursoDisciplina" name="cursoDisciplina"
                 placeholder="*Curso da Disciplina" value="'.$disciplina->getCursoIdCurso().'">
-            </div>';?>
+            </div>';*/?>
 
             <?php echo '
             <select class="form-control" id="comboDisciplias" name="comboDisciplinas" required>';
