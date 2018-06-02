@@ -35,7 +35,7 @@
         $gradeHorariaCurso->setIdCursoGradeSemestral($dados['curso_idcurso']);
         $gradeHorariaCurso->setCursoNome($dados['nome']);
     }
-	
+
 	//Para listagem sem paginação
 	$selectMatrizSeg = $gradeHorariaDao->listarMatriz($conn, $gradeHorariaCurso->getIdCursoGradeSemestral());
 	$selectMatrizTer = $gradeHorariaDao->listarMatriz($conn, $gradeHorariaCurso->getIdCursoGradeSemestral());
@@ -43,7 +43,8 @@
 	$selectMatrizQui = $gradeHorariaDao->listarMatriz($conn, $gradeHorariaCurso->getIdCursoGradeSemestral());
 	$selectMatrizSex = $gradeHorariaDao->listarMatriz($conn, $gradeHorariaCurso->getIdCursoGradeSemestral());
 	$selectMatrizSab = $gradeHorariaDao->listarMatriz($conn, $gradeHorariaCurso->getIdCursoGradeSemestral());
-	$selectMatrizEad = $gradeHorariaDao->listarMatriz($conn, $gradeHorariaCurso->getIdCursoGradeSemestral());
+	$selectMatrizEad1 = $gradeHorariaDao->listarMatriz($conn, $gradeHorariaCurso->getIdCursoGradeSemestral());
+	$selectMatrizEad2 = $gradeHorariaDao->listarMatriz($conn, $gradeHorariaCurso->getIdCursoGradeSemestral());
 
 	// DEBUG
 	/*echo $gradeHorariaCurso->getIdCursoGradeSemestral();
@@ -54,7 +55,7 @@
 	// ESTA ABAIXO É UTILIZADA PARA GRADE SEMESTRAL
 	/*$erro_ano = isset($_GET['erro_ano']) ? $_GET['erro_ano'] : 0;
 	$erro_semestre = isset($_GET['erro_semestre']) ? $_GET['erro_semestre'] : 0;
-	$erro_curso = isset($_GET['erro_curso']) ? $_GET['erro_curso'] : 0;*/
+	$erro_curso = isset($_GET['erro_curso']) ? $_GET['erro_curso'] : 0;*/	
  ?>
 
 <div class="container">
@@ -164,7 +165,7 @@
 			<div class="form-row">
 				<div style="width: 505px;  class="col">
 				   <select style="margin-bottom: 5px;" class="form-control" id="dsSeg" name="dsSeg" required>';
-					   echo '<option value="">Segunda-feira - Selecione:</option>';
+					   echo '<option value="">*Segunda-feira - Selecione:</option>';
 					   echo '<option value="">Dia Livre</option>';
 					   while ($linhaMatrizCombo = $selectMatrizSeg->fetchAll(PDO::FETCH_ASSOC)) {
 						   foreach ($linhaMatrizCombo as $dados) {
@@ -179,7 +180,7 @@
 
 				<div style="width: 505px; class="col">
 				   <select class="form-control" id="dsTer" name="dsTer" required>';
-					   echo '<option value="">Terça-feira - Selecione:</option>';
+					   echo '<option value="">*Terça-feira - Selecione:</option>';
 					   echo '<option value="">Dia Livre</option>';
 					   while ($linhaMatrizCombo = $selectMatrizTer->fetchAll(PDO::FETCH_ASSOC)) {
 						   foreach ($linhaMatrizCombo as $dados) {
@@ -194,7 +195,7 @@
 
 				<div style="width: 505px; class="col">
 				   <select style="margin-bottom: 5px;" class="form-control" id="dsQua" name="dsQua" required>';
-					   echo '<option value="">Quarta-feira - Selecione:</option>';
+					   echo '<option value="">*Quarta-feira - Selecione:</option>';
 					   echo '<option value="">Dia Livre</option>';
 					   while ($linhaMatrizCombo = $selectMatrizQua->fetchAll(PDO::FETCH_ASSOC)) {
  						  foreach ($linhaMatrizCombo as $dados) {
@@ -209,7 +210,7 @@
 
 				<div style="width: 505px; class="col">
 				   <select class="form-control" id="dsQui" name="dsQui" required>';
-					   echo '<option value="">Quinta-feira - Selecione:</option>';
+					   echo '<option value="">*Quinta-feira - Selecione:</option>';
 					   echo '<option value="">Dia Livre</option>';
 					   while ($linhaMatrizCombo = $selectMatrizQui->fetchAll(PDO::FETCH_ASSOC)) {
  						  foreach ($linhaMatrizCombo as $dados) {
@@ -224,7 +225,7 @@
 
 				<div style="width: 505px; class="col">
 				   <select style="margin-bottom: 5px;" class="form-control" id="dsSex" name="dsSex" required>';
-					   echo '<option value="">Sexta-feira - Selecione:</option>';
+					   echo '<option value="">*Sexta-feira - Selecione:</option>';
 					   echo '<option value="">Dia Livre</option>';
 					   while ($linhaMatrizCombo = $selectMatrizSex->fetchAll(PDO::FETCH_ASSOC)) {
 						   foreach ($linhaMatrizCombo as $dados) {
@@ -239,7 +240,7 @@
 
 				<div style="width: 505px; class="col">
 				   <select class="form-control" id="dsSab" name="dsSab" required>';
-					   echo '<option value="">Sábado - Selecione:</option>';
+					   echo '<option value="">*Sábado - Selecione:</option>';
 					   echo '<option value="">Dia Livre</option>';
 					   while ($linhaMatrizCombo = $selectMatrizSab->fetchAll(PDO::FETCH_ASSOC)) {
  						  foreach ($linhaMatrizCombo as $dados) {
@@ -253,10 +254,25 @@
 				</div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
 				<div style="width: 505px; class="col">
-				   <select class="form-control" id="dsEad" name="dsEad" required>';
-					   echo '<option value="">EAD - Selecione:</option>';
+				   <select class="form-control" id="dsEad1" name="dsEad1">';
+					   echo '<option value="">EAD 1 - Selecione:</option>';
 					   echo '<option value="">Dia Livre</option>';
-					   while ($linhaMatrizCombo = $selectMatrizEad->fetchAll(PDO::FETCH_ASSOC)) {
+					   while ($linhaMatrizCombo = $selectMatrizEad1->fetchAll(PDO::FETCH_ASSOC)) {
+ 						  foreach ($linhaMatrizCombo as $dados) {
+ 							  $gradeHorariaCurso->setDisciplinaNome($dados['nome_disciplina']);
+ 							  $gradeHorariaCurso->setDisciplinaId($dados['iddisciplinas']);
+ 							  echo '<option value="'.$gradeHorariaCurso->getDisciplinaNome().'">'.$gradeHorariaCurso->getDisciplinaNome().'</option>';
+ 						  }
+ 					  }
+				   echo '
+				   </select>
+				</div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+				<div style="width: 505px; class="col">
+				   <select class="form-control" id="dsEad2" name="dsEad2">';
+					   echo '<option value="">EAD 2 - Selecione:</option>';
+					   echo '<option value="">Dia Livre</option>';
+					   while ($linhaMatrizCombo = $selectMatrizEad2->fetchAll(PDO::FETCH_ASSOC)) {
  						  foreach ($linhaMatrizCombo as $dados) {
  							  $gradeHorariaCurso->setDisciplinaNome($dados['nome_disciplina']);
  							  $gradeHorariaCurso->setDisciplinaId($dados['iddisciplinas']);

@@ -1,7 +1,7 @@
 <div class="container listar">
     <div class="header clearfix">
         <h3 class="text-muted">Listagem de Cursos</h3><hr/>
-        <h6><strong>Clique no ícone <img src="../icons/infor.png" alt="matriz"> para visualizar a Matriz!</strong></h6>
+        <!--<h6><strong>Clique no ícone <img src="../icons/infor.png" alt="matriz"> para visualizar a Matriz!</strong></h6>-->
     </div>
 
     <?php
@@ -103,8 +103,8 @@
                                                 <td>'.$curso->getGrau().'</td>
                                                 <td>'.$curso->getDataPortaria().'</td>
                                                 <td>'.$curso->getVersaoMatriz().'</td>
-                                                <td><a href="';?><?php echo $url;?><?php echo '?pagina=view_matriz_listagem.php&idCurso='.$curso->getIdCurso().'"><img src="../icons/infor.png" alt="matriz"></a></td>
-                                                <td><a href="';?><?php echo $url;?><?php echo '?pagina=view_form_curso_associar.php&idCurso='.$curso->getIdCurso().'"><img src="../icons/alert.png" alt="associar"></a></td>
+                                                <td><a href="';?><?php echo $url;?><?php echo '?pagina=view_matriz_listagem.php&idCurso='.$curso->getIdCurso().'"><span data-feather="tag"></span></a></td>
+                                                <td><a href="';?><?php echo $url;?><?php echo '?pagina=view_form_curso_associar.php&idCurso='.$curso->getIdCurso().'"><span data-feather="layers"></span></a></td>
                                                 <td><a href="javascript:void(null);" onclick="'.$alert.'"><img src="../lib/open-iconic/svg/x.svg" alt="remover"></a></td>
                                                 <td><a href="';?><?php echo $url;?><?php echo '?pagina=view_form_curso_update.php&idCurso='.$curso->getIdCurso().'"><img src="../lib/open-iconic/svg/brush.svg" alt="editar"></a></td>
                                             </tr>

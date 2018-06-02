@@ -276,6 +276,21 @@ class ProfessorDao implements Dao {
         return $selectProfessor;
     }
 
+    /*
+     * Método para listar todos as disciplinas de um professor
+     **/
+    public function listarDisciplina($conn, $idProfessor) {
+        $strSqlProfessorDisciplina = "SELECT nome_disciplina, iddisciplinas FROM disciplinas
+                              INNER JOIN disciplina_professor ON disciplinas.iddisciplinas = disciplina_professor.disciplinas_iddisciplinas
+                              INNER JOIN professor ON disciplina_professor.professor_idprofessor = professor.idprofessor
+                              WHERE idprofessor = :idProfessor
+                              ORDER BY nome_disciplina";
+        $selectProfessorDisciplina = $conn->prepare($strSqlProfessorDisciplina);
+        $selectProfessorDisciplina->bindValue(':idProfessor', $idProfessor);
+        $selectProfessorDisciplina->execute();
+        return $selectProfessorDisciplina;
+    }
+
     // -----------------------------------------------------------------------------------
     // Métodos da Paginação
     /*
@@ -283,7 +298,7 @@ class ProfessorDao implements Dao {
      **/
     public function listarLimite($conn, $inicio, $limite) {
         // Seleciona os registros do banco de dados pelo inicio e limitando pelo limite da variável limite
-        $strSqlProfessor = "SELECT * FROM professor        
+        $strSqlProfessor = "SELECT * FROM professor
         WHERE exclusao != 0 ORDER BY nome ASC LIMIT ".$inicio. ", ". $limite;
         $selectProfessor = $conn->prepare($strSqlProfessor);
         $selectProfessor->execute();

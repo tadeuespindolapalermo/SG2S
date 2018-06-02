@@ -23,9 +23,9 @@ class GradeHorariaDao implements Dao {
             $sqlGradeHoraria = "INSERT INTO grade_horaria
             (sala, quantidade_alunos, turmas, periodo_curso, dia_semana, ead,
              grade_semestral_idgrade_semestral, grade_semestral_curso_idcurso,
-             dsSeg, dsTer, dsQua, dsQui, dsSex, dsSab, dsEad, dsSegProf, dsTerProf,
-             dsQuaProf, dsQuiProf, dsSexProf, dsSabProf, dsEadProf)
-             VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+             dsSeg, dsTer, dsQua, dsQui, dsSex, dsSab, dsEad1, dsEad2, dsSegProf,
+             dsTerProf, dsQuaProf, dsQuiProf, dsSexProf, dsSabProf, dsEad1Prof, dsEad2Prof)
+             VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
             $stmtCreateGradeHoraria = $conn->prepare($sqlGradeHoraria);
 
@@ -43,14 +43,16 @@ class GradeHorariaDao implements Dao {
             $stmtCreateGradeHoraria->bindValue(12, $gradeHoraria->getDsQui(), PDO::PARAM_STR);
             $stmtCreateGradeHoraria->bindValue(13, $gradeHoraria->getDsSex(), PDO::PARAM_STR);
             $stmtCreateGradeHoraria->bindValue(14, $gradeHoraria->getDsSab(), PDO::PARAM_STR);
-            $stmtCreateGradeHoraria->bindValue(15, $gradeHoraria->getDsEad(), PDO::PARAM_STR);
-            $stmtCreateGradeHoraria->bindValue(16, $gradeHoraria->getDsSegProf(), PDO::PARAM_STR);
-            $stmtCreateGradeHoraria->bindValue(17, $gradeHoraria->getDsTerProf(), PDO::PARAM_STR);
-            $stmtCreateGradeHoraria->bindValue(18, $gradeHoraria->getDsQuaProf(), PDO::PARAM_STR);
-            $stmtCreateGradeHoraria->bindValue(19, $gradeHoraria->getDsQuiProf(), PDO::PARAM_STR);
-            $stmtCreateGradeHoraria->bindValue(20, $gradeHoraria->getDsSexProf(), PDO::PARAM_STR);
-            $stmtCreateGradeHoraria->bindValue(21, $gradeHoraria->getDsSabProf(), PDO::PARAM_STR);
-            $stmtCreateGradeHoraria->bindValue(22, $gradeHoraria->getDsEadProf(), PDO::PARAM_STR);
+            $stmtCreateGradeHoraria->bindValue(15, $gradeHoraria->getDsEad1(), PDO::PARAM_STR);
+            $stmtCreateGradeHoraria->bindValue(16, $gradeHoraria->getDsEad2(), PDO::PARAM_STR);
+            $stmtCreateGradeHoraria->bindValue(17, $gradeHoraria->getDsSegProf(), PDO::PARAM_STR);
+            $stmtCreateGradeHoraria->bindValue(18, $gradeHoraria->getDsTerProf(), PDO::PARAM_STR);
+            $stmtCreateGradeHoraria->bindValue(19, $gradeHoraria->getDsQuaProf(), PDO::PARAM_STR);
+            $stmtCreateGradeHoraria->bindValue(20, $gradeHoraria->getDsQuiProf(), PDO::PARAM_STR);
+            $stmtCreateGradeHoraria->bindValue(21, $gradeHoraria->getDsSexProf(), PDO::PARAM_STR);
+            $stmtCreateGradeHoraria->bindValue(22, $gradeHoraria->getDsSabProf(), PDO::PARAM_STR);
+            $stmtCreateGradeHoraria->bindValue(23, $gradeHoraria->getDsEad1Prof(), PDO::PARAM_STR);
+            $stmtCreateGradeHoraria->bindValue(24, $gradeHoraria->getDsEad2Prof(), PDO::PARAM_STR);
 
             $cadastroGradeHorariaEfetuado = $stmtCreateGradeHoraria->execute();
 
@@ -96,7 +98,7 @@ class GradeHorariaDao implements Dao {
         $selectGradeHoraria = $conn->prepare($strSqlGradeHoraria);
         $selectGradeHoraria->execute();
         return $selectGradeHoraria;
-    }
+    }    
 
     /*
      * Método para listar o professor de determinada disciplina com base no nome da disciplina
@@ -125,20 +127,6 @@ class GradeHorariaDao implements Dao {
         $selectGradeHoraria->execute();
         return $selectGradeHoraria;
     }
-
-    /*
-     * ...
-     **/
-    /*public function listarNomeProfessor($conn, $nomeDisciplina) {
-        $strSqlGradeHoraria = "SELECT * FROM professor
-        INNER JOIN disciplina_professor ON professor.idprofessor = disciplina_professor.professor_idprofessor
-        INNER JOIN disciplina ON disciplina.iddisciplinas = disciplina_professor.disciplinas_iddisciplinas
-        WHERE nome_disciplina = :nomeDisciplina";
-        $selectGradeHoraria = $conn->prepare($strSqlGradeHoraria);
-        $selectGradeHoraria->bindValue(':nomeDisciplina', $nomeDisciplina);
-        $selectGradeHoraria->execute();
-        return $selectGradeHoraria;
-    }*/
 
     /*
      * Método para listar todos as grades horárias do sistema (view)

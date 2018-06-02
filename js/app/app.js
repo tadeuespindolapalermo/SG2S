@@ -134,7 +134,7 @@ sg2s.directive('exportToExcelGradeHoraria', function() {
                 var excelString = '';
                 for(var i = 0; i < table.rows.length; i++) {
                     var rowData = table.rows[i].cells;
-                    for(var j = 0; j < 10; j++) { // apenas as 10 primeiras colunas da tabela
+                    for(var j = 0; j < 11; j++) { // apenas as 11 primeiras colunas da tabela
 					//for(var j = 0; j < rowData.length; j++){ // todas as colunas da tabela
 						//console.log(rowData.length);
                         excelString = excelString + rowData[j].innerHTML + ",";

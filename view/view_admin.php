@@ -149,9 +149,10 @@
                                 <a class="nav-link" href="view_admin.php?pagina=view_usuarios_listagem.php">
                                     <span data-feather="users"></span>
                                     Usuários
+                                    <hr />
                                 </a>
                             </li>
-                            <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+                            <!--<h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
                                 <span>UTILITÁRIOS</span>
                             </h6>
                             <li class="nav-item">
@@ -200,9 +201,10 @@
                                   2.2019
                                   <hr />
                               </a>
-                          </li>
+                          </li>-->
                           <li><img class="logo-jk" src="../img/logo-jk.png" alt="Faculdade JK" /></li>
                         </ul>
+                        <hr />
                     </div>
                 </nav>
 

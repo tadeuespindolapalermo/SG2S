@@ -1,7 +1,7 @@
 <div class="container listar">
     <div class="header clearfix">
         <h3 class="text-muted">Listagem de Professores</h3><hr />
-        <h6><strong>Clique no ícone <img src="../icons/alert.png" alt="matriz"> para associar Professor à disciplina!</strong></h6>
+        <!--<h6><strong>Clique no ícone <span data-feather="layers"></span> para associar Professor à disciplina!</strong></h6>-->
     </div>
 
     <?php
@@ -68,6 +68,7 @@
                                     <th>RG</th>
                                     <th>E-mail</th>
                                     <th>Fone</th>
+                                    <th>Disciplina</th>
                                     <th>Associar</th>
                                     <th>Lixeira</th>
                                     <th>Editar</th>
@@ -97,7 +98,8 @@
                                                 <td>'.$professor->getRG().'</td>
                                                 <td style="text-align: left;">'.$professor->getEmail().'</td>
                                                 <td>'.$professor->getFone().'</td>
-                                                <td><a href="';?><?php echo $url;?><?php echo '?pagina=view_form_professor_associar.php&idProfessor='.$professor->getIdProfessor().'"><img src="../icons/alert.png" alt="gerar"></a></td>
+                                                <td><a href="';?><?php echo $url;?><?php echo '?pagina=view_professor_disciplina_listagem.php&idProfessor='.$professor->getIdProfessor().'"><span data-feather="edit-2"></span></a></td>
+                                                <td><a href="';?><?php echo $url;?><?php echo '?pagina=view_form_professor_associar.php&idProfessor='.$professor->getIdProfessor().'"><span data-feather="layers"></span></a></td>
                                                 <td><a href="javascript:void(null);" onclick="'.$alert.'"><img src="../lib/open-iconic/svg/x.svg" alt="remover"></a></td>
                                                 <td><a href="';?><?php echo $url;?><?php echo '?pagina=view_form_professor_update.php&idProfessor='.$professor->getIdProfessor().'"><img src="../lib/open-iconic/svg/brush.svg" alt="editar"></a></td>
                                             </tr>

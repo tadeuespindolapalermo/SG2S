@@ -1,7 +1,7 @@
 <div class="container listar">
     <div class="header clearfix">
         <h3 class="text-muted">Listagem de Grades Semestrais</h3><hr />
-        <h6><strong>Clique no ícone <img src="../icons/accept.png" alt="gerar"> para gerar uma grade horária!</strong></h6>
+        <!--<h6><strong>Clique no ícone <img src="../icons/accept.png" alt="gerar"> para gerar uma grade horária!</strong></h6>-->
     </div>
 
     <?php
@@ -99,7 +99,7 @@
                                                 <td>'.$gradeSemestral->getTurno().'</td>
                                                 <td>'.$gradeSemestral->getHorario().'</td>
                                                 <td>'.$gradeSemestral->getCursoNome().'</td>
-                                                <td><a href="';?><?php echo $url;?><?php echo '?pagina=view_form_grade_horaria_cadastro.php&idGradeSemestral='.$gradeSemestral->getIdGradeSemestral().'"><img src="../icons/accept.png" alt="gerar"></a></td>
+                                                <td><a href="';?><?php echo $url;?><?php echo '?pagina=view_form_grade_horaria_cadastro.php&idGradeSemestral='.$gradeSemestral->getIdGradeSemestral().'"><span data-feather="globe"></span></a></td>
                                                 <td><a href="javascript:void(null);" onclick="'.$alert.'"><img src="../lib/open-iconic/svg/x.svg" alt="remover"></a></td>
                                                 <td><a href="';?><?php echo $url;?><?php echo '?pagina=view_form_grade_semestral_update.php&idGradeSemestral='.$gradeSemestral->getIdGradeSemestral().'"><img src="../lib/open-iconic/svg/brush.svg" alt="editar"></a></td>
                                             </tr>

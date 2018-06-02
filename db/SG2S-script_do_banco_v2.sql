@@ -115,6 +115,7 @@ COMMENT = 'Associação entre as tabelas usuarios e perfil';
 CREATE TABLE IF NOT EXISTS `codigofonteonline1`.`pre_requisito` (
   `idpre_requisito` INT(11) NOT NULL AUTO_INCREMENT,
   `disciplinas_iddisciplinas` INT(11) NOT NULL,
+  `disciplinas_iddisciplinasprerequisito` INT(11) NOT NULL,
   PRIMARY KEY (`idpre_requisito`, `disciplinas_iddisciplinas`),
   INDEX `fk_pre_requisito_disciplinas1_idx` (`disciplinas_iddisciplinas` ASC),
   CONSTRAINT `fk_pre_requisito_disciplinas1`
@@ -213,14 +214,16 @@ CREATE TABLE IF NOT EXISTS `codigofonteonline1`.`grade_horaria` (
   `dsQui` VARCHAR(200) CHARACTER SET 'utf8' COLLATE 'utf8_general_ci' NULL COMMENT 'Disciplina de QUINTA-FEIRA.',
   `dsSex` VARCHAR(200) CHARACTER SET 'utf8' COLLATE 'utf8_general_ci' NULL COMMENT 'Disciplina de SEXTA-FEIRA.',
   `dsSab` VARCHAR(200) CHARACTER SET 'utf8' COLLATE 'utf8_general_ci' NULL COMMENT 'Disciplina de SÁBADO.',
-  `dsEad` VARCHAR(200) CHARACTER SET 'utf8' COLLATE 'utf8_general_ci' NULL COMMENT 'Disciplina de EAD.',
+  `dsEad1` VARCHAR(200) CHARACTER SET 'utf8' COLLATE 'utf8_general_ci' NULL COMMENT 'Primeira disciplina de EAD.',
+  `dsEad2` VARCHAR(200) CHARACTER SET 'utf8' COLLATE 'utf8_general_ci' NULL COMMENT 'Segunda disciplina de EAD.',
   `dsSegProf` VARCHAR(200) CHARACTER SET 'utf8' COLLATE 'utf8_general_ci' NULL COMMENT 'Professor da disciplina de SEGUNDA-FEIRA.',
   `dsTerProf` VARCHAR(200) CHARACTER SET 'utf8' COLLATE 'utf8_general_ci' NULL COMMENT 'Professor da disciplina de TERÇA-FEIRA.',
   `dsQuaProf` VARCHAR(200) CHARACTER SET 'utf8' COLLATE 'utf8_general_ci' NULL COMMENT 'Professor da disciplina de QUARTA-FEIRA.',
   `dsQuiProf` VARCHAR(200) CHARACTER SET 'utf8' COLLATE 'utf8_general_ci' NULL COMMENT 'Professor da disciplina de QUINTA-FEIRA.',
   `dsSexProf` VARCHAR(200) CHARACTER SET 'utf8' COLLATE 'utf8_general_ci' NULL COMMENT 'Professor da disciplina de SEXTA-FEIRA.',
   `dsSabProf` VARCHAR(200) CHARACTER SET 'utf8' COLLATE 'utf8_general_ci' NULL COMMENT 'Professor da disciplina de SÁBADO',
-  `dsEadProf` VARCHAR(200) CHARACTER SET 'utf8' COLLATE 'utf8_general_ci' NULL COMMENT 'Professor da disciplina EAD',
+  `dsEad1Prof` VARCHAR(200) CHARACTER SET 'utf8' COLLATE 'utf8_general_ci' NULL COMMENT 'Professor da primeira disciplina de EAD',
+  `dsEad2Prof` VARCHAR(200) CHARACTER SET 'utf8' COLLATE 'utf8_general_ci' NULL COMMENT 'Professor da segunda disciplina de EAD',
   PRIMARY KEY (`idgrade_horaria`, `grade_semestral_idgrade_semestral`, `grade_semestral_curso_idcurso`),
   INDEX `fk_grade_horaria_grade_semestral1_idx` (`grade_semestral_idgrade_semestral` ASC, `grade_semestral_curso_idcurso` ASC),
   CONSTRAINT `fk_grade_horaria_grade_semestral1`

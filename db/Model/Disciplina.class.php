@@ -12,6 +12,9 @@ class Disciplina {
     // Atributos Auxiliares
     //private $cursoNome;
     private $idProfessorDisciplina;
+    private $verificaHeader;
+    private $idDisciplinaPreRequisito;
+    private $nomeDisciplinaPreRequisito;
 
     // Getters dos Atributos do Banco
     public function getIdDisciplina() {
@@ -43,6 +46,18 @@ class Disciplina {
         return $this->idProfessorDisciplina;
     }
 
+    public function getVerificaHeader() {
+        return $this->verificaHeader;
+    }
+
+    public function getIdDisciplinaPreRequisito() {
+        return $this->idDisciplinaPreRequisito;
+    }
+
+    public function getNomeDisciplinaPreRequisito() {
+        return $this->nomeDisciplinaPreRequisito;
+    }
+
     // Setters dos Atributos do Banco
     public function setIdDisciplina($idDisciplina) {
         $this->idDisciplina = $idDisciplina;
@@ -72,5 +87,17 @@ class Disciplina {
     public function setIdProfessorDisciplina($idProfessorDisciplina) {
         $this->idProfessorDisciplina = $idProfessorDisciplina;
     }
+
+    public function setVerificaHeader($verificaHeader) {
+        $this->iverificaHeader = $verificaHeader;
+    }
+
+    public function setIdDisciplinaPreRequisito($idDisciplinaPreRequisito) {
+        $this->idDisciplinaPreRequisito = $idDisciplinaPreRequisito;
+    }
+
+    public function setNomeDisciplinaPreRequisito($nomeDisciplinaPreRequisito) {
+        $this->nomeDisciplinaPreRequisito = $nomeDisciplinaPreRequisito;
+    }       
 
 }

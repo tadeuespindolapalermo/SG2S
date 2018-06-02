@@ -13,11 +13,13 @@
 
         $disciplina = new Disciplina();
         $disciplinaDao = new DisciplinaDao();
+        $professor = new Professor();
+        $professorDao = new ProfessorDao();
 
         $idDisciplina = $_GET['idDisciplina'];
     	$disciplina->setIdDisciplina($idDisciplina);
 
-        $erro_disciplina_pre_requisito = isset($_GET['erro_disciplina_pre_requisito']) ? $_GET['erro_disciplina_pre_requisito'] : 0;
+        $erro_professor = isset($_GET['erro_professor']) ? $_GET['erro_professor'] : 0;
     	$erro_disciplina = isset($_GET['erro_disciplina']) ? $_GET['erro_disciplina'] : 0;
 
         /*if($_SESSION['perfil_idperfil'] == 2) {
@@ -35,18 +37,16 @@
 
         $selectDisciplina = $disciplinaDao->buscarPorId($conn, $idDisciplina);
         $linhaDisciplina = $selectDisciplina->fetchAll(PDO::FETCH_ASSOC);
-        foreach ($linhaDisciplina as $dados) {
+        foreach ($linhaDisciplina as $dados)
             $disciplina->setNomeDisciplina($dados['nome_disciplina']);
-            //$disciplina->setCursoIdCurso($dados['curso_idcurso']);
-        }
 
-        $selectDisciplinas = $disciplinaDao->listar($conn);
+        $selectProfessores = $professorDao->listar($conn);
 
         ?>
         <br/><br/><br/>
-        <h3 style="margin-top: -60px; text-align: center;" class="text-muted">Selecione uma disciplina pré-requisito para a disciplina abaixo.</h3><hr /><br/><br/><br/>
+        <h3 style="margin-top: -60px; text-align: center;" class="text-muted">Selecione um Professor para Associar</h3><hr /><br/><br/><br/>
         <h3><strong><div style="margin-top: -60px; text-align: center;"><font color="blue"><?php echo $disciplina->getNomeDisciplina();?></font></div></strong></h3><br/>
-        <form method="post" action="<?php echo $url;?>?pagina=../controller/controller_form_disciplina_pre-requisito.php" id="formDisciplinaPreRequisito"><div style="width: 505px; class="col">
+        <form method="post" action="<?php echo $url;?>?pagina=../controller/controller_form_disciplina_associar.php" id="formProfessorAssociar"><div style="width: 505px; class="col">
 
             <?php
             echo '
@@ -57,32 +57,23 @@
                 placeholder="*ID da Disciplina" value="'.$disciplina->getIdDisciplina().'">
             </div>';?>
 
-            <?php
-            /*echo '
-            <div>
-                <div class="col" style="padding: 5px; margin-top: -90px; position:absolute; left:-9999px;">
-                <div style="margin-left: -5px;"><small><strong>Curso Disciplina</strong></small></div>
-                <input style="width: 105px; margin-left: -5px;" type="text" class="form-control" id="cursoDisciplina" name="cursoDisciplina"
-                placeholder="*Curso da Disciplina" value="'.$disciplina->getCursoIdCurso().'">
-            </div>';*/?>
-
             <?php echo '
-            <select class="form-control" id="comboDisciplias" name="comboDisciplinas" required>';
-                echo '<option value="">-Selecione a Disciplina-</option>';
+            <select class="form-control" id="comboProfessores" name="comboProfessores" required>';
+                echo '<option value="">-Selecione o Professor-</option>';
                 // <div class="col" style="padding: 5px; margin-top: -90px; position:absolute; left:-9999px;">
-                while ($linhaDisciplinas = $selectDisciplinas->fetchAll(PDO::FETCH_ASSOC)) {
-                   foreach ($linhaDisciplinas as $dados) {
-                       $disciplina->setIdDisciplina($dados['iddisciplinas']);
-                       $disciplina->setNomeDisciplina($dados['nome_disciplina']);
-                       $disciplina->setCursoIdCurso($dados['curso_idcurso']);
-                       echo '<option value="'.$disciplina->getIdDisciplina().'">'.$disciplina->getNomeDisciplina().'</option>';
+                while ($linhaProfessores = $selectProfessores->fetchAll(PDO::FETCH_ASSOC)) {
+                   foreach ($linhaProfessores as $dados) {
+                       $professor->setIdProfessor($dados['idprofessor']);
+                       $professor->setNome($dados['nome']);
+                       //$disciplina->setCursoIdCurso($dados['curso_idcurso']);
+                       echo '<option value="'.$professor->getIdProfessor().'">'.$professor->getNome().'</option>';
                    }
                }
             echo '
             </select><br/>';
 
-            if($erro_disciplina_pre_requisito && $erro_disciplina) {
-                echo '<font color="#FF0000">A disciplina selecionada já está definida como pré-requisito da disciplina escolhida"</font><br/>';
+            if($erro_professor && $erro_disciplina) {
+                echo '<font color="#FF0000">Professor já está associada à disciplina escolhida!</font>';
             }
 
             echo '

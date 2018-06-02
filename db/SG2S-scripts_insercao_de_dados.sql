@@ -231,7 +231,7 @@ VALUES (2019, 1, 'Vespertino', '13:00 às 18:00', 3);
 /* --------------------------------------------------------------------------------------------------------- */
 
 /* TABELA curso_disciplinas - Disciplinas associadas à um determinado curso ou Cursos associados à uma determinada disciplina*/
-   --MATRIZ CURRICULAR
+   -- MATRIZ CURRICULAR
    -- TADS
 INSERT INTO curso_disciplinas (idcurso_disciplinas, curso_idcurso, disciplinas_iddisciplinas)
 VALUES (1, 1, 1);

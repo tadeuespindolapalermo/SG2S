@@ -1,7 +1,7 @@
 <div class="container listar">
     <div class="header clearfix">
         <h3 class="text-muted">Listagem de Disciplinas</h3><hr />
-        <h6><strong>Clique no ícone <img src="../icons/error.png" alt="matriz"> para definir disciplina pré-requisito!</strong></h6>
+        <!--<h6><strong>Clique no ícone <img src="../icons/error.png" alt="matriz"> para definir disciplina pré-requisito!</strong></h6>-->
     </div>
 
     <?php
@@ -66,7 +66,10 @@
                                     <th>Nome</th>
                                     <th>Carga Horária</th>
                                     <th>Crédito</th>
-                                    <th>Pré Requisito</th>
+                                    <th>Professores</th>
+                                    <th>Associar<br/>Professor</th>
+                                    <th>Definir<br/>Pré-requisito</th>
+                                    <th>Visualizar<br/>Pré-requisito</th>
                                     <th>Excluir</th>
                                     <th>Editar</th>
                                 </tr>
@@ -74,7 +77,7 @@
                             <?php
                                 while ($linhaDisciplinaLimite = $selectDisciplinaLimite->fetchAll(PDO::FETCH_ASSOC)) {
                                     foreach ($linhaDisciplinaLimite as $dados) {
-                                        $disciplina->setIdDisciplina($dados['iddisciplinas']);                                        
+                                        $disciplina->setIdDisciplina($dados['iddisciplinas']);
                                         $disciplina->setNomeDisciplina($dados['nome_disciplina']);
                                         $disciplina->setCargaHoraria($dados['carga_horaria']);
                                         $disciplina->setCredito($dados['credito']);
@@ -91,7 +94,10 @@
                                                 <td style="text-align: left;">'.$disciplina->getNomeDisciplina().'</td>
                                                 <td>'.$disciplina->getCargaHoraria().'</td>
                                                 <td>'.$disciplina->getCredito().'</td>
-                                                <td><a href="';?><?php echo $url;?><?php echo '?pagina=view_form_disciplina_pre-requisito.php&idDisciplina='.$disciplina->getIdDisciplina().'"><img src="../icons/error.png" alt="pre-requisito"></a></td>
+                                                <td><a href="';?><?php echo $url;?><?php echo '?pagina=view_disciplina_professor_listagem.php&idDisciplina='.$disciplina->getIdDisciplina().'"><span data-feather="user"></span></a></td>
+                                                <td><a href="';?><?php echo $url;?><?php echo '?pagina=view_form_disciplina_associar.php&idDisciplina='.$disciplina->getIdDisciplina().'"><span data-feather="layers"></span></a></td>
+                                                <td><a href="';?><?php echo $url;?><?php echo '?pagina=view_form_disciplina_pre-requisito.php&idDisciplina='.$disciplina->getIdDisciplina().'"><span data-feather="alert-triangle"></span></a></td>
+                                                <td><a href="';?><?php echo $url;?><?php echo '?pagina=view_disciplina_pre-requisito_listagem.php&idDisciplina='.$disciplina->getIdDisciplina().'"><span data-feather="edit-2"></span></a></td>
                                                 <td><a href="javascript:void(null);" onclick="'.$alert.'"><img src="../lib/open-iconic/svg/x.svg" alt="remover"></a></td>
                                                 <td><a href="';?><?php echo $url;?><?php echo '?pagina=view_form_disciplina_update.php&idDisciplina='.$disciplina->getIdDisciplina().'"><img src="../lib/open-iconic/svg/brush.svg" alt="editar"></a></td>
                                             </tr>

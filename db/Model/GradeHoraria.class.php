@@ -18,7 +18,8 @@ class GradeHoraria {
     private $dsQui;
     private $dsSex;
     private $dsSab;
-    private $dsEad;
+    private $dsEad1;
+    private $dsEad2;
 
     // Atributos auxiliares
     private $cursoNome;
@@ -37,7 +38,8 @@ class GradeHoraria {
     private $dsQuiProf;
     private $dsSexProf;
     private $dsSabProf;
-    private $dsEadProf;
+    private $dsEad1Pro;
+    private $dsEad2Pro;
 
     // Getters dos Atributos do Banco
     public function getIdGradeHoraria()  {
@@ -101,8 +103,12 @@ class GradeHoraria {
         return $this->dsSab;
     }
 
-    public function getDsEad() {
-        return $this->dsEad;
+    public function getDsEad1() {
+        return $this->dsEad1;
+    }
+
+    public function getDsEad2() {
+        return $this->dsEad2;
     }
 
     // Getters dos Atributos Auxiliares
@@ -171,8 +177,12 @@ class GradeHoraria {
         return $this->dsSabProf;
     }
 
-    public function getDsEadProf() {
-        return $this->dsEadProf;
+    public function getDsEad1Prof() {
+        return $this->dsEad1Prof;
+    }
+
+    public function getDsEad2Prof() {
+        return $this->dsEad2Prof;
     }
 
     // Setters dos Atributos do Banco
@@ -237,8 +247,12 @@ class GradeHoraria {
         $this->dsSab = $dsSab;
     }
 
-    public function setDsEad($dsEad) {
-        $this->dsEad = $dsEad;
+    public function setDsEad1($dsEad1) {
+        $this->dsEad1 = $dsEad1;
+    }
+
+    public function setDsEad2($dsEad2) {
+        $this->dsEad2 = $dsEad2;
     }
 
     // Setters dos Atributos Auxiliares
@@ -307,8 +321,12 @@ class GradeHoraria {
         $this->dsSabProf = $dsSabProf;
     }
 
-    public function setDsEadProf($dsEadProf) {
-        $this->dsEadProf = $dsEadProf;
+    public function setDsEad1Prof($dsEad1Prof) {
+        $this->dsEad1Prof = $dsEad1Prof;
+    }
+
+    public function setDsEad2Prof($dsEad2Prof) {
+        $this->dsEad2Prof = $dsEad2Prof;
     }
 
 }

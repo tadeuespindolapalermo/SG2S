@@ -66,8 +66,8 @@
                                     <th>Excluir</th>
                                     <th>Editar</th>-->
 
-                                    <th>Semestre/Turma</th>
-                                    <th>Quantidade de Alunos</th>
+                                    <th>Semestre<br/>Turma</th>
+                                    <th>Quantidade<br/>Alunos</th>
                                     <th>Sala</th>
                                     <th>SEGUNDA</th>
                                     <th>TERÇA</th>
@@ -75,7 +75,8 @@
                                     <th>QUINTA</th>
                                     <th>SEXTA</th>
                                     <th>SÁBADO</th>
-                                    <th>EAD</th>
+                                    <th>EAD 1</th>
+                                    <th>EAD 2</th>
                                     <th>Excluir</th>
                                     <th>Editar</th>
                                 </tr>
@@ -106,14 +107,16 @@
                                         $gradeHoraria->setDsQui($dados['dsQui']);
                                         $gradeHoraria->setDsSex($dados['dsSex']);
                                         $gradeHoraria->setDsSab($dados['dsSab']);
-                                        $gradeHoraria->setDsEad($dados['dsEad']);
+                                        $gradeHoraria->setDsEad1($dados['dsEad1']);
+                                        $gradeHoraria->setDsEad2($dados['dsEad2']);
                                         $gradeHoraria->setDsSegProf($dados['dsSegProf']);
                                         $gradeHoraria->setDsTerProf($dados['dsTerProf']);
                                         $gradeHoraria->setDsQuaProf($dados['dsQuaProf']);
                                         $gradeHoraria->setDsQuiProf($dados['dsQuiProf']);
                                         $gradeHoraria->setDsSexProf($dados['dsSexProf']);
                                         $gradeHoraria->setDsSabProf($dados['dsSabProf']);
-                                        $gradeHoraria->setDsEadProf($dados['dsEadProf']);
+                                        $gradeHoraria->setDsEad1Prof($dados['dsEad1Prof']);
+                                        $gradeHoraria->setDsEad2Prof($dados['dsEad2Prof']);
 
                                         if ($_SESSION['perfil_idperfil'] == 1) {
                                             $alert = 'msgConfirmaDeleteGradeHorariaAdmin('.$gradeHoraria->getIdGradeHoraria().')';
@@ -123,10 +126,24 @@
 
                                         // TRATAMENTO DO CAMPO EAD (APENAS VISUALIZAÇÃO)
                                         $eadListagem = "";
-                                        if($gradeHoraria->getEad() == 0) {
+                                        if($gradeHoraria->getEad() == 0 || ($gradeHoraria->getDsEad1() == "" && $gradeHoraria->getDsEad2() == "")
+                                            || ($gradeHoraria->getDsEad1() == "" || $gradeHoraria->getDsEad2() == "")) {
                                             $eadListagem = "NÃO";
+                                            $professor = "";
                                         } else {
                                             $eadListagem = "SIM";
+                                            $professor = "Professor:";
+                                        }
+
+                                        // TRATAMENTO DO CAMPO DISCIPLINA DE SÁBADO (APENAS VISUALIZAÇÃO)
+                                        if ($gradeHoraria->getDsSab() == "") {
+                                            $profSabado = "";
+                                            $salaSabado = "";
+                                            $numSalaSabado = "";
+                                        } else {
+                                            $profSabado = "Professor:";
+                                            $salaSabado = "Sala:";
+                                            $numSalaSabado = $gradeHoraria->getSala();
                                         }
 
                                         // TRATAMENTO DO CAMPO DIA DA SEMANA (APENAS VISUALIZAÇÃO)
@@ -181,13 +198,14 @@
                                                 <td>'.$gradeHoraria->getTurmas().'</td>
                                                 <td>'.$gradeHoraria->getQuantidadeAlunos().'</td>
                                                 <td>'.$gradeHoraria->getSala().'</td>
-                                                <td>'.$gradeHoraria->getDsSeg().'<br/><small>Professor:<br/><strong>'.$gradeHoraria->getDsSegProf().'</strong></small></td>
-                                                <td>'.$gradeHoraria->getDsTer().'<br/><small>Professor:<br/><strong>'.$gradeHoraria->getDsTerProf().'</strong></small></td>
-                                                <td>'.$gradeHoraria->getDsQua().'<br/><small>Professor:<br/><strong>'.$gradeHoraria->getDsQuaProf().'</strong></small></td>
-                                                <td>'.$gradeHoraria->getDsQui().'<br/><small>Professor:<br/><strong>'.$gradeHoraria->getDsQuiProf().'</strong></small></td>
-                                                <td>'.$gradeHoraria->getDsSex().'<br/><small>Professor:<br/><strong>'.$gradeHoraria->getDsSexProf().'</strong></small></td>
-                                                <td>'.$gradeHoraria->getDsSab().'<br/><small>Professor:<br/><strong>'.$gradeHoraria->getDsSabProf().'</strong></small></td>
-                                                <td>'.$gradeHoraria->getDsEad().'<br/><small>Professor:<br/><strong>'.$gradeHoraria->getDsEadProf().'</strong></small></td>
+                                                <td>'.$gradeHoraria->getDsSeg().'<br/><small>Professor:<br/><strong>'.$gradeHoraria->getDsSegProf().'</strong><br/>Sala:<strong>'.$gradeHoraria->getSala().'</strong></small></td>
+                                                <td>'.$gradeHoraria->getDsTer().'<br/><small>Professor:<br/><strong>'.$gradeHoraria->getDsTerProf().'</strong><br/>Sala:<strong>'.$gradeHoraria->getSala().'</strong></small></td>
+                                                <td>'.$gradeHoraria->getDsQua().'<br/><small>Professor:<br/><strong>'.$gradeHoraria->getDsQuaProf().'</strong><br/>Sala:<strong>'.$gradeHoraria->getSala().'</strong></small></td>
+                                                <td>'.$gradeHoraria->getDsQui().'<br/><small>Professor:<br/><strong>'.$gradeHoraria->getDsQuiProf().'</strong><br/>Sala:<strong>'.$gradeHoraria->getSala().'</strong></small></td>
+                                                <td>'.$gradeHoraria->getDsSex().'<br/><small>Professor:<br/><strong>'.$gradeHoraria->getDsSexProf().'</strong><br/>Sala:<strong>'.$gradeHoraria->getSala().'</strong></small></td>
+                                                <td>'.$gradeHoraria->getDsSab().'<br/><small>'.$profSabado.'<br/><strong>'.$gradeHoraria->getDsSabProf().'</strong><br/>'.$salaSabado.'<strong>'.$numSalaSabado.'</strong></small></td>
+                                                <td>'.$gradeHoraria->getDsEad1().'<br/><small>'.$professor.'<br/><strong>'.$gradeHoraria->getDsEad1Prof().'</strong></small></td>
+                                                <td>'.$gradeHoraria->getDsEad2().'<br/><small>'.$professor.'<br/><strong>'.$gradeHoraria->getDsEad2Prof().'</strong></small></td>
                                                 <td><a href="javascript:void(null);" onclick="'.$alert.'"><img src="../lib/open-iconic/svg/x.svg" alt="remover"></a></td>
                                                 <td><a href="';?><?php echo $url;?><?php echo '?pagina=view_form_grade_horaria_update.php&idGradeHoraria='.$gradeHoraria->getIdGradeHoraria().'"><img src="../lib/open-iconic/svg/brush.svg" alt="editar"></a></td>
                                             </tr>

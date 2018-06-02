@@ -17,7 +17,8 @@
         header('Location: ../controller/controller_sair.php');
     }*/
 
-    $disciplina->setIdDisciplina($_POST['comboDisciplinas']);
+    $disciplina->setIdDisciplina($_POST['idDisciplina']);
+    $disciplina->setIdDisciplinaPreRequisito($_POST['comboDisciplinas']);
     //$disciplina->setCursoIdCurso($_POST['cursoDisciplina']);
 
     // Estabelecer disciplina pré-requisito

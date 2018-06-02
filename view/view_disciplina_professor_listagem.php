@@ -11,15 +11,15 @@
         $PDO = new Conn;
         $conn = $PDO->Conectar();
 
+        $professor = new Professor();
+        $disciplinaDao = new DisciplinaDao();
         $disciplina = new Disciplina();
-        $cursoDao = new CursoDao();
-        $curso = new Curso();
 
-        $idCurso = $_GET['idCurso'];
+        $idDisciplina = $_GET['idDisciplina'];
 
-        $selectMatrizCurso = $cursoDao->buscarPorId($conn, $idCurso);
-        foreach ($selectMatrizCurso as $dados)
-            $curso->setNome($dados['nome']);
+        $selectProfessorDisciplina = $disciplinaDao->buscarPorId($conn, $idDisciplina);
+        foreach ($selectProfessorDisciplina as $dados)
+            $disciplina->setNomeDisciplina($dados['nome_disciplina']);
 
         /*if($_SESSION['perfil_idperfil'] == 2) {
             unset($_SESSION['usuario']);
@@ -33,34 +33,34 @@
         } elseif ($_SESSION['perfil_idperfil'] == 2) {
             $url = 'view_coordenador.php';
         }
-        ;
+
         //Para listagem sem paginação
-        $selectMatriz = $cursoDao->listarMatriz($conn, $idCurso);
+        $selectProfessor = $disciplinaDao->listarProfessor($conn, $idDisciplina);
     ?>
     <div class="row">
         <div class="col-md-12">
             <div class="panel panel-default">
                 <div class="panel-body">
                     <div class="table-responsive">
-                        <h3 class="text-muted" style="text-align: center;">Matriz do Curso de <?php echo $curso->getNome(); ?></h3><hr />
+                        <h3 class="text-muted" style="text-align: center;">Professores da disciplina <?php echo $disciplina->getNomeDisciplina(); ?></h3><hr />
 
                         <!-- Modal -->
                         <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLabel">Matriz do Curso de <?php echo $curso->getNome(); ?> </h5>
+                                        <h5 class="modal-title" id="exampleModalLabel">Professores da disciplina <?php echo $disciplina->getNomeDisciplina(); ?> </h5>
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                             <span aria-hidden="true">&times;</span>
                                         </button>
                                     </div>
                                     <div class="modal-body">
                                         <?php
-                                        while ($linhaMatriz = $selectMatriz->fetchAll(PDO::FETCH_ASSOC)) {
-                                            foreach ($linhaMatriz as $dados) {
-                                                $disciplina->setNomeDisciplina($dados['nome_disciplina']);
-                                                $disciplina->setIdDisciplina($dados['iddisciplinas']);
-                                                echo '<div style="font-size: 18px;">'.$disciplina->getNomeDisciplina().' - <a href="';?><?php echo $url;?><?php echo '?pagina=../controller/controller_matriz_desassociar.php&idDisciplina='.$disciplina->getIdDisciplina().'&idCurso='.$idCurso.'"><img src="../lib/open-iconic/svg/x.svg" alt="remover"><a/></div>';
+                                        while ($linhaDisciplinaProfessor = $selectProfessor->fetchAll(PDO::FETCH_ASSOC)) {
+                                            foreach ($linhaDisciplinaProfessor as $dados) {
+                                                $professor->setNome($dados['nome']);
+                                                $professor->setIdProfessor($dados['idprofessor']);
+                                                echo '<div style="font-size: 18px;">'.$professor->getNome().' - <a href="';?><?php echo $url;?><?php echo '?pagina=../controller/controller_professor_desassociar.php&idProfessor='.$professor->getIdProfessor().'&idDisciplina='.$idDisciplina.'"><img src="../lib/open-iconic/svg/x.svg" alt="remover"><a/></div>';
                                             }
                                         }
                                         ?>
@@ -82,7 +82,7 @@
                         </button><br/><br/>
 
                         <!--<button id="btnSearch" onclick="alterarDisabledSearch()" class="btn btn-outline-dark"><span data-feather="search"></span>&nbsp;Busca</button>-->
-                        <a href="<?php echo $url;?>?pagina=view_cursos_listagem.php"><button style="width: 200px; margin-left: 400px;" type="button" class="btn btn-info"><span data-feather="arrow-left"></span>&nbsp;Voltar</button></a>
+                        <a href="<?php echo $url;?>?pagina=view_disciplinas_listagem.php"><button style="width: 200px; margin-left: 400px;" type="button" class="btn btn-info"><span data-feather="arrow-left"></span>&nbsp;Voltar</button></a>
                     </div><br /><hr>
                     <div id="conteudo"></div>
                 </div>

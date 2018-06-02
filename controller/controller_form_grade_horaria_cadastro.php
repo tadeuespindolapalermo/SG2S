@@ -32,7 +32,8 @@
     $gradeHoraria->setDsQui($_POST['dsQui']);
     $gradeHoraria->setDsSex($_POST['dsSex']);
     $gradeHoraria->setDsSab($_POST['dsSab']);
-    $gradeHoraria->setDsEad($_POST['dsEad']);
+    $gradeHoraria->setDsEad1($_POST['dsEad1']);
+    $gradeHoraria->setDsEad2($_POST['dsEad2']);    
 
     $selectProfessorDisciplinaSeg = $gradeHorariaDao->listarProfessorDisciplina($conn, $gradeHoraria->getDsSeg());
     $linhaProfessorDisciplinaSeg = $selectProfessorDisciplinaSeg->fetchAll(PDO::FETCH_ASSOC);
@@ -70,10 +71,16 @@
         $gradeHoraria->setDsSabProf($dados['nome']);
     }
 
-    $selectProfessorDisciplinaEad = $gradeHorariaDao->listarProfessorDisciplina($conn, $gradeHoraria->getDsEad());
-    $linhaProfessorDisciplinaEad = $selectProfessorDisciplinaEad->fetchAll(PDO::FETCH_ASSOC);
-    foreach ($linhaProfessorDisciplinaEad as $dados) {
-        $gradeHoraria->setDsEadProf($dados['nome']);
+    $selectProfessorDisciplinaEad1 = $gradeHorariaDao->listarProfessorDisciplina($conn, $gradeHoraria->getDsEad1());
+    $linhaProfessorDisciplinaEad1 = $selectProfessorDisciplinaEad1->fetchAll(PDO::FETCH_ASSOC);
+    foreach ($linhaProfessorDisciplinaEad1 as $dados) {
+        $gradeHoraria->setDsEad1Prof($dados['nome']);
+    }
+
+    $selectProfessorDisciplinaEad2 = $gradeHorariaDao->listarProfessorDisciplina($conn, $gradeHoraria->getDsEad2());
+    $linhaProfessorDisciplinaEad2 = $selectProfessorDisciplinaEad2->fetchAll(PDO::FETCH_ASSOC);
+    foreach ($linhaProfessorDisciplinaEad2 as $dados) {
+        $gradeHoraria->setDsEad2Prof($dados['nome']);
     }
 
     // TRATAMENTO DO CAMPO EAD (SALVAR NO BANCO)
