@@ -98,8 +98,8 @@
                                                 <td>'.$professor->getRG().'</td>
                                                 <td style="text-align: left;">'.$professor->getEmail().'</td>
                                                 <td>'.$professor->getFone().'</td>
-                                                <td><a href="';?><?php echo $url;?><?php echo '?pagina=view_professor_disciplina_listagem.php&idProfessor='.$professor->getIdProfessor().'"><span data-feather="edit-2"></span></a></td>
-                                                <td><a href="';?><?php echo $url;?><?php echo '?pagina=view_form_professor_associar.php&idProfessor='.$professor->getIdProfessor().'"><span data-feather="layers"></span></a></td>
+                                                <td><a href="';?><?php echo $url;?><?php echo '?pagina=view_professor_disciplina_listagem.php&idProfessor='.$professor->getIdProfessor().'"><span data-feather="edit"></span></a></td>
+                                                <td><a href="';?><?php echo $url;?><?php echo '?pagina=view_form_professor_associar.php&idProfessor='.$professor->getIdProfessor().'"><span data-feather="paperclip"></span></a></td>
                                                 <td><a href="javascript:void(null);" onclick="'.$alert.'"><img src="../lib/open-iconic/svg/x.svg" alt="remover"></a></td>
                                                 <td><a href="';?><?php echo $url;?><?php echo '?pagina=view_form_professor_update.php&idProfessor='.$professor->getIdProfessor().'"><img src="../lib/open-iconic/svg/brush.svg" alt="editar"></a></td>
                                             </tr>

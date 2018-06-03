@@ -99,7 +99,7 @@
                                                 <td>'.$gradeSemestral->getTurno().'</td>
                                                 <td>'.$gradeSemestral->getHorario().'</td>
                                                 <td>'.$gradeSemestral->getCursoNome().'</td>
-                                                <td><a href="';?><?php echo $url;?><?php echo '?pagina=view_form_grade_horaria_cadastro.php&idGradeSemestral='.$gradeSemestral->getIdGradeSemestral().'"><span data-feather="globe"></span></a></td>
+                                                <td><a href="';?><?php echo $url;?><?php echo '?pagina=view_form_grade_horaria_cadastro.php&idGradeSemestral='.$gradeSemestral->getIdGradeSemestral().'"><span data-feather="check-circle"></span></a></td>
                                                 <td><a href="javascript:void(null);" onclick="'.$alert.'"><img src="../lib/open-iconic/svg/x.svg" alt="remover"></a></td>
                                                 <td><a href="';?><?php echo $url;?><?php echo '?pagina=view_form_grade_semestral_update.php&idGradeSemestral='.$gradeSemestral->getIdGradeSemestral().'"><img src="../lib/open-iconic/svg/brush.svg" alt="editar"></a></td>
                                             </tr>

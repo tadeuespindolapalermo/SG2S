@@ -94,10 +94,10 @@
                                                 <td style="text-align: left;">'.$disciplina->getNomeDisciplina().'</td>
                                                 <td>'.$disciplina->getCargaHoraria().'</td>
                                                 <td>'.$disciplina->getCredito().'</td>
-                                                <td><a href="';?><?php echo $url;?><?php echo '?pagina=view_disciplina_professor_listagem.php&idDisciplina='.$disciplina->getIdDisciplina().'"><span data-feather="user"></span></a></td>
-                                                <td><a href="';?><?php echo $url;?><?php echo '?pagina=view_form_disciplina_associar.php&idDisciplina='.$disciplina->getIdDisciplina().'"><span data-feather="layers"></span></a></td>
-                                                <td><a href="';?><?php echo $url;?><?php echo '?pagina=view_form_disciplina_pre-requisito.php&idDisciplina='.$disciplina->getIdDisciplina().'"><span data-feather="alert-triangle"></span></a></td>
-                                                <td><a href="';?><?php echo $url;?><?php echo '?pagina=view_disciplina_pre-requisito_listagem.php&idDisciplina='.$disciplina->getIdDisciplina().'"><span data-feather="edit-2"></span></a></td>
+                                                <td><a href="';?><?php echo $url;?><?php echo '?pagina=view_disciplina_professor_listagem.php&idDisciplina='.$disciplina->getIdDisciplina().'"><span data-feather="users"></span></a></td>
+                                                <td><a href="';?><?php echo $url;?><?php echo '?pagina=view_form_disciplina_associar.php&idDisciplina='.$disciplina->getIdDisciplina().'"><span data-feather="paperclip"></span></a></td>
+                                                <td><a href="';?><?php echo $url;?><?php echo '?pagina=view_form_disciplina_pre-requisito.php&idDisciplina='.$disciplina->getIdDisciplina().'"><span data-feather="edit-3"></span></a></td>
+                                                <td><a href="';?><?php echo $url;?><?php echo '?pagina=view_disciplina_pre-requisito_listagem.php&idDisciplina='.$disciplina->getIdDisciplina().'"><span data-feather="external-link"></span></a></td>
                                                 <td><a href="javascript:void(null);" onclick="'.$alert.'"><img src="../lib/open-iconic/svg/x.svg" alt="remover"></a></td>
                                                 <td><a href="';?><?php echo $url;?><?php echo '?pagina=view_form_disciplina_update.php&idDisciplina='.$disciplina->getIdDisciplina().'"><img src="../lib/open-iconic/svg/brush.svg" alt="editar"></a></td>
                                             </tr>

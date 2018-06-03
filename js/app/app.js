@@ -102,7 +102,7 @@ sg2s.directive('exportToExcelDisciplina', function() {
                 var excelString = '';
                 for(var i = 0; i < table.rows.length; i++) {
                     var rowData = table.rows[i].cells;
-                    for(var j = 0; j < 4; j++) { // apenas as 4 primeiras colunas da tabela
+                    for(var j = 0; j < 3; j++) { // apenas as 3 primeiras colunas da tabela
 					//for(var j = 0; j < rowData.length; j++){ // todas as colunas da tabela
 						//console.log(rowData.length);
                         excelString = excelString + rowData[j].innerHTML + ",";

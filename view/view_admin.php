@@ -110,26 +110,26 @@
                             </h6>
                             <li class="nav-item">
                                 <a class="nav-link" href="view_admin.php?pagina=view_grades_semestrais_listagem.php">
-                                    <span data-feather="slack"></span>
+                                    <span data-feather="align-justify"></span>
                                     Grade Semestral
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="view_admin.php?pagina=view_form_grade_semestral_selecionar.php">
-                                    <span data-feather="globe"></span>
+                                    <span data-feather="watch"></span>
                                     Grade Horária
                                 </a>
                             </li>
-                            <span class="nav-item">
+                            <!--<span class="nav-item">
                                 <span style="margin-left: 16px;" href="">
                                     <span data-feather="alert-triangle"></span>
-                                    <font color="gray"><span style="margin-left: 4px;">Grade de Aluno<span></font><br/>
+                                    <font color="gray"><span style="margin-left: 4px;">Grade de Aluno</span></font><br/>
                                     <small style="margin-left: 42px;"><strong><font color="red">Implementação futura!</font></strong></small>
                                 </span>
-                            </span>
+                            </span>-->
                             <li class="nav-item">
                                 <a class="nav-link" href="view_admin.php?pagina=view_disciplinas_listagem.php">
-                                    <span data-feather="edit-2"></span>
+                                    <span data-feather="file-text"></span>
                                     Disciplinas
                                 </a>
                             </li>
