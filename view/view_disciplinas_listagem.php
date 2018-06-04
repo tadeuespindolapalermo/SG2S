@@ -66,6 +66,8 @@
                                     <th>Nome</th>
                                     <th>Carga Horária</th>
                                     <th>Crédito</th>
+                                    <th>Cursos</th>
+                                    <th>Associar<br>Curso</th>
                                     <th>Professores</th>
                                     <th>Associar<br/>Professor</th>
                                     <th>Definir<br/>Pré-requisito</th>
@@ -94,6 +96,8 @@
                                                 <td style="text-align: left;">'.$disciplina->getNomeDisciplina().'</td>
                                                 <td>'.$disciplina->getCargaHoraria().'</td>
                                                 <td>'.$disciplina->getCredito().'</td>
+                                                <td><a href="';?><?php echo $url;?><?php echo '?pagina=view_disciplina_curso_listagem.php&idDisciplina='.$disciplina->getIdDisciplina().'"><span data-feather="check-square"></span></a></td>
+                                                <td><a href="';?><?php echo $url;?><?php echo '?pagina=view_form_disciplina_curso_associar.php&idDisciplina='.$disciplina->getIdDisciplina().'"><span data-feather="paperclip"></span></a></td>
                                                 <td><a href="';?><?php echo $url;?><?php echo '?pagina=view_disciplina_professor_listagem.php&idDisciplina='.$disciplina->getIdDisciplina().'"><span data-feather="users"></span></a></td>
                                                 <td><a href="';?><?php echo $url;?><?php echo '?pagina=view_form_disciplina_associar.php&idDisciplina='.$disciplina->getIdDisciplina().'"><span data-feather="paperclip"></span></a></td>
                                                 <td><a href="';?><?php echo $url;?><?php echo '?pagina=view_form_disciplina_pre-requisito.php&idDisciplina='.$disciplina->getIdDisciplina().'"><span data-feather="edit-3"></span></a></td>

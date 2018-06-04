@@ -116,7 +116,7 @@ class DisciplinaDao implements Dao {
                 $retorno_get.= "erro_disciplina=1&";
             }
 
-            if ($disciplina->getVerificaHeader() == "disciplina_associar") {
+            if ($disciplina->getVerificaHeaderProfessor() == "disciplina_associar") {
                 header('Location: ../view/'.$this->verificarUrl().'?pagina=view_form_disciplina_associar.php&idDisciplina='.$disciplina->getIdDisciplina().'&' . $retorno_get);
             } else {
                 header('Location: ../view/'.$this->verificarUrl().'?pagina=view_form_professor_associar.php&idProfessor='.$disciplina->getIdProfessorDisciplina().'&' . $retorno_get);
@@ -187,7 +187,11 @@ class DisciplinaDao implements Dao {
                 $retorno_get.= "erro_disciplina=1&";
             }
 
-            header('Location: ../view/'.$this->verificarUrl().'?pagina=view_form_curso_associar.php&idCurso='.$disciplina->getCursoIdCurso().'&' . $retorno_get);
+            if ($disciplina->getVerificaHeaderCurso() == "curso_associar") {
+                header('Location: ../view/'.$this->verificarUrl().'?pagina=view_form_disciplina_curso_associar.php&idDisciplina='.$disciplina->getIdDisciplina().'&' . $retorno_get);
+            } else {
+                header('Location: ../view/'.$this->verificarUrl().'?pagina=view_form_curso_associar.php&idCurso='.$disciplina->getCursoIdCurso().'&' . $retorno_get);
+            }
             die();
         }
 
@@ -434,6 +438,21 @@ class DisciplinaDao implements Dao {
         $strSqlDisciplinaProfessor = "SELECT nome, idprofessor FROM professor
                               INNER JOIN disciplina_professor ON professor.idprofessor = disciplina_professor.professor_idprofessor
                               INNER JOIN disciplinas ON disciplina_professor.disciplinas_iddisciplinas = disciplinas.iddisciplinas
+                              WHERE iddisciplinas = :idDisciplina
+                              ORDER BY nome";
+        $selectDisciplinaProfessor = $conn->prepare($strSqlDisciplinaProfessor);
+        $selectDisciplinaProfessor->bindValue(':idDisciplina', $idDisciplina);
+        $selectDisciplinaProfessor->execute();
+        return $selectDisciplinaProfessor;
+    }
+
+    /*
+     * Método para listar todos os cursos de uma disciplina
+     **/
+    public function listarCurso($conn, $idDisciplina) {
+        $strSqlDisciplinaProfessor = "SELECT nome, idcurso FROM curso
+                              INNER JOIN curso_disciplinas ON curso.idcurso = curso_disciplinas.curso_idcurso
+                              INNER JOIN disciplinas ON curso_disciplinas.disciplinas_iddisciplinas = disciplinas.iddisciplinas
                               WHERE iddisciplinas = :idDisciplina
                               ORDER BY nome";
         $selectDisciplinaProfessor = $conn->prepare($strSqlDisciplinaProfessor);

@@ -12,7 +12,8 @@ class Disciplina {
     // Atributos Auxiliares
     //private $cursoNome;
     private $idProfessorDisciplina;
-    private $verificaHeader;
+    private $verificaHeaderProfessor;
+    private $verificaHeaderCurso;
     private $idDisciplinaPreRequisito;
     private $nomeDisciplinaPreRequisito;
 
@@ -46,8 +47,12 @@ class Disciplina {
         return $this->idProfessorDisciplina;
     }
 
-    public function getVerificaHeader() {
-        return $this->verificaHeader;
+    public function getVerificaHeaderProfessor() {
+        return $this->verificaHeaderProfessor;
+    }
+
+    public function getVerificaHeaderCurso() {
+        return $this->verificaHeaderCurso;
     }
 
     public function getIdDisciplinaPreRequisito() {
@@ -88,8 +93,12 @@ class Disciplina {
         $this->idProfessorDisciplina = $idProfessorDisciplina;
     }
 
-    public function setVerificaHeader($verificaHeader) {
-        $this->iverificaHeader = $verificaHeader;
+    public function setVerificaHeaderProfessor($verificaHeaderProfessor) {
+        $this->verificaHeaderProfessor = $verificaHeaderProfessor;
+    }
+
+    public function setVerificaHeaderCurso($verificaHeaderCurso) {
+        $this->verificaHeaderCurso = $verificaHeaderCurso;
     }
 
     public function setIdDisciplinaPreRequisito($idDisciplinaPreRequisito) {
@@ -98,6 +107,6 @@ class Disciplina {
 
     public function setNomeDisciplinaPreRequisito($nomeDisciplinaPreRequisito) {
         $this->nomeDisciplinaPreRequisito = $nomeDisciplinaPreRequisito;
-    }       
+    }
 
 }
