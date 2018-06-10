@@ -35,6 +35,13 @@
     $gradeHoraria->setDsEad1($_POST['dsEad1']);
     $gradeHoraria->setDsEad2($_POST['dsEad2']);
 
+    $gradeHoraria->setDsSegSala($_POST['salaSeg']);
+    $gradeHoraria->setDsTerSala($_POST['salaTer']);
+    $gradeHoraria->setDsQuaSala($_POST['salaQua']);
+    $gradeHoraria->setDsQuiSala($_POST['salaQui']);
+    $gradeHoraria->setDsSexSala($_POST['salaSex']);
+    $gradeHoraria->setDsSabSala($_POST['salaSab']);
+
     // USAR SE SEPARAR INFORMAÇÕES DE PROFESSOR E DISCIPLINA, EM ATRIBUTOS DIFERENTES
     /*$selectProfessorDisciplinaSeg = $gradeHorariaDao->listarProfessorDisciplina($conn, $gradeHoraria->getDsSeg());
     $linhaProfessorDisciplinaSeg = $selectProfessorDisciplinaSeg->fetchAll(PDO::FETCH_ASSOC);

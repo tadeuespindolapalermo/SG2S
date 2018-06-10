@@ -115,7 +115,7 @@
 				</div>
 
 				<div class="col">
-					<input style="width: 312px;" type="text" maxlength="50" class="form-control" id="turmas" name="turmas"
+					<input style="width: 308px;" type="text" maxlength="50" class="form-control" id="turmas" name="turmas"
 					placeholder="*Turmas - Ex.: TADS (TADS2A)" required>
 					<!-- PED - Pedagogia (PED6B)
 						 LET - Letras (LET1A)
@@ -162,9 +162,14 @@
 			</div>
 			<?php
 			echo '<br/>
-		    <h6 style="font-weight: 900">Disciplinas Semanais:</h6>
+		    <h6 style="font-weight: 900">Disciplinas Semanais:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sala:
+			</h6>
 			<div class="form-row">
-				<div style="width: 505px;  class="col">
+				<div style="width: 400px;  class="col">
 				   <select style="margin-bottom: 5px;" class="form-control" id="dsSeg" name="dsSeg" required>';
 					   echo '<option value="">*Segunda-feira - Selecione:</option>';
 					   echo '<option value="">Dia Livre</option>';
@@ -180,7 +185,11 @@
 				   </select>
 				</div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
-				<div style="width: 505px; class="col">
+				<div style="margin-left: -5px; width: 90px; class="col">
+				    <input type="number" min="1" max="99" class="form-control" id="salaSeg" name="salaSeg" placeholder="Seg">
+		        </div>&nbsp; &nbsp;
+
+				<div style="width: 405px; class="col">
 				   <select class="form-control" id="dsTer" name="dsTer" required>';
 					   echo '<option value="">*Terça-feira - Selecione:</option>';
 					   echo '<option value="">Dia Livre</option>';
@@ -196,7 +205,11 @@
 				   </select>
 				</div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
-				<div style="width: 505px; class="col">
+				<div style="margin-left: -5px; width: 90px; class="col">
+				    <input type="number" min="1" max="99" class="form-control" id="salaTer" name="salaTer" placeholder="Ter">
+		        </div>&nbsp; &nbsp;
+
+				<div style="width: 400px; class="col">
 				   <select style="margin-bottom: 5px;" class="form-control" id="dsQua" name="dsQua" required>';
 					   echo '<option value="">*Quarta-feira - Selecione:</option>';
 					   echo '<option value="">Dia Livre</option>';
@@ -212,7 +225,11 @@
 				   </select>
 				</div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
-				<div style="width: 505px; class="col">
+				<div style="margin-left: -5px; width: 90px; class="col">
+				    <input type="number" min="1" max="99" class="form-control" id="salaQua" name="salaQua" placeholder="Qua">
+		        </div>&nbsp; &nbsp;
+
+				<div style="width: 405px; class="col">
 				   <select class="form-control" id="dsQui" name="dsQui" required>';
 					   echo '<option value="">*Quinta-feira - Selecione:</option>';
 					   echo '<option value="">Dia Livre</option>';
@@ -228,7 +245,11 @@
 				   </select>
 				</div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
-				<div style="width: 505px; class="col">
+				<div style="margin-left: -5px; width: 90px; class="col">
+				    <input type="number" min="1" max="99" class="form-control" id="salaQui" name="salaQui" placeholder="Qui">
+		        </div>&nbsp; &nbsp;
+
+				<div style="width: 400px; class="col">
 				   <select style="margin-bottom: 5px;" class="form-control" id="dsSex" name="dsSex" required>';
 					   echo '<option value="">*Sexta-feira - Selecione:</option>';
 					   echo '<option value="">Dia Livre</option>';
@@ -244,7 +265,11 @@
 				   </select>
 				</div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
-				<div style="width: 505px; class="col">
+				<div style="margin-left: -5px; width: 90px; class="col">
+				    <input type="number" min="1" max="99" class="form-control" id="salaSex" name="salaSex" placeholder="Sex">
+		        </div>&nbsp; &nbsp;
+
+				<div style="width: 405px; class="col">
 				   <select class="form-control" id="dsSab" name="dsSab" required>';
 					   echo '<option value="">*Sábado - Selecione:</option>';
 					   echo '<option value="">Dia Livre</option>';
@@ -259,6 +284,10 @@
 				   echo '
 				   </select>
 				</div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+				<div style="margin-left: -5px; width: 90px; class="col">
+				    <input type="number" min="1" max="99" class="form-control" id="salaSab" name="salaSab" placeholder="Sab">
+		        </div>&nbsp; &nbsp;
 
 				<div style="width: 505px; class="col">
 				   <select class="form-control" id="dsEad1" name="dsEad1">';
@@ -276,7 +305,7 @@
 				   </select>
 				</div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
-				<div style="width: 505px; class="col">
+				<div style="margin-left: -7px; width: 508px; class="col">
 				   <select class="form-control" id="dsEad2" name="dsEad2">';
 					   echo '<option value="">EAD 2 - Selecione:</option>';
 					   echo '<option value="">Dia Livre</option>';
@@ -291,6 +320,7 @@
 				   echo '
 				   </select>
 				</div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
 		    </div><br/>'; ?>
 			<button type="submit" onclick="alterarDisabledCadastroGradeHoraria()" style="width: 250px; margin-left: -5px;" class="btn btn-outline-success form-control"><span data-feather="database"></span>&nbsp;Cadastrar</button>
 			<a href="<?php echo $url;?>?pagina=view_grades_semestrais_listagem.php"><button style="width: 250px;" type="button" class="btn btn-outline-secondary form-control"><span data-feather="arrow-left"></span>&nbsp;Voltar</button></a>

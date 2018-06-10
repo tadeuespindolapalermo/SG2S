@@ -108,14 +108,14 @@
                                         $gradeHoraria->setDsSab($dados['dsSab']);
                                         $gradeHoraria->setDsEad1($dados['dsEad1']);
                                         $gradeHoraria->setDsEad2($dados['dsEad2']);
-                                        $gradeHoraria->setDsSegProf($dados['dsSegSala']);
-                                        $gradeHoraria->setDsTerProf($dados['dsTerSala']);
-                                        $gradeHoraria->setDsQuaProf($dados['dsQuaSala']);
-                                        $gradeHoraria->setDsQuiProf($dados['dsQuiSala']);
-                                        $gradeHoraria->setDsSexProf($dados['dsSexSala']);
-                                        $gradeHoraria->setDsSabProf($dados['dsSabSala']);
-                                        //$gradeHoraria->setDsEad1Prof($dados['dsEad1Sala']);
-                                        //$gradeHoraria->setDsEad2Prof($dados['dsEad2Sala']);
+                                        $gradeHoraria->setDsSegSala($dados['dsSegSala']);
+                                        $gradeHoraria->setDsTerSala($dados['dsTerSala']);
+                                        $gradeHoraria->setDsQuaSala($dados['dsQuaSala']);
+                                        $gradeHoraria->setDsQuiSala($dados['dsQuiSala']);
+                                        $gradeHoraria->setDsSexSala($dados['dsSexSala']);
+                                        $gradeHoraria->setDsSabSala($dados['dsSabSala']);
+                                        //$gradeHoraria->setDsEad1Sala($dados['dsEad1Sala']);
+                                        //$gradeHoraria->setDsEad2Sala($dados['dsEad2Sala']);
 
                                         if ($_SESSION['perfil_idperfil'] == 1) {
                                             $alert = 'msgConfirmaDeleteGradeHorariaAdmin('.$gradeHoraria->getIdGradeHoraria().')';
