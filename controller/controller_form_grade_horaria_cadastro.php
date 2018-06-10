@@ -33,7 +33,7 @@
     $gradeHoraria->setDsSex($_POST['dsSex']);
     $gradeHoraria->setDsSab($_POST['dsSab']);
     $gradeHoraria->setDsEad1($_POST['dsEad1']);
-    $gradeHoraria->setDsEad2($_POST['dsEad2']);    
+    $gradeHoraria->setDsEad2($_POST['dsEad2']);
 
     $selectProfessorDisciplinaSeg = $gradeHorariaDao->listarProfessorDisciplina($conn, $gradeHoraria->getDsSeg());
     $linhaProfessorDisciplinaSeg = $selectProfessorDisciplinaSeg->fetchAll(PDO::FETCH_ASSOC);

@@ -38,8 +38,8 @@ class GradeHoraria {
     private $dsQuiProf;
     private $dsSexProf;
     private $dsSabProf;
-    private $dsEad1Pro;
-    private $dsEad2Pro;
+    private $dsEad1Prof;
+    private $dsEad2Prof;
 
     // Getters dos Atributos do Banco
     public function getIdGradeHoraria()  {

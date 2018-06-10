@@ -55,7 +55,7 @@
 	// ESTA ABAIXO É UTILIZADA PARA GRADE SEMESTRAL
 	/*$erro_ano = isset($_GET['erro_ano']) ? $_GET['erro_ano'] : 0;
 	$erro_semestre = isset($_GET['erro_semestre']) ? $_GET['erro_semestre'] : 0;
-	$erro_curso = isset($_GET['erro_curso']) ? $_GET['erro_curso'] : 0;*/	
+	$erro_curso = isset($_GET['erro_curso']) ? $_GET['erro_curso'] : 0;*/
  ?>
 
 <div class="container">
@@ -171,7 +171,8 @@
 						   foreach ($linhaMatrizCombo as $dados) {
 							   $gradeHorariaCurso->setDisciplinaNome($dados['nome_disciplina']);
 							   $gradeHorariaCurso->setDisciplinaId($dados['iddisciplinas']);
-							   echo '<option value="'.$gradeHorariaCurso->getDisciplinaNome().'">'.$gradeHorariaCurso->getDisciplinaNome().'</option>';
+							   $gradeHorariaCurso->setDsSegProf($dados['nome']);
+							   echo '<option value="'.$gradeHorariaCurso->getDisciplinaNome().'<br/><small><strong>Professor</strong>:<br/> '.$gradeHorariaCurso->getDsSegProf().'</small>">'.$gradeHorariaCurso->getDisciplinaNome().' - '.$gradeHorariaCurso->getDsSegProf().'</option>';
 						   }
 					   }
 				   echo '
@@ -186,7 +187,8 @@
 						   foreach ($linhaMatrizCombo as $dados) {
 							   $gradeHorariaCurso->setDisciplinaNome($dados['nome_disciplina']);
 							   $gradeHorariaCurso->setDisciplinaId($dados['iddisciplinas']);
-							   echo '<option value="'.$gradeHorariaCurso->getDisciplinaNome().'">'.$gradeHorariaCurso->getDisciplinaNome().'</option>';
+							   $gradeHorariaCurso->setDsTerProf($dados['nome']);
+							   echo '<option value="'.$gradeHorariaCurso->getDisciplinaNome().'<br/><small><strong>Professor</strong>:<br/> '.$gradeHorariaCurso->getDsTerProf().'</small>">'.$gradeHorariaCurso->getDisciplinaNome().' - '.$gradeHorariaCurso->getDsTerProf().'</option>';
 						   }
 					   }
 				   echo '
@@ -201,7 +203,8 @@
  						  foreach ($linhaMatrizCombo as $dados) {
  							  $gradeHorariaCurso->setDisciplinaNome($dados['nome_disciplina']);
  							  $gradeHorariaCurso->setDisciplinaId($dados['iddisciplinas']);
- 							  echo '<option value="'.$gradeHorariaCurso->getDisciplinaNome().'">'.$gradeHorariaCurso->getDisciplinaNome().'</option>';
+							  $gradeHorariaCurso->setDsQuaProf($dados['nome']);
+ 							  echo '<option value="'.$gradeHorariaCurso->getDisciplinaNome().'<br/><small><strong>Professor</strong>:<br/> '.$gradeHorariaCurso->getDsQuaProf().'</small>">'.$gradeHorariaCurso->getDisciplinaNome().' - '.$gradeHorariaCurso->getDsQuaProf().'</option>';
  						  }
  					  }
 				   echo '
@@ -216,7 +219,8 @@
  						  foreach ($linhaMatrizCombo as $dados) {
  							  $gradeHorariaCurso->setDisciplinaNome($dados['nome_disciplina']);
  							  $gradeHorariaCurso->setDisciplinaId($dados['iddisciplinas']);
- 							  echo '<option value="'.$gradeHorariaCurso->getDisciplinaNome().'">'.$gradeHorariaCurso->getDisciplinaNome().'</option>';
+							  $gradeHorariaCurso->setDsQuiProf($dados['nome']);
+ 							  echo '<option value="'.$gradeHorariaCurso->getDisciplinaNome().'<br/><small><strong>Professor</strong>:<br/> '.$gradeHorariaCurso->getDsQuiProf().'</small>">'.$gradeHorariaCurso->getDisciplinaNome().' - '.$gradeHorariaCurso->getDsQuiProf().'</option>';
  						  }
  					  }
 				   echo '
@@ -231,7 +235,8 @@
 						   foreach ($linhaMatrizCombo as $dados) {
 							   $gradeHorariaCurso->setDisciplinaNome($dados['nome_disciplina']);
 							   $gradeHorariaCurso->setDisciplinaId($dados['iddisciplinas']);
-							   echo '<option value="'.$gradeHorariaCurso->getDisciplinaNome().'">'.$gradeHorariaCurso->getDisciplinaNome().'</option>';
+							   $gradeHorariaCurso->setDsSexProf($dados['nome']);
+							   echo '<option value="'.$gradeHorariaCurso->getDisciplinaNome().'<br/><small><strong>Professor</strong>:<br/> '.$gradeHorariaCurso->getDsSexProf().'</small>">'.$gradeHorariaCurso->getDisciplinaNome().' - '.$gradeHorariaCurso->getDsSexProf().'</option>';
 						   }
 					   }
 				   echo '
@@ -246,7 +251,8 @@
  						  foreach ($linhaMatrizCombo as $dados) {
  							  $gradeHorariaCurso->setDisciplinaNome($dados['nome_disciplina']);
  							  $gradeHorariaCurso->setDisciplinaId($dados['iddisciplinas']);
- 							  echo '<option value="'.$gradeHorariaCurso->getDisciplinaNome().'">'.$gradeHorariaCurso->getDisciplinaNome().'</option>';
+							  $gradeHorariaCurso->setDsSabProf($dados['nome']);
+ 							  echo '<option value="'.$gradeHorariaCurso->getDisciplinaNome().'<br/><small><strong>Professor</strong>:<br/> '.$gradeHorariaCurso->getDsSabProf().'</small>">'.$gradeHorariaCurso->getDisciplinaNome().' - '.$gradeHorariaCurso->getDsSabProf().'</option>';
  						  }
  					  }
 				   echo '
@@ -261,7 +267,8 @@
  						  foreach ($linhaMatrizCombo as $dados) {
  							  $gradeHorariaCurso->setDisciplinaNome($dados['nome_disciplina']);
  							  $gradeHorariaCurso->setDisciplinaId($dados['iddisciplinas']);
- 							  echo '<option value="'.$gradeHorariaCurso->getDisciplinaNome().'">'.$gradeHorariaCurso->getDisciplinaNome().'</option>';
+							  $gradeHorariaCurso->setDsEad1Prof($dados['nome']);
+ 							  echo '<option value="'.$gradeHorariaCurso->getDisciplinaNome().'<br/><small><strong>Professor</strong>:<br/> '.$gradeHorariaCurso->getDsEad1Prof().'</small>">'.$gradeHorariaCurso->getDisciplinaNome().' - '.$gradeHorariaCurso->getDsEad1Prof().'</option>';
  						  }
  					  }
 				   echo '
@@ -276,7 +283,8 @@
  						  foreach ($linhaMatrizCombo as $dados) {
  							  $gradeHorariaCurso->setDisciplinaNome($dados['nome_disciplina']);
  							  $gradeHorariaCurso->setDisciplinaId($dados['iddisciplinas']);
- 							  echo '<option value="'.$gradeHorariaCurso->getDisciplinaNome().'">'.$gradeHorariaCurso->getDisciplinaNome().'</option>';
+							  $gradeHorariaCurso->setDsEad2Prof($dados['nome']);
+ 							  echo '<option value="'.$gradeHorariaCurso->getDisciplinaNome().'<br/><small><strong>Professor</strong>:<br/> '.$gradeHorariaCurso->getDsEad2Prof().'</small>">'.$gradeHorariaCurso->getDisciplinaNome().'  - '.$gradeHorariaCurso->getDsEad2Prof().'</option>';
  						  }
  					  }
 				   echo '

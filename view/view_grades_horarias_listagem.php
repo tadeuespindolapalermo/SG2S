@@ -125,7 +125,7 @@
                                         }
 
                                         // TRATAMENTO DO CAMPO EAD (APENAS VISUALIZAÇÃO)
-                                        $eadListagem = "";
+                                        /*$eadListagem = "";
                                         if($gradeHoraria->getEad() == 0 || ($gradeHoraria->getDsEad1() == "" && $gradeHoraria->getDsEad2() == "")
                                             || ($gradeHoraria->getDsEad1() == "" || $gradeHoraria->getDsEad2() == "")) {
                                             $eadListagem = "NÃO";
@@ -133,17 +133,60 @@
                                         } else {
                                             $eadListagem = "SIM";
                                             $professor = "Professor:";
+                                        }*/
+
+                                        // TRATAMENTO DO CAMPO SALA PARA DISCIPLINA DE SÁBADO (APENAS VISUALIZAÇÃO)
+                                        if ($gradeHoraria->getDsSab() == "") {
+                                            $salaSab = "";
+                                            $numSalaSab = "";
+                                        } else {
+                                            $salaSab = "Sala: ";
+                                            $numSalaSab = $gradeHoraria->getSala();
                                         }
 
-                                        // TRATAMENTO DO CAMPO DISCIPLINA DE SÁBADO (APENAS VISUALIZAÇÃO)
-                                        if ($gradeHoraria->getDsSab() == "") {
-                                            $profSabado = "";
-                                            $salaSabado = "";
-                                            $numSalaSabado = "";
+                                        // TRATAMENTO DO CAMPO SALA PARA DISCIPLINA DE SEXTA (APENAS VISUALIZAÇÃO)
+                                        if ($gradeHoraria->getDsSex() == "") {
+                                            $salaSex = "";
+                                            $numSalaSex = "";
                                         } else {
-                                            $profSabado = "Professor:";
-                                            $salaSabado = "Sala:";
-                                            $numSalaSabado = $gradeHoraria->getSala();
+                                            $salaSex = "Sala: ";
+                                            $numSalaSex = $gradeHoraria->getSala();
+                                        }
+
+                                        // TRATAMENTO DO CAMPO SALA PARA DISCIPLINA DE QUINTA (APENAS VISUALIZAÇÃO)
+                                        if ($gradeHoraria->getDsQui() == "") {
+                                            $salaQui = "";
+                                            $numSalaQui = "";
+                                        } else {
+                                            $salaQui = "Sala: ";
+                                            $numSalaQui = $gradeHoraria->getSala();
+                                        }
+
+                                        // TRATAMENTO DO CAMPO SALA PARA DISCIPLINA DE QUARTA (APENAS VISUALIZAÇÃO)
+                                        if ($gradeHoraria->getDsQua() == "") {
+                                            $salaQua = "";
+                                            $numSalaQua = "";
+                                        } else {
+                                            $salaQua = "Sala: ";
+                                            $numSalaQua = $gradeHoraria->getSala();
+                                        }
+
+                                        // TRATAMENTO DO CAMPO SALA PARA DISCIPLINA DE TERÇA (APENAS VISUALIZAÇÃO)
+                                        if ($gradeHoraria->getDsTer() == "") {
+                                            $salaTer = "";
+                                            $numSalaTer = "";
+                                        } else {
+                                            $salaTer = "Sala: ";
+                                            $numSalaTer = $gradeHoraria->getSala();
+                                        }
+
+                                        // TRATAMENTO DO CAMPO SALA PARA DISCIPLINA DE SEGUNDA (APENAS VISUALIZAÇÃO)
+                                        if ($gradeHoraria->getDsSeg() == "") {
+                                            $salaSeg = "";
+                                            $numSalaSeg = "";
+                                        } else {
+                                            $salaSeg = "Sala: ";
+                                            $numSalaSeg = $gradeHoraria->getSala();
                                         }
 
                                         // TRATAMENTO DO CAMPO DIA DA SEMANA (APENAS VISUALIZAÇÃO)
@@ -198,14 +241,14 @@
                                                 <td>'.$gradeHoraria->getTurmas().'</td>
                                                 <td>'.$gradeHoraria->getQuantidadeAlunos().'</td>
                                                 <td>'.$gradeHoraria->getSala().'</td>
-                                                <td>'.$gradeHoraria->getDsSeg().'<br/><small>Professor:<br/><strong>'.$gradeHoraria->getDsSegProf().'</strong><br/>Sala:<strong>'.$gradeHoraria->getSala().'</strong></small></td>
-                                                <td>'.$gradeHoraria->getDsTer().'<br/><small>Professor:<br/><strong>'.$gradeHoraria->getDsTerProf().'</strong><br/>Sala:<strong>'.$gradeHoraria->getSala().'</strong></small></td>
-                                                <td>'.$gradeHoraria->getDsQua().'<br/><small>Professor:<br/><strong>'.$gradeHoraria->getDsQuaProf().'</strong><br/>Sala:<strong>'.$gradeHoraria->getSala().'</strong></small></td>
-                                                <td>'.$gradeHoraria->getDsQui().'<br/><small>Professor:<br/><strong>'.$gradeHoraria->getDsQuiProf().'</strong><br/>Sala:<strong>'.$gradeHoraria->getSala().'</strong></small></td>
-                                                <td>'.$gradeHoraria->getDsSex().'<br/><small>Professor:<br/><strong>'.$gradeHoraria->getDsSexProf().'</strong><br/>Sala:<strong>'.$gradeHoraria->getSala().'</strong></small></td>
-                                                <td>'.$gradeHoraria->getDsSab().'<br/><small>'.$profSabado.'<br/><strong>'.$gradeHoraria->getDsSabProf().'</strong><br/>'.$salaSabado.'<strong>'.$numSalaSabado.'</strong></small></td>
-                                                <td>'.$gradeHoraria->getDsEad1().'<br/><small>'.$professor.'<br/><strong>'.$gradeHoraria->getDsEad1Prof().'</strong></small></td>
-                                                <td>'.$gradeHoraria->getDsEad2().'<br/><small>'.$professor.'<br/><strong>'.$gradeHoraria->getDsEad2Prof().'</strong></small></td>
+                                                <td>'.$gradeHoraria->getDsSeg().'<br/><small>'.$salaSeg.'<strong>'.$numSalaSeg.'</strong></small></td>
+                                                <td>'.$gradeHoraria->getDsTer().'<br/><small>'.$salaTer.'<strong>'.$numSalaTer.'</strong></small></td>
+                                                <td>'.$gradeHoraria->getDsQua().'<br/><small>'.$salaQua.'<strong>'.$numSalaQua.'</strong></small></td>
+                                                <td>'.$gradeHoraria->getDsQui().'<br/><small>'.$salaQui.'<strong>'.$numSalaQui.'</strong></small></td>
+                                                <td>'.$gradeHoraria->getDsSex().'<br/><small>'.$salaSex.'<strong>'.$numSalaSex.'</strong></small></td>
+                                                <td>'.$gradeHoraria->getDsSab().'<br/><small>'.$salaSab.'<strong>'.$numSalaSab.'</strong></small></td>
+                                                <td>'.$gradeHoraria->getDsEad1().'</td>
+                                                <td>'.$gradeHoraria->getDsEad2().'</td>
                                                 <td><a href="javascript:void(null);" onclick="'.$alert.'"><img src="../lib/open-iconic/svg/x.svg" alt="remover"></a></td>
                                                 <td><a href="';?><?php echo $url;?><?php echo '?pagina=view_form_grade_horaria_update.php&idGradeHoraria='.$gradeHoraria->getIdGradeHoraria().'"><img src="../lib/open-iconic/svg/brush.svg" alt="editar"></a></td>
                                             </tr>

@@ -98,7 +98,7 @@ class GradeHorariaDao implements Dao {
         $selectGradeHoraria = $conn->prepare($strSqlGradeHoraria);
         $selectGradeHoraria->execute();
         return $selectGradeHoraria;
-    }    
+    }
 
     /*
      * Método para listar o professor de determinada disciplina com base no nome da disciplina
@@ -176,9 +176,11 @@ class GradeHorariaDao implements Dao {
      * Método para listar todos as disciplinas de um curso
      **/
     public function listarMatriz($conn, $idCurso) {
-        $strSqlCursoMatriz = "SELECT nome_disciplina, iddisciplinas FROM disciplinas
+        $strSqlCursoMatriz = "SELECT * FROM disciplinas
                               INNER JOIN curso_disciplinas ON disciplinas.iddisciplinas = curso_disciplinas.disciplinas_iddisciplinas
                               INNER JOIN curso ON curso_disciplinas.curso_idcurso = curso.idcurso
+                              INNER JOIN disciplina_professor ON disciplinas.iddisciplinas = disciplina_professor.disciplinas_iddisciplinas
+                              INNER JOIN professor ON disciplina_professor.professor_idprofessor = professor.idprofessor
                               WHERE idcurso = :idCurso
                               ORDER BY nome_disciplina";
         $selectCursoMatriz = $conn->prepare($strSqlCursoMatriz);
