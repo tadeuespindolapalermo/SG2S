@@ -17,12 +17,12 @@
         header('Location: ../controller/controller_sair.php');
     }*/
 
-    $gradeHoraria->setSala($_POST['sala']);
+    //$gradeHoraria->setSala($_POST['sala']);
     $gradeHoraria->setQuantidadeAlunos($_POST['quantidadeAlunos']);
     $gradeHoraria->setTurmas($_POST['turmas']);
     $gradeHoraria->setPeriodoCurso($_POST['periodoCurso']);
-    $gradeHoraria->setDiaSemana($_POST['diaSemana']);
-    $gradeHoraria->setEad($_POST['ead']);
+    //$gradeHoraria->setDiaSemana($_POST['diaSemana']);
+    //$gradeHoraria->setEad($_POST['ead']);
     $gradeHoraria->setIdGradeSemestral($_POST['idGradeSemestral']);
     $gradeHoraria->setIdCursoGradeSemestral($_POST['idCursoGradeSemestral']);
 
@@ -35,7 +35,8 @@
     $gradeHoraria->setDsEad1($_POST['dsEad1']);
     $gradeHoraria->setDsEad2($_POST['dsEad2']);
 
-    $selectProfessorDisciplinaSeg = $gradeHorariaDao->listarProfessorDisciplina($conn, $gradeHoraria->getDsSeg());
+    // USAR SE SEPARAR INFORMAÇÕES DE PROFESSOR E DISCIPLINA, EM ATRIBUTOS DIFERENTES
+    /*$selectProfessorDisciplinaSeg = $gradeHorariaDao->listarProfessorDisciplina($conn, $gradeHoraria->getDsSeg());
     $linhaProfessorDisciplinaSeg = $selectProfessorDisciplinaSeg->fetchAll(PDO::FETCH_ASSOC);
     foreach ($linhaProfessorDisciplinaSeg as $dados) {
         $gradeHoraria->setDsSegProf($dados['nome']);
@@ -81,7 +82,7 @@
     $linhaProfessorDisciplinaEad2 = $selectProfessorDisciplinaEad2->fetchAll(PDO::FETCH_ASSOC);
     foreach ($linhaProfessorDisciplinaEad2 as $dados) {
         $gradeHoraria->setDsEad2Prof($dados['nome']);
-    }
+    }*/
 
     // TRATAMENTO DO CAMPO EAD (SALVAR NO BANCO)
     /*if($_POST['ead'] == 0) {

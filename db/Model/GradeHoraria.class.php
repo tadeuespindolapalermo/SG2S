@@ -4,12 +4,12 @@ class GradeHoraria {
 
     // Atributos do Banco de Dados
     private $idGradeHoraria;
-    private $sala;
+    //private $sala;
     private $quantidadeAlunos;
     private $turmas;
     private $periodoCurso;
-    private $diaSemana;
-    private $ead;
+    //private $diaSemana;
+    //private $ead;
     private $idGradeSemestral;
     private $idCursoGradeSemestral;
     private $dsSeg;
@@ -20,6 +20,14 @@ class GradeHoraria {
     private $dsSab;
     private $dsEad1;
     private $dsEad2;
+    private $dsSegSala;
+    private $dsTerSala;
+    private $dsQuaSala;
+    private $dsQuiSala;
+    private $dsSexSala;
+    private $dsSabSala;
+    //private $dsEad1Sala;
+    //private $dsEad2Sala;
 
     // Atributos auxiliares
     private $cursoNome;
@@ -46,9 +54,9 @@ class GradeHoraria {
         return $this->idGradeHoraria;
     }
 
-    public function getSala()  {
+    /*public function getSala()  {
         return $this->sala;
-    }
+    }*/
 
     public function getQuantidadeAlunos() {
         return $this->quantidadeAlunos;
@@ -62,13 +70,13 @@ class GradeHoraria {
         return $this->periodoCurso;
     }
 
-    public function getDiaSemana() {
+    /*public function getDiaSemana() {
         return $this->diaSemana;
     }
 
     public function getEad() {
         return $this->ead;
-    }
+    }*/
 
     public function getIdGradeSemestral() {
         return $this->idGradeSemestral;
@@ -111,6 +119,39 @@ class GradeHoraria {
         return $this->dsEad2;
     }
 
+    //------ SALAS ----------
+    public function getDsSegSala() {
+        return $this->dsSegSala;
+    }
+
+    public function getDsTerSala() {
+        return $this->dsTerSala;
+    }
+
+    public function getDsQuaSala() {
+        return $this->dsQuaSala;
+    }
+
+    public function getDsQuiSala() {
+        return $this->dsQuiSala;
+    }
+
+    public function getDsSexSala() {
+        return $this->dsSexSala;
+    }
+
+    public function getDsSabSala() {
+        return $this->dsSabSala;
+    }
+
+    /*public function getDsEad1Sala() {
+        return $this->dsEad1Sala;
+    }
+
+    public function getDsEad2Sala() {
+        return $this->dsEad2Sala;
+    }*/
+
     // Getters dos Atributos Auxiliares
     public function getCursoNome() {
         return $this->cursoNome;
@@ -152,7 +193,7 @@ class GradeHoraria {
         return $this->verificaArray;
     }
 
-    //------ PROFESSORES DIAS DA SEMANA ----------
+    //------ PROFESSORES ----------
     public function getDsSegProf() {
         return $this->dsSegProf;
     }
@@ -190,9 +231,9 @@ class GradeHoraria {
         $this->idGradeHoraria = $idGradeHoraria;
     }
 
-    public function setSala($sala) {
+    /*public function setSala($sala) {
         $this->sala = $sala;
-    }
+    }*/
 
     public function setQuantidadeAlunos($quantidadeAlunos) {
         $this->quantidadeAlunos = $quantidadeAlunos;
@@ -206,13 +247,13 @@ class GradeHoraria {
         $this->periodoCurso = $periodoCurso;
     }
 
-    public function setDiaSemana($diaSemana) {
+    /*public function setDiaSemana($diaSemana) {
         $this->diaSemana = $diaSemana;
     }
 
     public function setEad($ead) {
         $this->ead = $ead;
-    }
+    }*/
 
     public function setIdGradeSemestral($idGradeSemestral) {
         $this->idGradeSemestral = $idGradeSemestral;
@@ -255,6 +296,39 @@ class GradeHoraria {
         $this->dsEad2 = $dsEad2;
     }
 
+    //--------- SALAS ----------------------
+    public function setDsSegSala($dsSegSala) {
+        $this->dsSegSala = $dsSegSala;
+    }
+
+    public function setDsTerSala($dsTerSala) {
+        $this->dsTerSala = $dsTerSala;
+    }
+
+    public function setDsQuaSala($dsQuaSala) {
+        $this->dsQuaSala = $dsQuaSala;
+    }
+
+    public function setDsQuiSala($dsQuiSala) {
+        $this->dsQuiSala = $dsQuiSala;
+    }
+
+    public function setDsSexSala($dsSexSala) {
+        $this->dsSexSala = $dsSexSala;
+    }
+
+    public function setDsSabSala($dsSabSala) {
+        $this->dsSabSala = $dsSabSala;
+    }
+
+    /*public function setDsEad1Sala($dsEad1Sala) {
+        $this->dsEad1Sala = $dsEad1Sala;
+    }
+
+    public function setDsEad2Sala($dsEad2Sala) {
+        $this->dsEad2Sala = $dsEad2Sala;
+    }*/
+
     // Setters dos Atributos Auxiliares
     public function setCursoNome($cursoNome) {
         $this->cursoNome = $cursoNome;
@@ -296,7 +370,7 @@ class GradeHoraria {
         $this->verificaArray = $verificaArray;
     }
 
-    //--------- PROFESSORES DIAS DA SEMANA -------------
+    //--------- PROFESSORES ----------------------
     public function setDsSegProf($dsSegProf) {
         $this->dsSegProf = $dsSegProf;
     }

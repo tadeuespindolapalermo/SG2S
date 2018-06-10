@@ -94,26 +94,6 @@
 				</div>';?>
 
 				<div class="col">
-					<input style="width: 320px;" type="number" min="0" max="99" class="form-control" id="sala" name="sala"
-					placeholder="*Sala (Presencial) - Até 2 números" required autofocus>
-					<!-- Local da aula presencial. -->
-				</div>
-
-				<div class="col">
-					<input style="width: 320px;" type="number" min="0" max="999" class="form-control" id="quantidadeAlunos" name="quantidadeAlunos"
-					placeholder="*Quantidade Alunos - Até 3 números" required>
-					<!-- Quantidade de alunos das turmas somados. -->
-				</div>
-
-				<div class="col">
-					<input style="width: 320px;" type="text" maxlength="50" class="form-control" id="turmas" name="turmas"
-					placeholder="*Turmas - Ex.: TADS (TADS2A)" required>
-					<!-- PED - Pedagogia (PED6B)
-						 LET - Letras (LET1A)
-						 TADS (TADS2A)-->
-				</div>
-
-				<div class="col" style="padding: 5px;">
 					<input style="width: 320px;" type="number" min="0" max="8" class="form-control" id="periodoCurso" name="periodoCurso"
 					placeholder="*Período Curso (Semestre) - de 1 a 8" required>
 					<!-- Dependendo do curso:
@@ -122,9 +102,31 @@
 						 Licenciatura grade antiga: 1 a 7.-->
 				</div>
 
-				<div class="col" style="padding: 5px;">
+				<!--<div class="col">
+					<input style="width: 320px;" type="number" min="0" max="99" class="form-control" id="sala" name="sala"
+					placeholder="*Sala (Presencial) - Até 2 números" required autofocus>-->
+					<!-- Local da aula presencial. -->
+				<!--</div>-->
+
+				<div class="col">
+					<input style="width: 320px;" type="number" min="0" max="999" class="form-control" id="quantidadeAlunos" name="quantidadeAlunos"
+					placeholder="*Quantidade Alunos - Até 3 números" required>
+					<!-- Quantidade de alunos das turmas somados. -->
+				</div>
+
+				<div class="col">
+					<input style="width: 312px;" type="text" maxlength="50" class="form-control" id="turmas" name="turmas"
+					placeholder="*Turmas - Ex.: TADS (TADS2A)" required>
+					<!-- PED - Pedagogia (PED6B)
+						 LET - Letras (LET1A)
+						 TADS (TADS2A)-->
+				</div>
+				<br/><br/><br/>
+
+
+				<!--<div class="col" style="padding: 5px;">
 					<input style="width: 320px;" type="number" min="1" max="7" class="form-control" id="diaSemana" name="diaSemana"
-					placeholder="*Dia Semana - de 1 (Dom) a 7 (Sab)" required>
+					placeholder="*Dia Semana - de 1 (Dom) a 7 (Sab)" required>-->
 					<!-- Segunda a sábado:
 						 - 1: Domingo
 						 - 2: Segunda
@@ -133,15 +135,14 @@
 						 - 5: Quinta
 						 - 6: Sexta
 						 - 7: Sábado-->
-				</div>
+				<!--</div>-->
 
-				<div class="col" style="padding: 5px;">
+				<!--<div class="col" style="padding: 5px;">
 					<input style="width: 320px;" type="number" min="0" max="1" class="form-control" id="ead" name="ead"
-					placeholder="*EAD: [ 0 ] Não - [ 1 ] Sim" required>
+					placeholder="*EAD: [ 0 ] Não - [ 1 ] Sim" required>-->
 					<!-- 0 - Não é EAD
 						 1 - EAD-->
-				</div>
-
+				<!--</div>-->
 				<!-- CASO SEJA NECESSÁRIO ALTERAR O CURSO DE UMA GRADE SEMESTRAL-->
 				<!--<div class="form-group">
 	                <select class="form-control" id="idCursoGradeHoraria" name="idCursoGradeHoraria" required>
