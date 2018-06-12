@@ -72,7 +72,7 @@
         <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
             <span class="navbar-brand col-sm-3 col-md-2 mr-0"><strong>SG2S - <?php echo $perfil; ?></strong></span>
             <!--<input type="text" class="input-search" alt="listaSearch" placeholder="Pesquisa rápida..." />-->
-            <input id="searchListagens" style="border: 1px solid grey; border-radius: 4px;" class="form-control form-control-dark w-100 input-search" alt="listaSearch" type="text" placeholder="Pesquisa rápida..." disabled aria-label="Pesquisa rápida..." />
+        <input id="searchListagens" class="form-control form-control-dark w-100 input-search" alt="listaSearch" type="text" placeholder="Pesquisa rápida..." disabled aria-label="Pesquisa rápida..." />
             <!--<ul class="navbar-nav px-3">
                 <li class="nav-item text-nowrap">
                     <a class="nav-link" href="../controller/controller_sair.php">Sair</a>
@@ -108,26 +108,26 @@
                             </h6>
                             <li class="nav-item">
                                 <a class="nav-link" href="view_coordenador.php?pagina=view_grades_semestrais_listagem.php">
-                                    <span data-feather="slack"></span>
+                                    <span data-feather="align-justify"></span>
                                     Grade Semestral
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="view_coordenador.php?pagina=view_form_grade_semestral_selecionar.php">
-                                    <span data-feather="globe"></span>
+                                    <span data-feather="watch"></span>
                                     Grade Horária
                                 </a>
                             </li>
-                            <span class="nav-item">
+                            <!--<span class="nav-item">
                                 <span style="margin-left: 16px;" href="">
                                     <span data-feather="alert-triangle"></span>
-                                    <font color="gray"><span style="margin-left: 4px;">Grade de Aluno<span></font><br/>
+                                    <font color="gray"><span style="margin-left: 4px;">Grade de Aluno</span></font><br/>
                                     <small style="margin-left: 42px;"><strong><font color="red">Implementação futura!</font></strong></small>
                                 </span>
-                            </span>
+                            </span>-->
                             <li class="nav-item">
                                 <a class="nav-link" href="view_coordenador.php?pagina=view_disciplinas_listagem.php">
-                                    <span data-feather="edit-2"></span>
+                                    <span data-feather="file-text"></span>
                                     Disciplinas
                                 </a>
                             </li>
@@ -141,6 +141,7 @@
                                 <a class="nav-link" href="view_coordenador.php?pagina=view_professores_listagem.php">
                                     <span data-feather="user"></span>
                                     Professor
+                                    <hr />
                                 </a>
                             </li>
                             <!--<h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
@@ -283,5 +284,11 @@
         <script src="../js/app/controllers.js"></script>
         <script src="../lib/jquery/buscaDinamica.js"></script>
         <script src="../lib/ajax/requisicoesAjax.js"></script>
+        <script>
+            if(document.getElementById("searchListagens").disabled == true) {
+                var searchListagensEnabled = document.getElementById("searchListagens");
+                searchListagensEnabled.style.backgroundColor = "rgba(0, 0, 0, .25)";
+            }
+        </script>
     </body>
 </html>

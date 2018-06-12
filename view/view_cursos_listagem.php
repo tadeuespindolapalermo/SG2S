@@ -1,4 +1,4 @@
-<div class="container listar">
+<div class="container listar">    
     <div class="header clearfix">
         <h3 class="text-muted">Listagem de Cursos</h3><hr/>
         <!--<h6><strong>Clique no ícone <img src="../icons/infor.png" alt="matriz"> para visualizar a Matriz!</strong></h6>-->

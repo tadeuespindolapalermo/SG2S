@@ -72,14 +72,11 @@
 		<script src="../lib/jquery/masks.js"></script>
         <script src="../js/dom.js"></script>
         <script src="../js/alerts.js"></script>
-    </head>
-
     <body>
-
         <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
             <span class="navbar-brand col-sm-3 col-md-2 mr-0"><strong>SG2S - <?php echo $perfil;?></strong></span>
             <!--<input type="text" class="input-search" alt="listaSearch" placeholder="Pesquisa rápida..." />-->
-            <input id="searchListagens" style="border: 1px solid grey; border-radius: 4px;" class="form-control form-control-dark w-100 input-search" alt="listaSearch" type="text" placeholder="Pesquisa rápida..." disabled aria-label="Pesquisa rápida..." />
+            <input id="searchListagens" class="form-control form-control-dark w-100 input-search" alt="listaSearch" type="text" placeholder="Pesquisa rápida..." disabled aria-label="Pesquisa rápida..." />
             <!--<ul class="navbar-nav px-3">
                 <li class="nav-item text-nowrap">
                     <a class="nav-link" href="../controller/controller_sair.php">Sair</a>
@@ -309,5 +306,12 @@
         <script src="../js/app/controllers.js"></script>
         <script src="../lib/jquery/buscaDinamica.js"></script>
         <script src="../lib/ajax/requisicoesAjax.js"></script>
+        <script>
+            if(document.getElementById("searchListagens").disabled == true) {
+                var searchListagensEnabled = document.getElementById("searchListagens");
+                searchListagensEnabled.style.backgroundColor = "rgba(0, 0, 0, .25)";
+            }
+        </script>
+    </head>
     </body>
 </html>
