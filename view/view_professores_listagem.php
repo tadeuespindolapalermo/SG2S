@@ -15,6 +15,7 @@
 
         $professor = new Professor();
         $professorDao = new ProfessorDao();
+        $disciplina = new Disciplina();
 
         /*if($_SESSION['perfil_idperfil'] == 2) {
             unset($_SESSION['usuario']);
@@ -74,6 +75,7 @@
                                     <th>Editar</th>
                                 </tr>
                             </thead>
+
                             <?php
                                 while ($linhaProfessorLimite = $selectProfessorLimite->fetchAll(PDO::FETCH_ASSOC)) {
                                     foreach ($linhaProfessorLimite as $dados) {
@@ -90,6 +92,39 @@
                                             $alert = 'msgConfirmaDeleteProfessorProvisorioLixeiraCoordenador('.$professor->getIdProfessor().')';
                                         }
 
+                                        $idProfessor = $professor->getIdProfessor();
+                                        $selectDisciplinaProfessor = $professorDao->buscarPorId($conn, $idProfessor);
+                                        foreach ($selectDisciplinaProfessor as $dados)
+                                            $professor->setNome($dados['nome']);
+
+                                        echo '
+                                        <div class="modal fade" id="exampleModal'.$professor->getIdProfessor().'" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title" id="exampleModalLabel">Disciplinas do Professor '; echo $professor->getNome(); echo '</h5>
+                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                    </div>
+                                                    <div class="modal-body">';
+                                                        $selectDisciplina = $professorDao->listarDisciplina($conn, $idProfessor);
+                                                        while ($linhaProfessorDisciplina = $selectDisciplina->fetchAll(PDO::FETCH_ASSOC)) {
+                                                            foreach ($linhaProfessorDisciplina as $dados) {
+                                                                $disciplina->setNomeDisciplina($dados['nome_disciplina']);
+                                                                $disciplina->setIdDisciplina($dados['iddisciplinas']);
+                                                                echo '<div style="font-size: 18px;">'.$disciplina->getNomeDisciplina().' - <a href="';?><?php echo $url;?><?php echo '?pagina=../controller/controller_disciplina_desassociar.php&idDisciplina='.$disciplina->getIdDisciplina().'&idProfessor='.$idProfessor.'"><img src="../lib/open-iconic/svg/x.svg" alt="remover"><a/></div>';
+                                                            }
+                                                        }
+                                                    echo '
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>';
+
                                         echo '
                                         <tbody>
                                             <tr>
@@ -98,7 +133,7 @@
                                                 <td>'.$professor->getRG().'</td>
                                                 <td style="text-align: left;">'.$professor->getEmail().'</td>
                                                 <td>'.$professor->getFone().'</td>
-                                                <td><a href="';?><?php echo $url;?><?php echo '?pagina=view_professor_disciplina_listagem.php&idProfessor='.$professor->getIdProfessor().'"><span data-feather="edit"></span></a></td>
+                                                <td><a href="#" data-toggle="modal" data-target="#exampleModal'.$professor->getIdProfessor().'"><span data-feather="loader"></span></a></td>
                                                 <td><a href="';?><?php echo $url;?><?php echo '?pagina=view_form_professor_associar.php&idProfessor='.$professor->getIdProfessor().'"><span data-feather="paperclip"></span></a></td>
                                                 <td><a href="javascript:void(null);" onclick="'.$alert.'"><img src="../lib/open-iconic/svg/x.svg" alt="remover"></a></td>
                                                 <td><a href="';?><?php echo $url;?><?php echo '?pagina=view_form_professor_update.php&idProfessor='.$professor->getIdProfessor().'"><img src="../lib/open-iconic/svg/brush.svg" alt="editar"></a></td>

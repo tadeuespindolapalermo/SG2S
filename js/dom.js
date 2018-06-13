@@ -26,7 +26,7 @@ function alterarDisabledProteger() {
 
 function alterarDisabledSearch() {
     document.getElementById("searchListagens").disabled = false;
-    document.getElementById("searchListagens").placeholder = "Digite o que deseja pesquisar...";   
+    document.getElementById("searchListagens").placeholder = "Digite o que deseja pesquisar...";
     document.getElementById("btnSearch").disabled = true;
 }
 

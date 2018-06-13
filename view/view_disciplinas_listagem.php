@@ -13,6 +13,8 @@
         $PDO = new Conn;
         $conn = $PDO->Conectar();
 
+        $curso = new Curso();
+        $professor = new Professor();
         $disciplina = new Disciplina();
         $disciplinaDao = new DisciplinaDao();
 
@@ -90,18 +92,115 @@
                                             $alert = 'msgConfirmaDeleteDisciplinaCoordenador('.$disciplina->getIdDisciplina().')';
                                         }
 
+                                        $idDisciplina = $disciplina->getIdDisciplina();
+                                        $selectCursoDisciplina = $disciplinaDao->buscarPorId($conn, $idDisciplina);
+                                        foreach ($selectCursoDisciplina as $dados)
+                                            $disciplina->setNomeDisciplina($dados['nome_disciplina']);                                        
+
+                                        // Modal de Cursos
+                                        echo '
+                                        <div class="modal fade" id="exampleModalCurso'.$disciplina->getIdDisciplina().'" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title" id="exampleModalLabel">Cursos da disciplina '; echo $disciplina->getNomeDisciplina(); echo '</h5>
+                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                    </div>
+                                                    <div class="modal-body">';
+                                                        $selectCurso = $disciplinaDao->listarCurso($conn, $idDisciplina);
+                                                        while ($linhaDisciplinaCurso = $selectCurso->fetchAll(PDO::FETCH_ASSOC)) {
+                                                            foreach ($linhaDisciplinaCurso as $dados) {
+                                                                $curso->setNome($dados['nome']);
+                                                                $curso->setIdCurso($dados['idcurso']);
+                                                                echo '<div style="font-size: 18px;">'.$curso->getNome().' - <a href="';?><?php echo $url;?><?php echo '?pagina=../controller/controller_curso_desassociar.php&idCurso='.$curso->getIdCurso().'&idDisciplina='.$idDisciplina.'"><img src="../lib/open-iconic/svg/x.svg" alt="remover"><a/></div>';
+                                                            }
+                                                        }
+                                                    echo '
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>';
+
+                                        // Modal de Professores
+                                        echo '
+                                        <div class="modal fade" id="exampleModalProfessor'.$disciplina->getIdDisciplina().'" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title" id="exampleModalLabel">Professores da disciplina '; echo $disciplina->getNomeDisciplina(); echo '</h5>
+                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                    </div>
+                                                    <div class="modal-body">';
+                                                        $selectProfessor = $disciplinaDao->listarProfessor($conn, $idDisciplina);
+                                                        while ($linhaDisciplinaProfessor = $selectProfessor->fetchAll(PDO::FETCH_ASSOC)) {
+                                                            foreach ($linhaDisciplinaProfessor as $dados) {
+                                                                $professor->setNome($dados['nome']);
+                                                                $professor->setIdProfessor($dados['idprofessor']);
+                                                                echo '<div style="font-size: 18px;">'.$professor->getNome().' - <a href="';?><?php echo $url;?><?php echo '?pagina=../controller/controller_professor_desassociar.php&idProfessor='.$professor->getIdProfessor().'&idDisciplina='.$idDisciplina.'"><img src="../lib/open-iconic/svg/x.svg" alt="remover"><a/></div>';
+                                                            }
+                                                        }
+                                                    echo '
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>';
+
+                                        // Modal de disciplinas pré-requisitos
+                                        echo '
+                                        <div class="modal fade" id="exampleModalDisciplinaPreRequisito'.$disciplina->getIdDisciplina().'" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title" id="exampleModalLabel">Disciplinas Pré-requisitos da disciplina '; echo $disciplina->getNomeDisciplina(); echo '</h5>
+                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                    </div>
+                                                    <div class="modal-body">';
+                                                        $selectPreRequisito = $disciplinaDao->listarDisciplinaPreRequisito($conn, $idDisciplina);
+                                                        while ($linhaDisciplinaPreRequisito = $selectPreRequisito->fetchAll(PDO::FETCH_ASSOC)) {
+                                                            foreach ($linhaDisciplinaPreRequisito as $dados) {
+                                                                $disciplina->setIdDisciplina($dados['disciplinas_iddisciplinas']);
+                                                                $disciplina->setIdDisciplinaPreRequisito($dados['disciplinas_iddisciplinasprerequisito']);
+                                                                $disciplina->setNomeDisciplina($dados['nome_disciplina']);
+
+                                                                $selectNomeDisciplinaPreRequisito = $disciplinaDao->listarNomeDisciplinaPreRequisito($conn, $disciplina->getIdDisciplinaPreRequisito());
+                                                                foreach ($selectNomeDisciplinaPreRequisito as $dados)
+                                                                    $disciplina->setNomeDisciplinaPreRequisito($dados['nome_disciplina']);
+                                                                    echo '<span style="font-size: 18px;">'.$disciplina->getNomeDisciplinaPreRequisito().' - <a href="';?><?php echo $url;?><?php echo '?pagina=../controller/controller_disciplina_pre-requisito_desassociar.php&idDisciplinaPreRequisito='.$disciplina->getIdDisciplinaPreRequisito().'&idDisciplina='.$idDisciplina.'"><img src="../lib/open-iconic/svg/x.svg" alt="remover"><a/></span><br/>';
+                                                            }
+                                                        }
+                                                    echo '
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>';
+
                                         echo '
                                         <tbody>
                                             <tr>
                                                 <td style="text-align: left;">'.$disciplina->getNomeDisciplina().'</td>
                                                 <td>'.$disciplina->getCargaHoraria().'</td>
                                                 <td>'.$disciplina->getCredito().'</td>
-                                                <td><a href="';?><?php echo $url;?><?php echo '?pagina=view_disciplina_curso_listagem.php&idDisciplina='.$disciplina->getIdDisciplina().'"><span data-feather="check-square"></span></a></td>
+                                                <td><a href="#" data-toggle="modal" data-target="#exampleModalCurso'.$disciplina->getIdDisciplina().'"><span data-feather="loader"></span></a></td>
                                                 <td><a href="';?><?php echo $url;?><?php echo '?pagina=view_form_disciplina_curso_associar.php&idDisciplina='.$disciplina->getIdDisciplina().'"><span data-feather="paperclip"></span></a></td>
-                                                <td><a href="';?><?php echo $url;?><?php echo '?pagina=view_disciplina_professor_listagem.php&idDisciplina='.$disciplina->getIdDisciplina().'"><span data-feather="users"></span></a></td>
+                                                <td><a href="#" data-toggle="modal" data-target="#exampleModalProfessor'.$disciplina->getIdDisciplina().'"><span data-feather="loader"></span></a></td>
                                                 <td><a href="';?><?php echo $url;?><?php echo '?pagina=view_form_disciplina_associar.php&idDisciplina='.$disciplina->getIdDisciplina().'"><span data-feather="paperclip"></span></a></td>
                                                 <td><a href="';?><?php echo $url;?><?php echo '?pagina=view_form_disciplina_pre-requisito.php&idDisciplina='.$disciplina->getIdDisciplina().'"><span data-feather="edit-3"></span></a></td>
-                                                <td><a href="';?><?php echo $url;?><?php echo '?pagina=view_disciplina_pre-requisito_listagem.php&idDisciplina='.$disciplina->getIdDisciplina().'"><span data-feather="external-link"></span></a></td>
+                                                <td><a href="#" data-toggle="modal" data-target="#exampleModalDisciplinaPreRequisito'.$disciplina->getIdDisciplina().'"><span data-feather="loader"></span></a></td>
                                                 <td><a href="javascript:void(null);" onclick="'.$alert.'"><img src="../lib/open-iconic/svg/x.svg" alt="remover"></a></td>
                                                 <td><a href="';?><?php echo $url;?><?php echo '?pagina=view_form_disciplina_update.php&idDisciplina='.$disciplina->getIdDisciplina().'"><img src="../lib/open-iconic/svg/brush.svg" alt="editar"></a></td>
                                             </tr>

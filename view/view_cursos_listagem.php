@@ -1,4 +1,4 @@
-<div class="container listar">    
+<div class="container listar">
     <div class="header clearfix">
         <h3 class="text-muted">Listagem de Cursos</h3><hr/>
         <!--<h6><strong>Clique no ícone <img src="../icons/infor.png" alt="matriz"> para visualizar a Matriz!</strong></h6>-->
@@ -17,6 +17,7 @@
 
         $curso = new Curso();
         $cursoDao = new CursoDao();
+        $disciplina = new Disciplina();
 
         /*if($_SESSION['perfil_idperfil'] == 2) {
             unset($_SESSION['usuario']);
@@ -94,6 +95,40 @@
                                             $alert = 'msgConfirmaDeleteCursoCoordenador('.$curso->getIdCurso().')';
                                         }
 
+                                        $idCurso = $curso->getIdCurso();
+                                        $selectMatrizCurso = $cursoDao->buscarPorId($conn, $idCurso);
+                                        foreach ($selectMatrizCurso as $dados) {
+                                            $curso->setNome($dados['nome']);
+                                        }
+
+                                        echo '
+                                        <div class="modal fade" id="exampleModal'.$curso->getIdCurso().'" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title" id="exampleModalLabel">Matriz do Curso de '; echo $curso->getNome(); echo '</h5>
+                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                    </div>
+                                                    <div class="modal-body">';
+                                                        $selectMatriz = $cursoDao->listarMatriz($conn, $idCurso);
+                                                        while ($linhaMatriz = $selectMatriz->fetchAll(PDO::FETCH_ASSOC)) {
+                                                            foreach ($linhaMatriz as $dados) {
+                                                                $disciplina->setNomeDisciplina($dados['nome_disciplina']);
+                                                                $disciplina->setIdDisciplina($dados['iddisciplinas']);
+                                                                echo '<div style="font-size: 18px;">'.$disciplina->getNomeDisciplina().' - <a href="';?><?php echo $url;?><?php echo '?pagina=../controller/controller_matriz_desassociar.php&idDisciplina='.$disciplina->getIdDisciplina().'&idCurso='.$idCurso.'"><img src="../lib/open-iconic/svg/x.svg" alt="remover"><a/></div>';
+                                                            }
+                                                        }
+                                                    echo '
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>';
+
                                         echo '
                                         <tbody>
                                             <tr>
@@ -103,7 +138,7 @@
                                                 <td>'.$curso->getGrau().'</td>
                                                 <td>'.$curso->getDataPortaria().'</td>
                                                 <td>'.$curso->getVersaoMatriz().'</td>
-                                                <td><a href="';?><?php echo $url;?><?php echo '?pagina=view_matriz_listagem.php&idCurso='.$curso->getIdCurso().'"><span data-feather="loader"></span></a></td>
+                                                <td><a href="#" data-toggle="modal" data-target="#exampleModal'.$curso->getIdCurso().'"><span data-feather="loader"></span></a></td>
                                                 <td><a href="';?><?php echo $url;?><?php echo '?pagina=view_form_curso_associar.php&idCurso='.$curso->getIdCurso().'"><span data-feather="paperclip"></span></a></td>
                                                 <td><a href="javascript:void(null);" onclick="'.$alert.'"><img src="../lib/open-iconic/svg/x.svg" alt="remover"></a></td>
                                                 <td><a href="';?><?php echo $url;?><?php echo '?pagina=view_form_curso_update.php&idCurso='.$curso->getIdCurso().'"><img src="../lib/open-iconic/svg/brush.svg" alt="editar"></a></td>
@@ -113,6 +148,8 @@
                                 }
                             ?>
                         </table>
+
+                        <!-- PAGINADOR -->
                         <?php
                             // Navegação da tabela pela paginação
                             echo '<div style="text-align: center;">';
