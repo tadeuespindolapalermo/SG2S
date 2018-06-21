@@ -114,61 +114,61 @@ VALUES ('Atividades Complementares II', 72.00, 4);
 /* TABELA professor - Professores da JK*/
 
 INSERT INTO professor (nome, CPF, RG, email, fone, exclusao)
-VALUES ('George H. R. Escobar Mendonça', '065.465.985-98', '9569856', 'george.mendonca@jk.edu.br', '(61) 9 9287 0130', 1);
+VALUES ('George H. R. Escobar Mendonça', '316.725.448-31', '9569856', 'george.mendonca@jk.edu.br', '(61) 9 9287 0130', 1);
 
 INSERT INTO professor (nome, CPF, RG, email, fone, exclusao)
-VALUES ('Deusilene Santos Lima', '325.985.654-65', '8874623', 'deusilenesl@gmail.com', '(61) 9 9931-6138', 1);
+VALUES ('Deusilene Santos Lima', '516.136.616-81', '8874623', 'deusilenesl@gmail.com', '(61) 9 9931-6138', 1);
 
 INSERT INTO professor (nome, CPF, RG, email, fone, exclusao)
-VALUES ('Estevão Ribeiro Monti', '498.985.265-95', '7795265', 'estevor46@gmail.com', '(61) 9 8546-6598', 1);
+VALUES ('Estevão Ribeiro Monti', '543.755.687-04', '7795265', 'estevor46@gmail.com', '(61) 9 8546-6598', 1);
 
 INSERT INTO professor (nome, CPF, RG, email, fone, exclusao)
-VALUES ('Carlos Maurício de Borges Mello', '065.865.746-98', '9956324', 'profecmauricio@gmail.com', '(61) 9 4598-9832', 1);
+VALUES ('Carlos Maurício de Borges Mello', '888.442.267-15', '9956324', 'profecmauricio@gmail.com', '(61) 9 4598-9832', 1);
 
 INSERT INTO professor (nome, CPF, RG, email, fone, exclusao)
-VALUES ('Altair Martins', '325.654.259-65', '3059874', 'altermartins@gmail.com', '(61) 9 9386-7653', 1);
+VALUES ('Altair Martins', '296.816.812-66', '3059874', 'altermartins@gmail.com', '(61) 9 9386-7653', 1);
 
 INSERT INTO professor (nome, CPF, RG, email, fone, exclusao)
-VALUES ('Samira Rahhal', '497.265.165-95', '5716254', 'prof.samira.rahhal@gmail.com', '(61) 9 8416-9465', 1);
+VALUES ('Samira Rahhal', '255.800.661-47', '5716254', 'prof.samira.rahhal@gmail.com', '(61) 9 8416-9465', 1);
 
 INSERT INTO professor (nome, CPF, RG, email, fone, exclusao)
-VALUES ('Salvina Maria de Jesus', '497.298.654-65', '6975248', 'salvinamaria28@gmail.com', '(61) 9 9855-4393', 1);
+VALUES ('Salvina Maria de Jesus', '102.216.243-84', '6975248', 'salvinamaria28@gmail.com', '(61) 9 9855-4393', 1);
 
 INSERT INTO professor (nome, CPF, RG, email, fone, exclusao)
-VALUES ('Gleidson Porto Batista', '205.971.625-96', '3298524', 'gleidsonporto@gmail.com ', '(61) 9 8417-3444', 1);
+VALUES ('Gleidson Porto Batista', '781.635.358-81', '3298524', 'gleidsonporto@gmail.com ', '(61) 9 8417-3444', 1);
 
 INSERT INTO professor (nome, CPF, RG, email, fone, exclusao)
-VALUES ('Jardel Cruz Silva', '226.974.265-98', '9287521', 'jardelcruzsilva@gmail.com', '(61) 9 9308-1792', 1);
+VALUES ('Jardel Cruz Silva', '144.549.584-83', '9287521', 'jardelcruzsilva@gmail.com', '(61) 9 9308-1792', 1);
 
 INSERT INTO professor (nome, CPF, RG, email, fone, exclusao)
-VALUES ('Alyne Dayane P. Souza', '449.326.987-65', '8265974', 'alynevet@yahoo.com.br', '(61) 9 9258-1123', 1);
+VALUES ('Alyne Dayane P. Souza', '781.579.943-49', '8265974', 'alynevet@yahoo.com.br', '(61) 9 9258-1123', 1);
 
 INSERT INTO professor (nome, CPF, RG, email, fone, exclusao)
-VALUES ('Eduardo C. M. Borges', '498.826.965-65', '0974256', 'eduardo.borges@inbd.com.br', '(61) 9 9347-2947', 1);
+VALUES ('Eduardo C. M. Borges', '312.156.861-29', '0974256', 'eduardo.borges@inbd.com.br', '(61) 9 9347-2947', 1);
 
 INSERT INTO professor (nome, CPF, RG, email, fone, exclusao)
-VALUES ('Juliete Moreira Rebordão', '444.652.985-98', '8716529', 'juliete.psi@gmail.com', '(61) 9 9258-1123', 1);
+VALUES ('Juliete Moreira Rebordão', '647.355.844-63', '8716529', 'juliete.psi@gmail.com', '(61) 9 9258-1123', 1);
 
 INSERT INTO professor (nome, CPF, RG, email, fone, exclusao)
-VALUES ('Edimar Gomes Nogueira', '654.328.716-65', '5741986', 'nogueiraguerra@gmail.com', '(61) 9 8569-4578', 1);
+VALUES ('Edimar Gomes Nogueira', '246.386.834-10', '5741986', 'nogueiraguerra@gmail.com', '(61) 9 8569-4578', 1);
 
 INSERT INTO professor (nome, CPF, RG, email, fone, exclusao)
-VALUES ('Henderson Matsuura Sanches', '049.795.198-98', '8712598', 'henderson@jk.edu.br', '(61) 9 9977-0522', 1);
+VALUES ('Henderson Matsuura Sanches', '291.449.460-23', '8712598', 'henderson@jk.edu.br', '(61) 9 9977-0522', 1);
 
 INSERT INTO professor (nome, CPF, RG, email, fone, exclusao)
-VALUES ('Ismael Rômulo', '669.258.656-98', '1097528', 'prof.ismaelromulo@gmail.com', '(61) 9 9658-1254', 1);
+VALUES ('Ismael Rômulo', '780.326.961-30', '1097528', 'prof.ismaelromulo@gmail.com', '(61) 9 9658-1254', 1);
 
 INSERT INTO professor (nome, CPF, RG, email, fone, exclusao)
-VALUES ('Lucélia Vieira Mota', '647.258.698-98', '2874256', 'luceliafn@gmail.com', '(61) 9 8597-6532', 1);
+VALUES ('Lucélia Vieira Mota', '452.421.227-22', '2874256', 'luceliafn@gmail.com', '(61) 9 8597-6532', 1);
 
 INSERT INTO professor (nome, CPF, RG, email, fone, exclusao)
-VALUES ('Gabriel Miranda Carvalho', '149.824.698-75', '3985625', 'gabrielm.car@gmail.com', '(61) 9 8119-2084', 1);
+VALUES ('Gabriel Miranda Carvalho', '152.842.522-76', '3985625', 'gabrielm.car@gmail.com', '(61) 9 8119-2084', 1);
 
 INSERT INTO professor (nome, CPF, RG, email, fone, exclusao)
-VALUES ('João Fernando', '257.639.529-98', '1974256', 'joaofernando@espiritolivre.org', '(61) 9 9465-2536', 1);
+VALUES ('João Fernando', '876.879.425-82', '1974256', 'joaofernando@espiritolivre.org', '(61) 9 9465-2536', 1);
 
 INSERT INTO professor (nome, CPF, RG, email, fone, exclusao)
-VALUES ('Carlos Fernandez', '028.985.147-94', '2974582', 'kaufernandez@gmail.com', '(61) 9 8465-6598', 1);
+VALUES ('Carlos Fernandez', '275.636.073-23', '2974582', 'kaufernandez@gmail.com', '(61) 9 8465-6598', 1);
 
 /* ------------------------------------------------------------------------------------------------------- */
 
@@ -430,3 +430,33 @@ INSERT INTO disciplina_professor (iddisciplina_professor, professor_idprofessor,
 VALUES (32, 1, 32);
 
 /* --------------------------------------------------------------------------------------------------------- */
+
+/* TABELA pre_requisito - Disciplinas pré-requisitos associadas à uma determinada disciplina*/
+
+INSERT INTO pre_requisito (idpre_requisito, disciplinas_iddisciplinas, disciplinas_iddisciplinasprerequisito)
+VALUES (1, 21, 13); /* POO depende de IOO ---- IOO é pré-requisito para cursar POO */
+
+INSERT INTO pre_requisito (idpre_requisito, disciplinas_iddisciplinas, disciplinas_iddisciplinasprerequisito)
+VALUES (2, 32, 31); /* ACII depende de ACI (AC - Atividades Complementares) ---- ACI é pré-requisito para cursar ACII */
+
+INSERT INTO pre_requisito (idpre_requisito, disciplinas_iddisciplinas, disciplinas_iddisciplinasprerequisito)
+VALUES (3, 26, 16); /* LPWII depende de LPWI ---- LPWI é pré-requisito para cursar LPWII */
+
+INSERT INTO pre_requisito (idpre_requisito, disciplinas_iddisciplinas, disciplinas_iddisciplinasprerequisito)
+VALUES (4, 6, 3); /* ED depende de LPA ---- LPA é pré-requisito para cursar ED */
+
+INSERT INTO pre_requisito (idpre_requisito, disciplinas_iddisciplinas, disciplinas_iddisciplinasprerequisito)
+VALUES (5, 27, 11); /* PI II depende de PI I ---- PI I é pré-requisito para cursar PI II */
+
+/* --------------------------------------------------------------------------------------------------------- */
+
+/* TABELA grade_horaria - GERAÇÃO DA GRADE SEMESTRAL - Registros de grades horárias*/
+
+INSERT INTO grade_horaria (idgrade_horaria, quantidade_alunos, turmas, periodo_curso, grade_semestral_idgrade_semestral, grade_semestral_curso_idcurso,
+dsSeg, dsTer, dsQua, dsQui, dsSex, dsSab, dsEad1, dsEad2, dsSegSala, dsTerSala, dsQuaSala, dsQuiSala, dsSexSala, dsSabSala)
+VALUES (1, 25, 'TADS 1A', 1, 1, 1, 'Lógica de Programação e Algoritmos', 'Banco de Dados', 'Português', 'Projeto Integrador I',
+'Metodologia Científica', 'Segurança da Informação', 'Empreendedorismo', 'Inglês Instrumental', '15', '18', '17', '14', '13', '20'); 
+
+/* --------------------------------------------------------------------------------------------------------- */
+
+
