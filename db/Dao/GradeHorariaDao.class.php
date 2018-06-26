@@ -87,7 +87,58 @@ class GradeHorariaDao implements Dao {
      * Método para atualizar uma grade horária do sistema (controller)
      **/
     public function atualizar($conn, $gradeHoraria) {
-        // ...
+        try {
+            // UPDATE DA GRADE
+            $strSqlGradeHoraria = "
+            UPDATE grade_horaria set
+                quantidade_alunos = :quantidadeAlunos,
+                turmas = :turmas,
+                periodo_curso = :periodoCurso,
+                dsSeg = :disciplinaSeg,
+                dsTer = :disciplinaTer,
+                dsQua = :disciplinaQua,
+                dsQui = :disciplinaQui,
+                dsSex = :disciplinaSex,
+                dsSab = :disciplinaSab,
+                dsEad1 = :disciplinaEad1,
+                dsEad2 = :disciplinaEad2,
+                dsSegSala = :disciplinaSegSala,
+                dsTerSala = :disciplinaTerSala,
+                dsQuaSala = :disciplinaQuaSala,
+                dsQuiSala = :disciplinaQuiSala,
+                dsSexSala = :disciplinaSexSala,
+                dsSabSala = :disciplinaSabSala
+            WHERE
+                idgrade_horaria = :idGradeHoraria";
+
+            $stmtUpdateGradeHoraria = $conn->prepare($strSqlGradeHoraria);
+            $stmtUpdateGradeHoraria->bindValue(':quantidadeAlunos', $gradeHoraria->getQuantidadeAlunos());
+            $stmtUpdateGradeHoraria->bindValue(':turmas', $gradeHoraria->getTurmas());
+            $stmtUpdateGradeHoraria->bindValue(':periodoCurso', $gradeHoraria->getPeriodoCurso());
+            $stmtUpdateGradeHoraria->bindValue(':disciplinaSeg', $gradeHoraria->getDsSeg());
+            $stmtUpdateGradeHoraria->bindValue(':disciplinaTer', $gradeHoraria->getDsTer());
+            $stmtUpdateGradeHoraria->bindValue(':disciplinaQua', $gradeHoraria->getDsQua());
+            $stmtUpdateGradeHoraria->bindValue(':disciplinaQui', $gradeHoraria->getDsQui());
+            $stmtUpdateGradeHoraria->bindValue(':disciplinaSex', $gradeHoraria->getDsSex());
+            $stmtUpdateGradeHoraria->bindValue(':disciplinaSab', $gradeHoraria->getDsSab());
+            $stmtUpdateGradeHoraria->bindValue(':disciplinaEad1', $gradeHoraria->getDsEad1());
+            $stmtUpdateGradeHoraria->bindValue(':disciplinaEad2', $gradeHoraria->getDsEad2());
+            $stmtUpdateGradeHoraria->bindValue(':disciplinaSegSala', $gradeHoraria->getDsSegSala());
+            $stmtUpdateGradeHoraria->bindValue(':disciplinaTerSala', $gradeHoraria->getDsTerSala());
+            $stmtUpdateGradeHoraria->bindValue(':disciplinaQuaSala', $gradeHoraria->getDsQuaSala());
+            $stmtUpdateGradeHoraria->bindValue(':disciplinaQuiSala', $gradeHoraria->getDsQuiSala());
+            $stmtUpdateGradeHoraria->bindValue(':disciplinaSexSala', $gradeHoraria->getDsSexSala());
+            $stmtUpdateGradeHoraria->bindValue(':disciplinaSabSala', $gradeHoraria->getDsSabSala());
+            $stmtUpdateGradeHoraria->bindValue(':idGradeHoraria', $gradeHoraria->getIdGradeHoraria());
+
+            $updateGradeHoraria = $stmtUpdateGradeHoraria->execute();
+
+            return $updateGradeHoraria;
+            // -----------------------------------------------------------
+        } catch (PDOException $e) {
+            PHPErro($e->getCode(), $e->getMessage(), $e->getFile(), $e->getFile());
+        }
+
     }
 
     /*
@@ -129,7 +180,7 @@ class GradeHorariaDao implements Dao {
     }
 
     /*
-     * Método para listar todos as grades horárias do sistema (view)
+     * Método para listar todos as grades semestrais do sistema (view)
      **/
     public function listarGradesSemestrais($conn) {
         $strSqlGradeHoraria = "SELECT * FROM grade_semestral
@@ -160,6 +211,17 @@ class GradeHorariaDao implements Dao {
     }
 
     /*
+     * ...
+     **/
+    public function listarIdGradeSemestral($conn, $idGradeHoraria) {
+        $strSqlGradeHoraria = "SELECT grade_semestral_idgrade_semestral FROM grade_horaria WHERE idgrade_horaria = :idGradeHoraria";
+        $selectGradeHoraria = $conn->prepare($strSqlGradeHoraria);
+        $selectGradeHoraria->bindValue(':idGradeHoraria', $idGradeHoraria);
+        $selectGradeHoraria->execute();
+        return $selectGradeHoraria;
+    }
+
+    /*
      * Método para popular a o campo de curso da view de cadastro da grade horária (view)
      **/
     public function buscarPorId($conn, $idGradeSemestral) {
@@ -168,6 +230,19 @@ class GradeHorariaDao implements Dao {
         WHERE idgrade_semestral = :idGradeSemestral";
         $selectGradeHoraria = $conn->prepare($strSqlGradeHoraria);
         $selectGradeHoraria->bindValue(':idGradeSemestral', $idGradeSemestral);
+        $selectGradeHoraria->execute();
+        return $selectGradeHoraria;
+    }
+
+    /*
+     * Método para popular a o campo de curso da view de cadastro da grade horária (view)
+     **/
+    public function buscarGradeHorariaPorId($conn, $idGradeHoraria) {
+        $strSqlGradeHoraria = "SELECT * FROM grade_horaria
+        INNER JOIN grade_semestral ON grade_horaria.grade_semestral_idgrade_semestral = grade_semestral.idgrade_semestral
+        WHERE idgrade_horaria = :idGradeHoraria";
+        $selectGradeHoraria = $conn->prepare($strSqlGradeHoraria);
+        $selectGradeHoraria->bindValue(':idGradeHoraria', $idGradeHoraria);
         $selectGradeHoraria->execute();
         return $selectGradeHoraria;
     }

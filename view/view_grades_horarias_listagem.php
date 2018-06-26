@@ -66,8 +66,8 @@
                                     <th>Excluir</th>
                                     <th>Editar</th>-->
 
-                                    <th>Semestre<br/>Turma</th>
-                                    <th>Quantidade<br/>Alunos</th>
+                                    <th>Semestre Turma</th>
+                                    <th>Quantidade Alunos</th>
                                     <th>SEGUNDA</th>
                                     <th>TERÇA</th>
                                     <th>QUARTA</th>
@@ -241,16 +241,16 @@
                                                 <td>'.$gradeHoraria->getQuantidadeAlunos().'</td>';
                                                 //<td>'.$gradeHoraria->getSala().'</td>
                                                 echo '
-                                                <td>'.$gradeHoraria->getDsSeg().'<br/><small><strong>'.$salaSeg.'</strong>'.$numSalaSeg.'</small></td>
-                                                <td>'.$gradeHoraria->getDsTer().'<br/><small><strong>'.$salaTer.'</strong>'.$numSalaTer.'</small></td>
-                                                <td>'.$gradeHoraria->getDsQua().'<br/><small><strong>'.$salaQua.'</strong>'.$numSalaQua.'</small></td>
-                                                <td>'.$gradeHoraria->getDsQui().'<br/><small><strong>'.$salaQui.'</strong>'.$numSalaQui.'</small></td>
-                                                <td>'.$gradeHoraria->getDsSex().'<br/><small><strong>'.$salaSex.'</strong>'.$numSalaSex.'</small></td>
-                                                <td>'.$gradeHoraria->getDsSab().'<br/><small><strong>'.$salaSab.'</strong>'.$numSalaSab.'</small></td>
+                                                <td>'.$gradeHoraria->getDsSeg().''.$salaSeg.''.$numSalaSeg.'</td>
+                                                <td>'.$gradeHoraria->getDsTer().''.$salaTer.''.$numSalaTer.'</td>
+                                                <td>'.$gradeHoraria->getDsQua().''.$salaQua.''.$numSalaQua.'</td>
+                                                <td>'.$gradeHoraria->getDsQui().''.$salaQui.''.$numSalaQui.'</td>
+                                                <td>'.$gradeHoraria->getDsSex().''.$salaSex.''.$numSalaSex.'</td>
+                                                <td>'.$gradeHoraria->getDsSab().''.$salaSab.''.$numSalaSab.'</td>
                                                 <td>'.$gradeHoraria->getDsEad1().'</td>
                                                 <td>'.$gradeHoraria->getDsEad2().'</td>
                                                 <td><a href="javascript:void(null);" onclick="'.$alert.'"><img src="../lib/open-iconic/svg/x.svg" alt="remover"></a></td>
-                                                <td><a href="';?><?php echo $url;?><?php echo '?pagina=view_form_grade_horaria_update.php&idGradeHoraria='.$gradeHoraria->getIdGradeHoraria().'"><img src="../lib/open-iconic/svg/brush.svg" alt="editar"></a></td>
+                                                <td><a href="';?><?php echo $url;?><?php echo '?pagina=view_form_grade_horaria_update.php&idGradeHoraria='.$gradeHoraria->getIdGradeHoraria().'&idGradeSemestral='.$gradeHoraria->getIdGradeSemestral().'"><img src="../lib/open-iconic/svg/brush.svg" alt="editar"></a></td>
                                             </tr>
                                         </tbody>';
                                     }

@@ -170,15 +170,15 @@
 			</h6>
 			<div class="form-row">
 				<div style="width: 400px;  class="col">
-				   <select style="margin-bottom: 5px;" class="form-control" id="dsSeg" name="dsSeg" required>';
-					   echo '<option value="">*Segunda-feira - Selecione:</option>';
-					   echo '<option value="">Dia Livre</option>';
+				   <select style="margin-bottom: 5px;" class="form-control" id="dsSeg" name="dsSeg">';
+					   echo '<option value="">Segunda-feira - Selecione:</option>';
+					   echo '<option value="">Folga</option>';
 					   while ($linhaMatrizCombo = $selectMatrizSeg->fetchAll(PDO::FETCH_ASSOC)) {
 						   foreach ($linhaMatrizCombo as $dados) {
 							   $gradeHorariaCurso->setDisciplinaNome($dados['nome_disciplina']);
 							   $gradeHorariaCurso->setDisciplinaId($dados['iddisciplinas']);
 							   $gradeHorariaCurso->setDsSegProf($dados['nome']);
-							   echo '<option value="'.$gradeHorariaCurso->getDisciplinaNome().'<br/><small><strong>Professor</strong>:<br/> '.$gradeHorariaCurso->getDsSegProf().'</small>">'.$gradeHorariaCurso->getDisciplinaNome().' - '.$gradeHorariaCurso->getDsSegProf().'</option>';
+							   echo '<option value="'.$gradeHorariaCurso->getDisciplinaNome().' - Professor: '.$gradeHorariaCurso->getDsSegProf().'">'.$gradeHorariaCurso->getDisciplinaNome().' - '.$gradeHorariaCurso->getDsSegProf().'</option>';
 						   }
 					   }
 				   echo '
@@ -190,15 +190,15 @@
 		        </div>&nbsp; &nbsp;
 
 				<div style="width: 405px; class="col">
-				   <select class="form-control" id="dsTer" name="dsTer" required>';
-					   echo '<option value="">*Terça-feira - Selecione:</option>';
-					   echo '<option value="">Dia Livre</option>';
+				   <select class="form-control" id="dsTer" name="dsTer">';
+					   echo '<option value="">Terça-feira - Selecione:</option>';
+					   echo '<option value="">Folga</option>';
 					   while ($linhaMatrizCombo = $selectMatrizTer->fetchAll(PDO::FETCH_ASSOC)) {
 						   foreach ($linhaMatrizCombo as $dados) {
 							   $gradeHorariaCurso->setDisciplinaNome($dados['nome_disciplina']);
 							   $gradeHorariaCurso->setDisciplinaId($dados['iddisciplinas']);
 							   $gradeHorariaCurso->setDsTerProf($dados['nome']);
-							   echo '<option value="'.$gradeHorariaCurso->getDisciplinaNome().'<br/><small><strong>Professor</strong>:<br/> '.$gradeHorariaCurso->getDsTerProf().'</small>">'.$gradeHorariaCurso->getDisciplinaNome().' - '.$gradeHorariaCurso->getDsTerProf().'</option>';
+							   echo '<option value="'.$gradeHorariaCurso->getDisciplinaNome().' - Professor: '.$gradeHorariaCurso->getDsTerProf().'">'.$gradeHorariaCurso->getDisciplinaNome().' - '.$gradeHorariaCurso->getDsTerProf().'</option>';
 						   }
 					   }
 				   echo '
@@ -210,15 +210,15 @@
 		        </div>&nbsp; &nbsp;
 
 				<div style="width: 400px; class="col">
-				   <select style="margin-bottom: 5px;" class="form-control" id="dsQua" name="dsQua" required>';
-					   echo '<option value="">*Quarta-feira - Selecione:</option>';
-					   echo '<option value="">Dia Livre</option>';
+				   <select style="margin-bottom: 5px;" class="form-control" id="dsQua" name="dsQua">';
+					   echo '<option value="">Quarta-feira - Selecione:</option>';
+					   echo '<option value="">Folga</option>';
 					   while ($linhaMatrizCombo = $selectMatrizQua->fetchAll(PDO::FETCH_ASSOC)) {
  						  foreach ($linhaMatrizCombo as $dados) {
  							  $gradeHorariaCurso->setDisciplinaNome($dados['nome_disciplina']);
  							  $gradeHorariaCurso->setDisciplinaId($dados['iddisciplinas']);
 							  $gradeHorariaCurso->setDsQuaProf($dados['nome']);
- 							  echo '<option value="'.$gradeHorariaCurso->getDisciplinaNome().'<br/><small><strong>Professor</strong>:<br/> '.$gradeHorariaCurso->getDsQuaProf().'</small>">'.$gradeHorariaCurso->getDisciplinaNome().' - '.$gradeHorariaCurso->getDsQuaProf().'</option>';
+ 							  echo '<option value="'.$gradeHorariaCurso->getDisciplinaNome().' - Professor: '.$gradeHorariaCurso->getDsQuaProf().'">'.$gradeHorariaCurso->getDisciplinaNome().' - '.$gradeHorariaCurso->getDsQuaProf().'</option>';
  						  }
  					  }
 				   echo '
@@ -230,15 +230,15 @@
 		        </div>&nbsp; &nbsp;
 
 				<div style="width: 405px; class="col">
-				   <select class="form-control" id="dsQui" name="dsQui" required>';
-					   echo '<option value="">*Quinta-feira - Selecione:</option>';
-					   echo '<option value="">Dia Livre</option>';
+				   <select class="form-control" id="dsQui" name="dsQui">';
+					   echo '<option value="">Quinta-feira - Selecione:</option>';
+					   echo '<option value="">Folga</option>';
 					   while ($linhaMatrizCombo = $selectMatrizQui->fetchAll(PDO::FETCH_ASSOC)) {
  						  foreach ($linhaMatrizCombo as $dados) {
  							  $gradeHorariaCurso->setDisciplinaNome($dados['nome_disciplina']);
  							  $gradeHorariaCurso->setDisciplinaId($dados['iddisciplinas']);
 							  $gradeHorariaCurso->setDsQuiProf($dados['nome']);
- 							  echo '<option value="'.$gradeHorariaCurso->getDisciplinaNome().'<br/><small><strong>Professor</strong>:<br/> '.$gradeHorariaCurso->getDsQuiProf().'</small>">'.$gradeHorariaCurso->getDisciplinaNome().' - '.$gradeHorariaCurso->getDsQuiProf().'</option>';
+ 							  echo '<option value="'.$gradeHorariaCurso->getDisciplinaNome().' - Professor: '.$gradeHorariaCurso->getDsQuiProf().'">'.$gradeHorariaCurso->getDisciplinaNome().' - '.$gradeHorariaCurso->getDsQuiProf().'</option>';
  						  }
  					  }
 				   echo '
@@ -250,15 +250,15 @@
 		        </div>&nbsp; &nbsp;
 
 				<div style="width: 400px; class="col">
-				   <select style="margin-bottom: 5px;" class="form-control" id="dsSex" name="dsSex" required>';
-					   echo '<option value="">*Sexta-feira - Selecione:</option>';
-					   echo '<option value="">Dia Livre</option>';
+				   <select style="margin-bottom: 5px;" class="form-control" id="dsSex" name="dsSex">';
+					   echo '<option value="">Sexta-feira - Selecione:</option>';
+					   echo '<option value="">Folga</option>';
 					   while ($linhaMatrizCombo = $selectMatrizSex->fetchAll(PDO::FETCH_ASSOC)) {
 						   foreach ($linhaMatrizCombo as $dados) {
 							   $gradeHorariaCurso->setDisciplinaNome($dados['nome_disciplina']);
 							   $gradeHorariaCurso->setDisciplinaId($dados['iddisciplinas']);
 							   $gradeHorariaCurso->setDsSexProf($dados['nome']);
-							   echo '<option value="'.$gradeHorariaCurso->getDisciplinaNome().'<br/><small><strong>Professor</strong>:<br/> '.$gradeHorariaCurso->getDsSexProf().'</small>">'.$gradeHorariaCurso->getDisciplinaNome().' - '.$gradeHorariaCurso->getDsSexProf().'</option>';
+							   echo '<option value="'.$gradeHorariaCurso->getDisciplinaNome().' - Professor: '.$gradeHorariaCurso->getDsSexProf().'">'.$gradeHorariaCurso->getDisciplinaNome().' - '.$gradeHorariaCurso->getDsSexProf().'</option>';
 						   }
 					   }
 				   echo '
@@ -270,15 +270,15 @@
 		        </div>&nbsp; &nbsp;
 
 				<div style="width: 405px; class="col">
-				   <select class="form-control" id="dsSab" name="dsSab" required>';
-					   echo '<option value="">*Sábado - Selecione:</option>';
-					   echo '<option value="">Dia Livre</option>';
+				   <select class="form-control" id="dsSab" name="dsSab">';
+					   echo '<option value="">Sábado - Selecione:</option>';
+					   echo '<option value="">Folga</option>';
 					   while ($linhaMatrizCombo = $selectMatrizSab->fetchAll(PDO::FETCH_ASSOC)) {
  						  foreach ($linhaMatrizCombo as $dados) {
  							  $gradeHorariaCurso->setDisciplinaNome($dados['nome_disciplina']);
  							  $gradeHorariaCurso->setDisciplinaId($dados['iddisciplinas']);
 							  $gradeHorariaCurso->setDsSabProf($dados['nome']);
- 							  echo '<option value="'.$gradeHorariaCurso->getDisciplinaNome().'<br/><small><strong>Professor</strong>:<br/> '.$gradeHorariaCurso->getDsSabProf().'</small>">'.$gradeHorariaCurso->getDisciplinaNome().' - '.$gradeHorariaCurso->getDsSabProf().'</option>';
+ 							  echo '<option value="'.$gradeHorariaCurso->getDisciplinaNome().' - Professor: '.$gradeHorariaCurso->getDsSabProf().'">'.$gradeHorariaCurso->getDisciplinaNome().' - '.$gradeHorariaCurso->getDsSabProf().'</option>';
  						  }
  					  }
 				   echo '
@@ -292,13 +292,13 @@
 				<div style="width: 505px; class="col">
 				   <select class="form-control" id="dsEad1" name="dsEad1">';
 					   echo '<option value="">EAD 1 - Selecione:</option>';
-					   echo '<option value="">Dia Livre</option>';
+					   echo '<option value="">Folga</option>';
 					   while ($linhaMatrizCombo = $selectMatrizEad1->fetchAll(PDO::FETCH_ASSOC)) {
  						  foreach ($linhaMatrizCombo as $dados) {
  							  $gradeHorariaCurso->setDisciplinaNome($dados['nome_disciplina']);
  							  $gradeHorariaCurso->setDisciplinaId($dados['iddisciplinas']);
 							  $gradeHorariaCurso->setDsEad1Prof($dados['nome']);
- 							  echo '<option value="'.$gradeHorariaCurso->getDisciplinaNome().'<br/><small><strong>Professor</strong>:<br/> '.$gradeHorariaCurso->getDsEad1Prof().'</small>">'.$gradeHorariaCurso->getDisciplinaNome().' - '.$gradeHorariaCurso->getDsEad1Prof().'</option>';
+ 							  echo '<option value="'.$gradeHorariaCurso->getDisciplinaNome().' - Professor: '.$gradeHorariaCurso->getDsEad1Prof().'">'.$gradeHorariaCurso->getDisciplinaNome().' - '.$gradeHorariaCurso->getDsEad1Prof().'</option>';
  						  }
  					  }
 				   echo '
@@ -308,13 +308,13 @@
 				<div style="margin-left: -7px; width: 508px; class="col">
 				   <select class="form-control" id="dsEad2" name="dsEad2">';
 					   echo '<option value="">EAD 2 - Selecione:</option>';
-					   echo '<option value="">Dia Livre</option>';
+					   echo '<option value="">Folga</option>';
 					   while ($linhaMatrizCombo = $selectMatrizEad2->fetchAll(PDO::FETCH_ASSOC)) {
  						  foreach ($linhaMatrizCombo as $dados) {
  							  $gradeHorariaCurso->setDisciplinaNome($dados['nome_disciplina']);
  							  $gradeHorariaCurso->setDisciplinaId($dados['iddisciplinas']);
 							  $gradeHorariaCurso->setDsEad2Prof($dados['nome']);
- 							  echo '<option value="'.$gradeHorariaCurso->getDisciplinaNome().'<br/><small><strong>Professor</strong>:<br/> '.$gradeHorariaCurso->getDsEad2Prof().'</small>">'.$gradeHorariaCurso->getDisciplinaNome().'  - '.$gradeHorariaCurso->getDsEad2Prof().'</option>';
+ 							  echo '<option value="'.$gradeHorariaCurso->getDisciplinaNome().' - Professor: '.$gradeHorariaCurso->getDsEad2Prof().'">'.$gradeHorariaCurso->getDisciplinaNome().'  - '.$gradeHorariaCurso->getDsEad2Prof().'</option>';
  						  }
  					  }
 				   echo '
