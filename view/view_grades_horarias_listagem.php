@@ -241,12 +241,12 @@
                                                 <td>'.$gradeHoraria->getQuantidadeAlunos().'</td>';
                                                 //<td>'.$gradeHoraria->getSala().'</td>
                                                 echo '
-                                                <td>'.$gradeHoraria->getDsSeg().''.$salaSeg.''.$numSalaSeg.'</td>
-                                                <td>'.$gradeHoraria->getDsTer().''.$salaTer.''.$numSalaTer.'</td>
-                                                <td>'.$gradeHoraria->getDsQua().''.$salaQua.''.$numSalaQua.'</td>
-                                                <td>'.$gradeHoraria->getDsQui().''.$salaQui.''.$numSalaQui.'</td>
-                                                <td>'.$gradeHoraria->getDsSex().''.$salaSex.''.$numSalaSex.'</td>
-                                                <td>'.$gradeHoraria->getDsSab().''.$salaSab.''.$numSalaSab.'</td>
+                                                <td>'.$gradeHoraria->getDsSeg().'<br>'.$salaSeg.' '.$numSalaSeg.'</td>
+                                                <td>'.$gradeHoraria->getDsTer().'<br>'.$salaTer.' '.$numSalaTer.'</td>
+                                                <td>'.$gradeHoraria->getDsQua().'<br>'.$salaQua.' '.$numSalaQua.'</td>
+                                                <td>'.$gradeHoraria->getDsQui().'<br>'.$salaQui.' '.$numSalaQui.'</td>
+                                                <td>'.$gradeHoraria->getDsSex().'<br>'.$salaSex.' '.$numSalaSex.'</td>
+                                                <td>'.$gradeHoraria->getDsSab().'<br>'.$salaSab.' '.$numSalaSab.'</td>
                                                 <td>'.$gradeHoraria->getDsEad1().'</td>
                                                 <td>'.$gradeHoraria->getDsEad2().'</td>
                                                 <td><a href="javascript:void(null);" onclick="'.$alert.'"><img src="../lib/open-iconic/svg/x.svg" alt="remover"></a></td>
