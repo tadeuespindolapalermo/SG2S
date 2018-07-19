@@ -3,17 +3,11 @@
 // CONFIGRAÇÕES DO SISTEMA ####################
 define('HOME', 'http://localhost/SG2S/#!/');
 
-// CONFIGRAÇÕES DO BANCO PARA HOSTNET ####################
-define('HOST', 'xmysql2.codigofonteonline.com.br');
-define('USER', 'codigofonteonli1');
-define('PASS', 'sg2s1985@');
-define('DBSA', 'codigofonteonline1');
-
-// CONFIGRAÇÕES DO BANCO PARA BASE DE DADOS LOCAL (TADEU) ####################
-/*define('HOST', 'localhost');
+// CONFIGRAÇÕES DO BANCO PARA BASE DE DADOS LOCAL ####################
+define('HOST', 'localhost');
 define('USER', 'root');
 define('PASS', 'mysql1985');
-define('DBSA', 'codigofonteonline1');*/
+define('DBSA', 'codigofonteonline1');
 
 // AUTO LOAD DE CLASSES ####################
 function __autoload($Class) {
