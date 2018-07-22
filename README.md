@@ -2,25 +2,22 @@
 
 Projeto Integrador II - 5º Semestre (Acadêmico)
 
-Alunos:
-
-    Tadeu Espíndola Palermo
-    Marcos Alexandre da Silva Lima
+Alunos: Tadeu Espíndola Palermo e Marcos Alexandre da Silva Lima
 
 Tecnologias utilizadas:
 
-    Back-end: PHP, MySQL, Ajax.
+- Back-end: PHP, MySQL, Ajax.
 
-    Front-end: HTML, CSS, Javascript, Bootstrap, Angular JS, jQuery, Feather Icon, Open Icon.
+- Front-end: HTML, CSS, Javascript, Bootstrap, Angular JS, jQuery, Feather Icon, Open Icon.
 
-Versionamento: Git e Bitbucket
-https://bitbucket.org/tadeuespindola/sg2s-sistema-de-geracao-da-grade-semestral
-https://github.com/tadeuespindolapalermo/SG2S
+Versionamento: Git e Bitbucket e Github
+Bitbucket: https://bitbucket.org/tadeuespindola/sg2s-sistema-de-geracao-da-grade-semestral
+Github: https://github.com/tadeuespindolapalermo/SG2S
 
 Metodologia de Desenvolvimento: SCRUM (configuração especial para o projeto)
 
-Gerenciamento de Projeto: Trello
-https://trello.com/b/6m6soNKU/sg2s-sistema-de-gera%C3%A7%C3%A3o-da-grade-semestral-pi-ii
+Gerenciamento de Projeto:
+Trello: https://trello.com/b/6m6soNKU/sg2s-sistema-de-gera%C3%A7%C3%A3o-da-grade-semestral-pi-ii
 
 Documentação:
 
