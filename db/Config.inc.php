@@ -3,7 +3,13 @@
 // CONFIGRAÇÕES DO SISTEMA ####################
 define('HOME', 'http://localhost/SG2S/#!/');
 
-// CONFIGRAÇÕES DO BANCO PARA BASE DE DADOS LOCAL ####################
+// CONFIGRAÇÕES DO BANCO PARA HOSTNET ####################
+/*define('HOST', 'xmysql2.codigofonteonline.com.br');
+define('USER', 'codigofonteonli1');
+define('PASS', 'sg2s1985@');
+define('DBSA', 'codigofonteonline1');*/
+
+// CONFIGRAÇÕES DO BANCO PARA BASE DE DADOS LOCAL (TADEU) ####################
 define('HOST', 'localhost');
 define('USER', 'root');
 define('PASS', 'mysql1985');
