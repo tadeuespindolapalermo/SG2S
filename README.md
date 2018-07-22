@@ -10,8 +10,10 @@ Tecnologias utilizadas:
 
 - Front-end: HTML, CSS, Javascript, Bootstrap, Angular JS, jQuery, Feather Icon, Open Icon.
 
-Versionamento: Git e Bitbucket e Github:
+Versionamento: Git, Bitbucket e Github
+
 Bitbucket: https://bitbucket.org/tadeuespindola/sg2s-sistema-de-geracao-da-grade-semestral
+
 Github: https://github.com/tadeuespindolapalermo/SG2S
 
 Metodologia de Desenvolvimento: SCRUM (configuração especial para o projeto)
